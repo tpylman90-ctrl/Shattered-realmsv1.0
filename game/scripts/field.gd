@@ -187,7 +187,7 @@ func _set_target(screen: Vector2) -> void:
 	var plane := Plane(Vector3.UP, 0)
 	var hit = plane.intersects_ray(camera.project_ray_origin(screen), camera.project_ray_normal(screen))
 	if hit != null:
-		destination = Vector3(clampf(hit.x, -5.95, 5.95), 0, clampf(hit.z, -3.1, 3.1))
+		destination = Vector3(clampf(hit.x, -9.45, 9.45), 0, clampf(hit.z, 0.05, 3.1))
 		walking_to_target = true
 
 func _physics_process(delta: float) -> void:
@@ -208,8 +208,8 @@ func _physics_process(delta: float) -> void:
 	input = input.limit_length()
 	player.velocity = Vector3(input.x * 3, -1, input.y * 3)
 	player.move_and_slide()
-	player.position.x = clampf(player.position.x, -6, 6)
-	player.position.z = clampf(player.position.z, -3.1, 3.1)
+	player.position.x = clampf(player.position.x, -9.5, 9.5)
+	player.position.z = clampf(player.position.z, 0.05, 3.1)
 	player.position.y = maxf(0, player.position.y)
 	if input.length() > 0.1:
 		body_visual.rotation.y = lerp_angle(body_visual.rotation.y, atan2(input.x, input.y), delta * 12)
@@ -220,11 +220,11 @@ func _physics_process(delta: float) -> void:
 	if transition_lock > 0 or absf(player.position.z) > 1.6:
 		return
 	if field_id == "gate":
-		if player.position.x < -5.7:
-			load_field("market", Vector3(4.7, 0, 0))
-		elif player.position.x > 5.7:
-			load_field("camp", Vector3(-4.7, 0, 0))
-	elif field_id == "market" and player.position.x > 5.7:
-		load_field("gate", Vector3(-4.7, 0, 0))
-	elif field_id == "camp" and player.position.x < -5.7:
-		load_field("gate", Vector3(4.7, 0, 0))
+		if player.position.x < -9.2:
+			load_field("market", Vector3(8.3, 0, 1))
+		elif player.position.x > 9.2:
+			load_field("camp", Vector3(-8.3, 0, 1))
+	elif field_id == "market" and player.position.x > 9.2:
+		load_field("gate", Vector3(-8.3, 0, 1))
+	elif field_id == "camp" and player.position.x < -9.2:
+		load_field("gate", Vector3(8.3, 0, 1))

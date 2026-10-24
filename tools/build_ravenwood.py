@@ -61,15 +61,17 @@ def stall(x,y,ma):
 def reset():
  bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
 for field in ['gate','market','camp']:
- reset();cube('Ground',(0,1,-.2),(24,23,.35),ground)
+ reset();cube('Ground',(0,1,-.2),(100,100,.35),ground)
  # Subtle stone paving borders leave central traversal clear.
  for x in np.linspace(-7,7,22):
   for y in [-3.8,3.8]:cube('Road edge stone',(float(x),y,.015),(.48,.32,.08),stone,.08)
  for j in range(420):
   x=random.uniform(-10,10);y=random.uniform(-5,7)
   if random.random() < .65 and abs(y) > 2:continue
-  cube('Worn cobblestone',(x,y,-.005),(random.uniform(.15,.38),random.uniform(.13,.3),.055),stone,.045)
- for x in [-11,-8,-5,-2,2,5,8,11]:tree(x,9,random.uniform(.9,1.6))
+  cube('Worn cobblestone',(x,y,-.005),(random.uniform(.15,.38),random.uniform(.13,.3),.055),stone,.015)
+ cube('Forest floor',(0,17,-.04),(100,20,.08),green,0)
+ for y in [11,15,19]:
+  for x in range(-21,23,3):tree(x+random.uniform(-.5,.5),y,random.uniform(1,1.8))
  if field=='gate':
   for side in [-1,1]:
    for x in np.linspace(3.4,10,18):
@@ -112,5 +114,5 @@ for field in ['gate','market','camp']:
   if o.type=='MESH' or o.type=='FONT':o.hide_render=o not in foreground
  scene.render.film_transparent=True;scene.render.filepath=str(out/(field+'_foreground.png'));bpy.ops.render.render(write_still=True)
  fovy=math.degrees(2*math.atan(36/(2*34*(1280/720))))
- (out/(field+'.json')).write_text(json.dumps({'camera_position':[0,15,18],'camera_target':[0,1,-2],'fov':fovy,'bounds':[-6,6,-3.2,3.2],'walkmesh':[[-6,0,-3.2],[6,0,-3.2],[6,0,3.2],[-6,0,3.2]],'triangles':[0,2,1,0,3,2]},indent=2))
+ (out/(field+'.json')).write_text(json.dumps({'camera_position':[0,15,18],'camera_target':[0,1,-2],'fov':fovy,'bounds':[-9.5,9.5,0,3.2],'walkmesh':[[-9.5,0,0],[9.5,0,0],[9.5,0,3.2],[-9.5,0,3.2]],'triangles':[0,2,1,0,3,2]},indent=2))
  print('FIELD_COMPLETE',field)

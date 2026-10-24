@@ -23,4 +23,4 @@ Ravenwood opening, Lyra Vane recruitment, regional isolation and the Devouring D
 3. Small territory board connecting town, dungeon, resource site and enemy position.
 4. Complete resource → recipe → forge loop.
 
-No production city or dungeon assets exist yet. Foundation UI labels are placeholders.
+Ravenwood has a first art/layout pass for three connected exterior screens. Interiors, dungeons, final character art and combat remain planned.

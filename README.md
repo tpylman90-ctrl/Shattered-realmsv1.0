@@ -8,6 +8,7 @@ Requires Python 3.11+, Git, Godot 4.5.2 and Blender 4.5 LTS.
 
 ```sh
 python3 tools/bootstrap.py
+blender --background --python tools/build_ravenwood.py -- --output game/assets/generated/ravenwood
 # Open game/project.godot in Godot 4.5.2
 ```
 

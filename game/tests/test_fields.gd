@@ -14,21 +14,21 @@ func test_exit_connections_and_safe_return_spawns() -> void:
 	var scene = load("res://scenes/ravenwood.tscn").instantiate()
 	add_child_autofree(scene)
 	assert_eq(scene.field_id, "gate")
-	scene.player.position = Vector3(-5.9, 0, 0)
+	scene.player.position = Vector3(-9.4, 0, 0)
 	scene.transition_lock = 0
 	scene._physics_process(0.01)
 	assert_eq(scene.field_id, "market")
-	assert_lt(scene.player.position.x, 5.7)
-	scene.player.position = Vector3(5.9, 0, 0)
+	assert_lt(scene.player.position.x, 9.2)
+	scene.player.position = Vector3(9.4, 0, 0)
 	scene.transition_lock = 0
 	scene._physics_process(0.01)
 	assert_eq(scene.field_id, "gate")
-	assert_gt(scene.player.position.x, -5.7)
-	scene.player.position = Vector3(5.9, 0, 0)
+	assert_gt(scene.player.position.x, -9.2)
+	scene.player.position = Vector3(9.4, 0, 0)
 	scene.transition_lock = 0
 	scene._physics_process(0.01)
 	assert_eq(scene.field_id, "camp")
-	scene.player.position = Vector3(-5.9, 0, 0)
+	scene.player.position = Vector3(-9.4, 0, 0)
 	scene.transition_lock = 0
 	scene._physics_process(0.01)
 	assert_eq(scene.field_id, "gate")

@@ -23,6 +23,6 @@ See [toolchain](docs/TOOLCHAIN.md), [design](docs/DESIGN.md), [field scenes](doc
 
 ## Current state
 
-Runnable foundation menu and tooling only. Ravenwood, character art, ATB, armies and forge gameplay are planned, not implemented. No Square Enix game assets are included.
+Ravenwood has three connected field screens with a geometric movement placeholder, touch joystick, tap-to-walk, fixed-camera backdrops and foreground layers. Final character art, interiors, ATB, armies and forge gameplay remain planned. No Square Enix game assets are included.
 
 Original project code and art remain all rights reserved pending an explicit project license choice. Third-party tools retain their own licenses.

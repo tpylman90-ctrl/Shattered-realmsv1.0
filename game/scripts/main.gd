@@ -24,5 +24,8 @@ func _ready() -> void:
 		var button := Button.new()
 		button.text = section
 		button.custom_minimum_size = Vector2(540, 64)
-		button.pressed.connect(func(): status.text = section + " — planned for the next milestones")
+		if section == "Ravenwood":
+			button.pressed.connect(func(): get_tree().change_scene_to_file("res://scenes/ravenwood.tscn"))
+		else:
+			button.pressed.connect(func(): status.text = section + " — planned for the next milestones")
 		panel.add_child(button)

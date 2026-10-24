@@ -1,5 +1,8 @@
 name: Material Maker source
 on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/material-maker.yml']
   workflow_dispatch:
 permissions:
   contents: read

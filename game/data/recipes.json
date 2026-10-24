@@ -1,0 +1,12 @@
+{
+  "ironwood_battle_axe": {
+    "name": "Ironwood Battle Axe",
+    "materials": {
+      "iron_ingot": 3,
+      "seasoned_wood": 2,
+      "leather_strip": 1
+    },
+    "optional_infusion": "entropic_essence",
+    "model": null
+  }
+}

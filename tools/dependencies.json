@@ -1,0 +1,4 @@
+{
+  "dialogue_manager": {"repo":"nathanhoad/godot_dialogue_manager","commit":"e8ec7482210bd6195705280311d66701f40d06ed","directory":"addons/dialogue_manager"},
+  "gut": {"repo":"bitwes/Gut","commit":"8255c6305761754748f9fd641da5fd8f51c1708a","directory":"addons/gut"}
+}

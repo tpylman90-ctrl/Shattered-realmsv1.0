@@ -1,0 +1,11 @@
+.DS_Store
+.godot/
+.tools/
+.build/
+game/addons/
+game/assets/generated/
+*.keystore
+*.jks
+*.apk
+*.aab
+__pycache__/

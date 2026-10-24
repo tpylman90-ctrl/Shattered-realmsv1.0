@@ -86,7 +86,7 @@ func _build_layers() -> void:
 	map_panel.visible = false
 	ui.add_child(map_panel)
 	var map_label := Label.new()
-	map_label.text = "  RAVENWOOD\n\n  MARKET  ←  GATE  →  ARMY CAMP\n\n  North: Upper town (future route)"
+	map_label.text = "  RAVENWOOD\n\n  MARKET  ←  GATE  →  ARMY CAMP\n\n  North: Upper town road closed"
 	map_label.add_theme_font_size_override("font_size", 19)
 	map_panel.add_child(map_label)
 	map.pressed.connect(func(): map_panel.visible = not map_panel.visible)
@@ -175,7 +175,7 @@ func load_field(id: String, spawn: Vector3) -> void:
 	walking_to_target = false
 	transition_lock = 0.7
 	heading.text = "RAVENWOOD  /  " + {"gate": "Gate courtyard", "market": "Market square", "camp": "Army camp"}[id]
-	hint.text = {"gate": "Market ← west passage     •     east passage → Army camp", "market": "Inn and forge: future interiors     •     east passage → Gate", "camp": "Barracks and training: future features     •     west passage → Gate"}[id]
+	hint.text = {"gate": "Market ← west passage     •     east passage → Army camp", "market": "Market square     •     east passage → Gate", "camp": "Muster yard     •     west passage → Gate"}[id]
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:

@@ -3,14 +3,14 @@ import bpy, math, json, random, sys, argparse
 from pathlib import Path
 from mathutils import Vector
 import numpy as np
-p=argparse.ArgumentParser();p.add_argument('--output',required=True);p.add_argument('--samples',type=int,default=32)
+p=argparse.ArgumentParser();p.add_argument('--output',required=True);p.add_argument('--samples',type=int,default=32);p.add_argument('--field',choices=['all','gate','market','camp'],default='all')
 a=p.parse_args(sys.argv[sys.argv.index('--')+1:]);out=Path(a.output).resolve();out.mkdir(parents=True,exist_ok=True)
 random.seed(17)
 def mat(name,color,rough=.8):
  m=bpy.data.materials.new(name);m.diffuse_color=(*color,1);m.use_nodes=True
  bs=m.node_tree.nodes.get('Principled BSDF');bs.inputs['Base Color'].default_value=(*color,1);bs.inputs['Roughness'].default_value=rough
  noise=m.node_tree.nodes.new('ShaderNodeTexNoise');noise.inputs['Scale'].default_value=7
- bump=m.node_tree.nodes.new('ShaderNodeBump');bump.inputs['Strength'].default_value=.16;bump.inputs['Distance'].default_value=.08
+ bump=m.node_tree.nodes.new('ShaderNodeBump');bump.inputs['Strength'].default_value=.05;bump.inputs['Distance'].default_value=.005
  m.node_tree.links.new(noise.outputs['Fac'],bump.inputs['Height']);m.node_tree.links.new(bump.outputs['Normal'],bs.inputs['Normal']);return m
 wood=mat('Aged chestnut',(.20,.105,.052));dark=mat('Dark timber',(.075,.044,.025));plaster=mat('Warm lime plaster',(.57,.43,.27));roof=mat('Weathered cedar shingles',(.13,.18,.14));stone=mat('Fieldstone',(.26,.28,.23));ground=mat('Packed earth',(.23,.19,.12));green=mat('Forest canopy',(.045,.12,.066));cloth=mat('Ochre canvas',(.48,.27,.075));blue=mat('Indigo canvas',(.09,.17,.23));metal=mat('Iron bands',(.09,.10,.10),.4)
 def cube(name,loc,scale,ma,bevel=.05):
@@ -60,7 +60,7 @@ def stall(x,y,ma):
    bpy.ops.mesh.primitive_uv_sphere_add(segments=8,ring_count=4,radius=.11,location=(x+float(xx),y-.4+j*.2,1.2));bpy.context.object.data.materials.append(cloth)
 def reset():
  bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
-for field in ['gate','market','camp']:
+for field in (['gate','market','camp'] if a.field=='all' else [a.field]):
  reset();cube('Ground',(0,1,-.2),(100,100,.35),ground)
  # Subtle stone paving borders leave central traversal clear.
  for x in np.linspace(-7,7,22):
@@ -68,7 +68,7 @@ for field in ['gate','market','camp']:
  for j in range(420):
   x=random.uniform(-10,10);y=random.uniform(-5,7)
   if random.random() < .65 and abs(y) > 2:continue
-  cube('Worn cobblestone',(x,y,-.005),(random.uniform(.15,.38),random.uniform(.13,.3),.055),stone,.015)
+  cube('Worn cobblestone',(x,y,random.uniform(-.005,.025)),(random.uniform(.15,.38),random.uniform(.13,.3),.055),stone,.015)
  cube('Forest floor',(0,17,-.04),(100,20,.08),green,0)
  for y in [11,15,19]:
   for x in range(-21,23,3):tree(x+random.uniform(-.5,.5),y,random.uniform(1,1.8))
@@ -78,7 +78,7 @@ for field in ['gate','market','camp']:
     xx=float(x)*side;cyl('Palisade',(xx,6,1.9),.2,3.8,wood)
    house(side*5,4.8,3.2,3,3.4)
   for xx in [-2.5,2.5]:cube('Gate pier',(xx,6,2.4),(.5,.6,4.8),dark)
-  cube('Gate crossbeam',(0,6,4.5),(5.6,.7,.6),wood);sign('RAVENWOOD',0,5.6,4.55)
+  cube('Gate crossbeam',(0,6,4.6),(5.6,.7,.6),wood);sign('RAVENWOOD',0,5.6,4.55)
   sign('MARKET',-5.2,1.8);sign('CAMP',5.2,1.8)
   barrel(-5.7,2.8);barrel(5.7,2.8)
  elif field=='market':

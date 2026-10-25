@@ -34,3 +34,9 @@ The project uses a fixed 1280×720 reference viewport with aspect-preserving let
 Main/manual builds use KEYSTORE_BASE64, KEYSTORE_PASSWORD, KEY_PASSWORD and KEYSTORE_USER when all four repository secrets are present. Separate store/key passwords are supported through apksigner. A partially configured set fails explicitly. Without secrets, test-only debug signing remains available. PR builds never receive signing secrets. The persistent key is decoded only on the runner and deleted after signing; it is never included in artifacts.
 
 Switching from the previous temporary debug certificate to persistent signing requires uninstalling the old test APK once. Future APKs signed with the same key can update that installation. These remain debuggable development APKs, not store release builds.
+
+## Signing setup diagnostics
+
+The workflow reports availability of each exact repository Actions secret before downloading build dependencies. No secret values are logged. If all four are unavailable, this is a configuration/access issue, not a Base64 decoding failure. Add repository secrets under Settings → Secrets and variables → Actions in this exact repository; environment secrets require a matching job environment and are not selected by this workflow.
+
+KEYSTORE_BASE64 accepts line breaks, whitespace and missing trailing padding from clipboard transfer. Do not paste the secret heading, code fences, passwords or the complete credentials document into that value. Keep the same original signing key, alias and passwords; changing the key prevents in-place updates of applications signed with the previous key.

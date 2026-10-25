@@ -25,3 +25,7 @@ Checks cover packaged assets, both directions of every connection, safe arrival 
 ## Remaining
 
 Shop/inn/tent/barracks interiors, upper town, NPCs, interactions, recruitment, combat and campaign integration are planned. Visible shop and tent entrances do not yet open interiors. The market and camp illustrate their future functions without implementing them. Character art and animation remain temporary.
+
+## Camp-side post correction
+
+The camp connection activates on the clear approach before the near fence post, rather than requiring the player to steer around the tight fence corner. Returning from camp places the character on the town side of this trigger. Regression coverage starts at the position reported in the phone screenshot and checks that the return does not bounce back into camp.

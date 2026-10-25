@@ -26,6 +26,16 @@ jobs:
         with:
           packages: platform-tools
           log-accepted-android-sdk-licenses: false
+      - name: Check signing setup
+        if: github.event_name != 'pull_request'
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          KEYSTORE_USER: ${{ secrets.KEYSTORE_USER }}
+        run: python3 tools/sign_android.py --check
+      - name: Test signing input handling
+        run: python3 -m unittest discover -s tools -p test_sign_android.py
       - name: Android SDK
         run: sdkmanager 'platform-tools' 'platforms;android-35' 'build-tools;35.0.0'
       - name: Install Godot and templates

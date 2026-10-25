@@ -17,7 +17,7 @@ class SigningInputTests(unittest.TestCase):
 
     def test_pasting_headings_is_rejected(self):
         with self.assertRaises(ValueError):
-            decode_keystore('KEYSTORE_BASE64\n```\nAAAA\n```')
+            decode_keystore('ANDROID_KEYSTORE_BASE64\n```\nAAAA\n```')
         with self.assertRaises(ValueError):
             decode_keystore(base64.b64encode(b'not a keystore').decode())
 
@@ -29,8 +29,8 @@ class SigningInputTests(unittest.TestCase):
 
     def test_partial_configuration_names_missing_fields_without_values(self):
         secret_value = base64.b64encode(b'\xfe\xed\xfe\xedprivate').decode()
-        with patch.dict(os.environ, {'KEYSTORE_BASE64': secret_value}, clear=True), contextlib.redirect_stdout(io.StringIO()) as output:
-            with self.assertRaisesRegex(ValueError, 'KEYSTORE_PASSWORD'):
+        with patch.dict(os.environ, {'ANDROID_KEYSTORE_BASE64': secret_value}, clear=True), contextlib.redirect_stdout(io.StringIO()) as output:
+            with self.assertRaisesRegex(ValueError, 'ANDROID_KEYSTORE_PASSWORD'):
                 check_configuration()
         self.assertNotIn(secret_value, output.getvalue())
 

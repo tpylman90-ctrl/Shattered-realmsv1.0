@@ -31,7 +31,7 @@ Gate art is a checked-in WebP copy of the user-approved generated illustration, 
 
 The project uses a fixed 1280×720 reference viewport with aspect-preserving letterboxing so traced screen-space paths, occlusion silhouettes and camera projection share the same coordinate system on phones and desktops. This fixes camera composition across aspect ratios; the source backdrop remains 1672×941.
 
-Main/manual builds use KEYSTORE_BASE64, KEYSTORE_PASSWORD, KEY_PASSWORD and KEYSTORE_USER when all four repository secrets are present. Separate store/key passwords are supported through apksigner. A partially configured set fails explicitly. Without secrets, test-only debug signing remains available. PR builds never receive signing secrets. The persistent key is decoded only on the runner and deleted after signing; it is never included in artifacts.
+Main/manual builds use ANDROID_KEYSTORE_BASE64, ANDROID_KEYSTORE_PASSWORD, ANDROID_KEY_PASSWORD and ANDROID_KEY_ALIAS when all four repository secrets are present. Separate store/key passwords are supported through apksigner. A partially configured set fails explicitly. Without secrets, test-only debug signing remains available. PR builds never receive signing secrets. The persistent key is decoded only on the runner and deleted after signing; it is never included in artifacts.
 
 Switching from the previous temporary debug certificate to persistent signing requires uninstalling the old test APK once. Future APKs signed with the same key can update that installation. These remain debuggable development APKs, not store release builds.
 
@@ -39,4 +39,16 @@ Switching from the previous temporary debug certificate to persistent signing re
 
 The workflow reports availability of each exact repository Actions secret before downloading build dependencies. No secret values are logged. If all four are unavailable, this is a configuration/access issue, not a Base64 decoding failure. Add repository secrets under Settings → Secrets and variables → Actions in this exact repository; environment secrets require a matching job environment and are not selected by this workflow.
 
-KEYSTORE_BASE64 accepts line breaks, whitespace and missing trailing padding from clipboard transfer. Do not paste the secret heading, code fences, passwords or the complete credentials document into that value. Keep the same original signing key, alias and passwords; changing the key prevents in-place updates of applications signed with the previous key.
+ANDROID_KEYSTORE_BASE64 accepts line breaks, whitespace and missing trailing padding from clipboard transfer. Do not paste the secret heading, code fences, passwords or the complete credentials document into that value. Keep the same original signing key, alias and passwords; changing the key prevents in-place updates of applications signed with the previous key.
+
+
+The canonical repository secret names match the user's existing setup:
+
+| Repository secret | Meaning |
+|---|---|
+| ANDROID_KEYSTORE_BASE64 | Base64 contents of the original keystore |
+| ANDROID_KEYSTORE_PASSWORD | Keystore password |
+| ANDROID_KEY_ALIAS | Key alias (`shatteredrealms`) |
+| ANDROID_KEY_PASSWORD | Private key password |
+
+The workflow also accepts the earlier KEYSTORE_BASE64, KEYSTORE_PASSWORD, KEYSTORE_USER and KEY_PASSWORD names as fallbacks. Values are mapped into the canonical environment variable names before validation and signing. The original key is reused.

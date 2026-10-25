@@ -6,21 +6,21 @@ import os
 import subprocess
 from pathlib import Path
 
-SECRET_NAMES = ('KEYSTORE_BASE64', 'KEYSTORE_PASSWORD', 'KEY_PASSWORD', 'KEYSTORE_USER')
+SECRET_NAMES = ('ANDROID_KEYSTORE_BASE64', 'ANDROID_KEYSTORE_PASSWORD', 'ANDROID_KEY_PASSWORD', 'ANDROID_KEY_ALIAS')
 
 
 def decode_keystore(value: str) -> bytes:
     # Clipboard line wrapping and trailing newlines do not change Base64 bytes.
     encoded = ''.join(value.split())
     if not encoded or len(encoded) % 4 == 1:
-        raise ValueError('KEYSTORE_BASE64 is not valid Base64; paste only the value, without its heading or other secrets.')
+        raise ValueError('ANDROID_KEYSTORE_BASE64 is not valid Base64; paste only the value, without its heading or other secrets.')
     encoded += '=' * (-len(encoded) % 4)
     try:
         decoded = base64.b64decode(encoded, validate=True)
     except (ValueError, binascii.Error) as exc:
-        raise ValueError('KEYSTORE_BASE64 contains non-Base64 text; paste only the value, without headings or code fences.') from exc
+        raise ValueError('ANDROID_KEYSTORE_BASE64 contains non-Base64 text; paste only the value, without headings or code fences.') from exc
     if not (decoded.startswith(b'\xfe\xed\xfe\xed') or decoded.startswith(b'0')):
-        raise ValueError('KEYSTORE_BASE64 decoded, but is not a JKS/PKCS12 keystore. Use the original signing backup.')
+        raise ValueError('ANDROID_KEYSTORE_BASE64 decoded, but is not a JKS/PKCS12 keystore. Use the original signing backup.')
     return decoded
 
 
@@ -43,7 +43,7 @@ def check_configuration() -> bool:
     if not any(present.values()):
         print('Persistent signing secrets are not configured; keeping test-only debug signing.')
         return False
-    decode_keystore(os.environ['KEYSTORE_BASE64'])
+    decode_keystore(os.environ['ANDROID_KEYSTORE_BASE64'])
     return True
 
 
@@ -61,10 +61,10 @@ def main() -> None:
         apk = root / '.build/shattered-realms-debug.apk'
         try:
             key.parent.mkdir(parents=True, exist_ok=True)
-            key.write_bytes(decode_keystore(os.environ['KEYSTORE_BASE64']))
+            key.write_bytes(decode_keystore(os.environ['ANDROID_KEYSTORE_BASE64']))
             key.chmod(0o600)
             signer = Path(os.environ['ANDROID_HOME']) / 'build-tools/35.0.0/apksigner'
-            subprocess.run([str(signer), 'sign', '--ks', str(key), '--ks-key-alias', os.environ['KEYSTORE_USER'].strip(), '--ks-pass', 'env:KEYSTORE_PASSWORD', '--key-pass', 'env:KEY_PASSWORD', '--out', str(signed), str(apk)], check=True)
+            subprocess.run([str(signer), 'sign', '--ks', str(key), '--ks-key-alias', os.environ['ANDROID_KEY_ALIAS'].strip(), '--ks-pass', 'env:ANDROID_KEYSTORE_PASSWORD', '--key-pass', 'env:ANDROID_KEY_PASSWORD', '--out', str(signed), str(apk)], check=True)
             subprocess.run([str(signer), 'verify', str(signed)], check=True)
             signed.replace(apk)
             print('Persistent repository signing applied and verified.')

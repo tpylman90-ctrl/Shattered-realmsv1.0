@@ -48,7 +48,8 @@ jobs:
           sudo apt-get install -y libxi6 libxrender1 libxfixes3 libxkbcommon0 libsm6 libgl1
           curl -fL --retry 3 https://download.blender.org/release/Blender4.5/blender-4.5.3-linux-x64.tar.xz -o .tools/blender.tar.xz
           tar -xf .tools/blender.tar.xz -C .tools
-          .tools/blender-4.5.3-linux-x64/blender --background --python-exit-code 1 --python tools/build_ravenwood.py -- --output game/assets/generated/ravenwood
+          .tools/blender-4.5.3-linux-x64/blender --background --python-exit-code 1 --python tools/build_ravenwood.py -- --output game/assets/generated/ravenwood --field market
+          .tools/blender-4.5.3-linux-x64/blender --background --python-exit-code 1 --python tools/build_ravenwood.py -- --output game/assets/generated/ravenwood --field camp
       - name: Install pinned addons
         run: python3 tools/bootstrap.py
       - name: Import and validate scripts
@@ -74,6 +75,14 @@ jobs:
           EOF
       - name: Export APK
         run: godot --headless --path game --export-debug Android ../.build/shattered-realms-debug.apk
+      - name: Apply persistent repository signing
+        if: github.event_name != 'pull_request'
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          KEYSTORE_USER: ${{ secrets.KEYSTORE_USER }}
+        run: python3 tools/sign_android.py
       - name: Validate APK
         run: |
           test -s .build/shattered-realms-debug.apk

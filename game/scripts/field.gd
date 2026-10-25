@@ -14,6 +14,13 @@ var destination := Vector3.ZERO
 var walking_to_target := false
 var moving_time := 0.0
 var body_visual: Node3D
+var gate_surface: FieldSurface
+var gate_data: Dictionary
+var gate_path := PackedVector2Array()
+var gate_foreground: Node2D
+var gate_screen := Vector2.ZERO
+var fence_foreground: Node2D
+
 
 func _ready() -> void:
 	_build_layers()
@@ -41,6 +48,7 @@ func _build_layers() -> void:
 	background_layer.layer = -1
 	add_child(background_layer)
 	backdrop = TextureRect.new()
+	backdrop.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	background_layer.add_child(backdrop)
@@ -48,9 +56,12 @@ func _build_layers() -> void:
 	front_layer.layer = 2
 	add_child(front_layer)
 	foreground = TextureRect.new()
+	foreground.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	foreground.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	foreground.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	front_layer.add_child(foreground)
+	gate_foreground = Node2D.new()
+	front_layer.add_child(gate_foreground)
 	var ui := CanvasLayer.new()
 	ui.layer = 3
 	add_child(ui)
@@ -140,14 +151,26 @@ func _build_player() -> void:
 	var blade := BoxMesh.new()
 	blade.size = Vector3(0.08, 0.85, 0.04)
 	_mesh(blade, Color(0.55, 0.6, 0.59), Vector3(0.38, 0.55, 0.15), body_visual)
-	var shadow := CylinderMesh.new()
-	shadow.top_radius = 0.32
-	shadow.bottom_radius = 0.32
-	shadow.height = 0.004
-	_mesh(shadow, Color(0.10, 0.095, 0.07), Vector3(0, 0.008, 0), player)
+	var shadow := PlaneMesh.new()
+	shadow.size = Vector2(0.95, 0.7)
+	var shadow_mesh := _mesh(shadow, Color.WHITE, Vector3(0, 0.012, 0), player)
+	var shader := Shader.new()
+	shader.code = "shader_type spatial; render_mode unshaded, cull_disabled, depth_draw_never; void fragment(){vec2 p=(UV-vec2(0.5))*2.0; ALBEDO=vec3(0.055,0.04,0.02); ALPHA=max(0.0,1.0-dot(p,p))*0.38;}"
+	var shadow_material := ShaderMaterial.new()
+	shadow_material.shader = shader
+	shadow_mesh.material_override = shadow_material
 
 func load_field(id: String, spawn: Vector3) -> void:
 	field_id = id
+	for child in gate_foreground.get_children():
+		child.free()
+	gate_foreground.visible = id == "gate"
+	foreground.visible = id != "gate"
+	if id == "gate":
+		_load_approved_gate(spawn)
+		return
+	gate_surface = null
+	player.scale = Vector3.ONE
 	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(ROOT + id + ".json"))
 	backdrop.texture = load(ROOT + id + ".png")
 	foreground.texture = load(ROOT + id + "_foreground.png")
@@ -184,6 +207,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		_set_target(event.position)
 
 func _set_target(screen: Vector2) -> void:
+	if field_id == "gate":
+		gate_path = gate_surface.route(gate_screen, screen)
+		return
 	var plane := Plane(Vector3.UP, 0)
 	var hit = plane.intersects_ray(camera.project_ray_origin(screen), camera.project_ray_normal(screen))
 	if hit != null:
@@ -206,6 +232,9 @@ func _physics_process(delta: float) -> void:
 		else:
 			input = Vector2(offset.x, offset.z).normalized()
 	input = input.limit_length()
+	if field_id == "gate":
+		_walk_gate(input, delta)
+		return
 	player.velocity = Vector3(input.x * 3, -1, input.y * 3)
 	player.move_and_slide()
 	player.position.x = clampf(player.position.x, -9.5, 9.5)
@@ -219,12 +248,120 @@ func _physics_process(delta: float) -> void:
 		body_visual.position.y = 0
 	if transition_lock > 0 or absf(player.position.z) > 1.6:
 		return
-	if field_id == "gate":
-		if player.position.x < -9.2:
-			load_field("market", Vector3(8.3, 0, 1))
-		elif player.position.x > 9.2:
-			load_field("camp", Vector3(-8.3, 0, 1))
-	elif field_id == "market" and player.position.x > 9.2:
+	if field_id == "market" and player.position.x > 9.2:
 		load_field("gate", Vector3(-8.3, 0, 1))
 	elif field_id == "camp" and player.position.x < -9.2:
 		load_field("gate", Vector3(8.3, 0, 1))
+
+func _load_approved_gate(spawn: Vector3) -> void:
+	player.scale = Vector3.ONE * 0.55
+	gate_data = JSON.parse_string(FileAccess.get_file_as_string("res://data/ravenwood_gate.json"))
+	backdrop.texture = load(gate_data.backdrop)
+	var position_data: Array = gate_data.camera_position
+	var target: Array = gate_data.camera_target
+	camera.position = Vector3(position_data[0], position_data[1], position_data[2])
+	camera.look_at(Vector3(target[0], target[1], target[2]))
+	camera.fov = gate_data.fov
+	gate_surface = FieldSurface.new()
+	gate_surface.configure(camera, gate_data.navigation_outline, gate_data.navigation_heights)
+	if has_node("WalkMesh"):
+		get_node("WalkMesh").free()
+	var floor_body := StaticBody3D.new()
+	floor_body.name = "WalkMesh"
+	var shape := CollisionShape3D.new()
+	var mesh_shape := ConcavePolygonShape3D.new()
+	mesh_shape.set_faces(gate_surface.collision_faces())
+	shape.shape = mesh_shape
+	floor_body.add_child(shape)
+	add_child(floor_body)
+	for mask in gate_data.foreground_polygons:
+		var polygon := Polygon2D.new()
+		var points := PackedVector2Array()
+		var uv := PackedVector2Array()
+		for point in mask:
+			var screen := Vector2(point[0], point[1])
+			points.append(screen)
+			uv.append(screen / Vector2(1280, 720) * backdrop.texture.get_size())
+		polygon.polygon = points
+		polygon.uv = uv
+		polygon.texture = backdrop.texture
+		gate_foreground.add_child(polygon)
+	fence_foreground = Node2D.new()
+	gate_foreground.add_child(fence_foreground)
+	for mask in gate_data.fence_foreground_polygons:
+		var polygon := Polygon2D.new()
+		var points := PackedVector2Array()
+		var uv := PackedVector2Array()
+		for point in mask:
+			var screen := Vector2(point[0], point[1])
+			points.append(screen)
+			uv.append(screen / Vector2(1280, 720) * backdrop.texture.get_size())
+		polygon.polygon = points
+		polygon.uv = uv
+		polygon.texture = backdrop.texture
+		fence_foreground.add_child(polygon)
+	var entry := "arrival"
+	if spawn.x < -1:
+		entry = "market"
+	elif spawn.x > 1:
+		entry = "camp"
+	var screen_spawn: Array = gate_data.spawns[entry]
+	_place_gate_screen(Vector2(screen_spawn[0], screen_spawn[1]))
+	gate_path.clear()
+	player.velocity = Vector3.ZERO
+	walking_to_target = false
+	transition_lock = 0.8
+	heading.text = "RAVENWOOD  /  Gate courtyard"
+	hint.text = "Market ← left lane     •     right lane → Army camp"
+
+func _place_gate_screen(screen: Vector2) -> void:
+	gate_screen = gate_surface.constrain(screen)
+	player.position = gate_surface.world_at(gate_screen)
+	if is_instance_valid(fence_foreground):
+		fence_foreground.visible = gate_screen.y < gate_screen.x * 0.28 + 238
+
+func _gate_exit_for_screen(screen: Vector2) -> String:
+	for id in gate_data.exits:
+		var polygon := PackedVector2Array()
+		for point in gate_data.exits[id]:
+			polygon.append(Vector2(point[0], point[1]))
+		if Geometry2D.is_point_in_polygon(screen, polygon):
+			return id
+	return ""
+
+func _walk_gate(input: Vector2, delta: float) -> void:
+	if input.length() > 0.1:
+		gate_path.clear()
+	elif not gate_path.is_empty():
+		var offset := gate_path[0] - gate_screen
+		if offset.length() < 3:
+			gate_path.remove_at(0)
+		else:
+			input = offset.normalized()
+	var pixel_speed := camera.unproject_position(player.position + Vector3.RIGHT * 3.0).distance_to(camera.unproject_position(player.position))
+	var distance := pixel_speed * delta
+	if not gate_path.is_empty():
+		distance = minf(distance, gate_screen.distance_to(gate_path[0]))
+	var old_position := player.position
+	var candidate := gate_screen + input * distance
+	# Constrain each short step to the traced floor, including corners of concave routes.
+	_place_gate_screen(candidate)
+	var movement := player.position - old_position
+	if movement.length() > 0.001:
+		body_visual.rotation.y = lerp_angle(body_visual.rotation.y, atan2(movement.x, movement.z), delta * 12)
+		moving_time += delta * 10
+		body_visual.position.y = sin(moving_time) * 0.018
+	else:
+		body_visual.position.y = 0
+	var upper := gate_screen.y < 385 and gate_screen.x > 650 and gate_screen.x < 800
+	if upper:
+		hint.text = "Upper town opens in a later chapter"
+	else:
+		hint.text = "Market ← left lane     •     right lane → Army camp"
+	if transition_lock > 0:
+		return
+	var exit := _gate_exit_for_screen(gate_screen)
+	if exit == "market":
+		load_field("market", Vector3(8.3, 0, 1))
+	elif exit == "camp":
+		load_field("camp", Vector3(-8.3, 0, 1))

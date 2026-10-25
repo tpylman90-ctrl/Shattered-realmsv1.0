@@ -23,3 +23,14 @@ blender --background --python tools/blender_calibration.py -- --output .build/ca
 CI uses Java 17 and Android SDK platform 35/build-tools 35.0.0. Debug keystore is generated for test builds only; a clean runner may produce a different key, requiring uninstall before reinstall. For stable release updates, configure a persistent release signing key through repository secrets in a future release workflow. Never commit keys/passwords. Debug builds do not require user-provided secrets.
 
 The tools are installed on GitHub runners during jobs, not on the phone. Artifacts expire after seven days to moderate storage; source scripts stay in Git.
+
+
+## Approved gate art and signing
+
+Gate art is a checked-in WebP copy of the user-approved generated illustration, preserving its dimensions. The market/camp are still procedural placeholders; CI renders only those two fields. The approved gate is never regenerated or overwritten by Blender. Run local rendering with `--field market` and `--field camp`.
+
+The project uses a fixed 1280×720 reference viewport with aspect-preserving letterboxing so traced screen-space paths, occlusion silhouettes and camera projection share the same coordinate system on phones and desktops. This fixes camera composition across aspect ratios; the source backdrop remains 1672×941.
+
+Main/manual builds use KEYSTORE_BASE64, KEYSTORE_PASSWORD, KEY_PASSWORD and KEYSTORE_USER when all four repository secrets are present. Separate store/key passwords are supported through apksigner. A partially configured set fails explicitly. Without secrets, test-only debug signing remains available. PR builds never receive signing secrets. The persistent key is decoded only on the runner and deleted after signing; it is never included in artifacts.
+
+Switching from the previous temporary debug certificate to persistent signing requires uninstalling the old test APK once. Future APKs signed with the same key can update that installation. These remain debuggable development APKs, not store release builds.

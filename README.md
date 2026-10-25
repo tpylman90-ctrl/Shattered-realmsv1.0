@@ -8,7 +8,8 @@ Requires Python 3.11+, Git, Godot 4.5.2 and Blender 4.5 LTS.
 
 ```sh
 python3 tools/bootstrap.py
-blender --background --python tools/build_ravenwood.py -- --output game/assets/generated/ravenwood
+blender --background --python tools/build_ravenwood.py -- --output game/assets/generated/ravenwood --field market
+blender --background --python tools/build_ravenwood.py -- --output game/assets/generated/ravenwood --field camp
 # Open game/project.godot in Godot 4.5.2
 ```
 
@@ -24,6 +25,6 @@ See [toolchain](docs/TOOLCHAIN.md), [design](docs/DESIGN.md), [field scenes](doc
 
 ## Current state
 
-Ravenwood has three connected field screens with a geometric movement placeholder, touch joystick, tap-to-walk, fixed-camera backdrops and foreground layers. Final character art, interiors, ATB, armies and forge gameplay remain planned. No Square Enix game assets are included.
+Ravenwood has three connected field screens. The gate uses the approved detailed illustration, a traced 3D floor with raised steps, foreground occlusion and routed tap movement. Market and camp still use prototype art. A geometric character, touch joystick, tap-to-walk and fixed cameras support the first review. Final character art, interiors, ATB, armies and forge gameplay remain planned. No Square Enix game assets are included.
 
 Original project code and art remain all rights reserved pending an explicit project license choice. Third-party tools retain their own licenses.

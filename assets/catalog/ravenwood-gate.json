@@ -1,0 +1,9 @@
+{
+  "title": "Ravenwood gate approved backdrop",
+  "provenance": "Generated with built-in ImageGen in this conversation; approved by user for integration. Original composition, woodland timber town; Lindblum reference used for composition and detail, no extracted game assets.",
+  "source_sha256": "a9e7a0c315098d2b76e6fab2a7f2b5257f2930a653334680d47cf4a5562c0288",
+  "runtime_asset": "game/assets/ravenwood/gate-approved.webp",
+  "runtime_sha256": "73f509ec8b5f7eff8349d4b2c3709e0678c72b483f288dd55e7120bdb4987d4d",
+  "processing": "Format conversion only: original dimensions preserved, WebP quality 97. Original PNG retained separately.",
+  "limitations": "Painted perspective approximated by a fitted runtime camera and traced navigation surface; not a reconstructed Blender scene."
+}

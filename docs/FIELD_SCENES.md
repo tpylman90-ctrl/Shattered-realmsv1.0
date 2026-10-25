@@ -17,3 +17,12 @@ Three original Blender-rendered screens: gate courtyard, market square and army 
 Fixed perspective camera, floor collision mesh, transparent foreground render, touch joystick, tap-to-walk and WASD/arrows. MAP toggles a compact route guide. Character is a geometric movement placeholder with a simple motion bob, not final hero art or a walk animation. Interiors, upper town, NPCs, stairs, interactive props and campaign exits remain planned. Runtime movement plane is intentionally restricted to the open central street.
 
 Backdrops are generated during CI instead of storing render binaries in Git. Keep camera metadata and PNGs together. The desktop smoke/test pass verifies scene loading and bidirectional transitions; Android performance and touch feel still require device review.
+
+
+## Approved illustration integration
+
+The gate now uses the user-approved high-detail illustration instead of the procedural backdrop. A fitted perspective camera maps a traced, concave floor polygon into 3D. Its raised vertices approximate the visible gate steps. Tap movement uses a visibility graph around the nonwalkable buildings, roof and fence; joystick movement is constrained to the same floor. This is an approximation of painted perspective, not an exact recovered Blender camera.
+
+Foreground Polygon2D sections sample the same backdrop with matching UV coordinates. Near roofs and the tree overlap the character; fence sections change draw order according to the character's ground position. No image content has been repainted or regenerated. The geometric character remains temporary. Upper town stops at the gate steps; the market and camp retain their older prototype art.
+
+Verification covers both return connections, safe spawn points, off-path exclusion, tap routes, raised steps and projection. In-engine visual captures check arrival, stairs and both side lanes. Android touch feel and frame time require device review.

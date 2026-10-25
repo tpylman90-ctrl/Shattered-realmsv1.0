@@ -1,26 +1,21 @@
 extends Node3D
 
-const ROOT := "res://assets/generated/ravenwood/"
 var field_id := "gate"
 var camera: Camera3D
 var player: CharacterBody3D
 var backdrop: TextureRect
-var foreground: TextureRect
 var heading: Label
 var hint: Label
 var joystick: Control
 var transition_lock := 0.0
-var destination := Vector3.ZERO
-var walking_to_target := false
 var moving_time := 0.0
 var body_visual: Node3D
-var gate_surface: FieldSurface
-var gate_data: Dictionary
-var gate_path := PackedVector2Array()
-var gate_foreground: Node2D
-var gate_screen := Vector2.ZERO
-var fence_foreground: Node2D
-
+var surface: FieldSurface
+var field_data: Dictionary
+var waypoints := PackedVector2Array()
+var foreground_root: Node2D
+var screen_position := Vector2.ZERO
+var depth_groups: Array[Node2D] = []
 
 func _ready() -> void:
 	_build_layers()
@@ -41,7 +36,7 @@ func _ready() -> void:
 	sun.light_energy = 1.5
 	add_child(sun)
 	_build_player()
-	load_field("gate", Vector3(0, 0, 2.5))
+	load_field("gate")
 
 func _build_layers() -> void:
 	var background_layer := CanvasLayer.new()
@@ -55,13 +50,8 @@ func _build_layers() -> void:
 	var front_layer := CanvasLayer.new()
 	front_layer.layer = 2
 	add_child(front_layer)
-	foreground = TextureRect.new()
-	foreground.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	foreground.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	foreground.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	front_layer.add_child(foreground)
-	gate_foreground = Node2D.new()
-	front_layer.add_child(gate_foreground)
+	foreground_root = Node2D.new()
+	front_layer.add_child(foreground_root)
 	var ui := CanvasLayer.new()
 	ui.layer = 3
 	add_child(ui)
@@ -160,45 +150,75 @@ func _build_player() -> void:
 	shadow_material.shader = shader
 	shadow_mesh.material_override = shadow_material
 
-func load_field(id: String, spawn: Vector3) -> void:
+func load_field(id: String, entry: String = "arrival") -> void:
 	field_id = id
-	for child in gate_foreground.get_children():
+	field_data = JSON.parse_string(FileAccess.get_file_as_string("res://data/ravenwood_" + id + ".json"))
+	backdrop.texture = load(field_data.backdrop)
+	player.scale = Vector3.ONE * float(field_data.character_scale)
+	for child in foreground_root.get_children():
 		child.free()
-	gate_foreground.visible = id == "gate"
-	foreground.visible = id != "gate"
-	if id == "gate":
-		_load_approved_gate(spawn)
-		return
-	gate_surface = null
-	player.scale = Vector3.ONE
-	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(ROOT + id + ".json"))
-	backdrop.texture = load(ROOT + id + ".png")
-	foreground.texture = load(ROOT + id + "_foreground.png")
-	var pos: Array = data.camera_position
-	var target: Array = data.camera_target
-	camera.position = Vector3(pos[0], pos[1], pos[2])
+	depth_groups.clear()
+	var position_data: Array = field_data.camera_position
+	var target: Array = field_data.camera_target
+	camera.position = Vector3(position_data[0], position_data[1], position_data[2])
 	camera.look_at(Vector3(target[0], target[1], target[2]))
-	camera.fov = data.fov
+	camera.fov = field_data.fov
+	surface = FieldSurface.new()
+	surface.configure(camera, field_data.navigation_outline, field_data.navigation_heights)
 	if has_node("WalkMesh"):
 		get_node("WalkMesh").free()
 	var floor_body := StaticBody3D.new()
 	floor_body.name = "WalkMesh"
-	var collision := CollisionShape3D.new()
+	var shape := CollisionShape3D.new()
 	var mesh_shape := ConcavePolygonShape3D.new()
-	var faces := PackedVector3Array()
-	for index in data.triangles:
-		var point: Array = data.walkmesh[index]
-		faces.append(Vector3(point[0], point[1], point[2]))
-	mesh_shape.set_faces(faces)
-	collision.shape = mesh_shape
-	floor_body.add_child(collision)
+	mesh_shape.set_faces(surface.collision_faces())
+	shape.shape = mesh_shape
+	floor_body.add_child(shape)
 	add_child(floor_body)
-	player.position = spawn
+	_add_polygons(field_data.foreground_polygons, foreground_root)
+	for occluder in field_data.depth_occluders:
+		var group := Node2D.new()
+		foreground_root.add_child(group)
+		_add_polygons(occluder.polygons, group)
+		group.set_meta("ground_line", Vector2(occluder.ground_line[0], occluder.ground_line[1]))
+		depth_groups.append(group)
+	var spawn: Array = field_data.spawns.get(entry, field_data.spawns.arrival)
+	_place_screen(Vector2(spawn[0], spawn[1]))
+	waypoints.clear()
 	player.velocity = Vector3.ZERO
-	walking_to_target = false
-	transition_lock = 0.7
-	heading.text = "RAVENWOOD  /  " + {"gate": "Gate courtyard", "market": "Market square", "camp": "Army camp"}[id]
-	hint.text = {"gate": "Market ← west passage     •     east passage → Army camp", "market": "Market square     •     east passage → Gate", "camp": "Muster yard     •     west passage → Gate"}[id]
+	transition_lock = 0.8
+	heading.text = "RAVENWOOD  /  " + field_data.title
+	hint.text = field_data.route_hint
+
+func _add_polygons(masks: Array, parent: Node2D) -> void:
+	for mask in masks:
+		var polygon := Polygon2D.new()
+		var points := PackedVector2Array()
+		var uv := PackedVector2Array()
+		for point in mask:
+			var screen := Vector2(point[0], point[1])
+			points.append(screen)
+			uv.append(screen / Vector2(1280, 720) * backdrop.texture.get_size())
+		polygon.polygon = points
+		polygon.uv = uv
+		polygon.texture = backdrop.texture
+		parent.add_child(polygon)
+
+func _place_screen(screen: Vector2) -> void:
+	screen_position = surface.constrain(screen)
+	player.position = surface.world_at(screen_position)
+	for group in depth_groups:
+		var ground_line: Vector2 = group.get_meta("ground_line")
+		group.visible = screen_position.y < screen_position.x * ground_line.x + ground_line.y
+
+func _exit_for_screen(screen: Vector2) -> String:
+	for id in field_data.exits:
+		var polygon := PackedVector2Array()
+		for point in field_data.exits[id]:
+			polygon.append(Vector2(point[0], point[1]))
+		if Geometry2D.is_point_in_polygon(screen, polygon):
+			return id
+	return ""
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -207,14 +227,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		_set_target(event.position)
 
 func _set_target(screen: Vector2) -> void:
-	if field_id == "gate":
-		gate_path = gate_surface.route(gate_screen, screen)
-		return
-	var plane := Plane(Vector3.UP, 0)
-	var hit = plane.intersects_ray(camera.project_ray_origin(screen), camera.project_ray_normal(screen))
-	if hit != null:
-		destination = Vector3(clampf(hit.x, -9.45, 9.45), 0, clampf(hit.z, 0.05, 3.1))
-		walking_to_target = true
+	waypoints = surface.route(screen_position, screen)
 
 func _physics_process(delta: float) -> void:
 	transition_lock = maxf(0, transition_lock - delta)
@@ -223,129 +236,23 @@ func _physics_process(delta: float) -> void:
 	input.y = float(Input.is_physical_key_pressed(KEY_S) or Input.is_physical_key_pressed(KEY_DOWN)) - float(Input.is_physical_key_pressed(KEY_W) or Input.is_physical_key_pressed(KEY_UP))
 	if joystick.direction.length() > 0.1:
 		input = joystick.direction
+	_walk(input.limit_length(), delta)
+
+func _walk(input: Vector2, delta: float) -> void:
 	if input.length() > 0.1:
-		walking_to_target = false
-	elif walking_to_target:
-		var offset := destination - player.position
-		if Vector2(offset.x, offset.z).length() < 0.12:
-			walking_to_target = false
-		else:
-			input = Vector2(offset.x, offset.z).normalized()
-	input = input.limit_length()
-	if field_id == "gate":
-		_walk_gate(input, delta)
-		return
-	player.velocity = Vector3(input.x * 3, -1, input.y * 3)
-	player.move_and_slide()
-	player.position.x = clampf(player.position.x, -9.5, 9.5)
-	player.position.z = clampf(player.position.z, 0.05, 3.1)
-	player.position.y = maxf(0, player.position.y)
-	if input.length() > 0.1:
-		body_visual.rotation.y = lerp_angle(body_visual.rotation.y, atan2(input.x, input.y), delta * 12)
-		moving_time += delta * 10
-		body_visual.position.y = sin(moving_time) * 0.025
-	else:
-		body_visual.position.y = 0
-	if transition_lock > 0 or absf(player.position.z) > 1.6:
-		return
-	if field_id == "market" and player.position.x > 9.2:
-		load_field("gate", Vector3(-8.3, 0, 1))
-	elif field_id == "camp" and player.position.x < -9.2:
-		load_field("gate", Vector3(8.3, 0, 1))
-
-func _load_approved_gate(spawn: Vector3) -> void:
-	player.scale = Vector3.ONE * 0.55
-	gate_data = JSON.parse_string(FileAccess.get_file_as_string("res://data/ravenwood_gate.json"))
-	backdrop.texture = load(gate_data.backdrop)
-	var position_data: Array = gate_data.camera_position
-	var target: Array = gate_data.camera_target
-	camera.position = Vector3(position_data[0], position_data[1], position_data[2])
-	camera.look_at(Vector3(target[0], target[1], target[2]))
-	camera.fov = gate_data.fov
-	gate_surface = FieldSurface.new()
-	gate_surface.configure(camera, gate_data.navigation_outline, gate_data.navigation_heights)
-	if has_node("WalkMesh"):
-		get_node("WalkMesh").free()
-	var floor_body := StaticBody3D.new()
-	floor_body.name = "WalkMesh"
-	var shape := CollisionShape3D.new()
-	var mesh_shape := ConcavePolygonShape3D.new()
-	mesh_shape.set_faces(gate_surface.collision_faces())
-	shape.shape = mesh_shape
-	floor_body.add_child(shape)
-	add_child(floor_body)
-	for mask in gate_data.foreground_polygons:
-		var polygon := Polygon2D.new()
-		var points := PackedVector2Array()
-		var uv := PackedVector2Array()
-		for point in mask:
-			var screen := Vector2(point[0], point[1])
-			points.append(screen)
-			uv.append(screen / Vector2(1280, 720) * backdrop.texture.get_size())
-		polygon.polygon = points
-		polygon.uv = uv
-		polygon.texture = backdrop.texture
-		gate_foreground.add_child(polygon)
-	fence_foreground = Node2D.new()
-	gate_foreground.add_child(fence_foreground)
-	for mask in gate_data.fence_foreground_polygons:
-		var polygon := Polygon2D.new()
-		var points := PackedVector2Array()
-		var uv := PackedVector2Array()
-		for point in mask:
-			var screen := Vector2(point[0], point[1])
-			points.append(screen)
-			uv.append(screen / Vector2(1280, 720) * backdrop.texture.get_size())
-		polygon.polygon = points
-		polygon.uv = uv
-		polygon.texture = backdrop.texture
-		fence_foreground.add_child(polygon)
-	var entry := "arrival"
-	if spawn.x < -1:
-		entry = "market"
-	elif spawn.x > 1:
-		entry = "camp"
-	var screen_spawn: Array = gate_data.spawns[entry]
-	_place_gate_screen(Vector2(screen_spawn[0], screen_spawn[1]))
-	gate_path.clear()
-	player.velocity = Vector3.ZERO
-	walking_to_target = false
-	transition_lock = 0.8
-	heading.text = "RAVENWOOD  /  Gate courtyard"
-	hint.text = "Market ← left lane     •     right lane → Army camp"
-
-func _place_gate_screen(screen: Vector2) -> void:
-	gate_screen = gate_surface.constrain(screen)
-	player.position = gate_surface.world_at(gate_screen)
-	if is_instance_valid(fence_foreground):
-		fence_foreground.visible = gate_screen.y < gate_screen.x * 0.28 + 238
-
-func _gate_exit_for_screen(screen: Vector2) -> String:
-	for id in gate_data.exits:
-		var polygon := PackedVector2Array()
-		for point in gate_data.exits[id]:
-			polygon.append(Vector2(point[0], point[1]))
-		if Geometry2D.is_point_in_polygon(screen, polygon):
-			return id
-	return ""
-
-func _walk_gate(input: Vector2, delta: float) -> void:
-	if input.length() > 0.1:
-		gate_path.clear()
-	elif not gate_path.is_empty():
-		var offset := gate_path[0] - gate_screen
+		waypoints.clear()
+	elif not waypoints.is_empty():
+		var offset := waypoints[0] - screen_position
 		if offset.length() < 3:
-			gate_path.remove_at(0)
+			waypoints.remove_at(0)
 		else:
 			input = offset.normalized()
 	var pixel_speed := camera.unproject_position(player.position + Vector3.RIGHT * 3.0).distance_to(camera.unproject_position(player.position))
 	var distance := pixel_speed * delta
-	if not gate_path.is_empty():
-		distance = minf(distance, gate_screen.distance_to(gate_path[0]))
+	if not waypoints.is_empty():
+		distance = minf(distance, screen_position.distance_to(waypoints[0]))
 	var old_position := player.position
-	var candidate := gate_screen + input * distance
-	# Constrain each short step to the traced floor, including corners of concave routes.
-	_place_gate_screen(candidate)
+	_place_screen(screen_position + input * distance)
 	var movement := player.position - old_position
 	if movement.length() > 0.001:
 		body_visual.rotation.y = lerp_angle(body_visual.rotation.y, atan2(movement.x, movement.z), delta * 12)
@@ -353,15 +260,15 @@ func _walk_gate(input: Vector2, delta: float) -> void:
 		body_visual.position.y = sin(moving_time) * 0.018
 	else:
 		body_visual.position.y = 0
-	var upper := gate_screen.y < 385 and gate_screen.x > 650 and gate_screen.x < 800
-	if upper:
-		hint.text = "Upper town opens in a later chapter"
-	else:
-		hint.text = "Market ← left lane     •     right lane → Army camp"
+	hint.text = field_data.route_hint
+	for area in field_data.closed_areas:
+		var polygon := PackedVector2Array()
+		for point in area.polygon:
+			polygon.append(Vector2(point[0], point[1]))
+		if Geometry2D.is_point_in_polygon(screen_position, polygon):
+			hint.text = area.hint
 	if transition_lock > 0:
 		return
-	var exit := _gate_exit_for_screen(gate_screen)
-	if exit == "market":
-		load_field("market", Vector3(8.3, 0, 1))
-	elif exit == "camp":
-		load_field("camp", Vector3(-8.3, 0, 1))
+	var destination := _exit_for_screen(screen_position)
+	if not destination.is_empty():
+		load_field(destination, field_id)

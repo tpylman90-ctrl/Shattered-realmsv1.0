@@ -1,0 +1,9 @@
+{
+  "title": "Ravenwood camp",
+  "provenance": "Generated with built-in ImageGen for this project, using the user-approved Ravenwood gate as the style reference. Original artwork; no extracted game assets.",
+  "source_sha256": "7fc317ead609344c12f367766f257f35a9f01ac0f6a4001ea57d7740820cfde8",
+  "runtime_asset": "game/assets/ravenwood/camp.webp",
+  "runtime_sha256": "2ac35aa414184349f6a2340b9fcc888ae9b29032b4b4c339052352c74baf51a0",
+  "processing": "Format conversion only; original dimensions preserved; WebP quality 97.",
+  "limitations": "Fitted camera and traced floor approximate painted perspective. Interior gameplay is not implemented."
+}

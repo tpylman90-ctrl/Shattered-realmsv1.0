@@ -1,28 +1,27 @@
-# Field scene contract
+# Ravenwood field scene contract
 
-Design a connected graph of compact locations before rendering. Proposed Ravenwood nodes: gate, market square, forge lane, inn, watch platform, forest exit.
+## Current locations
 
-Each scene must ship together: backdrop(s), camera transform and projection, walkmesh, collision, occluders, prop anchors, spawn points and exits. Use perspective depth for natural character scale; do not fake scale independently of the camera.
+- Gate courtyard: user-approved detailed illustration, market lane to the left, camp lane to the right and raised upper-town steps.
+- Market square: timber inn, smithy, market stalls and well; right-hand alley returns to the gate. Traced paths lead around the well's front and to the inn steps.
+- Army camp: command tent, muster path, barracks and training area; left palisade opening returns to the gate.
 
-Background foreground layers or invisible depth occluders hide characters correctly. Add visible 3D geometry where interaction or movement requires it. Bake static detail and light. Validate character grounding/shadows and light matching on-device.
+All three use original high-detail generated background art with foreground sections and a fitted 3D floor. None uses the earlier procedural render at runtime. The gate artwork, camera and character scale remain unchanged. Character size/animation improvements are explicitly deferred until locations are established.
 
-Keep key routes readable. Preserve movement direction through camera transitions until the input is released. Define a safe 16:9 composition, use letterboxing rather than unpredictable cropping on other aspect ratios, and keep UI in safe areas.
+## Shared runtime
 
-Acceptance: walk entire accessible area; no backdrop sliding, hidden exits or floating feet; stairs match; foreground overlap works; doorway return spawn does not immediately retrigger; measure memory/frame time on Android.
+Every location defines its image, fixed camera, navigation outline/heights, foreground polygons, depth-sensitive occluders, spawns, exits, route hint and closed areas in `game/data/ravenwood_*.json`. `field.gd` loads the same format for each location; `field_surface.gd` projects the traced floor into 3D and routes taps around the nonwalkable scenery. The camera/floor fit approximates painted perspective, not an exact reconstructed Blender camera.
 
-## First playable implementation
+Near roofs, trees, awnings and supplies sample the same backdrop with matching UVs to overlap the character without repainting the artwork. The gate fence and market well change draw order based on the character's floor position. The geometric character retains the same scale setting across locations. Touch joystick, tap-to-walk and WASD/arrows share the same floor constraints.
 
-Three original Blender-rendered screens: gate courtyard, market square and army camp. Gate west ↔ market east; gate east ↔ camp west. Only central side passages transition. Return spawns sit inside the arrival scene and have a short transition lock.
+The project renders a fixed 1280×720 viewport with aspect-preserving letterboxing, keeping image composition, input coordinates, occluders and camera projection aligned on different screen shapes. Camera movement remains fixed. Scene returns spawn clear of exit triggers, with a brief transition lock; held directional input remains consistent.
 
-Fixed perspective camera, floor collision mesh, transparent foreground render, touch joystick, tap-to-walk and WASD/arrows. MAP toggles a compact route guide. Character is a geometric movement placeholder with a simple motion bob, not final hero art or a walk animation. Interiors, upper town, NPCs, stairs, interactive props and campaign exits remain planned. Runtime movement plane is intentionally restricted to the open central street.
+## Production and validation
 
-Backdrops are generated during CI instead of storing render binaries in Git. Keep camera metadata and PNGs together. The desktop smoke/test pass verifies scene loading and bidirectional transitions; Android performance and touch feel still require device review.
+Art is stored as high-quality WebP copies; source generation hashes and processing history are in `assets/catalog/`. CI packages these images directly and does not regenerate them. Blender tools and the calibration workflow remain available for future meshes, props and animation.
 
+Checks cover packaged assets, both directions of every connection, safe arrival points, tap routes around obstacles, camera projection, raised steps and actual simulated travel to each exit. In-engine captures review each scene with controls and the character visible. Android touch feel and frame time still need device review.
 
-## Approved illustration integration
+## Remaining
 
-The gate now uses the user-approved high-detail illustration instead of the procedural backdrop. A fitted perspective camera maps a traced, concave floor polygon into 3D. Its raised vertices approximate the visible gate steps. Tap movement uses a visibility graph around the nonwalkable buildings, roof and fence; joystick movement is constrained to the same floor. This is an approximation of painted perspective, not an exact recovered Blender camera.
-
-Foreground Polygon2D sections sample the same backdrop with matching UV coordinates. Near roofs and the tree overlap the character; fence sections change draw order according to the character's ground position. No image content has been repainted or regenerated. The geometric character remains temporary. Upper town stops at the gate steps; the market and camp retain their older prototype art.
-
-Verification covers both return connections, safe spawn points, off-path exclusion, tap routes, raised steps and projection. In-engine visual captures check arrival, stairs and both side lanes. Android touch feel and frame time require device review.
+Shop/inn/tent/barracks interiors, upper town, NPCs, interactions, recruitment, combat and campaign integration are planned. Visible shop and tent entrances do not yet open interiors. The market and camp illustrate their future functions without implementing them. Character art and animation remain temporary.

@@ -27,7 +27,7 @@ The tools are installed on GitHub runners during jobs, not on the phone. Artifac
 
 ## Approved gate art and signing
 
-Gate art is a checked-in WebP copy of the user-approved generated illustration, preserving its dimensions. The market/camp are still procedural placeholders; CI renders only those two fields. The approved gate is never regenerated or overwritten by Blender. Run local rendering with `--field market` and `--field camp`.
+Gate art is a checked-in WebP copy of the user-approved generated illustration, preserving its dimensions. The market and camp now use matching original illustrations too. All three are checked in and packaged directly. Blender no longer regenerates field artwork during APK builds; the optional calibration/asset scripts remain available.
 
 The project uses a fixed 1280×720 reference viewport with aspect-preserving letterboxing so traced screen-space paths, occlusion silhouettes and camera projection share the same coordinate system on phones and desktops. This fixes camera composition across aspect ratios; the source backdrop remains 1672×941.
 

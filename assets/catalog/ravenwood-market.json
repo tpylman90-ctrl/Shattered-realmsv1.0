@@ -1,0 +1,9 @@
+{
+  "title": "Ravenwood market",
+  "provenance": "Generated with built-in ImageGen for this project, using the user-approved Ravenwood gate as the style reference. Original artwork; no extracted game assets.",
+  "source_sha256": "042934250d1ec2223827cf50358c21c0007e218046878d082fc29c22a0ae6369",
+  "runtime_asset": "game/assets/ravenwood/market.webp",
+  "runtime_sha256": "c26a4e2b7df7922100524b68ee5709dfd785e8c8b41f0696b5034635daaf8e81",
+  "processing": "Format conversion only; original dimensions preserved; WebP quality 97.",
+  "limitations": "Fitted camera and traced floor approximate painted perspective. Interior gameplay is not implemented."
+}

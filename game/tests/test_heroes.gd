@@ -41,9 +41,47 @@ func test_hero_selection_switches_model_and_keeps_clip() -> void:
 	scene.choose("female")
 	assert_eq(scene.appearance, "female")
 	assert_eq(scene.hero.current_clip, "Run")
+
 	scene.choose("male")
 	assert_eq(scene.appearance, "male")
 	assert_eq(scene.hero.current_clip, "Run")
+
+func test_elbows_flex_and_hands_stay_clear_of_hips() -> void:
+	for choice in ["female", "male"]:
+		var hero = HeroModel.new()
+		add_child_autofree(hero)
+		hero.setup(choice)
+		var skeleton := _find_skeleton(hero)
+		for clip in ["Idle", "Walk", "Run"]:
+			hero.animation_player.play(clip, 0.0)
+			var duration: float = hero.animation_player.get_animation(clip).length
+			for side in ["l", "r"]:
+				var smallest_bend := PI
+				var largest_bend := 0.0
+				var shoulder := skeleton.find_bone("upperarm_" + side)
+				hero.animation_player.seek(duration * 0.25, true)
+				var first := skeleton.get_bone_pose_rotation(shoulder)
+				hero.animation_player.seek(duration * 0.75, true)
+				if clip != "Idle":
+					assert_gt(first.angle_to(skeleton.get_bone_pose_rotation(shoulder)), 0.5,
+						choice + " " + clip + " swings from the shoulder")
+				for sample in range(24):
+					hero.animation_player.seek(duration * sample / 24.0, true)
+					skeleton.force_update_all_bone_transforms()
+					var wrist := skeleton.get_bone_global_pose(skeleton.find_bone("hand_" + side)).origin
+					var hip := skeleton.get_bone_global_pose(skeleton.find_bone("pelvis")).origin
+					var shoulder_pos := skeleton.get_bone_global_pose(shoulder).origin
+					var elbow := skeleton.get_bone_global_pose(skeleton.find_bone("lowerarm_" + side)).origin
+					var bend := (elbow - shoulder_pos).angle_to(wrist - elbow)
+					smallest_bend = minf(smallest_bend, bend)
+					largest_bend = maxf(largest_bend, bend)
+					assert_gt(absf(wrist.x - hip.x), 0.25,
+						choice + " " + clip + " keeps the wrist outside the hip silhouette")
+				if clip != "Idle":
+					assert_gt(largest_bend - smallest_bend, 0.2,
+						choice + " " + clip + " changes elbow bend through the stride")
+				if clip == "Run":
+					assert_gt(smallest_bend, 0.8, choice + " runs with bent elbows")
 
 func test_field_uses_skinned_hero_and_movement_selects_clip() -> void:
 	var scene = load("res://scenes/ravenwood.tscn").instantiate()

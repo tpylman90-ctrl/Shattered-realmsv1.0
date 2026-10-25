@@ -127,9 +127,20 @@ for actor in actors:
    for side,offset,sign in [('l',0,1),('r',.5,-1)]:
     phase=u+offset
     if clip!='Idle':foot_pose(side,phase,clip,bob)
-    shoulder=rig.pose.bones['upperarm_'+side].head.copy();swing=(.015 if clip=='Idle' else .24 if clip=='Walk' else .42)*math.sin(math.tau*phase)
-    upper=Vector((sign*.17,-swing,-1)).normalized()*arm.bones['upperarm_'+side].length;elbow=shoulder+upper
-    lower=Vector((sign*.055,-.17-swing*.4,-1 if clip!='Run' else -.36)).normalized()*arm.bones['lowerarm_'+side].length;wrist=elbow+lower
+    shoulder=rig.pose.bones['upperarm_'+side].head.copy()
+    # Swing the whole arm at the shoulder. Keep the elbow flexion relative to
+    # that swing, rather than aiming the forearm independently toward the hip.
+    # Female tunic clearance needs slightly more abduction than the male fit.
+    spread=.36 if sex=='female' else .31
+    swing=(.018 if clip=='Idle' else .38 if clip=='Walk' else .55)*math.sin(math.tau*phase)
+    # Elbows flex relative to the upper arm throughout the stride. Running
+    # keeps a roughly right-angle bend; walking uses a softer changing bend.
+    flex=(.12+.015*math.sin(t) if clip=='Idle' else
+          .40+.18*math.sin(math.tau*phase) if clip=='Walk' else
+          1.30+.24*math.sin(math.tau*phase))
+    upper=Vector((sign*math.sin(spread),-math.sin(swing)*math.cos(spread),-math.cos(swing)*math.cos(spread)))*arm.bones['upperarm_'+side].length;elbow=shoulder+upper
+    fore_spread=.18 if sex=='female' else .14
+    lower=Vector((sign*math.sin(fore_spread),-math.sin(swing+flex)*math.cos(fore_spread),-math.cos(swing+flex)*math.cos(fore_spread)))*arm.bones['lowerarm_'+side].length;wrist=elbow+lower
     pose_segment('upperarm_'+side,shoulder,elbow);pose_segment('lowerarm_'+side,elbow,wrist)
     restdir=arm.bones['lowerarm_'+side].tail_local-arm.bones['lowerarm_'+side].head_local;delta=restdir.rotation_difference(lower)
     rig.pose.bones['hand_'+side].matrix=Matrix.Translation(wrist)@delta.to_matrix().to_4x4()@R['hand_'+side].to_quaternion().to_matrix().to_4x4()

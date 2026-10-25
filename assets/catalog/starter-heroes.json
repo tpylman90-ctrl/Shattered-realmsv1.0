@@ -6,17 +6,18 @@
     {
       "id": "male",
       "asset": "game/assets/characters/starter_male.glb",
-      "sha256": "3b249c1993e419ca6437ee6187d68435d5e086c345f9aa6c408633b267c89db7"
+      "sha256": "e61ab17bebf3612098a8e9db065a593f091836500fd4c0b58810d14d945ffa0b"
     },
     {
       "id": "female",
       "asset": "game/assets/characters/starter_female.glb",
-      "sha256": "54a9fad53864463a4b94bdbc18109ffb6a2e952dbea1d85e6230d47b8a1f831b"
+      "sha256": "bd3899c1c121cf15525dd8baffc420f4920d615f65d91a4c43ef09e27fe55c31"
     }
   ],
   "limitations": [
     "No facial animation",
     "No individual stair foot IK",
     "Device performance review pending"
-  ]
+  ],
+  "animation_revision": "0.6.1: stride-dependent elbow flexion and hand clearance from the tunic"
 }

@@ -18,7 +18,7 @@ func test_both_starters_have_skeleton_and_animated_clips() -> void:
 		hero.setup(choice)
 		var skeleton := _find_skeleton(hero)
 		assert_not_null(skeleton)
-		assert_eq(skeleton.get_bone_count(), 23)
+		assert_eq(skeleton.get_bone_count(), 53)
 		for clip in ["Idle", "Walk", "Run"]:
 			hero.play_clip(clip)
 			assert_eq(hero.current_clip, clip)
@@ -63,3 +63,16 @@ func test_choice_persists_without_class_restriction() -> void:
 		assert_eq(HeroModel.selected(path), choice)
 	assert_eq(HeroModel.save_choice("unknown", path), ERR_INVALID_PARAMETER)
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
+
+func test_locomotion_matches_speed_and_exposes_running() -> void:
+	var hero = HeroModel.new()
+	add_child_autofree(hero)
+	hero.setup("female")
+	hero.update_locomotion(0.5642, 0.7, false)
+	assert_eq(hero.current_clip, "Walk")
+	assert_almost_eq(hero.animation_player.speed_scale, 1.0, 0.01)
+	hero.update_locomotion(1.5274, 0.7, true)
+	assert_eq(hero.current_clip, "Run")
+	assert_almost_eq(hero.animation_player.speed_scale, 1.0, 0.01)
+	hero.update_locomotion(0.0, 0.7, true)
+	assert_eq(hero.current_clip, "Idle")

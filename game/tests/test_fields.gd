@@ -15,7 +15,7 @@ func test_all_locations_have_packaged_art_and_valid_floor() -> void:
 		assert_eq(scene.field_data.navigation_outline.size(), scene.field_data.navigation_heights.size())
 		assert_true(scene.surface.contains(scene.screen_position))
 		assert_eq(scene._exit_for_screen(scene.screen_position), "")
-		assert_almost_eq(scene.player.scale.x, 0.55, 0.0001, "Character sizing is deferred")
+		assert_almost_eq(scene.player.scale.x, 0.7, 0.0001, "Approved hero scale is consistent across town")
 
 func test_connections_and_safe_return_spawns() -> void:
 	var scene = make_scene()

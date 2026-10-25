@@ -11,7 +11,7 @@
 - Command tent and barracks open from the camp.
 - Great hall, watch platform and forest approach return to upper town. The forest's northern road is an inspectable campaign boundary, not a territory-map transition yet.
 
-All twelve use original high-detail generated background art with foreground sections and a fitted 3D floor. None uses the earlier procedural render at runtime. Existing gate artwork, camera and character scale remain unchanged. Male/female neutral starters now replace the geometric placeholder. Their 0.55 field scale remains unchanged pending device review.
+All twelve use original high-detail generated background art with foreground sections and a fitted 3D floor. None uses the earlier procedural render at runtime. Existing gate artwork and cameras remain unchanged. The approved MPFB neutral starters replace the prototype meshes. Field scale is now 0.70 (previously 0.55), consistent across all twelve screens and pending device review.
 
 The canonical location registry is `game/data/ravenwood_locations.json`: 12 locations and 11 paired connections (22 directional doorways). MAP shows these connections and highlights the current screen; it does not teleport. Tap walking targets only the chosen doorway, avoiding unintended shop entry when crossing another entrance. Joystick and keyboard movement enter a doorway by walking into its trigger. The A/Inspect button opens nearby descriptive details and pauses movement while the dialogue is open. These descriptions do not grant items or execute transactions.
 
@@ -31,8 +31,31 @@ Checks cover packaged assets, both directions of every connection, safe arrival 
 
 ## Remaining
 
-The town layout and indoor location pass is ready for device review. NPCs, story dialogue, lodging, transactions, crafting, recruitment, combat and campaign integration remain planned. Inspectable counters and stations mark their intended functions without implementing those services. Character art is a first rigged pass; test locomotion needs foot-locking, deformation and texture polish. Painted depth and floor projection are approximations and still need phone review around doors and stairs.
+The town layout and indoor location pass is ready for device review. NPCs, story dialogue, lodging, transactions, crafting, recruitment, combat and campaign integration remain planned. Inspectable counters and stations mark their intended functions without implementing those services. Character art now uses the approved fitted outfits, 1K eye/hair textures and native skin weights. Locomotion has authored stance/swing foot targets, matched cadence, and a touch Run toggle. Animation is in place; stair placement still follows the shared fitted floor rather than individual foot IK on each stair. Further deformation polish and device performance review remain. Painted depth and floor projection are approximations and still need phone review around doors and stairs.
 
 ## Camp-side post correction
 
 The camp connection activates on the clear approach before the near fence post, rather than requiring the player to steer around the tight fence corner. Returning from camp places the character on the town side of this trigger. Regression coverage starts at the position reported in the phone screenshot and checks that the return does not bounce back into camp.
+
+## Starter animation pass — 0.6.0
+
+`art/characters/neutral-starters.blend` is the approved packed art source. The
+pinned MPFB tool reconstructs its original posed skeleton and preserves the
+native weights, UVs and alpha hair. Exports contain 53 bones, nine draw surfaces,
+and about 34–35k triangles each. Textures are capped at 1024 pixels. Procedural
+studio fabric bump is not exported as a runtime shader.
+
+Idle, Walk and Run are original looping clips. Walk/Run use analytic two-bone
+leg poses with stance travel and swing clearance; idle has restrained body and
+arm motion. Playback cadence tracks actual world movement. The Run toggle is
+available beside the existing A/B controls; ordinary tap/joystick travel walks.
+No character pose changes the traced navigation or doorway layout.
+
+The complete source can be rebuilt with `tools/characters/rig_starters.py` after
+`tools/characters/bootstrap.py`, using Blender 4.5.3. Export validation checks
+native joint indices, normalized four-influence weights, embedded textures,
+loop closure, and the mesh budget. GUT also checks model switching, speed-aware
+clip changes, and all 22 directional doors. In-engine visual and Android phone
+review remain separate from these automated checks.
+
+The editable `neutral-starters.blend` is retained separately from this runtime-only recovery commit. The checked-in GLBs are complete and do not require Blender at runtime or during APK export. Authoring regeneration requires restoring that source to `art/characters/neutral-starters.blend`; the character workflow validates committed exports when it is absent.

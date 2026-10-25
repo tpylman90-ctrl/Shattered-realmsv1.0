@@ -1,30 +1,22 @@
 {
-  "description": "Original neutral starter mesh study, mobile reduction and fitted MPFB game-engine skeleton. No MakeHuman body mesh is used in these exports.",
-  "geometry": "Original project-generated male and female meshes; fixed clothing, separate future weapons/shields.",
-  "skeleton_source": "makehumancommunity/mpfb2",
-  "mpfb_version": "2.0.18",
-  "mpfb_commit": "d0a32e57a7f915cb2f2b95410e2117648c7bbb7e",
-  "skeleton_license": "CC0-1.0",
-  "license_copy": "assets/licenses/MPFB-CC0.md",
-  "animation": "Original prototype Idle/Walk/Run authored in tools/characters/rig_starters.py",
-  "blender": "4.5.3 LTS",
-  "rigify": "Bundled Rigify path validated on MPFB reference human; control rig not shipped in Android.",
+  "description": "Approved MPFB human forms and fitted neutral travel outfits; native weights and 53-bone skeletons.",
+  "provenance": "art/characters/provenance.json",
+  "authoring_source": "Retained separately; restore to art/characters/neutral-starters.blend for regeneration.",
   "models": [
     {
       "id": "male",
       "asset": "game/assets/characters/starter_male.glb",
-      "sha256": "33d20c32f5ed2c03b45e22a96b9f50e3956fed221f203942eaded1cddc4c1e7d"
+      "sha256": "3b249c1993e419ca6437ee6187d68435d5e086c345f9aa6c408633b267c89db7"
     },
     {
       "id": "female",
       "asset": "game/assets/characters/starter_female.glb",
-      "sha256": "8e35de375fecf407015924995fc40a01703ff43091f74364bb6edba6eb1c6193"
+      "sha256": "54a9fad53864463a4b94bdbc18109ffb6a2e952dbea1d85e6230d47b8a1f831b"
     }
   ],
   "limitations": [
-    "Test gait needs foot-locking and deformation polish.",
-    "No face/finger animation, no weapon/shield sockets yet.",
-    "Vertex colors replace studio materials; painted/baked textures remain future work.",
-    "28k triangles per hero is an initial budget, not a measured device performance guarantee."
+    "No facial animation",
+    "No individual stair foot IK",
+    "Device performance review pending"
   ]
 }

@@ -47,6 +47,17 @@ func play_clip(clip: String) -> void:
 		return
 	for candidate in animation_player.get_animation_list():
 		if candidate == clip or candidate.ends_with("/" + clip):
+			animation_player.speed_scale = 1.0
 			animation_player.play(candidate, 0.15)
 			current_clip = clip
 			return
+
+func update_locomotion(world_speed: float, model_scale: float, running: bool) -> void:
+	if world_speed < 0.03:
+		play_clip("Idle")
+		animation_player.speed_scale = 1.0
+		return
+	play_clip("Run" if running else "Walk")
+	# Stance travel divided by stance duration in the authored in-place cycles.
+	var native_speed := 2.182 if running else 0.806
+	animation_player.speed_scale = clampf(world_speed / (maxf(model_scale, 0.01) * native_speed), 0.5, 1.8)

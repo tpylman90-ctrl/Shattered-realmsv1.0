@@ -9,3 +9,7 @@ game/assets/generated/
 *.apk
 *.aab
 __pycache__/
+
+# Generated from embedded images during Godot GLB import.
+game/assets/characters/starter_*_*.png
+game/assets/characters/starter_*_*.png.import

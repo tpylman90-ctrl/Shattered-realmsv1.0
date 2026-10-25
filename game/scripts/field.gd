@@ -23,6 +23,7 @@ var location_names: Dictionary
 var requested_exit := ""
 var manual_move := true
 var hero_visual: Node3D
+var sprinting := false
 
 func _ready() -> void:
 	location_names = JSON.parse_string(FileAccess.get_file_as_string("res://data/ravenwood_locations.json")).locations
@@ -107,6 +108,15 @@ func _build_layers() -> void:
 	inspect_button.size = Vector2(120,60)
 	inspect_button.pressed.connect(_inspect_nearest)
 	ui.add_child(inspect_button)
+	var run_button := Button.new()
+	run_button.text = "Run: Off"
+	run_button.toggle_mode = true
+	run_button.position = Vector2(1020, 480)
+	run_button.size = Vector2(230, 60)
+	run_button.toggled.connect(func(active: bool):
+		sprinting = active
+		run_button.text = "Run: On" if active else "Run: Off")
+	ui.add_child(run_button)
 	var cancel := Button.new()
 	cancel.text = "B • Close"
 	cancel.position = Vector2(1140,555)
@@ -265,7 +275,8 @@ func _walk(input: Vector2, delta: float) -> void:
 			waypoints.remove_at(0)
 		else:
 			input = offset.normalized()
-	var pixel_speed := camera.unproject_position(player.position + Vector3.RIGHT * 3.0).distance_to(camera.unproject_position(player.position))
+	var movement_speed := (2.864 if sprinting else 1.129) * player.scale.x
+	var pixel_speed := camera.unproject_position(player.position + Vector3.RIGHT * movement_speed).distance_to(camera.unproject_position(player.position))
 	var distance := pixel_speed * delta
 	if not waypoints.is_empty():
 		distance = minf(distance, screen_position.distance_to(waypoints[0]))
@@ -274,7 +285,7 @@ func _walk(input: Vector2, delta: float) -> void:
 	var movement := player.position - old_position
 	if movement.length() > 0.001:
 		body_visual.rotation.y = lerp_angle(body_visual.rotation.y, atan2(movement.x, movement.z), delta * 12)
-		hero_visual.play_clip("Walk")
+		hero_visual.update_locomotion(Vector2(movement.x, movement.z).length() / maxf(delta, 0.001), player.scale.x, sprinting)
 		moving_time += delta * 10
 		body_visual.position.y = 0
 	else:

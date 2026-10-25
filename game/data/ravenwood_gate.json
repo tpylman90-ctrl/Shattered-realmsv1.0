@@ -508,7 +508,7 @@
     ]
   },
   "route_hint": "Market \u2190 left lane \u2022 Army camp \u2192 right lane \u2022 Upper town through gate",
-  "character_scale": 0.55,
+  "character_scale": 0.7,
   "closed_areas": [],
   "depth_occluders": [
     {

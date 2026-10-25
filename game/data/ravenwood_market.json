@@ -433,6 +433,18 @@
     "gate": [
       1090,
       465
+    ],
+    "inn": [
+      305,
+      375
+    ],
+    "forge": [
+      750,
+      550
+    ],
+    "shop": [
+      285,
+      450
     ]
   },
   "exits": {
@@ -453,9 +465,63 @@
         1150,
         440
       ]
+    ],
+    "inn": [
+      [
+        289.0,
+        302.5
+      ],
+      [
+        341.0,
+        302.5
+      ],
+      [
+        341.0,
+        337.5
+      ],
+      [
+        289.0,
+        337.5
+      ]
+    ],
+    "forge": [
+      [
+        682.5,
+        482.5
+      ],
+      [
+        747.5,
+        482.5
+      ],
+      [
+        747.5,
+        517.5
+      ],
+      [
+        682.5,
+        517.5
+      ]
+    ],
+    "shop": [
+      [
+        224.0,
+        375.0
+      ],
+      [
+        266.0,
+        375.0
+      ],
+      [
+        266.0,
+        415.0
+      ],
+      [
+        224.0,
+        415.0
+      ]
     ]
   },
-  "route_hint": "Inn and smithy     \u2022     right alley \u2192 Gate",
+  "route_hint": "Inn \u2190 steps \u2022 Forge \u2192 workshop \u2022 Provisioner \u2190 west stalls \u2022 Gate \u2192 east",
   "closed_areas": [],
   "depth_occluders": [
     {
@@ -535,6 +601,16 @@
         0,
         495
       ]
+    }
+  ],
+  "inspections": [
+    {
+      "position": [
+        620,
+        540
+      ],
+      "title": "Market well",
+      "text": "The well and surrounding stalls are a familiar meeting place for Ravenwood\u2019s residents."
     }
   ]
 }

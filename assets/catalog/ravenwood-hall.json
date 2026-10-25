@@ -1,0 +1,9 @@
+{
+  "title": "Great hall",
+  "provenance": "Original built-in ImageGen artwork created for Ravenwood using the approved gate image as the material and art-direction reference.",
+  "source_sha256": "1dbadc5a4dacd2c698333cb9d4e55c90e9db504bd81757d2ce7f294ea2ce2632",
+  "runtime_asset": "game/assets/ravenwood/hall.webp",
+  "runtime_sha256": "47bf254304cd4bd4f72471fbb70bd0d0f01dafc5f90dd62813d4fff1c4cf2a33",
+  "processing": "Format conversion only, original dimensions preserved, WebP quality 95.",
+  "limitations": "Painted perspective approximated by fitted camera and traced 3D floor."
+}

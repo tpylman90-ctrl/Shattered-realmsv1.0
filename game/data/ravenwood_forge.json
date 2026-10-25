@@ -1,0 +1,255 @@
+{
+  "title": "Iron & Ember Forge",
+  "backdrop": "res://assets/ravenwood/forge.webp",
+  "camera_position": [
+    0,
+    4,
+    14
+  ],
+  "camera_target": [
+    0,
+    0,
+    3
+  ],
+  "fov": 50,
+  "reference_size": [
+    1280,
+    720
+  ],
+  "character_scale": 0.55,
+  "navigation_outline": [
+    [
+      520,
+      710
+    ],
+    [
+      760,
+      710
+    ],
+    [
+      775,
+      650
+    ],
+    [
+      800,
+      590
+    ],
+    [
+      820,
+      530
+    ],
+    [
+      840,
+      470
+    ],
+    [
+      830,
+      410
+    ],
+    [
+      800,
+      355
+    ],
+    [
+      760,
+      315
+    ],
+    [
+      720,
+      280
+    ],
+    [
+      675,
+      245
+    ],
+    [
+      630,
+      230
+    ],
+    [
+      590,
+      235
+    ],
+    [
+      555,
+      260
+    ],
+    [
+      535,
+      300
+    ],
+    [
+      510,
+      335
+    ],
+    [
+      490,
+      370
+    ],
+    [
+      480,
+      405
+    ],
+    [
+      485,
+      450
+    ],
+    [
+      500,
+      500
+    ],
+    [
+      505,
+      565
+    ],
+    [
+      510,
+      640
+    ]
+  ],
+  "navigation_heights": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "foreground_polygons": [
+    [
+      [
+        0,
+        425
+      ],
+      [
+        145,
+        442
+      ],
+      [
+        290,
+        470
+      ],
+      [
+        380,
+        495
+      ],
+      [
+        460,
+        515
+      ],
+      [
+        485,
+        590
+      ],
+      [
+        500,
+        720
+      ],
+      [
+        0,
+        720
+      ]
+    ],
+    [
+      [
+        1280,
+        440
+      ],
+      [
+        1110,
+        460
+      ],
+      [
+        970,
+        480
+      ],
+      [
+        885,
+        510
+      ],
+      [
+        840,
+        565
+      ],
+      [
+        800,
+        625
+      ],
+      [
+        780,
+        720
+      ],
+      [
+        1280,
+        720
+      ]
+    ]
+  ],
+  "spawns": {
+    "arrival": [
+      645,
+      610
+    ],
+    "market": [
+      645,
+      610
+    ]
+  },
+  "exits": {
+    "market": [
+      [
+        552.5,
+        674.0
+      ],
+      [
+        737.5,
+        674.0
+      ],
+      [
+        737.5,
+        716.0
+      ],
+      [
+        552.5,
+        716.0
+      ]
+    ]
+  },
+  "route_hint": "Market \u2190 front doorway \u2022 A: inspect forge stations",
+  "closed_areas": [],
+  "depth_occluders": [],
+  "inspections": [
+    {
+      "position": [
+        520,
+        380
+      ],
+      "title": "The forge",
+      "text": "Iron, seasoned wood and leather become the tools Ravenwood depends on. Recipes and careful hammer work will shape this forge\u2019s craft."
+    },
+    {
+      "position": [
+        780,
+        410
+      ],
+      "title": "Smith\u2019s workbench",
+      "text": "Tongs, chisels and unfinished fittings wait beside a rack of carefully maintained weapons."
+    }
+  ]
+}

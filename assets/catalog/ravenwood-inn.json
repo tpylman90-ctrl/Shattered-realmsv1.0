@@ -1,0 +1,9 @@
+{
+  "title": "Green Hart Inn",
+  "provenance": "Original built-in ImageGen artwork created for Ravenwood using the approved gate image as the material and art-direction reference.",
+  "source_sha256": "deeb0aa9ce10067e187ae5e4f21bfa21350309c00820cd1224e3efdc30bf2c58",
+  "runtime_asset": "game/assets/ravenwood/inn.webp",
+  "runtime_sha256": "8922afdc2fac07bbfa22b744b51de8ddae6a42d9361e4f16b93202d900a9f65b",
+  "processing": "Format conversion only, original dimensions preserved, WebP quality 95.",
+  "limitations": "Painted perspective approximated by fitted camera and traced 3D floor."
+}

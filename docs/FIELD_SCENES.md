@@ -6,7 +6,14 @@
 - Market square: timber inn, smithy, market stalls and well; right-hand alley returns to the gate. Traced paths lead around the well's front and to the inn steps.
 - Army camp: command tent, muster path, barracks and training area; left palisade opening returns to the gate.
 
-All three use original high-detail generated background art with foreground sections and a fitted 3D floor. None uses the earlier procedural render at runtime. The gate artwork, camera and character scale remain unchanged. Character size/animation improvements are explicitly deferred until locations are established.
+- Upper town connects the gate to the great hall, watch platform and forest approach.
+- The Green Hart inn, Iron & Ember forge and provisioner open from the market.
+- Command tent and barracks open from the camp.
+- Great hall, watch platform and forest approach return to upper town. The forest's northern road is an inspectable campaign boundary, not a territory-map transition yet.
+
+All twelve use original high-detail generated background art with foreground sections and a fitted 3D floor. None uses the earlier procedural render at runtime. Existing gate artwork, camera and character scale remain unchanged. Character size/animation improvements are explicitly deferred until locations are established.
+
+The canonical location registry is `game/data/ravenwood_locations.json`: 12 locations and 11 paired connections (22 directional doorways). MAP shows these connections and highlights the current screen; it does not teleport. Tap walking targets only the chosen doorway, avoiding unintended shop entry when crossing another entrance. Joystick and keyboard movement enter a doorway by walking into its trigger. The A/Inspect button opens nearby descriptive details and pauses movement while the dialogue is open. These descriptions do not grant items or execute transactions.
 
 ## Shared runtime
 
@@ -24,7 +31,7 @@ Checks cover packaged assets, both directions of every connection, safe arrival 
 
 ## Remaining
 
-Shop/inn/tent/barracks interiors, upper town, NPCs, interactions, recruitment, combat and campaign integration are planned. Visible shop and tent entrances do not yet open interiors. The market and camp illustrate their future functions without implementing them. Character art and animation remain temporary.
+The town layout and indoor location pass is ready for device review. NPCs, story dialogue, lodging, transactions, crafting, recruitment, combat and campaign integration remain planned. Inspectable counters and stations mark their intended functions without implementing those services. Character art and animation remain temporary. Painted depth and floor projection are approximations and still need phone review around doors and stairs.
 
 ## Camp-side post correction
 

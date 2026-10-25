@@ -1,0 +1,62 @@
+{
+  "locations": {
+    "gate": "Gate courtyard",
+    "market": "Market square",
+    "camp": "Army camp",
+    "upper": "Upper town",
+    "inn": "Green Hart Inn",
+    "forge": "Iron & Ember Forge",
+    "shop": "Provisioner",
+    "hall": "Great hall",
+    "command": "Command tent",
+    "barracks": "Barracks",
+    "watch": "Watch platform",
+    "forest": "Forest approach"
+  },
+  "connections": [
+    [
+      "gate",
+      "market"
+    ],
+    [
+      "gate",
+      "camp"
+    ],
+    [
+      "gate",
+      "upper"
+    ],
+    [
+      "market",
+      "inn"
+    ],
+    [
+      "market",
+      "forge"
+    ],
+    [
+      "market",
+      "shop"
+    ],
+    [
+      "camp",
+      "command"
+    ],
+    [
+      "camp",
+      "barracks"
+    ],
+    [
+      "upper",
+      "hall"
+    ],
+    [
+      "upper",
+      "watch"
+    ],
+    [
+      "upper",
+      "forest"
+    ]
+  ]
+}

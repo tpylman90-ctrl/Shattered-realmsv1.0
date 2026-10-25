@@ -1,0 +1,9 @@
+{
+  "title": "Command tent",
+  "provenance": "Original built-in ImageGen artwork created for Ravenwood using the approved gate image as the material and art-direction reference.",
+  "source_sha256": "2985cfc85b108099f3a2c5e08c5afdc80d6bbbf982e5725325383c6c30f12b40",
+  "runtime_asset": "game/assets/ravenwood/command.webp",
+  "runtime_sha256": "c7dce53e73ed2821c04e4c6b5949d6675a351bb052443bc1793b23bf7a1797d6",
+  "processing": "Format conversion only, original dimensions preserved, WebP quality 95.",
+  "limitations": "Painted perspective approximated by fitted camera and traced 3D floor."
+}

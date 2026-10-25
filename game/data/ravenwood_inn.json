@@ -1,0 +1,270 @@
+{
+  "title": "Green Hart Inn",
+  "backdrop": "res://assets/ravenwood/inn.webp",
+  "camera_position": [
+    0,
+    4,
+    14
+  ],
+  "camera_target": [
+    0,
+    0,
+    3
+  ],
+  "fov": 50,
+  "reference_size": [
+    1280,
+    720
+  ],
+  "character_scale": 0.55,
+  "navigation_outline": [
+    [
+      500,
+      710
+    ],
+    [
+      790,
+      710
+    ],
+    [
+      805,
+      650
+    ],
+    [
+      850,
+      610
+    ],
+    [
+      880,
+      560
+    ],
+    [
+      865,
+      500
+    ],
+    [
+      845,
+      450
+    ],
+    [
+      810,
+      410
+    ],
+    [
+      780,
+      365
+    ],
+    [
+      730,
+      340
+    ],
+    [
+      680,
+      320
+    ],
+    [
+      650,
+      285
+    ],
+    [
+      610,
+      260
+    ],
+    [
+      570,
+      255
+    ],
+    [
+      530,
+      265
+    ],
+    [
+      500,
+      285
+    ],
+    [
+      460,
+      300
+    ],
+    [
+      430,
+      320
+    ],
+    [
+      420,
+      355
+    ],
+    [
+      455,
+      390
+    ],
+    [
+      485,
+      420
+    ],
+    [
+      510,
+      470
+    ],
+    [
+      505,
+      520
+    ],
+    [
+      490,
+      580
+    ],
+    [
+      485,
+      650
+    ]
+  ],
+  "navigation_heights": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "foreground_polygons": [
+    [
+      [
+        0,
+        390
+      ],
+      [
+        120,
+        410
+      ],
+      [
+        230,
+        450
+      ],
+      [
+        330,
+        485
+      ],
+      [
+        405,
+        540
+      ],
+      [
+        440,
+        595
+      ],
+      [
+        450,
+        720
+      ],
+      [
+        0,
+        720
+      ]
+    ],
+    [
+      [
+        1280,
+        360
+      ],
+      [
+        1190,
+        390
+      ],
+      [
+        1090,
+        430
+      ],
+      [
+        980,
+        470
+      ],
+      [
+        910,
+        535
+      ],
+      [
+        860,
+        590
+      ],
+      [
+        840,
+        720
+      ],
+      [
+        1280,
+        720
+      ]
+    ]
+  ],
+  "spawns": {
+    "arrival": [
+      650,
+      610
+    ],
+    "market": [
+      650,
+      610
+    ]
+  },
+  "exits": {
+    "market": [
+      [
+        550.0,
+        674.0
+      ],
+      [
+        750.0,
+        674.0
+      ],
+      [
+        750.0,
+        716.0
+      ],
+      [
+        550.0,
+        716.0
+      ]
+    ]
+  },
+  "route_hint": "Market \u2190 front doorway \u2022 A: inspect nearby details",
+  "closed_areas": [],
+  "depth_occluders": [],
+  "inspections": [
+    {
+      "position": [
+        560,
+        290
+      ],
+      "title": "The Green Hart",
+      "text": "A warm hearth, travelers\u2019 meals and rooms above the taproom make this the heart of Ravenwood."
+    },
+    {
+      "position": [
+        750,
+        375
+      ],
+      "title": "Inn counter",
+      "text": "A bell rests beside the ledger. The innkeeper will handle lodging here."
+    }
+  ]
+}

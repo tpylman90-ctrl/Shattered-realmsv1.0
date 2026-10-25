@@ -1,0 +1,9 @@
+{
+  "title": "Barracks",
+  "provenance": "Original built-in ImageGen artwork created for Ravenwood using the approved gate image as the material and art-direction reference.",
+  "source_sha256": "2ec9522a272e957d7a2a06e5c7c16e141bc52b3706f20749cde311d11ec1354f",
+  "runtime_asset": "game/assets/ravenwood/barracks.webp",
+  "runtime_sha256": "b8dec877c12c0509d675aa51e139c81ec03d0496142ea6d725799b16fcc306d0",
+  "processing": "Format conversion only, original dimensions preserved, WebP quality 95.",
+  "limitations": "Painted perspective approximated by fitted camera and traced 3D floor."
+}

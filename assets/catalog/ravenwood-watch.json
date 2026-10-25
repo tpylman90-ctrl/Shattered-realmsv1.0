@@ -1,0 +1,9 @@
+{
+  "title": "Watch platform",
+  "provenance": "Original built-in ImageGen artwork created for Ravenwood using the approved gate image as the material and art-direction reference.",
+  "source_sha256": "520ae2ea65348ef83983e8217c6844bb7ac9750ffbdc10149302c18e852a01e9",
+  "runtime_asset": "game/assets/ravenwood/watch.webp",
+  "runtime_sha256": "5ec8802df4d0883ccd9754b65df76e28530e171d3722ac3e4b1d9ca873d8e51e",
+  "processing": "Format conversion only, original dimensions preserved, WebP quality 95.",
+  "limitations": "Painted perspective approximated by fitted camera and traced 3D floor."
+}

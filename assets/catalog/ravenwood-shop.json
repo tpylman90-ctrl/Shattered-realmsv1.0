@@ -1,0 +1,9 @@
+{
+  "title": "Provisioner",
+  "provenance": "Original built-in ImageGen artwork created for Ravenwood using the approved gate image as the material and art-direction reference.",
+  "source_sha256": "21c76ccad76261744194203c0e87adca88480e934da9900cb3617df4caec44f4",
+  "runtime_asset": "game/assets/ravenwood/shop.webp",
+  "runtime_sha256": "7b6fcf9080ef38457cd462b6059dc88b91eb11240196ca8ce3423a4b5a5f3856",
+  "processing": "Format conversion only, original dimensions preserved, WebP quality 95.",
+  "limitations": "Painted perspective approximated by fitted camera and traced 3D floor."
+}

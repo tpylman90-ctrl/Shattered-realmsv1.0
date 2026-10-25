@@ -1,0 +1,9 @@
+{
+  "title": "Forest approach",
+  "provenance": "Original built-in ImageGen artwork created for Ravenwood using the approved gate image as the material and art-direction reference.",
+  "source_sha256": "5eaa887710a9303e26b0fda27a1edba8a256e2a050423cddaffef2d01bad5d5d",
+  "runtime_asset": "game/assets/ravenwood/forest.webp",
+  "runtime_sha256": "17e25400d5eba67658a40396174cb4106ea0ec9a20771ec77d6b6aef9002cc46",
+  "processing": "Format conversion only, original dimensions preserved, WebP quality 95.",
+  "limitations": "Painted perspective approximated by fitted camera and traced 3D floor."
+}

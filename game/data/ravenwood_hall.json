@@ -1,0 +1,237 @@
+{
+  "title": "Great hall",
+  "backdrop": "res://assets/ravenwood/hall.webp",
+  "camera_position": [
+    0,
+    4,
+    14
+  ],
+  "camera_target": [
+    0,
+    0,
+    3
+  ],
+  "fov": 50,
+  "reference_size": [
+    1280,
+    720
+  ],
+  "character_scale": 0.55,
+  "navigation_outline": [
+    [
+      495,
+      710
+    ],
+    [
+      790,
+      710
+    ],
+    [
+      795,
+      640
+    ],
+    [
+      805,
+      580
+    ],
+    [
+      810,
+      520
+    ],
+    [
+      805,
+      460
+    ],
+    [
+      780,
+      405
+    ],
+    [
+      750,
+      355
+    ],
+    [
+      725,
+      310
+    ],
+    [
+      720,
+      270
+    ],
+    [
+      690,
+      245
+    ],
+    [
+      650,
+      240
+    ],
+    [
+      605,
+      245
+    ],
+    [
+      575,
+      270
+    ],
+    [
+      560,
+      315
+    ],
+    [
+      540,
+      355
+    ],
+    [
+      520,
+      405
+    ],
+    [
+      505,
+      460
+    ],
+    [
+      500,
+      520
+    ],
+    [
+      490,
+      580
+    ]
+  ],
+  "navigation_heights": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.36923076923076925,
+    0.6,
+    0.6461538461538461,
+    0.6,
+    0.36923076923076925,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "foreground_polygons": [
+    [
+      [
+        0,
+        460
+      ],
+      [
+        150,
+        475
+      ],
+      [
+        280,
+        495
+      ],
+      [
+        400,
+        540
+      ],
+      [
+        470,
+        620
+      ],
+      [
+        480,
+        720
+      ],
+      [
+        0,
+        720
+      ]
+    ],
+    [
+      [
+        1280,
+        465
+      ],
+      [
+        1150,
+        480
+      ],
+      [
+        1020,
+        510
+      ],
+      [
+        900,
+        555
+      ],
+      [
+        830,
+        630
+      ],
+      [
+        820,
+        720
+      ],
+      [
+        1280,
+        720
+      ]
+    ]
+  ],
+  "spawns": {
+    "arrival": [
+      645,
+      610
+    ],
+    "upper": [
+      645,
+      610
+    ]
+  },
+  "exits": {
+    "upper": [
+      [
+        545.0,
+        674.0
+      ],
+      [
+        745.0,
+        674.0
+      ],
+      [
+        745.0,
+        716.0
+      ],
+      [
+        545.0,
+        716.0
+      ]
+    ]
+  },
+  "route_hint": "Upper town \u2190 main doors \u2022 A: inspect the hall",
+  "closed_areas": [],
+  "depth_occluders": [],
+  "inspections": [
+    {
+      "position": [
+        650,
+        300
+      ],
+      "title": "The great hall",
+      "text": "Ravenwood\u2019s council gathers beneath the old tree banners. Petitions, alliances and the fate of the surrounding lands will be decided here."
+    },
+    {
+      "position": [
+        760,
+        390
+      ],
+      "title": "Council records",
+      "text": "Maps and sealed records preserve the promises made by Ravenwood\u2019s leaders."
+    }
+  ]
+}

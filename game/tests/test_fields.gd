@@ -7,7 +7,7 @@ func make_scene():
 
 func test_all_locations_have_packaged_art_and_valid_floor() -> void:
 	var scene = make_scene()
-	for id in ["gate", "market", "camp"]:
+	for id in scene.location_names:
 		scene.load_field(id)
 		assert_true(ResourceLoader.exists(scene.field_data.backdrop))
 		assert_gt(scene.surface.triangles.size(), 0)
@@ -19,17 +19,24 @@ func test_all_locations_have_packaged_art_and_valid_floor() -> void:
 
 func test_connections_and_safe_return_spawns() -> void:
 	var scene = make_scene()
-	for destination in ["market", "camp"]:
-		scene._place_screen(Vector2(180, 390) if destination == "market" else Vector2(1075, 590))
-		scene.transition_lock = 0
-		scene._physics_process(0.01)
-		assert_eq(scene.field_id, destination)
-		assert_eq(scene._exit_for_screen(scene.screen_position), "")
-		scene._place_screen(Vector2(1170, 390) if destination == "market" else Vector2(150, 295))
-		scene.transition_lock = 0
-		scene._physics_process(0.01)
-		assert_eq(scene.field_id, "gate")
-		assert_eq(scene._exit_for_screen(scene.screen_position), "")
+	var registry = JSON.parse_string(FileAccess.get_file_as_string("res://data/ravenwood_locations.json"))
+	assert_eq(registry.locations.size(), 12)
+	var visited := {"gate":true}
+	for iteration in 12:
+		for pair in registry.connections:
+			if visited.has(pair[0]) or visited.has(pair[1]):
+				visited[pair[0]] = true
+				visited[pair[1]] = true
+	assert_eq(visited.size(), registry.locations.size(), "Every location is reachable")
+	for pair in registry.connections:
+		for direction in [[pair[0],pair[1]],[pair[1],pair[0]]]:
+			scene.load_field(direction[0])
+			assert_true(scene.field_data.exits.has(direction[1]), str(direction))
+			scene.load_field(direction[1],direction[0])
+			assert_eq(scene._exit_for_screen(scene.screen_position), "", str(direction)+" safe return")
+			scene.transition_lock = 0
+			scene._walk(Vector2.ZERO, 0.01)
+			assert_eq(scene.field_id,direction[1])
 
 func test_paths_and_projection_around_scenery() -> void:
 	var scene = make_scene()
@@ -67,16 +74,41 @@ func test_raised_gate_and_inn_steps() -> void:
 	scene.load_field("market")
 	assert_gt(scene.surface.world_at(Vector2(310, 325)).y, 0.2)
 
-func test_tap_walk_reaches_all_four_connections() -> void:
+func test_tap_walk_reaches_every_doorway() -> void:
 	var scene = make_scene()
-	for trip in [["gate", "market", Vector2(180, 390)], ["market", "gate", Vector2(1170, 390)], ["gate", "camp", Vector2(1075, 590)], ["camp", "gate", Vector2(150, 295)]]:
-		scene.load_field(trip[0])
-		scene._set_target(trip[2])
-		for step in 2400:
-			scene._physics_process(1.0 / 60.0)
-			if scene.field_id != trip[0]:
-				break
-		assert_eq(scene.field_id, trip[1], "Tap walking completes " + trip[0] + " → " + trip[1])
+	for id in scene.location_names:
+		scene.load_field(id)
+		var exits: Dictionary = scene.field_data.exits.duplicate(true)
+		for destination in exits:
+			scene.load_field(id)
+			var center := Vector2.ZERO
+			for point in exits[destination]:
+				center += Vector2(point[0],point[1])
+			center /= exits[destination].size()
+			scene._set_target(center)
+			assert_eq(scene.requested_exit,destination,id+" doorway on floor")
+			for step in 3000:
+				scene._physics_process(1.0 / 60.0)
+				if scene.field_id != id:
+					break
+			assert_eq(scene.field_id,destination,"Tap travel: "+id+" → "+destination)
+
+func test_map_and_inspection_pause_movement() -> void:
+	var scene = make_scene()
+	scene.load_field("inn")
+	scene._place_screen(Vector2(570,320))
+	assert_false(scene._nearest_inspection().is_empty())
+	scene._inspect_nearest()
+	assert_true(scene.inspect_dialog.visible)
+	var before: Vector2 = scene.screen_position
+	scene._set_target(Vector2(650,600))
+	scene._physics_process(1.0)
+	assert_eq(scene.screen_position,before)
+	scene.inspect_dialog.hide()
+	scene.town_map.show_location("inn")
+	scene._physics_process(1.0)
+	assert_eq(scene.screen_position,before)
+	scene.town_map.hide()
 
 func test_market_tap_walk_approaches_inn_without_crossing_well() -> void:
 	var scene = make_scene()

@@ -23,6 +23,6 @@ See [toolchain](docs/TOOLCHAIN.md), [design](docs/DESIGN.md), [field scenes](doc
 
 ## Current state
 
-Ravenwood has three connected illustrated locations: the approved gate, market square and army camp. Each has a traced 3D floor, foreground occlusion and routed tap movement. A geometric character, touch joystick and fixed cameras support location review. Shop/tent interiors, NPCs, final character art, ATB, armies and forge gameplay remain planned. No Square Enix game assets are included.
+Ravenwood now has 12 connected illustrated locations: gate, market, army camp, upper town, lookout and forest approach, plus the inn, forge, provisioner, great hall, command tent and barracks interiors. Each uses a traced 3D floor, foreground occlusion and routed tap movement. The town map highlights the current location; nearby objects offer short inspections. Every door has a return route. A geometric character, touch joystick and fixed cameras support location review. NPCs, lodging/trading, recruitment, final character art, ATB, armies and forge gameplay remain planned. No Square Enix game assets are included.
 
 Original project code and art remain all rights reserved pending an explicit project license choice. Third-party tools retain their own licenses.

@@ -1,0 +1,251 @@
+{
+  "title": "Provisioner",
+  "backdrop": "res://assets/ravenwood/shop.webp",
+  "camera_position": [
+    0,
+    4,
+    14
+  ],
+  "camera_target": [
+    0,
+    0,
+    3
+  ],
+  "fov": 50,
+  "reference_size": [
+    1280,
+    720
+  ],
+  "character_scale": 0.55,
+  "navigation_outline": [
+    [
+      450,
+      710
+    ],
+    [
+      930,
+      710
+    ],
+    [
+      940,
+      650
+    ],
+    [
+      950,
+      590
+    ],
+    [
+      940,
+      530
+    ],
+    [
+      910,
+      480
+    ],
+    [
+      865,
+      440
+    ],
+    [
+      825,
+      400
+    ],
+    [
+      785,
+      365
+    ],
+    [
+      745,
+      330
+    ],
+    [
+      700,
+      305
+    ],
+    [
+      655,
+      290
+    ],
+    [
+      610,
+      285
+    ],
+    [
+      565,
+      290
+    ],
+    [
+      530,
+      310
+    ],
+    [
+      500,
+      340
+    ],
+    [
+      460,
+      370
+    ],
+    [
+      420,
+      405
+    ],
+    [
+      400,
+      440
+    ],
+    [
+      405,
+      480
+    ],
+    [
+      425,
+      520
+    ],
+    [
+      450,
+      570
+    ]
+  ],
+  "navigation_heights": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "foreground_polygons": [
+    [
+      [
+        0,
+        360
+      ],
+      [
+        170,
+        385
+      ],
+      [
+        275,
+        420
+      ],
+      [
+        350,
+        455
+      ],
+      [
+        390,
+        505
+      ],
+      [
+        425,
+        570
+      ],
+      [
+        440,
+        720
+      ],
+      [
+        0,
+        720
+      ]
+    ],
+    [
+      [
+        1280,
+        410
+      ],
+      [
+        1180,
+        430
+      ],
+      [
+        1100,
+        475
+      ],
+      [
+        1030,
+        525
+      ],
+      [
+        980,
+        590
+      ],
+      [
+        960,
+        720
+      ],
+      [
+        1280,
+        720
+      ]
+    ]
+  ],
+  "spawns": {
+    "arrival": [
+      660,
+      615
+    ],
+    "market": [
+      660,
+      615
+    ]
+  },
+  "exits": {
+    "market": [
+      [
+        560.0,
+        674.0
+      ],
+      [
+        800.0,
+        674.0
+      ],
+      [
+        800.0,
+        716.0
+      ],
+      [
+        560.0,
+        716.0
+      ]
+    ]
+  },
+  "route_hint": "Market \u2190 front doorway \u2022 A: inspect supplies",
+  "closed_areas": [],
+  "depth_occluders": [],
+  "inspections": [
+    {
+      "position": [
+        570,
+        345
+      ],
+      "title": "Traveling supplies",
+      "text": "Rope, bedrolls, leather and food fill the shelves. Caravans keep the town supplied between expeditions."
+    },
+    {
+      "position": [
+        840,
+        430
+      ],
+      "title": "Provisioner\u2019s counter",
+      "text": "The counter will serve travelers preparing for the roads beyond Ravenwood."
+    }
+  ]
+}

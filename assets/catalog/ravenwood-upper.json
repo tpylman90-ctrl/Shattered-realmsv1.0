@@ -1,0 +1,9 @@
+{
+  "title": "Upper town",
+  "provenance": "Original built-in ImageGen artwork created for Ravenwood using the approved gate image as the material and art-direction reference.",
+  "source_sha256": "d697423d8dc612606dfd2bbbf0d4b8b150334a541add870aa14a90bcae821ab2",
+  "runtime_asset": "game/assets/ravenwood/upper.webp",
+  "runtime_sha256": "4501971675488974f1cdeba7e060852c29dc0a433118ac52900b084e3fbb7344",
+  "processing": "Format conversion only, original dimensions preserved, WebP quality 95.",
+  "limitations": "Painted perspective approximated by fitted camera and traced 3D floor."
+}

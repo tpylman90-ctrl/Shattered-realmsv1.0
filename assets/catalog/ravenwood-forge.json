@@ -1,0 +1,9 @@
+{
+  "title": "Iron & Ember Forge",
+  "provenance": "Original built-in ImageGen artwork created for Ravenwood using the approved gate image as the material and art-direction reference.",
+  "source_sha256": "9bd5bb4ff3be2c71d49ecea1deab411a89dbb37b4156355434908b9efe987d2b",
+  "runtime_asset": "game/assets/ravenwood/forge.webp",
+  "runtime_sha256": "c7f61736db7a2c6bf5651dca666d45fad5d3f1fe4d4c7def5ae41899ac7e0220",
+  "processing": "Format conversion only, original dimensions preserved, WebP quality 95.",
+  "limitations": "Painted perspective approximated by fitted camera and traced 3D floor."
+}

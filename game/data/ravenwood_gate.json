@@ -437,6 +437,10 @@
     "camp": [
       975,
       615
+    ],
+    "upper": [
+      730,
+      410
     ]
   },
   "exits": {
@@ -483,33 +487,29 @@
         1015,
         635
       ]
+    ],
+    "upper": [
+      [
+        697.5,
+        340.0
+      ],
+      [
+        772.5,
+        340.0
+      ],
+      [
+        772.5,
+        380.0
+      ],
+      [
+        697.5,
+        380.0
+      ]
     ]
   },
-  "route_hint": "Market \u2190 left lane     \u2022     right lane \u2192 Army camp",
+  "route_hint": "Market \u2190 left lane \u2022 Army camp \u2192 right lane \u2022 Upper town through gate",
   "character_scale": 0.55,
-  "closed_areas": [
-    {
-      "polygon": [
-        [
-          680,
-          340
-        ],
-        [
-          790,
-          340
-        ],
-        [
-          790,
-          380
-        ],
-        [
-          680,
-          380
-        ]
-      ],
-      "hint": "Upper town opens in a later chapter"
-    }
-  ],
+  "closed_areas": [],
   "depth_occluders": [
     {
       "polygons": [

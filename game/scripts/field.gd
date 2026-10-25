@@ -16,8 +16,15 @@ var waypoints := PackedVector2Array()
 var foreground_root: Node2D
 var screen_position := Vector2.ZERO
 var depth_groups: Array[Node2D] = []
+var town_map: Control
+var inspect_button: Button
+var inspect_dialog: AcceptDialog
+var location_names: Dictionary
+var requested_exit := ""
+var manual_move := true
 
 func _ready() -> void:
+	location_names = JSON.parse_string(FileAccess.get_file_as_string("res://data/ravenwood_locations.json")).locations
 	_build_layers()
 	camera = Camera3D.new()
 	add_child(camera)
@@ -81,22 +88,39 @@ func _build_layers() -> void:
 	map.position = Vector2(1120, 24)
 	map.size = Vector2(130, 60)
 	ui.add_child(map)
-	var map_panel := PanelContainer.new()
-	map_panel.position = Vector2(790, 105)
-	map_panel.size = Vector2(460, 175)
-	map_panel.visible = false
-	ui.add_child(map_panel)
-	var map_label := Label.new()
-	map_label.text = "  RAVENWOOD\n\n  MARKET  ←  GATE  →  ARMY CAMP\n\n  North: Upper town road closed"
-	map_label.add_theme_font_size_override("font_size", 19)
-	map_panel.add_child(map_label)
-	map.pressed.connect(func(): map_panel.visible = not map_panel.visible)
+	town_map = preload("res://scripts/town_map.gd").new()
+	ui.add_child(town_map)
+	town_map.hide()
+	map.pressed.connect(func():
+		waypoints.clear()
+		joystick.direction = Vector2.ZERO
+		town_map.show_location(field_id))
+	inspect_dialog = AcceptDialog.new()
+	inspect_dialog.title = "Ravenwood"
+	inspect_dialog.get_label().autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	ui.add_child(inspect_dialog)
+	inspect_button = Button.new()
+	inspect_button.text = "A • Inspect"
+	inspect_button.position = Vector2(1010,555)
+	inspect_button.size = Vector2(120,60)
+	inspect_button.pressed.connect(_inspect_nearest)
+	ui.add_child(inspect_button)
+	var cancel := Button.new()
+	cancel.text = "B • Close"
+	cancel.position = Vector2(1140,555)
+	cancel.size = Vector2(110,60)
+	cancel.pressed.connect(func():
+		town_map.hide()
+		inspect_dialog.hide()
+		waypoints.clear())
+	ui.add_child(cancel)
 	var back := Button.new()
 	back.text = "MENU"
 	back.position = Vector2(1120, 635)
 	back.size = Vector2(130, 60)
 	ui.add_child(back)
 	back.pressed.connect(func(): get_tree().change_scene_to_file("res://scenes/main.tscn"))
+	town_map.move_to_front()
 
 func _mesh(mesh: Mesh, color: Color, location: Vector3, parent: Node3D) -> MeshInstance3D:
 	var instance := MeshInstance3D.new()
@@ -185,6 +209,8 @@ func load_field(id: String, entry: String = "arrival") -> void:
 	var spawn: Array = field_data.spawns.get(entry, field_data.spawns.arrival)
 	_place_screen(Vector2(spawn[0], spawn[1]))
 	waypoints.clear()
+	requested_exit = ""
+	manual_move = true
 	player.velocity = Vector3.ZERO
 	transition_lock = 0.8
 	heading.text = "RAVENWOOD  /  " + field_data.title
@@ -227,9 +253,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		_set_target(event.position)
 
 func _set_target(screen: Vector2) -> void:
+	manual_move = false
+	requested_exit = _exit_for_screen(surface.constrain(screen))
 	waypoints = surface.route(screen_position, screen)
 
 func _physics_process(delta: float) -> void:
+	if town_map.visible or inspect_dialog.visible:
+		return
 	transition_lock = maxf(0, transition_lock - delta)
 	var input := Vector2.ZERO
 	input.x = float(Input.is_physical_key_pressed(KEY_D) or Input.is_physical_key_pressed(KEY_RIGHT)) - float(Input.is_physical_key_pressed(KEY_A) or Input.is_physical_key_pressed(KEY_LEFT))
@@ -240,6 +270,8 @@ func _physics_process(delta: float) -> void:
 
 func _walk(input: Vector2, delta: float) -> void:
 	if input.length() > 0.1:
+		manual_move = true
+		requested_exit = ""
 		waypoints.clear()
 	elif not waypoints.is_empty():
 		var offset := waypoints[0] - screen_position
@@ -267,8 +299,41 @@ func _walk(input: Vector2, delta: float) -> void:
 			polygon.append(Vector2(point[0], point[1]))
 		if Geometry2D.is_point_in_polygon(screen_position, polygon):
 			hint.text = area.hint
+	var nearest := ""
+	var nearest_distance := 70.0
+	for id in field_data.exits:
+		var center := Vector2.ZERO
+		for point in field_data.exits[id]:
+			center += Vector2(point[0],point[1])
+		center /= field_data.exits[id].size()
+		if center.distance_to(screen_position) < nearest_distance:
+			nearest_distance = center.distance_to(screen_position)
+			nearest = id
+	if not nearest.is_empty():
+		hint.text = "Enter " + location_names[nearest]
+	inspect_button.disabled = _nearest_inspection().is_empty()
 	if transition_lock > 0:
 		return
 	var destination := _exit_for_screen(screen_position)
-	if not destination.is_empty():
+	if not destination.is_empty() and (manual_move or requested_exit == destination):
 		load_field(destination, field_id)
+
+func _nearest_inspection() -> Dictionary:
+	var nearest: Dictionary = {}
+	var distance := 125.0
+	for point in field_data.get("inspections", []):
+		var location := Vector2(point.position[0],point.position[1])
+		if location.distance_to(screen_position) < distance:
+			distance = location.distance_to(screen_position)
+			nearest = point
+	return nearest
+
+func _inspect_nearest() -> void:
+	var point := _nearest_inspection()
+	if point.is_empty():
+		return
+	waypoints.clear()
+	joystick.direction = Vector2.ZERO
+	inspect_dialog.title = point.title
+	inspect_dialog.dialog_text = point.text
+	inspect_dialog.popup_centered(Vector2i(620,210))

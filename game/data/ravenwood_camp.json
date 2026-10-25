@@ -51,16 +51,36 @@
       415
     ],
     [
-      1120,
-      405
+      1130,
+      400
+    ],
+    [
+      1110,
+      370
+    ],
+    [
+      1100,
+      340
     ],
     [
       1090,
-      420
+      305
     ],
     [
-      1040,
-      445
+      1050,
+      300
+    ],
+    [
+      1020,
+      330
+    ],
+    [
+      1010,
+      375
+    ],
+    [
+      995,
+      415
     ],
     [
       980,
@@ -221,7 +241,12 @@
     0,
     0,
     0,
-    0,
+    0.35,
+    0.35,
+    0.8,
+    0.8,
+    0.8,
+    0.35,
     0,
     0,
     0,
@@ -451,6 +476,14 @@
     "gate": [
       235,
       385
+    ],
+    "command": [
+      760,
+      485
+    ],
+    "barracks": [
+      1060,
+      375
     ]
   },
   "exits": {
@@ -471,9 +504,55 @@
         100,
         335
       ]
+    ],
+    "command": [
+      [
+        717.5,
+        412.5
+      ],
+      [
+        782.5,
+        412.5
+      ],
+      [
+        782.5,
+        447.5
+      ],
+      [
+        717.5,
+        447.5
+      ]
+    ],
+    "barracks": [
+      [
+        1040.0,
+        305.0
+      ],
+      [
+        1100.0,
+        305.0
+      ],
+      [
+        1100.0,
+        345.0
+      ],
+      [
+        1040.0,
+        345.0
+      ]
     ]
   },
-  "route_hint": "Gate \u2190 left passage     \u2022     Command tent and muster yard",
+  "route_hint": "Gate \u2190 west \u2022 Command tent ahead \u2022 Barracks \u2192 east steps",
   "closed_areas": [],
-  "depth_occluders": []
+  "depth_occluders": [],
+  "inspections": [
+    {
+      "position": [
+        1030,
+        455
+      ],
+      "title": "Training yard",
+      "text": "Targets and practice racks stand ready for the next company of recruits."
+    }
+  ]
 }

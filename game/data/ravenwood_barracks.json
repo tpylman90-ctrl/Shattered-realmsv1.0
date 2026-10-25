@@ -1,0 +1,259 @@
+{
+  "title": "Barracks",
+  "backdrop": "res://assets/ravenwood/barracks.webp",
+  "camera_position": [
+    0,
+    4,
+    14
+  ],
+  "camera_target": [
+    0,
+    0,
+    3
+  ],
+  "fov": 50,
+  "reference_size": [
+    1280,
+    720
+  ],
+  "character_scale": 0.55,
+  "navigation_outline": [
+    [
+      570,
+      710
+    ],
+    [
+      820,
+      710
+    ],
+    [
+      835,
+      650
+    ],
+    [
+      845,
+      590
+    ],
+    [
+      850,
+      530
+    ],
+    [
+      835,
+      470
+    ],
+    [
+      805,
+      410
+    ],
+    [
+      775,
+      355
+    ],
+    [
+      750,
+      305
+    ],
+    [
+      720,
+      270
+    ],
+    [
+      680,
+      245
+    ],
+    [
+      635,
+      230
+    ],
+    [
+      595,
+      235
+    ],
+    [
+      560,
+      255
+    ],
+    [
+      530,
+      285
+    ],
+    [
+      510,
+      325
+    ],
+    [
+      490,
+      365
+    ],
+    [
+      485,
+      410
+    ],
+    [
+      500,
+      455
+    ],
+    [
+      520,
+      500
+    ],
+    [
+      540,
+      555
+    ],
+    [
+      555,
+      615
+    ]
+  ],
+  "navigation_heights": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "foreground_polygons": [
+    [
+      [
+        0,
+        380
+      ],
+      [
+        150,
+        400
+      ],
+      [
+        265,
+        425
+      ],
+      [
+        360,
+        470
+      ],
+      [
+        430,
+        515
+      ],
+      [
+        490,
+        570
+      ],
+      [
+        550,
+        650
+      ],
+      [
+        555,
+        720
+      ],
+      [
+        0,
+        720
+      ]
+    ],
+    [
+      [
+        1280,
+        405
+      ],
+      [
+        1150,
+        430
+      ],
+      [
+        1025,
+        475
+      ],
+      [
+        940,
+        515
+      ],
+      [
+        900,
+        570
+      ],
+      [
+        860,
+        640
+      ],
+      [
+        840,
+        720
+      ],
+      [
+        1280,
+        720
+      ]
+    ]
+  ],
+  "spawns": {
+    "arrival": [
+      695,
+      615
+    ],
+    "camp": [
+      695,
+      615
+    ]
+  },
+  "exits": {
+    "camp": [
+      [
+        595.0,
+        674.0
+      ],
+      [
+        795.0,
+        674.0
+      ],
+      [
+        795.0,
+        716.0
+      ],
+      [
+        595.0,
+        716.0
+      ]
+    ]
+  },
+  "route_hint": "Camp \u2190 main doorway \u2022 A: inspect barracks details",
+  "closed_areas": [],
+  "depth_occluders": [],
+  "inspections": [
+    {
+      "position": [
+        680,
+        295
+      ],
+      "title": "Duty roster",
+      "text": "The barracks shelters the troops who keep the gates and roads secure."
+    },
+    {
+      "position": [
+        540,
+        435
+      ],
+      "title": "Troop equipment",
+      "text": "Practice weapons, spare shields and bedrolls are ready for Ravenwood\u2019s next muster."
+    }
+  ]
+}

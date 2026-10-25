@@ -22,6 +22,7 @@ var inspect_dialog: AcceptDialog
 var location_names: Dictionary
 var requested_exit := ""
 var manual_move := true
+var hero_visual: Node3D
 
 func _ready() -> void:
 	location_names = JSON.parse_string(FileAccess.get_file_as_string("res://data/ravenwood_locations.json")).locations
@@ -94,6 +95,7 @@ func _build_layers() -> void:
 	map.pressed.connect(func():
 		waypoints.clear()
 		joystick.direction = Vector2.ZERO
+		hero_visual.play_clip("Idle")
 		town_map.show_location(field_id))
 	inspect_dialog = AcceptDialog.new()
 	inspect_dialog.title = "Ravenwood"
@@ -146,25 +148,9 @@ func _build_player() -> void:
 	player.add_child(shape)
 	body_visual = Node3D.new()
 	player.add_child(body_visual)
-	var torso := CapsuleMesh.new()
-	torso.radius = 0.26
-	torso.height = 0.8
-	_mesh(torso, Color(0.14, 0.24, 0.22), Vector3(0, 1, 0), body_visual)
-	var head := SphereMesh.new()
-	head.radius = 0.19
-	head.height = 0.38
-	_mesh(head, Color(0.65, 0.43, 0.28), Vector3(0, 1.56, 0), body_visual)
-	for x in [-0.14, 0.14]:
-		var leg := BoxMesh.new()
-		leg.size = Vector3(0.19, 0.65, 0.22)
-		_mesh(leg, Color(0.12, 0.10, 0.08), Vector3(x, 0.36, 0), body_visual)
-		var arm := CapsuleMesh.new()
-		arm.radius = 0.09
-		arm.height = 0.65
-		_mesh(arm, Color(0.22, 0.16, 0.10), Vector3(x * 2.4, 1, 0), body_visual)
-	var blade := BoxMesh.new()
-	blade.size = Vector3(0.08, 0.85, 0.04)
-	_mesh(blade, Color(0.55, 0.6, 0.59), Vector3(0.38, 0.55, 0.15), body_visual)
+	hero_visual = preload("res://scripts/hero_model.gd").new()
+	body_visual.add_child(hero_visual)
+	hero_visual.setup(preload("res://scripts/hero_model.gd").selected())
 	var shadow := PlaneMesh.new()
 	shadow.size = Vector2(0.95, 0.7)
 	var shadow_mesh := _mesh(shadow, Color.WHITE, Vector3(0, 0.012, 0), player)
@@ -288,9 +274,11 @@ func _walk(input: Vector2, delta: float) -> void:
 	var movement := player.position - old_position
 	if movement.length() > 0.001:
 		body_visual.rotation.y = lerp_angle(body_visual.rotation.y, atan2(movement.x, movement.z), delta * 12)
+		hero_visual.play_clip("Walk")
 		moving_time += delta * 10
-		body_visual.position.y = sin(moving_time) * 0.018
+		body_visual.position.y = 0
 	else:
+		hero_visual.play_clip("Idle")
 		body_visual.position.y = 0
 	hint.text = field_data.route_hint
 	for area in field_data.closed_areas:
@@ -334,6 +322,7 @@ func _inspect_nearest() -> void:
 		return
 	waypoints.clear()
 	joystick.direction = Vector2.ZERO
+	hero_visual.play_clip("Idle")
 	inspect_dialog.title = point.title
 	inspect_dialog.dialog_text = point.text
 	inspect_dialog.popup_centered(Vector2i(620,210))

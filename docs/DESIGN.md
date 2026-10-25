@@ -24,3 +24,7 @@ Ravenwood opening, Lyra Vane recruitment, regional isolation and the Devouring D
 4. Complete resource → recipe → forge loop.
 
 Ravenwood has an illustrated exploration layout with six exterior screens and six interiors, a connected town map and descriptive inspections. The town location pass is complete for review. Dungeons, NPC services, final character art and combat remain planned.
+
+## Player appearance implementation
+
+Male/female neutral starters share the same class access. The selection is saved on device and used in all town scenes. They have fixed travel outfits with no city affiliation. Planned class-specific outfits will replace the neutral outfit; armor changes stats without changing appearance. Only weapons/shields will change visibly when equipped. Current player meshes are original Blender geometry with MPFB-derived skeletons, not MPFB replacement bodies.

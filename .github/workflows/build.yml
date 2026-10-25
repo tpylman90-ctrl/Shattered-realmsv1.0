@@ -58,6 +58,8 @@ jobs:
         run: godot --headless --path game --editor --import 2>&1 | tee .build/import.log
       - name: Reject script import errors
         run: "! grep -E 'SCRIPT ERROR|Parse Error|Failed to load script' .build/import.log"
+      - name: Validate character exports
+        run: python3 tools/characters/validate_exports.py
       - name: Run gameplay tests
         run: godot --headless --path game -s addons/gut/gut_cmdln.gd -gdir=res://tests -gexit
       - name: Configure test signing and SDK paths

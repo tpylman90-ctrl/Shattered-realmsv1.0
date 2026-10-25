@@ -1,0 +1,39 @@
+name: Character authoring check
+on:
+  push:
+    branches: [main]
+    paths: ['tools/characters/**', '.github/workflows/characters.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  characters:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Blender 4.5.3 LTS
+        run: |
+          mkdir -p .tools
+          curl -fL --retry 3 https://download.blender.org/release/Blender4.5/blender-4.5.3-linux-x64.tar.xz -o .tools/blender.tar.xz
+          tar -xf .tools/blender.tar.xz -C .tools
+      - name: Install pinned MPFB
+        run: python3 tools/characters/bootstrap.py
+      - name: Build original starter source
+        run: .tools/blender-4.5.3-linux-x64/blender -b -t 4 --python-exit-code 1 --python tools/characters/model_source.py -- --no-render
+      - name: Test MPFB and Rigify, fit game rigs and export clips
+        run: .tools/blender-4.5.3-linux-x64/blender -b -t 4 --python-exit-code 1 --python tools/characters/rig_starters.py
+      - name: Verify portable exports
+        run: python3 tools/characters/validate_exports.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: starter-character-authoring
+          path: |
+            .build/characters/*-rigged.blend
+            .build/characters/mpfb-rigify-reference.blend
+            .build/characters/rig-validation.json
+            game/assets/characters/*.glb
+          retention-days: 7

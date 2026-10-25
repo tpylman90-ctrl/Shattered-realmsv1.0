@@ -11,7 +11,7 @@
 - Command tent and barracks open from the camp.
 - Great hall, watch platform and forest approach return to upper town. The forest's northern road is an inspectable campaign boundary, not a territory-map transition yet.
 
-All twelve use original high-detail generated background art with foreground sections and a fitted 3D floor. None uses the earlier procedural render at runtime. Existing gate artwork, camera and character scale remain unchanged. Character size/animation improvements are explicitly deferred until locations are established.
+All twelve use original high-detail generated background art with foreground sections and a fitted 3D floor. None uses the earlier procedural render at runtime. Existing gate artwork, camera and character scale remain unchanged. Male/female neutral starters now replace the geometric placeholder. Their 0.55 field scale remains unchanged pending device review.
 
 The canonical location registry is `game/data/ravenwood_locations.json`: 12 locations and 11 paired connections (22 directional doorways). MAP shows these connections and highlights the current screen; it does not teleport. Tap walking targets only the chosen doorway, avoiding unintended shop entry when crossing another entrance. Joystick and keyboard movement enter a doorway by walking into its trigger. The A/Inspect button opens nearby descriptive details and pauses movement while the dialogue is open. These descriptions do not grant items or execute transactions.
 
@@ -19,7 +19,7 @@ The canonical location registry is `game/data/ravenwood_locations.json`: 12 loca
 
 Every location defines its image, fixed camera, navigation outline/heights, foreground polygons, depth-sensitive occluders, spawns, exits, route hint and closed areas in `game/data/ravenwood_*.json`. `field.gd` loads the same format for each location; `field_surface.gd` projects the traced floor into 3D and routes taps around the nonwalkable scenery. The camera/floor fit approximates painted perspective, not an exact reconstructed Blender camera.
 
-Near roofs, trees, awnings and supplies sample the same backdrop with matching UVs to overlap the character without repainting the artwork. The gate fence and market well change draw order based on the character's floor position. The geometric character retains the same scale setting across locations. Touch joystick, tap-to-walk and WASD/arrows share the same floor constraints.
+Near roofs, trees, awnings and supplies sample the same backdrop with matching UVs to overlap the character without repainting the artwork. The gate fence and market well change draw order based on the character's floor position. The selected starter retains the same scale setting across locations. Touch joystick, tap-to-walk and WASD/arrows share the same floor constraints.
 
 The project renders a fixed 1280×720 viewport with aspect-preserving letterboxing, keeping image composition, input coordinates, occluders and camera projection aligned on different screen shapes. Camera movement remains fixed. Scene returns spawn clear of exit triggers, with a brief transition lock; held directional input remains consistent.
 
@@ -31,7 +31,7 @@ Checks cover packaged assets, both directions of every connection, safe arrival 
 
 ## Remaining
 
-The town layout and indoor location pass is ready for device review. NPCs, story dialogue, lodging, transactions, crafting, recruitment, combat and campaign integration remain planned. Inspectable counters and stations mark their intended functions without implementing those services. Character art and animation remain temporary. Painted depth and floor projection are approximations and still need phone review around doors and stairs.
+The town layout and indoor location pass is ready for device review. NPCs, story dialogue, lodging, transactions, crafting, recruitment, combat and campaign integration remain planned. Inspectable counters and stations mark their intended functions without implementing those services. Character art is a first rigged pass; test locomotion needs foot-locking, deformation and texture polish. Painted depth and floor projection are approximations and still need phone review around doors and stairs.
 
 ## Camp-side post correction
 

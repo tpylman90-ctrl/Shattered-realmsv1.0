@@ -1,0 +1,34 @@
+{
+  "mpfb_version": "2.0.18",
+  "mpfb_commit": "d0a32e57a7f915cb2f2b95410e2117648c7bbb7e",
+  "rigify_generated_bones": 930,
+  "models": [
+    {
+      "id": "female",
+      "triangles": 27996,
+      "bones": 23,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run"
+      ],
+      "source_triangles": 407024
+    },
+    {
+      "id": "male",
+      "triangles": 27998,
+      "bones": 23,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run"
+      ],
+      "source_triangles": 411980
+    }
+  ],
+  "notes": [
+    "MPFB skeleton fitted to our original meshes; these are not replacement MPFB body meshes.",
+    "Original test locomotion clips, no finger or face animation.",
+    "Studio noise shaders replaced by exportable vertex colors."
+  ]
+}

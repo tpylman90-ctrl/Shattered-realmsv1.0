@@ -40,7 +40,8 @@
     "No facial animation",
     "Foot contact on the fitted floor; stairs use whole-character floor placement"
   ],
-  "art_revision": "0.7.0",
+  "art_revision": "0.7.1 female hip/seat correction",
   "review": "Imported GLB idle, walk and run frames rendered; GUT elbow/wrist regression and all field transitions pass.",
-  "style_revision": "0.7.0 silhouette and tailoring"
+  "style_revision": "0.7.1 female hip and rear tailoring",
+  "male_preservation": "Approved 0.7.0 GLB SHA256 unchanged"
 }

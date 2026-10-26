@@ -11,7 +11,7 @@
     {
       "id": "female",
       "asset": "game/assets/characters/starter_female.glb",
-      "sha256": "a43b310d64bb930bda4d54e21dc4aef52c7f77b1efa1200505de3fb0eaa588a7"
+      "sha256": "d532062dc40581185d022ee4f920fd647fb1af44123a350d3c0724edc722e0f9"
     }
   ],
   "limitations": [
@@ -20,5 +20,5 @@
     "Device performance review pending"
   ],
   "animation_revision": "0.6.1: stride-dependent elbow flexion and hand clearance from the tunic",
-  "art_revision": "0.7.0: shared mesh/skeleton silhouette sculpt, garment fitting, facial vertex colors and male brows"
+  "art_revision": "0.7.1 female hip/seat and lower-tunic correction; approved 0.7.0 male retained byte-for-byte"
 }

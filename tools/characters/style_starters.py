@@ -8,7 +8,7 @@ import bpy
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 
-REVISION = "0.7.0 silhouette and tailoring"
+REVISION = "0.7.1 female hip and rear tailoring"
 
 def bell(z, center, radius):
     t = min(1.0, abs(z - center) / radius)
@@ -22,8 +22,10 @@ def sculpt_point(point, sex):
         shoulder = bell(z, 1.365, .16)
         waist = bell(z, 1.045, .16)
         hip = bell(z, .845, .15)
-        x *= 1 - .105 * shoulder - .105 * waist + .055 * hip
-        y *= 1 - .065 * waist + .035 * hip
+        # Avoid stacking a large waist pinch and hip expansion on the source's
+        # existing fitted proportions: that made a padded shelf below the belt.
+        x *= 1 - .105 * shoulder - .060 * waist + .012 * hip
+        y *= 1 - .040 * waist
         # Softer jaw and smaller chin; keep eyes and skull aligned with hair.
         jaw = bell(z, 1.53, .075)
         x *= 1 - .10 * jaw
@@ -52,16 +54,20 @@ def tailor_mesh(obj, sex):
     tunic = 'viking_tunic' in obj.name
     pants = 'viking_pants' in obj.name
     hair = 'ponytail01' in obj.name or 'short02' in obj.name
+    belt = {i for p in obj.data.polygons
+            if tunic and sex == 'female' and 'leather' in obj.data.materials[p.material_index].name.lower()
+            for i in p.vertices}
     for vertex in obj.data.vertices:
         p = sculpt_point(vertex.co, sex)
-        if tunic:
+        if tunic and vertex.index not in belt:
             if sex == 'female':
                 # Remove the padded bell shape at the hem and fit the back.
-                hem = bell(p.z, .80, .16)
-                p.x *= 1 - .075 * hem
-                p.y = -.025 + (p.y + .025) * (1 - .10 * hem)
-                # Raise the hem gradually; maintain waist and belt position.
-                p.z += .038 * max(0, min(1, (.95 - p.z) / .20))
+                hem = bell(p.z, .82, .19)
+                p.x *= 1 - .085 * hem
+                p.y = -.025 + (p.y + .025) * (1 - .14 * hem)
+                # A longer, softly falling hem avoids the compressed band
+                # across the seat produced by the previous shortened skirt.
+                p.z += .016 * max(0, min(1, (.95 - p.z) / .20))
                 # Keep sleeve fabric close to the upper arm rather than bulky.
                 sleeve = bell(p.z, 1.25, .18) * max(0, min(1, (abs(p.x) - .17) / .06))
                 p.y = -.015 + (p.y + .015) * (1 - .14 * sleeve)
@@ -137,6 +143,72 @@ def fit_sleeves(obj, surface):
             if delta.length > .025:
                 delta *= .025 / delta.length
             vertex.co += delta * blend * .85
+
+def fit_female_hem(objects):
+    """Follow the trouser seat instead of retaining the source skirt bustle."""
+    trousers = next(o for o in objects if 'viking_pants' in o.name)
+    tunic = next(o for o in objects if 'viking_tunic' in o.name)
+    belt = {i for p in tunic.data.polygons
+            if 'leather' in tunic.data.materials[p.material_index].name.lower()
+            for i in p.vertices}
+    surface = BVHTree.FromPolygons([v.co for v in trousers.data.vertices],
+                                  [p.vertices[:] for p in trousers.data.polygons])
+    for vertex in tunic.data.vertices:
+        if vertex.index in belt:
+            continue
+        p = vertex.co
+        # Retain the belt, torso, and front bridge over the separated legs.
+        lower = max(0., min(1., (.975 - p.z) / .10))
+        back = max(0., min(1., (p.y - .005) / .06))
+        side = max(0., min(1., (abs(p.x) - .16) / .055))
+        strength = lower * max(back, side)
+        if strength <= 0:
+            continue
+        near, normal, _, distance = surface.find_nearest(p)
+        if distance > .012 and distance < .16:
+            delta = near + normal * .018 - p
+            # Fit horizontal ease only. Pulling the hem upward toward the
+            # trouser crotch creates a cupped/scalloped rear instead of fabric.
+            delta.z = 0
+            if delta.length > .06:
+                delta *= .06 / delta.length
+            vertex.co += delta * strength
+    # Keep the separate leather band outside the newly fitted fabric. Its
+    # old seat contour otherwise intersects the cloth and flickers at the rear.
+    cloth_faces = [p.vertices[:] for p in tunic.data.polygons
+                   if 'leather' not in tunic.data.materials[p.material_index].name.lower()]
+    cloth = BVHTree.FromPolygons([v.co for v in tunic.data.vertices], cloth_faces)
+    for index in belt:
+        vertex = tunic.data.vertices[index]
+        if vertex.co.y < -.025:
+            continue  # Preserve the front buckle and hanging belt tip.
+        near, normal, _, _ = cloth.find_nearest(vertex.co)
+        outward = Vector((near.x, near.y + .025, 0)).normalized()
+        delta = near + outward * .012 - vertex.co
+        delta.z = 0
+        if delta.length > .06:
+            delta *= .06 / delta.length
+        vertex.co += delta
+
+def stabilize_female_rear(obj):
+    """Keep the back of the tunic on the pelvis instead of pinching into legs."""
+    if 'viking_tunic' not in obj.name:
+        return
+    pelvis = obj.vertex_groups.get('pelvis')
+    if pelvis is None:
+        return
+    for vertex in obj.data.vertices:
+        x, y, z = vertex.co
+        rear = max(0., min(1., y / .07))
+        lower = max(0., min(1., (.965 - z) / .065))
+        amount = rear * lower if abs(x) < .27 else 0
+        if amount <= 0:
+            continue
+        weights = [(g.group, g.weight) for g in vertex.groups]
+        for index, weight in weights:
+            obj.vertex_groups[index].add([vertex.index], weight * (1 - amount), 'REPLACE')
+        previous = sum(weight for index, weight in weights if index == pelvis.index)
+        pelvis.add([vertex.index], previous * (1 - amount) + amount, 'REPLACE')
 
 def skin_palette(obj, sex):
     """Use native anatomical masks for subtle lip / ear / nail coloration.

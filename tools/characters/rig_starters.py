@@ -8,7 +8,7 @@ from pathlib import Path
 from mathutils import Vector, Matrix
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from style_starters import sculpt_point, tailor_mesh, sleeve_surface, fit_sleeves, skin_palette, add_brows, REVISION
+from style_starters import sculpt_point, tailor_mesh, sleeve_surface, fit_sleeves, fit_female_hem, stabilize_female_rear, skin_palette, add_brows, REVISION
 OUT=Path(os.environ.get('SR_CHARACTER_OUTPUT',str(ROOT/'.build/characters')));OUT.mkdir(parents=True,exist_ok=True)
 MPFB=Path(os.environ.get('SR_MPFB_EXTENSIONS',str(ROOT/'.tools/character-extensions')))
 bpy.context.preferences.extensions.repos.new(name='SR native rig',module='sr_native',custom_directory=str(MPFB))
@@ -53,6 +53,10 @@ for record in spec['characters']:
 # Open canonical art with packed eye/hair textures, fabric materials and fitted clothes.
 bpy.ops.wm.open_mainfile(filepath=str(ROOT/'art/characters/neutral-starters.blend'))
 actors=[o for o in bpy.data.objects if o.type=='EMPTY' and o.name.startswith('MPFB ')]
+selected_sex=os.environ.get('SR_CHARACTER_SEX')
+if selected_sex:
+ assert selected_sex in ['female','male'], 'SR_CHARACTER_SEX must be female or male'
+ actors=[o for o in actors if ('female' if 'female' in o.name else 'male')==selected_sex]
 source_hidden={o.name:o.hide_render for o in bpy.data.objects}
 records=[]
 for actor in actors:
@@ -74,6 +78,7 @@ for actor in actors:
   ob.data.calc_loop_triangles()
   if len(ob.data.loop_triangles)>16000:
    dec=ob.modifiers.new('Bounded mobile simplification','DECIMATE');dec.ratio=16000/len(ob.data.loop_triangles);dec.use_collapse_triangulate=True;bpy.ops.object.modifier_apply(modifier=dec.name)
+ if sex=='female':fit_female_hem(objects)
  # Texture resolution is bounded for Android; preserve the original alpha channels.
  for im in bpy.data.images:
   if im.type=='IMAGE' and max(im.size)>1024:
@@ -92,6 +97,7 @@ for actor in actors:
    if g.name not in names:ob.vertex_groups.remove(g)
   if not ob.vertex_groups:
    g=ob.vertex_groups.new(name='head');g.add(list(range(len(ob.data.vertices))),1,'REPLACE')
+  if sex=='female':stabilize_female_rear(ob)
   # Normalize and limit explicitly, rather than relying on exporter truncation.
   bpy.ops.object.select_all(action='DESELECT');ob.select_set(True);bpy.context.view_layer.objects.active=ob
   bpy.ops.object.vertex_group_limit_total(limit=4);bpy.ops.object.vertex_group_normalize_all(lock_active=False)

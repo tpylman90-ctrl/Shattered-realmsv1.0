@@ -13,3 +13,11 @@ Walk and run now flex the elbows relative to the upper arms throughout the strid
 `tools/characters/style_starters.py` applies a smooth shared deformation to the approved source meshes and skeleton coordinates. The female has narrower shoulders, a defined waist, fuller hip contour, softer jaw, and coordinated eye/lid shaping. Both tunics fit closer at the sleeves; hems have less flare. The male has a stronger upper-torso taper, jaw and original chestnut eyebrows. Anatomical vertex colors add subtle lip, ear and nail definition with no extra skin texture. Existing hair/eye textures, fixed travel outfits and 53-bone locomotion are preserved.
 
 Male is now 35,244 triangles / 11 surfaces, female 35,016 / 9. Shape is an art refinement toward the supplied references, not a finished match to their sculpting and hair quality. The same-camera exported-model comparison is in `docs/previews/starter-refinement-0.7.0.jpg`. Device lighting and performance still need phone review.
+
+## Female hip and rear correction — 0.7.1
+
+The female waist-to-hip transition is softened, the extra hip/rear expansion is reduced, and the lower tunic follows the trousers with a little fabric ease instead of projecting into a padded shelf. Horizontal fitting preserves the hanging hem; the leather belt is fitted separately to avoid intersecting the cloth. The rear hem now blends onto the pelvis so leg movement does not pinch it into the seat. The approved male 0.7.0 GLB is unchanged byte-for-byte.
+
+To regenerate only one starter, set `SR_CHARACTER_SEX=female` or `male` when running `rig_starters.py`; omit it to author both. Front/side/rear Idle/Walk/Run exports are reviewed separately from the automatic Godot checks.
+
+Side/rear before-and-after exported-model renders: `docs/previews/female-hips-0.7.1.jpg`.

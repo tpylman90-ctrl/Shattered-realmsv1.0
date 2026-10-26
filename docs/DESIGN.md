@@ -28,3 +28,7 @@ Ravenwood has an illustrated exploration layout with six exterior screens and si
 ## Player appearance implementation
 
 Male/female neutral starters share the same class access. The selection is saved on device and used in all town scenes. They have fixed travel outfits with no city affiliation. Planned class-specific outfits will replace the neutral outfit; armor changes stats without changing appearance. Only weapons/shields will change visibly when equipped. Player meshes now use the approved MPFB male/female human forms and tailored neutral clothing, with native MPFB skin weights and 53-bone skeletons. The selected character has idle, walk, and run clips; facial animation remains planned.
+
+## First resident population
+
+Ravenwood now has one conversational NPC per location. Tap-to-approach, nearby Talk, local topics and dialogue movement pause are implemented. Residents reuse the approved starter rigs with role palettes. Dedicated NPC art, shop services, recruitment and story/quest state remain future work.

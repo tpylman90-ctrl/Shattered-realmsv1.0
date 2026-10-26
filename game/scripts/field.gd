@@ -24,9 +24,16 @@ var requested_exit := ""
 var manual_move := true
 var hero_visual: Node3D
 var sprinting := false
+var npc_catalog: Array = []
+var npc_root: Node3D
+var npc_actors: Array[Node3D] = []
+var npc_dialog: PanelContainer
+var npc_marker: Label
+var pending_npc := ""
 
 func _ready() -> void:
 	location_names = JSON.parse_string(FileAccess.get_file_as_string("res://data/ravenwood_locations.json")).locations
+	npc_catalog = JSON.parse_string(FileAccess.get_file_as_string("res://data/ravenwood_npcs.json")).npcs
 	_build_layers()
 	camera = Camera3D.new()
 	add_child(camera)
@@ -45,6 +52,9 @@ func _ready() -> void:
 	sun.light_energy = 1.5
 	add_child(sun)
 	_build_player()
+	npc_root = Node3D.new()
+	npc_root.name = "Residents"
+	add_child(npc_root)
 	load_field("gate")
 
 func _build_layers() -> void:
@@ -94,6 +104,7 @@ func _build_layers() -> void:
 	ui.add_child(town_map)
 	town_map.hide()
 	map.pressed.connect(func():
+		_close_dialogues()
 		waypoints.clear()
 		joystick.direction = Vector2.ZERO
 		hero_visual.play_clip("Idle")
@@ -108,6 +119,20 @@ func _build_layers() -> void:
 	inspect_button.size = Vector2(120,60)
 	inspect_button.pressed.connect(_inspect_nearest)
 	ui.add_child(inspect_button)
+	npc_marker = Label.new()
+	npc_marker.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	npc_marker.add_theme_font_size_override("font_size", 18)
+	npc_marker.add_theme_color_override("font_color", Color(1.0, 0.86, 0.53))
+	npc_marker.add_theme_color_override("font_outline_color", Color(0.025, 0.04, 0.03))
+	npc_marker.add_theme_constant_override("outline_size", 6)
+	ui.add_child(npc_marker)
+	npc_dialog = preload("res://scripts/npc_dialogue.gd").new()
+	ui.add_child(npc_dialog)
+	npc_dialog.closed.connect(func():
+		pending_npc = ""
+		waypoints.clear()
+		joystick.direction = Vector2.ZERO
+		joystick.set_process_input(true))
 	var run_button := Button.new()
 	run_button.text = "Run: Off"
 	run_button.toggle_mode = true
@@ -123,7 +148,7 @@ func _build_layers() -> void:
 	cancel.size = Vector2(110,60)
 	cancel.pressed.connect(func():
 		town_map.hide()
-		inspect_dialog.hide()
+		_close_dialogues()
 		waypoints.clear())
 	ui.add_child(cancel)
 	var back := Button.new()
@@ -171,6 +196,7 @@ func _build_player() -> void:
 	shadow_mesh.material_override = shadow_material
 
 func load_field(id: String, entry: String = "arrival") -> void:
+	_close_dialogues()
 	field_id = id
 	field_data = JSON.parse_string(FileAccess.get_file_as_string("res://data/ravenwood_" + id + ".json"))
 	backdrop.texture = load(field_data.backdrop)
@@ -211,6 +237,29 @@ func load_field(id: String, entry: String = "arrival") -> void:
 	transition_lock = 0.8
 	heading.text = "RAVENWOOD  /  " + field_data.title
 	hint.text = field_data.route_hint
+	_load_npcs()
+	_update_interaction()
+
+func _load_npcs() -> void:
+	for child in npc_root.get_children():
+		child.free()
+	npc_actors.clear()
+	pending_npc = ""
+	for data in npc_catalog:
+		if data.location != field_id:
+			continue
+		var actor = preload("res://scripts/town_npc.gd").new()
+		npc_root.add_child(actor)
+		var anchor := Vector2(data.position[0], data.position[1])
+		actor.configure(data, surface.world_at(anchor), player.scale.x)
+		npc_actors.append(actor)
+
+func _close_dialogues() -> void:
+	if is_instance_valid(inspect_dialog):
+		inspect_dialog.hide()
+	if is_instance_valid(npc_dialog):
+		npc_dialog.close_dialogue()
+	pending_npc = ""
 
 func _add_polygons(masks: Array, parent: Node2D) -> void:
 	for mask in masks:
@@ -243,18 +292,40 @@ func _exit_for_screen(screen: Vector2) -> String:
 	return ""
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.physical_keycode == KEY_ESCAPE:
+			_close_dialogues()
+			return
+		if event.physical_keycode == KEY_E and not town_map.visible and not npc_dialog.visible and not inspect_dialog.visible:
+			_inspect_nearest()
+			return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		_set_target(event.position)
 	elif event is InputEventScreenTouch and event.pressed:
 		_set_target(event.position)
 
 func _set_target(screen: Vector2) -> void:
+	if town_map.visible or inspect_dialog.visible or npc_dialog.visible:
+		return
+	pending_npc = ""
+	for npc in npc_actors:
+		if npc.screen_rect(camera).has_point(screen):
+			pending_npc = npc.record.id
+			requested_exit = ""
+			manual_move = false
+			var anchor: Vector2 = npc.anchor
+			var offset := screen_position - anchor
+			var approach := anchor + offset.normalized() * 65.0
+			waypoints = surface.route(screen_position, approach)
+			if _npc_in_reach(npc):
+				_talk_to(npc)
+			return
 	manual_move = false
 	requested_exit = _exit_for_screen(surface.constrain(screen))
 	waypoints = surface.route(screen_position, screen)
 
 func _physics_process(delta: float) -> void:
-	if town_map.visible or inspect_dialog.visible:
+	if town_map.visible or inspect_dialog.visible or npc_dialog.visible:
 		return
 	transition_lock = maxf(0, transition_lock - delta)
 	var input := Vector2.ZERO
@@ -265,7 +336,10 @@ func _physics_process(delta: float) -> void:
 	_walk(input.limit_length(), delta)
 
 func _walk(input: Vector2, delta: float) -> void:
+	if npc_dialog.visible:
+		return
 	if input.length() > 0.1:
+		pending_npc = ""
 		manual_move = true
 		requested_exit = ""
 		waypoints.clear()
@@ -310,7 +384,12 @@ func _walk(input: Vector2, delta: float) -> void:
 			nearest = id
 	if not nearest.is_empty():
 		hint.text = "Enter " + location_names[nearest]
-	inspect_button.disabled = _nearest_inspection().is_empty()
+	_update_interaction()
+	if not pending_npc.is_empty():
+		for npc in npc_actors:
+			if npc.record.id == pending_npc and _npc_in_reach(npc):
+				_talk_to(npc)
+				return
 	if transition_lock > 0:
 		return
 	var destination := _exit_for_screen(screen_position)
@@ -328,6 +407,12 @@ func _nearest_inspection() -> Dictionary:
 	return nearest
 
 func _inspect_nearest() -> void:
+	if npc_dialog.visible or inspect_dialog.visible or town_map.visible:
+		return
+	var npc := _nearest_npc()
+	if npc != null:
+		_talk_to(npc)
+		return
 	var point := _nearest_inspection()
 	if point.is_empty():
 		return
@@ -337,3 +422,44 @@ func _inspect_nearest() -> void:
 	inspect_dialog.title = point.title
 	inspect_dialog.dialog_text = point.text
 	inspect_dialog.popup_centered(Vector2i(620,210))
+
+func _npc_in_reach(npc: Node3D) -> bool:
+	var anchor: Vector2 = npc.anchor
+	return screen_position.distance_to(anchor) < 125.0 and surface.visible_segment(screen_position, anchor)
+
+func _nearest_npc() -> Node3D:
+	var nearest: Node3D = null
+	var distance := 125.0
+	for npc in npc_actors:
+		var anchor: Vector2 = npc.anchor
+		var candidate := screen_position.distance_to(anchor)
+		if candidate < distance and _npc_in_reach(npc):
+			distance = candidate
+			nearest = npc
+	return nearest
+
+func _update_interaction() -> void:
+	var npc := _nearest_npc()
+	inspect_button.text = "A • Talk" if npc != null else "A • Inspect"
+	inspect_button.disabled = npc == null and _nearest_inspection().is_empty()
+	npc_marker.visible = npc != null
+	if npc != null:
+		npc_marker.text = npc.record.name + " · " + npc.record.role
+		var label_size := npc_marker.get_minimum_size()
+		var head: Vector2 = camera.unproject_position(npc.head_position())
+		npc_marker.position = Vector2(clampf(head.x - label_size.x * 0.5, 10.0, 1270.0 - label_size.x), maxf(90.0, head.y - 28.0))
+		hint.text = "Talk to " + npc.record.name + " · A / E"
+
+func _talk_to(npc: Node3D) -> void:
+	waypoints.clear()
+	requested_exit = ""
+	pending_npc = ""
+	joystick.direction = Vector2.ZERO
+	joystick.finger = -1
+	joystick.knob = Vector2.ZERO
+	joystick.queue_redraw()
+	joystick.set_process_input(false)
+	player.velocity = Vector3.ZERO
+	hero_visual.play_clip("Idle")
+	npc.face_player(player.position)
+	npc_dialog.open_npc(npc.record)

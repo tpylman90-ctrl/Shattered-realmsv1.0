@@ -1,0 +1,328 @@
+{
+  "npcs": [
+    {
+      "id": "edda",
+      "location": "gate",
+      "name": "Edda",
+      "role": "Gate watch",
+      "appearance": "female",
+      "position": [
+        690,
+        555
+      ],
+      "facing": -25,
+      "shirt": "#697b68",
+      "trousers": "#353c42",
+      "height": 1.01,
+      "idle_phase": 0.0,
+      "greeting": "Welcome to Ravenwood. Keep the middle of the steps clear; someone is always hauling something through here.",
+      "topics": [
+        {
+          "label": "Finding your way",
+          "text": "The left lane leads to the market. The camp is to the right. Through the gate and up the steps, you will find the upper town and the great hall."
+        },
+        {
+          "label": "The watch",
+          "text": "We take turns at the gate and the lookout. A quiet shift is a good shift, whatever the others tell you."
+        }
+      ]
+    },
+    {
+      "id": "ivo",
+      "location": "market",
+      "name": "Ivo",
+      "role": "Market trader",
+      "appearance": "male",
+      "position": [
+        865,
+        590
+      ],
+      "facing": -40,
+      "shirt": "#947447",
+      "trousers": "#35394a",
+      "height": 0.97,
+      "idle_phase": 0.17,
+      "greeting": "Mind the baskets. I finally arranged them so I can find things without moving the entire stall.",
+      "topics": [
+        {
+          "label": "Around the square",
+          "text": "The Green Hart is across the square. Follow the hammering for the smithy; the provisioner keeps the smaller traveling supplies."
+        },
+        {
+          "label": "Market life",
+          "text": "Everyone stops at the well sooner or later. If you need to find somebody in Ravenwood, patience is often quicker than running."
+        }
+      ]
+    },
+    {
+      "id": "orrin",
+      "location": "camp",
+      "name": "Orrin",
+      "role": "Quartermaster",
+      "appearance": "male",
+      "position": [
+        620,
+        510
+      ],
+      "facing": 30,
+      "shirt": "#6c7050",
+      "trousers": "#363d3b",
+      "height": 1.03,
+      "idle_phase": 0.34,
+      "greeting": "If you borrowed a blanket, bring back a blanket. That rule is harder to enforce than you might think.",
+      "topics": [
+        {
+          "label": "The camp",
+          "text": "The command tent is beyond the main path. The barracks are on the right, and the training yard is beside them."
+        },
+        {
+          "label": "Supplies",
+          "text": "Boot leather, clean water, spare cord. None of it looks heroic until you are a long way from home."
+        }
+      ]
+    },
+    {
+      "id": "elin",
+      "location": "upper",
+      "name": "Elin",
+      "role": "Town resident",
+      "appearance": "female",
+      "position": [
+        810,
+        560
+      ],
+      "facing": -35,
+      "shirt": "#7c667e",
+      "trousers": "#3c3944",
+      "height": 0.96,
+      "idle_phase": 0.51,
+      "greeting": "You made it up the steps. I always think the view is worth the climb.",
+      "topics": [
+        {
+          "label": "Upper town",
+          "text": "The great hall is along the right-hand path. The lookout is to the left. The narrow road ahead winds out toward the woodland."
+        },
+        {
+          "label": "Ravenwood",
+          "text": "The town grew around these old paths. Every family has a different story about which building was here first."
+        }
+      ]
+    },
+    {
+      "id": "mara",
+      "location": "inn",
+      "name": "Mara",
+      "role": "Innkeeper",
+      "appearance": "female",
+      "position": [
+        740,
+        420
+      ],
+      "facing": 25,
+      "shirt": "#8a5b52",
+      "trousers": "#393e43",
+      "height": 1.0,
+      "idle_phase": 0.68,
+      "greeting": "Come in out of the draft. Even the door sounds tired after a long day.",
+      "topics": [
+        {
+          "label": "The Green Hart",
+          "text": "Carters, watchmen, travelers: the tables change, but somebody always wants the chair nearest the fire."
+        },
+        {
+          "label": "A local tip",
+          "text": "If you are heading beyond the town, speak to the scout near the woodland road. A warm meal is better after a sensible journey."
+        }
+      ]
+    },
+    {
+      "id": "bram",
+      "location": "forge",
+      "name": "Bram",
+      "role": "Smith",
+      "appearance": "male",
+      "position": [
+        610,
+        390
+      ],
+      "facing": -25,
+      "shirt": "#68554b",
+      "trousers": "#30363b",
+      "height": 1.05,
+      "idle_phase": 0.85,
+      "greeting": "Stand clear of the coals. A forge does not care whether your boots are new.",
+      "topics": [
+        {
+          "label": "Your craft",
+          "text": "A good edge starts long before the final sharpening. The fit, the balance, the temper: rush one and the others cannot save it."
+        },
+        {
+          "label": "Traveling gear",
+          "text": "Check straps and buckles before you leave town. Most broken equipment gave its owner a warning first."
+        }
+      ]
+    },
+    {
+      "id": "nessa",
+      "location": "shop",
+      "name": "Nessa",
+      "role": "Provisioner",
+      "appearance": "female",
+      "position": [
+        800,
+        470
+      ],
+      "facing": 35,
+      "shirt": "#657d89",
+      "trousers": "#3c3942",
+      "height": 0.98,
+      "idle_phase": 1.02,
+      "greeting": "Take your time. It is easier to remember what you need while you are still in town.",
+      "topics": [
+        {
+          "label": "Packing well",
+          "text": "Put the things you reach for most where you can find them in the dark. Rain does not wait while you unpack a bag."
+        },
+        {
+          "label": "The neighbors",
+          "text": "Bram handles the heavy work at the forge. Mara at the inn hears who has come through town lately."
+        }
+      ]
+    },
+    {
+      "id": "sella",
+      "location": "hall",
+      "name": "Sella",
+      "role": "Hall steward",
+      "appearance": "female",
+      "position": [
+        680,
+        350
+      ],
+      "facing": 15,
+      "shirt": "#6d647f",
+      "trousers": "#353c43",
+      "height": 1.02,
+      "idle_phase": 1.19,
+      "greeting": "Welcome to the great hall. Please leave the aisle clear when the council gathers.",
+      "topics": [
+        {
+          "label": "The hall",
+          "text": "People come here with petitions, disputes, and news from the outlying farms. Listening takes more time than the speeches."
+        },
+        {
+          "label": "Looking for someone",
+          "text": "For the watch, ask at the camp or the lookout. For a place to catch your breath, the Green Hart is down by the market."
+        }
+      ]
+    },
+    {
+      "id": "rook",
+      "location": "command",
+      "name": "Rook",
+      "role": "Watch captain",
+      "appearance": "male",
+      "position": [
+        770,
+        430
+      ],
+      "facing": -20,
+      "shirt": "#526e6e",
+      "trousers": "#303946",
+      "height": 1.04,
+      "idle_phase": 1.36,
+      "greeting": "Come closer. I would rather hear a clear question than have someone guess at an order.",
+      "topics": [
+        {
+          "label": "Watch duties",
+          "text": "Gate duty, lookout duty, patrols. Keeping people safe is usually a matter of noticing small things before they become large ones."
+        },
+        {
+          "label": "Beyond the town",
+          "text": "Speak with the scout on the woodland approach before following the road. Conditions on a path matter more than how familiar it looks on a map."
+        }
+      ]
+    },
+    {
+      "id": "hale",
+      "location": "barracks",
+      "name": "Hale",
+      "role": "Drill sergeant",
+      "appearance": "male",
+      "position": [
+        600,
+        400
+      ],
+      "facing": 35,
+      "shirt": "#6c644c",
+      "trousers": "#323b3d",
+      "height": 1.02,
+      "idle_phase": 1.53,
+      "greeting": "Keep your kit together. The floor is not a storage chest.",
+      "topics": [
+        {
+          "label": "The barracks",
+          "text": "Rest, mend, clean, repeat. People remember the training yard, but half a soldier’s work happens in a room like this."
+        },
+        {
+          "label": "First advice",
+          "text": "Find your footing before worrying about speed. A steady stance will do more for you than a dramatic swing."
+        }
+      ]
+    },
+    {
+      "id": "tamsin",
+      "location": "watch",
+      "name": "Tamsin",
+      "role": "Lookout",
+      "appearance": "female",
+      "position": [
+        820,
+        465
+      ],
+      "facing": -65,
+      "shirt": "#5f7382",
+      "trousers": "#343a43",
+      "height": 1.0,
+      "idle_phase": 1.7,
+      "greeting": "Give your eyes a moment. The farther ridges are easier to pick out once you stop staring at the nearest roof.",
+      "topics": [
+        {
+          "label": "The valley",
+          "text": "Watch the roads and the gaps between the trees. Movement is often easier to notice than the thing that is moving."
+        },
+        {
+          "label": "The signal bell",
+          "text": "A signal is only useful when everyone knows what it means. On a quiet day we practice, even if the whole town complains."
+        }
+      ]
+    },
+    {
+      "id": "tessa",
+      "location": "forest",
+      "name": "Tessa",
+      "role": "Woodland scout",
+      "appearance": "female",
+      "position": [
+        915,
+        470
+      ],
+      "facing": -30,
+      "shirt": "#64734d",
+      "trousers": "#3a4034",
+      "height": 0.99,
+      "idle_phase": 0.07,
+      "greeting": "Slow down at the stream. Wet stone is a poor place to discover that your boots have smooth soles.",
+      "topics": [
+        {
+          "label": "The woodland road",
+          "text": "The path narrows beyond the crossing. Listen before you round a bend, and keep enough daylight for the return."
+        },
+        {
+          "label": "Scouting",
+          "text": "A bent stem can tell you somebody passed. It takes a little more care to work out who, how recently, and whether it matters."
+        }
+      ]
+    }
+  ]
+}

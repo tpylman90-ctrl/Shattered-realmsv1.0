@@ -59,3 +59,25 @@ clip changes, and all 22 directional doors. In-engine visual and Android phone
 review remain separate from these automated checks.
 
 The editable `neutral-starters.blend` is retained separately from this runtime-only recovery commit. The checked-in GLBs are complete and do not require Blender at runtime or during APK export. Authoring regeneration requires restoring that source to `art/characters/neutral-starters.blend`; the character workflow validates committed exports when it is absent.
+
+## Ravenwood resident pass — 0.8.0
+
+`game/data/ravenwood_npcs.json` places one stationary resident in each of the
+12 existing locations. These residents use the approved male/female rigs with
+per-instance clothing palettes and modest height/idle variation; they are a
+first population pass, not twelve unique character sculpts. Shared player
+materials and the packaged hero GLBs remain untouched.
+
+Tap a visible resident to approach and begin a conversation, or use A / E when
+nearby. A name/role marker and A • Talk prompt identify an available speaker.
+Conversation requires proximity and a clear segment on the fitted floor. The
+new conversation panel offers a greeting, two local topics, and Goodbye; B or
+Escape also closes it. Player travel pauses and pending routes are cleared
+while speaking. Residents turn toward the player when addressed.
+
+Existing navigation outlines, occluders, exit triggers and return spawns are
+unchanged. Residents are nonblocking in this initial pass, preserving the
+movement routes under phone review. Shopkeepers and camp staff currently offer
+conversations only: transactions, lodging, recruitment, quests and campaign
+progress are not implemented by this pass. The new resident names/dialogue are
+local flavor and do not establish a final campaign opening or companion roster.

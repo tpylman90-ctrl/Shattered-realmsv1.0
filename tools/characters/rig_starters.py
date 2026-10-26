@@ -3,9 +3,12 @@ Reconstruct the exact posed MPFB skeleton, then bake foot-target locomotion.
 The packed Blender scene is the approved art source; no source mesh is regenerated.
 """
 import bpy, math, json, os, addon_utils
+import sys
 from pathlib import Path
 from mathutils import Vector, Matrix
 ROOT=Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from style_starters import sculpt_point, tailor_mesh, sleeve_surface, fit_sleeves, skin_palette, add_brows, REVISION
 OUT=Path(os.environ.get('SR_CHARACTER_OUTPUT',str(ROOT/'.build/characters')));OUT.mkdir(parents=True,exist_ok=True)
 MPFB=Path(os.environ.get('SR_MPFB_EXTENSIONS',str(ROOT/'.tools/character-extensions')))
 bpy.context.preferences.extensions.repos.new(name='SR native rig',module='sr_native',custom_directory=str(MPFB))
@@ -45,13 +48,19 @@ for record in spec['characters']:
  bpy.context.view_layer.update();dg=bpy.context.evaluated_depsgraph_get();ev=body.evaluated_get(dg);em=ev.to_mesh()
  factor=1.75/max(stylize(v.co,neck).z for v in em.vertices);ev.to_mesh_clear()
  rest[sex]={pb.name:{'head':list(stylize(rig.matrix_world@pb.head,neck)*factor),'tail':list(stylize(rig.matrix_world@pb.tail,neck)*factor),'z':list(pb.matrix.to_3x3().col[2]),'parent':pb.parent.name if pb.parent else None} for pb in rig.pose.bones}
+ for bone in rest[sex].values():
+  bone['head']=list(sculpt_point(bone['head'],sex));bone['tail']=list(sculpt_point(bone['tail'],sex))
 # Open canonical art with packed eye/hair textures, fabric materials and fitted clothes.
 bpy.ops.wm.open_mainfile(filepath=str(ROOT/'art/characters/neutral-starters.blend'))
 actors=[o for o in bpy.data.objects if o.type=='EMPTY' and o.name.startswith('MPFB ')]
 source_hidden={o.name:o.hide_render for o in bpy.data.objects}
 records=[]
 for actor in actors:
- sex='female' if 'female' in actor.name else 'male';objects=[o for o in actor.children_recursive if o.type in ['MESH','CURVE'] and not source_hidden.get(o.name,o.hide_render)]
+ sex='female' if 'female' in actor.name else 'male'
+ add_brows(actor,sex)
+ objects=[o for o in actor.children_recursive if o.type in ['MESH','CURVE'] and not source_hidden.get(o.name,o.hide_render)]
+ reference=next(o for o in actor.children_recursive if o.name.startswith('Hidden covered-body reference'))
+ sleeve_fit=sleeve_surface(reference,sex)
  # Retain UVs, alpha hair, native skin groups and individual materials.
  for ob in objects:
   bpy.ops.object.select_all(action='DESELECT');ob.hide_render=False;ob.hide_set(False);ob.select_set(True);bpy.context.view_layer.objects.active=ob
@@ -59,6 +68,9 @@ for actor in actors:
    if m.type=='SUBSURF':ob.modifiers.remove(m)
   if ob.type=='CURVE':bpy.ops.object.convert(target='MESH')
   ob.parent=None;ob.matrix_world.identity()
+  tailor_mesh(ob,sex)
+  fit_sleeves(ob,sleeve_fit)
+  skin_palette(ob,sex)
   ob.data.calc_loop_triangles()
   if len(ob.data.loop_triangles)>16000:
    dec=ob.modifiers.new('Bounded mobile simplification','DECIMATE');dec.ratio=16000/len(ob.data.loop_triangles);dec.use_collapse_triangulate=True;bpy.ops.object.modifier_apply(modifier=dec.name)
@@ -174,5 +186,5 @@ for actor in actors:
  rig.animation_data.action=None
  for pb in rig.pose.bones:pb.matrix_basis=Matrix.Identity(4)
  records.append({'id':sex,'triangles':triangles,'bones':len(arm.bones),'meshes':len(objects),'clips':['Idle','Walk','Run'],'native_weights':True,'fallback_weights':fallback,'texture_limit':1024})
-(OUT/'rig-validation.json').write_text(json.dumps({'models':records,'source':'art/characters/neutral-starters.blend','walk_stride':.50,'walk_duration':1.,'walk_stance':.62,'run_stride':.80,'run_duration':22/30,'run_stance':.5,'limitations':['No facial animation','Foot contact on the fitted floor; stairs use whole-character floor placement']},indent=2))
+(OUT/'rig-validation.json').write_text(json.dumps({'models':records,'style_revision':REVISION,'source':'art/characters/neutral-starters.blend','walk_stride':.50,'walk_duration':1.,'walk_stance':.62,'run_stride':.80,'run_duration':22/30,'run_stance':.5,'limitations':['No facial animation','Foot contact on the fitted floor; stairs use whole-character floor placement']},indent=2))
 print('NATIVE_RIGS_COMPLETE',records)

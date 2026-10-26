@@ -6,12 +6,12 @@
     {
       "id": "male",
       "asset": "game/assets/characters/starter_male.glb",
-      "sha256": "e61ab17bebf3612098a8e9db065a593f091836500fd4c0b58810d14d945ffa0b"
+      "sha256": "ea6f03f41b4ebfc31536953759811e3a11ce90dcff4036b52e6ce0138c12c308"
     },
     {
       "id": "female",
       "asset": "game/assets/characters/starter_female.glb",
-      "sha256": "bd3899c1c121cf15525dd8baffc420f4920d615f65d91a4c43ef09e27fe55c31"
+      "sha256": "a43b310d64bb930bda4d54e21dc4aef52c7f77b1efa1200505de3fb0eaa588a7"
     }
   ],
   "limitations": [
@@ -19,5 +19,6 @@
     "No individual stair foot IK",
     "Device performance review pending"
   ],
-  "animation_revision": "0.6.1: stride-dependent elbow flexion and hand clearance from the tunic"
+  "animation_revision": "0.6.1: stride-dependent elbow flexion and hand clearance from the tunic",
+  "art_revision": "0.7.0: shared mesh/skeleton silhouette sculpt, garment fitting, facial vertex colors and male brows"
 }

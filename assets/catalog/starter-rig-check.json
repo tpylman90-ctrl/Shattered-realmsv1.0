@@ -16,9 +16,9 @@
     },
     {
       "id": "male",
-      "triangles": 33708,
+      "triangles": 35244,
       "bones": 53,
-      "meshes": 8,
+      "meshes": 10,
       "clips": [
         "Idle",
         "Walk",
@@ -39,5 +39,8 @@
   "limitations": [
     "No facial animation",
     "Foot contact on the fitted floor; stairs use whole-character floor placement"
-  ]
+  ],
+  "art_revision": "0.7.0",
+  "review": "Imported GLB idle, walk and run frames rendered; GUT elbow/wrist regression and all field transitions pass.",
+  "style_revision": "0.7.0 silhouette and tailoring"
 }

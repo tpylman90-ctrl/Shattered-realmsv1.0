@@ -152,8 +152,8 @@
     "Tailored skirt hip clearance and covered-surface masks checked from front and rear"
   ],
   "limitations": [
-    "Static review only",
-    "No animation or Android validation in this pass"
+    "Source was approved before this runtime refinement; run rig_starters.py to apply the recorded style pass.",
+    "No facial performance animation; Android device review remains required."
   ],
   "visual_references": [
     "User-supplied 2358.png: stylized adult female shape",
@@ -162,5 +162,13 @@
   "references_usage": "Visual proportion guidance only; no third-party model geometry obtained",
   "covered_skin": "Hidden covered-body reference retained in Blender; covered leg surfaces omitted from visible export",
   "validation": "Godot 4.5.2 import and instantiation passed for all 16 mesh instances",
-  "male_model": "Geometry hash matched previous shape pass exactly"
+  "male_model": "Geometry hash matched previous shape pass exactly",
+  "runtime_art_revision": "0.7.0",
+  "runtime_refinement_script": "tools/characters/style_starters.py",
+  "runtime_refinements": [
+    "Coordinated mesh and joint deformation; narrower female shoulders, defined waist, rounded hips and softer jaw/eye/nose shaping",
+    "Closer tunic sleeves, restrained hem flare, subtle anatomical vertex-color lips and ears",
+    "Male chest/waist taper, stronger jaw and original skinned eyebrows",
+    "Existing CC0 source geometry and native weights retained; visual references remain proportion guidance only"
+  ]
 }

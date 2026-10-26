@@ -81,3 +81,18 @@ movement routes under phone review. Shopkeepers and camp staff currently offer
 conversations only: transactions, lodging, recruitment, quests and campaign
 progress are not implemented by this pass. The new resident names/dialogue are
 local flavor and do not establish a final campaign opening or companion roster.
+
+## Character readability calibration — 0.8.1
+
+`game/data/ravenwood_character_presentation.json` controls the shared visual
+scale for heroes and residents across all twelve locations. A 25% larger
+baseline is combined with gentle screen-depth compensation so characters no
+longer become tiny near the camp entrance and command tent. Actual perspective
+still reduces their size into the distance. Personal NPC height differences
+remain relative to the same shared presentation at their floor position.
+
+The player model and contact shadow scale independently of the movement body.
+Navigation outlines, doorway triggers, spawn points and movement speed stay in
+the original gameplay units. Locomotion cadence uses the displayed model scale
+to keep stride speed appropriate. NPC tap bounds and name-marker positions use
+their displayed height. Device review of the scene proportions remains needed.

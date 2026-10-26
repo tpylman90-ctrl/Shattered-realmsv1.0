@@ -30,10 +30,13 @@ var npc_actors: Array[Node3D] = []
 var npc_dialog: PanelContainer
 var npc_marker: Label
 var pending_npc := ""
+var character_presentation: Dictionary
+var player_shadow: MeshInstance3D
 
 func _ready() -> void:
 	location_names = JSON.parse_string(FileAccess.get_file_as_string("res://data/ravenwood_locations.json")).locations
 	npc_catalog = JSON.parse_string(FileAccess.get_file_as_string("res://data/ravenwood_npcs.json")).npcs
+	character_presentation = JSON.parse_string(FileAccess.get_file_as_string("res://data/ravenwood_character_presentation.json"))
 	_build_layers()
 	camera = Camera3D.new()
 	add_child(camera)
@@ -189,6 +192,7 @@ func _build_player() -> void:
 	var shadow := PlaneMesh.new()
 	shadow.size = Vector2(0.95, 0.7)
 	var shadow_mesh := _mesh(shadow, Color.WHITE, Vector3(0, 0.012, 0), player)
+	player_shadow = shadow_mesh
 	var shader := Shader.new()
 	shader.code = "shader_type spatial; render_mode unshaded, cull_disabled, depth_draw_never; void fragment(){vec2 p=(UV-vec2(0.5))*2.0; ALBEDO=vec3(0.055,0.04,0.02); ALPHA=max(0.0,1.0-dot(p,p))*0.38;}"
 	var shadow_material := ShaderMaterial.new()
@@ -251,7 +255,8 @@ func _load_npcs() -> void:
 		var actor = preload("res://scripts/town_npc.gd").new()
 		npc_root.add_child(actor)
 		var anchor := Vector2(data.position[0], data.position[1])
-		actor.configure(data, surface.world_at(anchor), player.scale.x)
+		var floor_position := surface.world_at(anchor)
+		actor.configure(data, floor_position, player.scale.x * _visual_factor_at(floor_position))
 		npc_actors.append(actor)
 
 func _close_dialogues() -> void:
@@ -278,9 +283,24 @@ func _add_polygons(masks: Array, parent: Node2D) -> void:
 func _place_screen(screen: Vector2) -> void:
 	screen_position = surface.constrain(screen)
 	player.position = surface.world_at(screen_position)
+	var visual_factor := _visual_factor_at(player.position)
+	body_visual.scale = Vector3.ONE * visual_factor
+	player_shadow.scale = Vector3(visual_factor, 1.0, visual_factor)
 	for group in depth_groups:
 		var ground_line: Vector2 = group.get_meta("ground_line")
 		group.visible = screen_position.y < screen_position.x * ground_line.x + ground_line.y
+
+func _visual_factor_at(floor_position: Vector3) -> float:
+	# Painted perspective and the fitted floor do not have identical depth.
+	# Keep the same readable presentation for a player or NPC at this position,
+	# while leaving the movement body, floor, and walking speed in gameplay units.
+	var feet := camera.unproject_position(floor_position)
+	var base_height := float(character_presentation.model_height_m) * float(field_data.character_scale)
+	var head := camera.unproject_position(floor_position + Vector3.UP * base_height)
+	var projected_height := maxf(absf(feet.y - head.y), 1.0)
+	var baseline := float(character_presentation.baseline_multiplier)
+	var depth_ratio := maxf(1.0, float(character_presentation.reference_height_px) / projected_height)
+	return minf(baseline * pow(depth_ratio, float(character_presentation.depth_exponent)), float(character_presentation.maximum_multiplier))
 
 func _exit_for_screen(screen: Vector2) -> String:
 	for id in field_data.exits:
@@ -359,7 +379,7 @@ func _walk(input: Vector2, delta: float) -> void:
 	var movement := player.position - old_position
 	if movement.length() > 0.001:
 		body_visual.rotation.y = lerp_angle(body_visual.rotation.y, atan2(movement.x, movement.z), delta * 12)
-		hero_visual.update_locomotion(Vector2(movement.x, movement.z).length() / maxf(delta, 0.001), player.scale.x, sprinting)
+		hero_visual.update_locomotion(Vector2(movement.x, movement.z).length() / maxf(delta, 0.001), player.scale.x * body_visual.scale.x, sprinting)
 		moving_time += delta * 10
 		body_visual.position.y = 0
 	else:

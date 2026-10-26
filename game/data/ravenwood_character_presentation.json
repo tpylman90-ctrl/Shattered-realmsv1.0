@@ -1,0 +1,7 @@
+{
+  "baseline_multiplier": 1.25,
+  "reference_height_px": 120.0,
+  "depth_exponent": 0.5,
+  "maximum_multiplier": 3.0,
+  "model_height_m": 1.75
+}

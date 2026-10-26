@@ -1,0 +1,233 @@
+{
+  "layout_status": "Provisional; positions do not establish borders, travel routes or campaign order.",
+  "territories": [
+    {
+      "id": "ravenwood",
+      "name": "Ravenwood",
+      "settlement": "Blackthorn",
+      "biome": "forest",
+      "position": [
+        0,
+        0
+      ],
+      "settlement_type": "City",
+      "boss": ""
+    },
+    {
+      "id": "frostpeaks",
+      "name": "Frostpeaks",
+      "settlement": "Icehelm",
+      "biome": "snow",
+      "position": [
+        1,
+        0
+      ],
+      "settlement_type": "City",
+      "boss": ""
+    },
+    {
+      "id": "stormcrown",
+      "name": "Stormcrown Mountains",
+      "settlement": "Stormcrown Keep",
+      "biome": "mountain",
+      "position": [
+        2,
+        0
+      ],
+      "settlement_type": "City",
+      "boss": ""
+    },
+    {
+      "id": "ashen",
+      "name": "The Ashen Wastes",
+      "settlement": "Ashenreach",
+      "biome": "ash",
+      "position": [
+        3,
+        0
+      ],
+      "settlement_type": "City",
+      "boss": "Vulgrim"
+    },
+    {
+      "id": "marsh",
+      "name": "The Blighted Marsh",
+      "settlement": "Wickermoor",
+      "biome": "marsh",
+      "position": [
+        4,
+        0
+      ],
+      "settlement_type": "Village",
+      "boss": ""
+    },
+    {
+      "id": "silvermere",
+      "name": "Silvermere",
+      "settlement": "Silverkeep",
+      "biome": "plain",
+      "position": [
+        0,
+        1
+      ],
+      "settlement_type": "City",
+      "boss": ""
+    },
+    {
+      "id": "eldergrove",
+      "name": "Eldergrove",
+      "settlement": "",
+      "biome": "forest",
+      "position": [
+        1,
+        1
+      ],
+      "settlement_type": "City",
+      "boss": ""
+    },
+    {
+      "id": "iron_plains",
+      "name": "The Iron Plains",
+      "settlement": "Harrowstead",
+      "biome": "plain",
+      "position": [
+        2,
+        1
+      ],
+      "settlement_type": "City",
+      "boss": ""
+    },
+    {
+      "id": "shadowfen",
+      "name": "Shadowfen Forest",
+      "settlement": "",
+      "biome": "forest",
+      "position": [
+        3,
+        1
+      ],
+      "settlement_type": "City",
+      "boss": ""
+    },
+    {
+      "id": "drakeshard",
+      "name": "Drakeshard Range",
+      "settlement": "Ironhold",
+      "biome": "mountain",
+      "position": [
+        4,
+        1
+      ],
+      "settlement_type": "City",
+      "boss": ""
+    },
+    {
+      "id": "westreach",
+      "name": "Westreach",
+      "settlement": "Westhaven",
+      "biome": "coast",
+      "position": [
+        0,
+        2
+      ],
+      "settlement_type": "City",
+      "boss": ""
+    },
+    {
+      "id": "deadwind",
+      "name": "Deadwind Hollow",
+      "settlement": "Duskwatch",
+      "biome": "ash",
+      "position": [
+        1,
+        2
+      ],
+      "settlement_type": "City",
+      "boss": ""
+    },
+    {
+      "id": "ravenford",
+      "name": "Ravenford",
+      "settlement": "Ravenford",
+      "biome": "plain",
+      "position": [
+        2,
+        2
+      ],
+      "settlement_type": "City",
+      "boss": ""
+    },
+    {
+      "id": "cursed_mire",
+      "name": "The Cursed Mire",
+      "settlement": "",
+      "biome": "marsh",
+      "position": [
+        3,
+        2
+      ],
+      "settlement_type": "City",
+      "boss": ""
+    },
+    {
+      "id": "golden",
+      "name": "The Golden Expanse",
+      "settlement": "Sunspire",
+      "biome": "desert",
+      "position": [
+        4,
+        2
+      ],
+      "settlement_type": "City",
+      "boss": ""
+    },
+    {
+      "id": "dragons_rest",
+      "name": "Dragon’s Rest",
+      "settlement": "Cinderport",
+      "biome": "ash",
+      "position": [
+        0,
+        3
+      ],
+      "settlement_type": "City",
+      "boss": ""
+    },
+    {
+      "id": "mistvale",
+      "name": "Mistvale",
+      "settlement": "Mistvale",
+      "biome": "coast",
+      "position": [
+        1,
+        3
+      ],
+      "settlement_type": "City",
+      "boss": ""
+    },
+    {
+      "id": "hollow_isles",
+      "name": "The Hollow Isles",
+      "settlement": "Hollowguard",
+      "biome": "coast",
+      "position": [
+        2,
+        3
+      ],
+      "settlement_type": "City",
+      "boss": ""
+    },
+    {
+      "id": "deep",
+      "name": "The Devouring Deep",
+      "settlement": "",
+      "biome": "deep",
+      "position": [
+        3,
+        3
+      ],
+      "settlement_type": "City",
+      "boss": "The Devouring Deep"
+    }
+  ]
+}

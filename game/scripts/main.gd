@@ -20,7 +20,7 @@ func _ready() -> void:
 	status.text = "Foundation build • Ravenwood is our first destination"
 	status.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	panel.add_child(status)
-	for section in ["Choose hero", "Ravenwood", "Territory campaign", "Entropic Forge"]:
+	for section in ["Choose hero", "Ravenwood", "World map", "Entropic Forge"]:
 		var button := Button.new()
 		button.text = section
 		button.custom_minimum_size = Vector2(540, 64)
@@ -29,6 +29,8 @@ func _ready() -> void:
 		elif section == "Ravenwood":
 			button.pressed.connect(func():
 				get_tree().change_scene_to_file("res://scenes/ravenwood.tscn" if FileAccess.file_exists("user://hero.cfg") else "res://scenes/hero_select.tscn"))
+		elif section == "World map":
+			button.pressed.connect(func(): get_tree().change_scene_to_file("res://scenes/world_map.tscn"))
 		else:
 			button.pressed.connect(func(): status.text = section + " — planned for the next milestones")
 		panel.add_child(button)

@@ -317,7 +317,7 @@
       ]
     ]
   },
-  "route_hint": "Ravenwood \u2190 downhill \u2022 A: inspect the woodland road",
+  "route_hint": "Blackthorn \u2190 downhill \u2022 A near the north road: enter Oldwood Road",
   "closed_areas": [],
   "depth_occluders": [],
   "inspections": [
@@ -326,8 +326,9 @@
         845,
         260
       ],
-      "title": "The woodland road",
-      "text": "The road continues toward the old ruins and neighboring territories. Ravenwood\u2019s town route ends here; the campaign beyond is still to come."
+      "title": "Enter Oldwood Road",
+      "text": "Follow the woodland road to Briar Crossing.",
+      "scene": "woodland"
     },
     {
       "position": [

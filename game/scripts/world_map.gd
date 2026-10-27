@@ -47,10 +47,10 @@ func _ready() -> void:
 	detail = _label("", Vector2(32, 635), 20)
 	detail.size = Vector2(950, 58)
 	enter = Button.new()
-	enter.text = "RAVENWOOD BOARD"
+	enter.text = "EXPLORE RAVENWOOD"
 	enter.position = Vector2(1000, 638)
 	enter.size = Vector2(248, 54)
-	enter.pressed.connect(func(): get_tree().change_scene_to_file("res://scenes/territory_board.tscn"))
+	enter.pressed.connect(func(): get_tree().change_scene_to_file("res://scenes/woodland.tscn"))
 	add_child(enter)
 	_label("PROVISIONAL GEOGRAPHY • Layout and borders can change", Vector2(750, 601), 14)
 	select_territory("ravenwood")

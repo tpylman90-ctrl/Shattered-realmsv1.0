@@ -1,0 +1,4 @@
+{
+  "forest": {"title":"RAVENWOOD · OLDWOOD ROAD","subtitle":"Blackthorn behind you. The forest opens ahead.","north":"crossing","south":"town"},
+  "crossing": {"title":"RAVENWOOD · BRIAR CROSSING","subtitle":"A weathered bridge above the Briarwater.","north":"boundary","south":"forest"}
+}

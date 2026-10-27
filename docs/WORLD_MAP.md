@@ -36,3 +36,9 @@ The accepted continent layout is unchanged. Terrain relief, rivers, stippling
 and a compass frame provide the next visual pass. Ravenwood now opens the
 territory board, where Blackthorn opens town exploration. See
 `docs/RAVENWOOD_BOARD.md` for implemented campaign mechanics and remaining work.
+
+## Connected rooms — 0.11.0
+
+Explore Ravenwood now opens Oldwood Road rather than the retired hex-board
+prototype. The atlas remains the overview; lightweight city exploration is
+preserved. See `docs/WOODLAND.md` for the connected 3D wilderness implementation.

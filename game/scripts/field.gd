@@ -436,6 +436,9 @@ func _inspect_nearest() -> void:
 	var point := _nearest_inspection()
 	if point.is_empty():
 		return
+	if point.get("scene", "") == "woodland":
+		get_tree().change_scene_to_file("res://scenes/woodland.tscn")
+		return
 	waypoints.clear()
 	joystick.direction = Vector2.ZERO
 	hero_visual.play_clip("Idle")

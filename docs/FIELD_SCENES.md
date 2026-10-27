@@ -9,7 +9,7 @@
 - Upper town connects the gate to the great hall, watch platform and forest approach.
 - The Green Hart inn, Iron & Ember forge and provisioner open from the market.
 - Command tent and barracks open from the camp.
-- Great hall, watch platform and forest approach return to upper town. The forest's northern road is an inspectable campaign boundary, not a territory-map transition yet.
+- Great hall, watch platform and forest approach return to upper town. The forest's northern road now opens the fully 3D Oldwood Road through its nearby A interaction.
 
 All twelve use original high-detail generated background art with foreground sections and a fitted 3D floor. None uses the earlier procedural render at runtime. Existing gate artwork and cameras remain unchanged. The approved MPFB neutral starters replace the prototype meshes. Field scale is now 0.70 (previously 0.55), consistent across all twelve screens and pending device review.
 

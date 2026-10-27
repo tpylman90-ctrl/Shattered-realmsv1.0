@@ -1,0 +1,13 @@
+{
+  "origin": "Original deterministic procedural textures; no external assets or providers",
+  "source": "tools/environments/make_woodland_textures.py",
+  "seed": 714,
+  "license": "Project-owned original work",
+  "files": {
+    "game/assets/woodland/bark.webp": "013a2ab182401a9dc124dfd328712fd5c0490be11c88415587d0f5a8bf3ff0ba",
+    "game/assets/woodland/ground.webp": "2f8b72e4aaf553169c1caf1a69e8a962867d8bfad077cb369561db37e29054f8",
+    "game/assets/woodland/leaves.png": "6922066373b49efa794b84561f34bdd4e40505c58ab3d94bb249cba4c9678ec6",
+    "game/assets/woodland/road.webp": "357c5a34266478e22ba2dcb7f3bad63d2fc9fb04a5136d4973e921969dd21a83",
+    "game/assets/woodland/stone.webp": "f3f32d451719c5c23ec55914282ff067b8ff25047a7f8317ff503441b7f9990b"
+  }
+}

@@ -79,6 +79,8 @@ jobs:
           EOF
       - name: Export APK
         run: godot --headless --path game --export-debug Android ../.build/shattered-realms-debug.apk
+      - name: Check content size ceiling
+        run: python3 tools/check_content_budget.py .build/shattered-realms-debug.apk
       - name: Apply persistent repository signing
         if: github.event_name != 'pull_request'
         env:

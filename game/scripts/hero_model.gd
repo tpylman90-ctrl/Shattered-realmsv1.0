@@ -19,7 +19,7 @@ static func save_choice(choice: String, config_path: String = "user://hero.cfg")
 	config.set_value("hero", "appearance", choice)
 	return config.save(config_path)
 
-func setup(choice: String) -> void:
+func setup(choice: String, show_equipment: bool = true) -> void:
 	assert(choice in ["male", "female"])
 	if is_instance_valid(model):
 		remove_child(model)
@@ -32,6 +32,8 @@ func setup(choice: String) -> void:
 		animation_player.get_animation(clip).loop_mode = Animation.LOOP_LINEAR
 	current_clip = ""
 	play_clip("Idle")
+	if show_equipment:
+		_attach_equipped_weapon()
 
 func _find_player(node: Node) -> AnimationPlayer:
 	if node is AnimationPlayer:
@@ -61,3 +63,24 @@ func update_locomotion(world_speed: float, model_scale: float, running: bool) ->
 	# Stance travel divided by stance duration in the authored in-place cycles.
 	var native_speed := 2.182 if running else 0.806
 	animation_player.speed_scale = clampf(world_speed / (maxf(model_scale, 0.01) * native_speed), 0.5, 2.3)
+
+func _find_skeleton(node: Node) -> Skeleton3D:
+	if node is Skeleton3D: return node
+	for child in node.get_children():
+		var found := _find_skeleton(child)
+		if found!=null: return found
+	return null
+
+func _attach_equipped_weapon() -> void:
+	var skeleton := _find_skeleton(model)
+	if skeleton==null or skeleton.find_bone("spine_03")<0: return
+	var state := EquipmentState.new()
+	var attachment := BoneAttachment3D.new()
+	attachment.bone_name="spine_03"
+	skeleton.add_child(attachment)
+	var visual := WeaponModel.new()
+	attachment.add_child(visual)
+	visual.build(state.catalog.items[state.equipped.weapon])
+	visual.position=Vector3(0.12,-0.15,-0.28)
+	visual.rotation.z=-0.35
+	visual.scale=Vector3.ONE*0.58

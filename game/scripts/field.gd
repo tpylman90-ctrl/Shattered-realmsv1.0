@@ -61,6 +61,13 @@ func _ready() -> void:
 	npc_root.name = "Residents"
 	add_child(npc_root)
 	load_field("gate")
+	if get_tree().has_meta("equipment_return_field"):
+		var arrival: Dictionary = get_tree().get_meta("equipment_return_field")
+		get_tree().remove_meta("equipment_return_field")
+		if location_names.has(arrival.get("id","")):
+			load_field(arrival.id)
+			_place_screen(arrival.position)
+			transition_lock=1.0
 
 func _build_layers() -> void:
 	var background_layer := CanvasLayer.new()
@@ -162,6 +169,15 @@ func _build_layers() -> void:
 	back.size = Vector2(130, 60)
 	ui.add_child(back)
 	back.pressed.connect(func(): get_tree().change_scene_to_file("res://scenes/main.tscn"))
+	var equipment_button := Button.new()
+	equipment_button.text="PACK / SMITHY"
+	equipment_button.position=Vector2(900,24)
+	equipment_button.size=Vector2(205,60)
+	equipment_button.pressed.connect(func():
+		get_tree().set_meta("equipment_return_scene","res://scenes/ravenwood.tscn")
+		get_tree().set_meta("equipment_return_field",{"id":field_id,"position":screen_position})
+		get_tree().change_scene_to_file("res://scenes/equipment.tscn"))
+	ui.add_child(equipment_button)
 	town_map.move_to_front()
 
 func _mesh(mesh: Mesh, color: Color, location: Vector3, parent: Node3D) -> MeshInstance3D:

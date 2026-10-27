@@ -1,0 +1,6121 @@
+{
+  "schema": 1,
+  "territories": {
+    "ravenwood": {
+      "name": "Ravenwood",
+      "prefix": "Briar",
+      "metal": "4d6541",
+      "accent": "c2ae73",
+      "curve": 0.14,
+      "width": 1.0,
+      "motif": 3,
+      "index": 0
+    },
+    "frostpeaks": {
+      "name": "Frostpeaks",
+      "prefix": "Rime",
+      "metal": "77b1c2",
+      "accent": "dde9e4",
+      "curve": 0.04,
+      "width": 0.83,
+      "motif": 4,
+      "index": 1
+    },
+    "stormcrown": {
+      "name": "Stormcrown Mountains",
+      "prefix": "Stormcrest",
+      "metal": "556582",
+      "accent": "d5bf6d",
+      "curve": 0.08,
+      "width": 1.12,
+      "motif": 2,
+      "index": 2
+    },
+    "ashen": {
+      "name": "The Ashen Wastes",
+      "prefix": "Cinder",
+      "metal": "4e4140",
+      "accent": "e58e42",
+      "curve": 0.19,
+      "width": 1.23,
+      "motif": 5,
+      "index": 3
+    },
+    "marsh": {
+      "name": "The Blighted Marsh",
+      "prefix": "Wicker",
+      "metal": "687044",
+      "accent": "b6b77d",
+      "curve": 0.23,
+      "width": 0.82,
+      "motif": 3,
+      "index": 4
+    },
+    "silvermere": {
+      "name": "Silvermere",
+      "prefix": "Argent",
+      "metal": "a5bac2",
+      "accent": "d9c48a",
+      "curve": 0.08,
+      "width": 0.9,
+      "motif": 1,
+      "index": 5
+    },
+    "eldergrove": {
+      "name": "Eldergrove",
+      "prefix": "Heartwood",
+      "metal": "705442",
+      "accent": "7d9e4f",
+      "curve": 0.2,
+      "width": 0.84,
+      "motif": 3,
+      "index": 6
+    },
+    "iron_plains": {
+      "name": "The Iron Plains",
+      "prefix": "Ironclad",
+      "metal": "68717b",
+      "accent": "b9b2a1",
+      "curve": 0.02,
+      "width": 1.2,
+      "motif": 2,
+      "index": 7
+    },
+    "shadowfen": {
+      "name": "Shadowfen Forest",
+      "prefix": "Shade",
+      "metal": "414a58",
+      "accent": "8279ae",
+      "curve": 0.25,
+      "width": 0.8,
+      "motif": 5,
+      "index": 8
+    },
+    "drakeshard": {
+      "name": "Drakeshard Range",
+      "prefix": "Wyrm",
+      "metal": "5e6662",
+      "accent": "bb9a60",
+      "curve": 0.18,
+      "width": 1.25,
+      "motif": 4,
+      "index": 9
+    },
+    "westreach": {
+      "name": "Westreach",
+      "prefix": "Tidewake",
+      "metal": "557b85",
+      "accent": "d0c7a3",
+      "curve": 0.15,
+      "width": 0.9,
+      "motif": 1,
+      "index": 10
+    },
+    "deadwind": {
+      "name": "Deadwind Hollow",
+      "prefix": "Dusk",
+      "metal": "686276",
+      "accent": "aaa1b6",
+      "curve": 0.18,
+      "width": 0.9,
+      "motif": 5,
+      "index": 11
+    },
+    "ravenford": {
+      "name": "Ravenford",
+      "prefix": "Crown",
+      "metal": "8b969d",
+      "accent": "d7b666",
+      "curve": 0.03,
+      "width": 1.05,
+      "motif": 2,
+      "index": 12
+    },
+    "cursed_mire": {
+      "name": "The Cursed Mire",
+      "prefix": "Mire",
+      "metal": "536044",
+      "accent": "9fa75b",
+      "curve": 0.3,
+      "width": 0.82,
+      "motif": 3,
+      "index": 13
+    },
+    "golden": {
+      "name": "The Golden Expanse",
+      "prefix": "Sunspire",
+      "metal": "b08d5b",
+      "accent": "f0d58c",
+      "curve": 0.24,
+      "width": 0.88,
+      "motif": 1,
+      "index": 14
+    },
+    "dragons_rest": {
+      "name": "Dragon\u2019s Rest",
+      "prefix": "Drakefire",
+      "metal": "73473e",
+      "accent": "edaa50",
+      "curve": 0.22,
+      "width": 1.16,
+      "motif": 4,
+      "index": 15
+    },
+    "mistvale": {
+      "name": "Mistvale",
+      "prefix": "Mistglass",
+      "metal": "81a9aa",
+      "accent": "c6e5d4",
+      "curve": 0.1,
+      "width": 0.76,
+      "motif": 1,
+      "index": 16
+    },
+    "hollow_isles": {
+      "name": "The Hollow Isles",
+      "prefix": "Hollow",
+      "metal": "4e5a6a",
+      "accent": "a6b5cc",
+      "curve": 0.21,
+      "width": 0.85,
+      "motif": 5,
+      "index": 17
+    },
+    "deep": {
+      "name": "The Devouring Deep",
+      "prefix": "Abyss",
+      "metal": "494a60",
+      "accent": "9578ab",
+      "curve": 0.32,
+      "width": 1.3,
+      "motif": 5,
+      "index": 18
+    }
+  },
+  "families": {
+    "sword": "Sword",
+    "greatsword": "Greatsword",
+    "axe": "Battle Axe",
+    "bow": "Longbow",
+    "crossbow": "Crossbow",
+    "cannon": "Hand Cannon",
+    "scythe": "War Scythe",
+    "staff": "Staff",
+    "spear": "Spear",
+    "daggers": "Twin Daggers"
+  },
+  "items": {
+    "starter_sword": {
+      "id": "starter_sword",
+      "name": "Wayfarer Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "starter",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 8,
+      "magic": 0,
+      "defense": 0,
+      "description": "Plain training equipment for the road.",
+      "style": {
+        "name": "Starter",
+        "prefix": "Wayfarer",
+        "metal": "8b9397",
+        "accent": "b28b53",
+        "curve": 0.0,
+        "width": 0.8,
+        "motif": 0,
+        "index": 0
+      },
+      "materials": {},
+      "price": 60
+    },
+    "starter_greatsword": {
+      "id": "starter_greatsword",
+      "name": "Wayfarer Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "starter",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 13,
+      "magic": 0,
+      "defense": 0,
+      "description": "Plain training equipment for the road.",
+      "style": {
+        "name": "Starter",
+        "prefix": "Wayfarer",
+        "metal": "8b9397",
+        "accent": "b28b53",
+        "curve": 0.0,
+        "width": 0.8,
+        "motif": 0,
+        "index": 0
+      },
+      "materials": {},
+      "price": 85
+    },
+    "starter_axe": {
+      "id": "starter_axe",
+      "name": "Wayfarer Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "starter",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 11,
+      "magic": 0,
+      "defense": 0,
+      "description": "Plain training equipment for the road.",
+      "style": {
+        "name": "Starter",
+        "prefix": "Wayfarer",
+        "metal": "8b9397",
+        "accent": "b28b53",
+        "curve": 0.0,
+        "width": 0.8,
+        "motif": 0,
+        "index": 0
+      },
+      "materials": {},
+      "price": 75
+    },
+    "starter_bow": {
+      "id": "starter_bow",
+      "name": "Wayfarer Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "starter",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 8,
+      "magic": 0,
+      "defense": 0,
+      "description": "Plain training equipment for the road.",
+      "style": {
+        "name": "Starter",
+        "prefix": "Wayfarer",
+        "metal": "8b9397",
+        "accent": "b28b53",
+        "curve": 0.0,
+        "width": 0.8,
+        "motif": 0,
+        "index": 0
+      },
+      "materials": {},
+      "price": 60
+    },
+    "starter_crossbow": {
+      "id": "starter_crossbow",
+      "name": "Wayfarer Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "starter",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 10,
+      "magic": 0,
+      "defense": 0,
+      "description": "Plain training equipment for the road.",
+      "style": {
+        "name": "Starter",
+        "prefix": "Wayfarer",
+        "metal": "8b9397",
+        "accent": "b28b53",
+        "curve": 0.0,
+        "width": 0.8,
+        "motif": 0,
+        "index": 0
+      },
+      "materials": {},
+      "price": 70
+    },
+    "starter_cannon": {
+      "id": "starter_cannon",
+      "name": "Wayfarer Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "starter",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 14,
+      "magic": 0,
+      "defense": 0,
+      "description": "Plain training equipment for the road.",
+      "style": {
+        "name": "Starter",
+        "prefix": "Wayfarer",
+        "metal": "8b9397",
+        "accent": "b28b53",
+        "curve": 0.0,
+        "width": 0.8,
+        "motif": 0,
+        "index": 0
+      },
+      "materials": {},
+      "price": 90
+    },
+    "starter_scythe": {
+      "id": "starter_scythe",
+      "name": "Wayfarer War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "starter",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "Plain training equipment for the road.",
+      "style": {
+        "name": "Starter",
+        "prefix": "Wayfarer",
+        "metal": "8b9397",
+        "accent": "b28b53",
+        "curve": 0.0,
+        "width": 0.8,
+        "motif": 0,
+        "index": 0
+      },
+      "materials": {},
+      "price": 75
+    },
+    "starter_staff": {
+      "id": "starter_staff",
+      "name": "Wayfarer Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "starter",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 3,
+      "magic": 12,
+      "defense": 0,
+      "description": "Plain training equipment for the road.",
+      "style": {
+        "name": "Starter",
+        "prefix": "Wayfarer",
+        "metal": "8b9397",
+        "accent": "b28b53",
+        "curve": 0.0,
+        "width": 0.8,
+        "motif": 0,
+        "index": 0
+      },
+      "materials": {},
+      "price": 35
+    },
+    "starter_spear": {
+      "id": "starter_spear",
+      "name": "Wayfarer Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "starter",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 10,
+      "magic": 0,
+      "defense": 0,
+      "description": "Plain training equipment for the road.",
+      "style": {
+        "name": "Starter",
+        "prefix": "Wayfarer",
+        "metal": "8b9397",
+        "accent": "b28b53",
+        "curve": 0.0,
+        "width": 0.8,
+        "motif": 0,
+        "index": 0
+      },
+      "materials": {},
+      "price": 70
+    },
+    "starter_daggers": {
+      "id": "starter_daggers",
+      "name": "Wayfarer Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "starter",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 7,
+      "magic": 0,
+      "defense": 0,
+      "description": "Plain training equipment for the road.",
+      "style": {
+        "name": "Starter",
+        "prefix": "Wayfarer",
+        "metal": "8b9397",
+        "accent": "b28b53",
+        "curve": 0.0,
+        "width": 0.8,
+        "motif": 0,
+        "index": 0
+      },
+      "materials": {},
+      "price": 55
+    },
+    "ravenwood_sword": {
+      "id": "ravenwood_sword",
+      "name": "Briar Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "ravenwood",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Ravenwood base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Ravenwood",
+        "prefix": "Briar",
+        "metal": "4d6541",
+        "accent": "c2ae73",
+        "curve": 0.14,
+        "width": 1.0,
+        "motif": 3,
+        "index": 0
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "ravenwood_greatsword": {
+      "id": "ravenwood_greatsword",
+      "name": "Briar Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "ravenwood",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 17,
+      "magic": 2,
+      "defense": 0,
+      "description": "Ravenwood base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Ravenwood",
+        "prefix": "Briar",
+        "metal": "4d6541",
+        "accent": "c2ae73",
+        "curve": 0.14,
+        "width": 1.0,
+        "motif": 3,
+        "index": 0
+      },
+      "materials": {
+        "iron_ingot": 5,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 85
+    },
+    "ravenwood_axe": {
+      "id": "ravenwood_axe",
+      "name": "Briar Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "ravenwood",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 15,
+      "magic": 2,
+      "defense": 0,
+      "description": "Ravenwood base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Ravenwood",
+        "prefix": "Briar",
+        "metal": "4d6541",
+        "accent": "c2ae73",
+        "curve": 0.14,
+        "width": 1.0,
+        "motif": 3,
+        "index": 0
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 2,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "ravenwood_bow": {
+      "id": "ravenwood_bow",
+      "name": "Briar Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "ravenwood",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Ravenwood base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Ravenwood",
+        "prefix": "Briar",
+        "metal": "4d6541",
+        "accent": "c2ae73",
+        "curve": 0.14,
+        "width": 1.0,
+        "motif": 3,
+        "index": 0
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 5,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "ravenwood_crossbow": {
+      "id": "ravenwood_crossbow",
+      "name": "Briar Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "ravenwood",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Ravenwood base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Ravenwood",
+        "prefix": "Briar",
+        "metal": "4d6541",
+        "accent": "c2ae73",
+        "curve": 0.14,
+        "width": 1.0,
+        "motif": 3,
+        "index": 0
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "ravenwood_cannon": {
+      "id": "ravenwood_cannon",
+      "name": "Briar Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "ravenwood",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 18,
+      "magic": 2,
+      "defense": 0,
+      "description": "Ravenwood base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Ravenwood",
+        "prefix": "Briar",
+        "metal": "4d6541",
+        "accent": "c2ae73",
+        "curve": 0.14,
+        "width": 1.0,
+        "motif": 3,
+        "index": 0
+      },
+      "materials": {
+        "iron_ingot": 6,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 90
+    },
+    "ravenwood_scythe": {
+      "id": "ravenwood_scythe",
+      "name": "Briar War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "ravenwood",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 15,
+      "magic": 4,
+      "defense": 0,
+      "description": "Ravenwood base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Ravenwood",
+        "prefix": "Briar",
+        "metal": "4d6541",
+        "accent": "c2ae73",
+        "curve": 0.14,
+        "width": 1.0,
+        "motif": 3,
+        "index": 0
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "ravenwood_staff": {
+      "id": "ravenwood_staff",
+      "name": "Briar Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "ravenwood",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 7,
+      "magic": 14,
+      "defense": 0,
+      "description": "Ravenwood base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Ravenwood",
+        "prefix": "Briar",
+        "metal": "4d6541",
+        "accent": "c2ae73",
+        "curve": 0.14,
+        "width": 1.0,
+        "motif": 3,
+        "index": 0
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 35
+    },
+    "ravenwood_spear": {
+      "id": "ravenwood_spear",
+      "name": "Briar Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "ravenwood",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Ravenwood base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Ravenwood",
+        "prefix": "Briar",
+        "metal": "4d6541",
+        "accent": "c2ae73",
+        "curve": 0.14,
+        "width": 1.0,
+        "motif": 3,
+        "index": 0
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "ravenwood_daggers": {
+      "id": "ravenwood_daggers",
+      "name": "Briar Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "ravenwood",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "Ravenwood base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Ravenwood",
+        "prefix": "Briar",
+        "metal": "4d6541",
+        "accent": "c2ae73",
+        "curve": 0.14,
+        "width": 1.0,
+        "motif": 3,
+        "index": 0
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 55
+    },
+    "frostpeaks_sword": {
+      "id": "frostpeaks_sword",
+      "name": "Rime Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "frostpeaks",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Frostpeaks base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Frostpeaks",
+        "prefix": "Rime",
+        "metal": "77b1c2",
+        "accent": "dde9e4",
+        "curve": 0.04,
+        "width": 0.83,
+        "motif": 4,
+        "index": 1
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "frostpeaks_greatsword": {
+      "id": "frostpeaks_greatsword",
+      "name": "Rime Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "frostpeaks",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 17,
+      "magic": 2,
+      "defense": 0,
+      "description": "Frostpeaks base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Frostpeaks",
+        "prefix": "Rime",
+        "metal": "77b1c2",
+        "accent": "dde9e4",
+        "curve": 0.04,
+        "width": 0.83,
+        "motif": 4,
+        "index": 1
+      },
+      "materials": {
+        "iron_ingot": 5,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 85
+    },
+    "frostpeaks_axe": {
+      "id": "frostpeaks_axe",
+      "name": "Rime Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "frostpeaks",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 15,
+      "magic": 2,
+      "defense": 0,
+      "description": "Frostpeaks base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Frostpeaks",
+        "prefix": "Rime",
+        "metal": "77b1c2",
+        "accent": "dde9e4",
+        "curve": 0.04,
+        "width": 0.83,
+        "motif": 4,
+        "index": 1
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 2,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "frostpeaks_bow": {
+      "id": "frostpeaks_bow",
+      "name": "Rime Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "frostpeaks",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Frostpeaks base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Frostpeaks",
+        "prefix": "Rime",
+        "metal": "77b1c2",
+        "accent": "dde9e4",
+        "curve": 0.04,
+        "width": 0.83,
+        "motif": 4,
+        "index": 1
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 5,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "frostpeaks_crossbow": {
+      "id": "frostpeaks_crossbow",
+      "name": "Rime Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "frostpeaks",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Frostpeaks base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Frostpeaks",
+        "prefix": "Rime",
+        "metal": "77b1c2",
+        "accent": "dde9e4",
+        "curve": 0.04,
+        "width": 0.83,
+        "motif": 4,
+        "index": 1
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "frostpeaks_cannon": {
+      "id": "frostpeaks_cannon",
+      "name": "Rime Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "frostpeaks",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 18,
+      "magic": 2,
+      "defense": 0,
+      "description": "Frostpeaks base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Frostpeaks",
+        "prefix": "Rime",
+        "metal": "77b1c2",
+        "accent": "dde9e4",
+        "curve": 0.04,
+        "width": 0.83,
+        "motif": 4,
+        "index": 1
+      },
+      "materials": {
+        "iron_ingot": 6,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 90
+    },
+    "frostpeaks_scythe": {
+      "id": "frostpeaks_scythe",
+      "name": "Rime War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "frostpeaks",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 15,
+      "magic": 4,
+      "defense": 0,
+      "description": "Frostpeaks base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Frostpeaks",
+        "prefix": "Rime",
+        "metal": "77b1c2",
+        "accent": "dde9e4",
+        "curve": 0.04,
+        "width": 0.83,
+        "motif": 4,
+        "index": 1
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "frostpeaks_staff": {
+      "id": "frostpeaks_staff",
+      "name": "Rime Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "frostpeaks",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 7,
+      "magic": 14,
+      "defense": 0,
+      "description": "Frostpeaks base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Frostpeaks",
+        "prefix": "Rime",
+        "metal": "77b1c2",
+        "accent": "dde9e4",
+        "curve": 0.04,
+        "width": 0.83,
+        "motif": 4,
+        "index": 1
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 35
+    },
+    "frostpeaks_spear": {
+      "id": "frostpeaks_spear",
+      "name": "Rime Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "frostpeaks",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Frostpeaks base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Frostpeaks",
+        "prefix": "Rime",
+        "metal": "77b1c2",
+        "accent": "dde9e4",
+        "curve": 0.04,
+        "width": 0.83,
+        "motif": 4,
+        "index": 1
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "frostpeaks_daggers": {
+      "id": "frostpeaks_daggers",
+      "name": "Rime Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "frostpeaks",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "Frostpeaks base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Frostpeaks",
+        "prefix": "Rime",
+        "metal": "77b1c2",
+        "accent": "dde9e4",
+        "curve": 0.04,
+        "width": 0.83,
+        "motif": 4,
+        "index": 1
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 55
+    },
+    "stormcrown_sword": {
+      "id": "stormcrown_sword",
+      "name": "Stormcrest Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "stormcrown",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Stormcrown Mountains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Stormcrown Mountains",
+        "prefix": "Stormcrest",
+        "metal": "556582",
+        "accent": "d5bf6d",
+        "curve": 0.08,
+        "width": 1.12,
+        "motif": 2,
+        "index": 2
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "stormcrown_greatsword": {
+      "id": "stormcrown_greatsword",
+      "name": "Stormcrest Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "stormcrown",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 17,
+      "magic": 2,
+      "defense": 0,
+      "description": "Stormcrown Mountains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Stormcrown Mountains",
+        "prefix": "Stormcrest",
+        "metal": "556582",
+        "accent": "d5bf6d",
+        "curve": 0.08,
+        "width": 1.12,
+        "motif": 2,
+        "index": 2
+      },
+      "materials": {
+        "iron_ingot": 5,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 85
+    },
+    "stormcrown_axe": {
+      "id": "stormcrown_axe",
+      "name": "Stormcrest Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "stormcrown",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 15,
+      "magic": 2,
+      "defense": 0,
+      "description": "Stormcrown Mountains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Stormcrown Mountains",
+        "prefix": "Stormcrest",
+        "metal": "556582",
+        "accent": "d5bf6d",
+        "curve": 0.08,
+        "width": 1.12,
+        "motif": 2,
+        "index": 2
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 2,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "stormcrown_bow": {
+      "id": "stormcrown_bow",
+      "name": "Stormcrest Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "stormcrown",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Stormcrown Mountains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Stormcrown Mountains",
+        "prefix": "Stormcrest",
+        "metal": "556582",
+        "accent": "d5bf6d",
+        "curve": 0.08,
+        "width": 1.12,
+        "motif": 2,
+        "index": 2
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 5,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "stormcrown_crossbow": {
+      "id": "stormcrown_crossbow",
+      "name": "Stormcrest Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "stormcrown",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Stormcrown Mountains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Stormcrown Mountains",
+        "prefix": "Stormcrest",
+        "metal": "556582",
+        "accent": "d5bf6d",
+        "curve": 0.08,
+        "width": 1.12,
+        "motif": 2,
+        "index": 2
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "stormcrown_cannon": {
+      "id": "stormcrown_cannon",
+      "name": "Stormcrest Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "stormcrown",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 18,
+      "magic": 2,
+      "defense": 0,
+      "description": "Stormcrown Mountains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Stormcrown Mountains",
+        "prefix": "Stormcrest",
+        "metal": "556582",
+        "accent": "d5bf6d",
+        "curve": 0.08,
+        "width": 1.12,
+        "motif": 2,
+        "index": 2
+      },
+      "materials": {
+        "iron_ingot": 6,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 90
+    },
+    "stormcrown_scythe": {
+      "id": "stormcrown_scythe",
+      "name": "Stormcrest War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "stormcrown",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 15,
+      "magic": 4,
+      "defense": 0,
+      "description": "Stormcrown Mountains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Stormcrown Mountains",
+        "prefix": "Stormcrest",
+        "metal": "556582",
+        "accent": "d5bf6d",
+        "curve": 0.08,
+        "width": 1.12,
+        "motif": 2,
+        "index": 2
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "stormcrown_staff": {
+      "id": "stormcrown_staff",
+      "name": "Stormcrest Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "stormcrown",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 7,
+      "magic": 14,
+      "defense": 0,
+      "description": "Stormcrown Mountains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Stormcrown Mountains",
+        "prefix": "Stormcrest",
+        "metal": "556582",
+        "accent": "d5bf6d",
+        "curve": 0.08,
+        "width": 1.12,
+        "motif": 2,
+        "index": 2
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 35
+    },
+    "stormcrown_spear": {
+      "id": "stormcrown_spear",
+      "name": "Stormcrest Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "stormcrown",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Stormcrown Mountains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Stormcrown Mountains",
+        "prefix": "Stormcrest",
+        "metal": "556582",
+        "accent": "d5bf6d",
+        "curve": 0.08,
+        "width": 1.12,
+        "motif": 2,
+        "index": 2
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "stormcrown_daggers": {
+      "id": "stormcrown_daggers",
+      "name": "Stormcrest Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "stormcrown",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "Stormcrown Mountains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Stormcrown Mountains",
+        "prefix": "Stormcrest",
+        "metal": "556582",
+        "accent": "d5bf6d",
+        "curve": 0.08,
+        "width": 1.12,
+        "motif": 2,
+        "index": 2
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 55
+    },
+    "ashen_sword": {
+      "id": "ashen_sword",
+      "name": "Cinder Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "ashen",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Ashen Wastes base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Ashen Wastes",
+        "prefix": "Cinder",
+        "metal": "4e4140",
+        "accent": "e58e42",
+        "curve": 0.19,
+        "width": 1.23,
+        "motif": 5,
+        "index": 3
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "ashen_greatsword": {
+      "id": "ashen_greatsword",
+      "name": "Cinder Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "ashen",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 17,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Ashen Wastes base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Ashen Wastes",
+        "prefix": "Cinder",
+        "metal": "4e4140",
+        "accent": "e58e42",
+        "curve": 0.19,
+        "width": 1.23,
+        "motif": 5,
+        "index": 3
+      },
+      "materials": {
+        "iron_ingot": 5,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 85
+    },
+    "ashen_axe": {
+      "id": "ashen_axe",
+      "name": "Cinder Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "ashen",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 15,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Ashen Wastes base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Ashen Wastes",
+        "prefix": "Cinder",
+        "metal": "4e4140",
+        "accent": "e58e42",
+        "curve": 0.19,
+        "width": 1.23,
+        "motif": 5,
+        "index": 3
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 2,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "ashen_bow": {
+      "id": "ashen_bow",
+      "name": "Cinder Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "ashen",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Ashen Wastes base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Ashen Wastes",
+        "prefix": "Cinder",
+        "metal": "4e4140",
+        "accent": "e58e42",
+        "curve": 0.19,
+        "width": 1.23,
+        "motif": 5,
+        "index": 3
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 5,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "ashen_crossbow": {
+      "id": "ashen_crossbow",
+      "name": "Cinder Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "ashen",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Ashen Wastes base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Ashen Wastes",
+        "prefix": "Cinder",
+        "metal": "4e4140",
+        "accent": "e58e42",
+        "curve": 0.19,
+        "width": 1.23,
+        "motif": 5,
+        "index": 3
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "ashen_cannon": {
+      "id": "ashen_cannon",
+      "name": "Cinder Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "ashen",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 18,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Ashen Wastes base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Ashen Wastes",
+        "prefix": "Cinder",
+        "metal": "4e4140",
+        "accent": "e58e42",
+        "curve": 0.19,
+        "width": 1.23,
+        "motif": 5,
+        "index": 3
+      },
+      "materials": {
+        "iron_ingot": 6,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 90
+    },
+    "ashen_scythe": {
+      "id": "ashen_scythe",
+      "name": "Cinder War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "ashen",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 15,
+      "magic": 4,
+      "defense": 0,
+      "description": "The Ashen Wastes base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Ashen Wastes",
+        "prefix": "Cinder",
+        "metal": "4e4140",
+        "accent": "e58e42",
+        "curve": 0.19,
+        "width": 1.23,
+        "motif": 5,
+        "index": 3
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "ashen_staff": {
+      "id": "ashen_staff",
+      "name": "Cinder Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "ashen",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 7,
+      "magic": 14,
+      "defense": 0,
+      "description": "The Ashen Wastes base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Ashen Wastes",
+        "prefix": "Cinder",
+        "metal": "4e4140",
+        "accent": "e58e42",
+        "curve": 0.19,
+        "width": 1.23,
+        "motif": 5,
+        "index": 3
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 35
+    },
+    "ashen_spear": {
+      "id": "ashen_spear",
+      "name": "Cinder Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "ashen",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Ashen Wastes base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Ashen Wastes",
+        "prefix": "Cinder",
+        "metal": "4e4140",
+        "accent": "e58e42",
+        "curve": 0.19,
+        "width": 1.23,
+        "motif": 5,
+        "index": 3
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "ashen_daggers": {
+      "id": "ashen_daggers",
+      "name": "Cinder Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "ashen",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Ashen Wastes base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Ashen Wastes",
+        "prefix": "Cinder",
+        "metal": "4e4140",
+        "accent": "e58e42",
+        "curve": 0.19,
+        "width": 1.23,
+        "motif": 5,
+        "index": 3
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 55
+    },
+    "marsh_sword": {
+      "id": "marsh_sword",
+      "name": "Wicker Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "marsh",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Blighted Marsh base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Blighted Marsh",
+        "prefix": "Wicker",
+        "metal": "687044",
+        "accent": "b6b77d",
+        "curve": 0.23,
+        "width": 0.82,
+        "motif": 3,
+        "index": 4
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "marsh_greatsword": {
+      "id": "marsh_greatsword",
+      "name": "Wicker Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "marsh",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 17,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Blighted Marsh base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Blighted Marsh",
+        "prefix": "Wicker",
+        "metal": "687044",
+        "accent": "b6b77d",
+        "curve": 0.23,
+        "width": 0.82,
+        "motif": 3,
+        "index": 4
+      },
+      "materials": {
+        "iron_ingot": 5,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 85
+    },
+    "marsh_axe": {
+      "id": "marsh_axe",
+      "name": "Wicker Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "marsh",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 15,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Blighted Marsh base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Blighted Marsh",
+        "prefix": "Wicker",
+        "metal": "687044",
+        "accent": "b6b77d",
+        "curve": 0.23,
+        "width": 0.82,
+        "motif": 3,
+        "index": 4
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 2,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "marsh_bow": {
+      "id": "marsh_bow",
+      "name": "Wicker Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "marsh",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Blighted Marsh base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Blighted Marsh",
+        "prefix": "Wicker",
+        "metal": "687044",
+        "accent": "b6b77d",
+        "curve": 0.23,
+        "width": 0.82,
+        "motif": 3,
+        "index": 4
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 5,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "marsh_crossbow": {
+      "id": "marsh_crossbow",
+      "name": "Wicker Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "marsh",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Blighted Marsh base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Blighted Marsh",
+        "prefix": "Wicker",
+        "metal": "687044",
+        "accent": "b6b77d",
+        "curve": 0.23,
+        "width": 0.82,
+        "motif": 3,
+        "index": 4
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "marsh_cannon": {
+      "id": "marsh_cannon",
+      "name": "Wicker Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "marsh",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 18,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Blighted Marsh base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Blighted Marsh",
+        "prefix": "Wicker",
+        "metal": "687044",
+        "accent": "b6b77d",
+        "curve": 0.23,
+        "width": 0.82,
+        "motif": 3,
+        "index": 4
+      },
+      "materials": {
+        "iron_ingot": 6,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 90
+    },
+    "marsh_scythe": {
+      "id": "marsh_scythe",
+      "name": "Wicker War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "marsh",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 15,
+      "magic": 4,
+      "defense": 0,
+      "description": "The Blighted Marsh base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Blighted Marsh",
+        "prefix": "Wicker",
+        "metal": "687044",
+        "accent": "b6b77d",
+        "curve": 0.23,
+        "width": 0.82,
+        "motif": 3,
+        "index": 4
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "marsh_staff": {
+      "id": "marsh_staff",
+      "name": "Wicker Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "marsh",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 7,
+      "magic": 14,
+      "defense": 0,
+      "description": "The Blighted Marsh base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Blighted Marsh",
+        "prefix": "Wicker",
+        "metal": "687044",
+        "accent": "b6b77d",
+        "curve": 0.23,
+        "width": 0.82,
+        "motif": 3,
+        "index": 4
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 35
+    },
+    "marsh_spear": {
+      "id": "marsh_spear",
+      "name": "Wicker Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "marsh",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Blighted Marsh base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Blighted Marsh",
+        "prefix": "Wicker",
+        "metal": "687044",
+        "accent": "b6b77d",
+        "curve": 0.23,
+        "width": 0.82,
+        "motif": 3,
+        "index": 4
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "marsh_daggers": {
+      "id": "marsh_daggers",
+      "name": "Wicker Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "marsh",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Blighted Marsh base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Blighted Marsh",
+        "prefix": "Wicker",
+        "metal": "687044",
+        "accent": "b6b77d",
+        "curve": 0.23,
+        "width": 0.82,
+        "motif": 3,
+        "index": 4
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 55
+    },
+    "silvermere_sword": {
+      "id": "silvermere_sword",
+      "name": "Argent Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "silvermere",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Silvermere base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Silvermere",
+        "prefix": "Argent",
+        "metal": "a5bac2",
+        "accent": "d9c48a",
+        "curve": 0.08,
+        "width": 0.9,
+        "motif": 1,
+        "index": 5
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "silvermere_greatsword": {
+      "id": "silvermere_greatsword",
+      "name": "Argent Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "silvermere",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 17,
+      "magic": 2,
+      "defense": 0,
+      "description": "Silvermere base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Silvermere",
+        "prefix": "Argent",
+        "metal": "a5bac2",
+        "accent": "d9c48a",
+        "curve": 0.08,
+        "width": 0.9,
+        "motif": 1,
+        "index": 5
+      },
+      "materials": {
+        "iron_ingot": 5,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 85
+    },
+    "silvermere_axe": {
+      "id": "silvermere_axe",
+      "name": "Argent Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "silvermere",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 15,
+      "magic": 2,
+      "defense": 0,
+      "description": "Silvermere base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Silvermere",
+        "prefix": "Argent",
+        "metal": "a5bac2",
+        "accent": "d9c48a",
+        "curve": 0.08,
+        "width": 0.9,
+        "motif": 1,
+        "index": 5
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 2,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "silvermere_bow": {
+      "id": "silvermere_bow",
+      "name": "Argent Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "silvermere",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Silvermere base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Silvermere",
+        "prefix": "Argent",
+        "metal": "a5bac2",
+        "accent": "d9c48a",
+        "curve": 0.08,
+        "width": 0.9,
+        "motif": 1,
+        "index": 5
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 5,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "silvermere_crossbow": {
+      "id": "silvermere_crossbow",
+      "name": "Argent Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "silvermere",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Silvermere base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Silvermere",
+        "prefix": "Argent",
+        "metal": "a5bac2",
+        "accent": "d9c48a",
+        "curve": 0.08,
+        "width": 0.9,
+        "motif": 1,
+        "index": 5
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "silvermere_cannon": {
+      "id": "silvermere_cannon",
+      "name": "Argent Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "silvermere",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 18,
+      "magic": 2,
+      "defense": 0,
+      "description": "Silvermere base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Silvermere",
+        "prefix": "Argent",
+        "metal": "a5bac2",
+        "accent": "d9c48a",
+        "curve": 0.08,
+        "width": 0.9,
+        "motif": 1,
+        "index": 5
+      },
+      "materials": {
+        "iron_ingot": 6,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 90
+    },
+    "silvermere_scythe": {
+      "id": "silvermere_scythe",
+      "name": "Argent War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "silvermere",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 15,
+      "magic": 4,
+      "defense": 0,
+      "description": "Silvermere base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Silvermere",
+        "prefix": "Argent",
+        "metal": "a5bac2",
+        "accent": "d9c48a",
+        "curve": 0.08,
+        "width": 0.9,
+        "motif": 1,
+        "index": 5
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "silvermere_staff": {
+      "id": "silvermere_staff",
+      "name": "Argent Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "silvermere",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 7,
+      "magic": 14,
+      "defense": 0,
+      "description": "Silvermere base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Silvermere",
+        "prefix": "Argent",
+        "metal": "a5bac2",
+        "accent": "d9c48a",
+        "curve": 0.08,
+        "width": 0.9,
+        "motif": 1,
+        "index": 5
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 35
+    },
+    "silvermere_spear": {
+      "id": "silvermere_spear",
+      "name": "Argent Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "silvermere",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Silvermere base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Silvermere",
+        "prefix": "Argent",
+        "metal": "a5bac2",
+        "accent": "d9c48a",
+        "curve": 0.08,
+        "width": 0.9,
+        "motif": 1,
+        "index": 5
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "silvermere_daggers": {
+      "id": "silvermere_daggers",
+      "name": "Argent Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "silvermere",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "Silvermere base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Silvermere",
+        "prefix": "Argent",
+        "metal": "a5bac2",
+        "accent": "d9c48a",
+        "curve": 0.08,
+        "width": 0.9,
+        "motif": 1,
+        "index": 5
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 55
+    },
+    "eldergrove_sword": {
+      "id": "eldergrove_sword",
+      "name": "Heartwood Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "eldergrove",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Eldergrove base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Eldergrove",
+        "prefix": "Heartwood",
+        "metal": "705442",
+        "accent": "7d9e4f",
+        "curve": 0.2,
+        "width": 0.84,
+        "motif": 3,
+        "index": 6
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "eldergrove_greatsword": {
+      "id": "eldergrove_greatsword",
+      "name": "Heartwood Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "eldergrove",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 17,
+      "magic": 2,
+      "defense": 0,
+      "description": "Eldergrove base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Eldergrove",
+        "prefix": "Heartwood",
+        "metal": "705442",
+        "accent": "7d9e4f",
+        "curve": 0.2,
+        "width": 0.84,
+        "motif": 3,
+        "index": 6
+      },
+      "materials": {
+        "iron_ingot": 5,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 85
+    },
+    "eldergrove_axe": {
+      "id": "eldergrove_axe",
+      "name": "Heartwood Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "eldergrove",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 15,
+      "magic": 2,
+      "defense": 0,
+      "description": "Eldergrove base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Eldergrove",
+        "prefix": "Heartwood",
+        "metal": "705442",
+        "accent": "7d9e4f",
+        "curve": 0.2,
+        "width": 0.84,
+        "motif": 3,
+        "index": 6
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 2,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "eldergrove_bow": {
+      "id": "eldergrove_bow",
+      "name": "Heartwood Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "eldergrove",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Eldergrove base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Eldergrove",
+        "prefix": "Heartwood",
+        "metal": "705442",
+        "accent": "7d9e4f",
+        "curve": 0.2,
+        "width": 0.84,
+        "motif": 3,
+        "index": 6
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 5,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "eldergrove_crossbow": {
+      "id": "eldergrove_crossbow",
+      "name": "Heartwood Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "eldergrove",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Eldergrove base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Eldergrove",
+        "prefix": "Heartwood",
+        "metal": "705442",
+        "accent": "7d9e4f",
+        "curve": 0.2,
+        "width": 0.84,
+        "motif": 3,
+        "index": 6
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "eldergrove_cannon": {
+      "id": "eldergrove_cannon",
+      "name": "Heartwood Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "eldergrove",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 18,
+      "magic": 2,
+      "defense": 0,
+      "description": "Eldergrove base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Eldergrove",
+        "prefix": "Heartwood",
+        "metal": "705442",
+        "accent": "7d9e4f",
+        "curve": 0.2,
+        "width": 0.84,
+        "motif": 3,
+        "index": 6
+      },
+      "materials": {
+        "iron_ingot": 6,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 90
+    },
+    "eldergrove_scythe": {
+      "id": "eldergrove_scythe",
+      "name": "Heartwood War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "eldergrove",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 15,
+      "magic": 4,
+      "defense": 0,
+      "description": "Eldergrove base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Eldergrove",
+        "prefix": "Heartwood",
+        "metal": "705442",
+        "accent": "7d9e4f",
+        "curve": 0.2,
+        "width": 0.84,
+        "motif": 3,
+        "index": 6
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "eldergrove_staff": {
+      "id": "eldergrove_staff",
+      "name": "Heartwood Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "eldergrove",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 7,
+      "magic": 14,
+      "defense": 0,
+      "description": "Eldergrove base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Eldergrove",
+        "prefix": "Heartwood",
+        "metal": "705442",
+        "accent": "7d9e4f",
+        "curve": 0.2,
+        "width": 0.84,
+        "motif": 3,
+        "index": 6
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 35
+    },
+    "eldergrove_spear": {
+      "id": "eldergrove_spear",
+      "name": "Heartwood Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "eldergrove",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Eldergrove base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Eldergrove",
+        "prefix": "Heartwood",
+        "metal": "705442",
+        "accent": "7d9e4f",
+        "curve": 0.2,
+        "width": 0.84,
+        "motif": 3,
+        "index": 6
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "eldergrove_daggers": {
+      "id": "eldergrove_daggers",
+      "name": "Heartwood Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "eldergrove",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "Eldergrove base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "Eldergrove",
+        "prefix": "Heartwood",
+        "metal": "705442",
+        "accent": "7d9e4f",
+        "curve": 0.2,
+        "width": 0.84,
+        "motif": 3,
+        "index": 6
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 55
+    },
+    "iron_plains_sword": {
+      "id": "iron_plains_sword",
+      "name": "Ironclad Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "iron_plains",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Iron Plains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "The Iron Plains",
+        "prefix": "Ironclad",
+        "metal": "68717b",
+        "accent": "b9b2a1",
+        "curve": 0.02,
+        "width": 1.2,
+        "motif": 2,
+        "index": 7
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "iron_plains_greatsword": {
+      "id": "iron_plains_greatsword",
+      "name": "Ironclad Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "iron_plains",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 17,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Iron Plains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "The Iron Plains",
+        "prefix": "Ironclad",
+        "metal": "68717b",
+        "accent": "b9b2a1",
+        "curve": 0.02,
+        "width": 1.2,
+        "motif": 2,
+        "index": 7
+      },
+      "materials": {
+        "iron_ingot": 5,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 85
+    },
+    "iron_plains_axe": {
+      "id": "iron_plains_axe",
+      "name": "Ironclad Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "iron_plains",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 15,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Iron Plains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "The Iron Plains",
+        "prefix": "Ironclad",
+        "metal": "68717b",
+        "accent": "b9b2a1",
+        "curve": 0.02,
+        "width": 1.2,
+        "motif": 2,
+        "index": 7
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 2,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "iron_plains_bow": {
+      "id": "iron_plains_bow",
+      "name": "Ironclad Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "iron_plains",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Iron Plains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "The Iron Plains",
+        "prefix": "Ironclad",
+        "metal": "68717b",
+        "accent": "b9b2a1",
+        "curve": 0.02,
+        "width": 1.2,
+        "motif": 2,
+        "index": 7
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 5,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "iron_plains_crossbow": {
+      "id": "iron_plains_crossbow",
+      "name": "Ironclad Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "iron_plains",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Iron Plains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "The Iron Plains",
+        "prefix": "Ironclad",
+        "metal": "68717b",
+        "accent": "b9b2a1",
+        "curve": 0.02,
+        "width": 1.2,
+        "motif": 2,
+        "index": 7
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "iron_plains_cannon": {
+      "id": "iron_plains_cannon",
+      "name": "Ironclad Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "iron_plains",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 18,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Iron Plains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "The Iron Plains",
+        "prefix": "Ironclad",
+        "metal": "68717b",
+        "accent": "b9b2a1",
+        "curve": 0.02,
+        "width": 1.2,
+        "motif": 2,
+        "index": 7
+      },
+      "materials": {
+        "iron_ingot": 6,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 90
+    },
+    "iron_plains_scythe": {
+      "id": "iron_plains_scythe",
+      "name": "Ironclad War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "iron_plains",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 15,
+      "magic": 4,
+      "defense": 0,
+      "description": "The Iron Plains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "The Iron Plains",
+        "prefix": "Ironclad",
+        "metal": "68717b",
+        "accent": "b9b2a1",
+        "curve": 0.02,
+        "width": 1.2,
+        "motif": 2,
+        "index": 7
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "iron_plains_staff": {
+      "id": "iron_plains_staff",
+      "name": "Ironclad Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "iron_plains",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 7,
+      "magic": 14,
+      "defense": 0,
+      "description": "The Iron Plains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "The Iron Plains",
+        "prefix": "Ironclad",
+        "metal": "68717b",
+        "accent": "b9b2a1",
+        "curve": 0.02,
+        "width": 1.2,
+        "motif": 2,
+        "index": 7
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 35
+    },
+    "iron_plains_spear": {
+      "id": "iron_plains_spear",
+      "name": "Ironclad Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "iron_plains",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Iron Plains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "The Iron Plains",
+        "prefix": "Ironclad",
+        "metal": "68717b",
+        "accent": "b9b2a1",
+        "curve": 0.02,
+        "width": 1.2,
+        "motif": 2,
+        "index": 7
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "iron_plains_daggers": {
+      "id": "iron_plains_daggers",
+      "name": "Ironclad Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "iron_plains",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Iron Plains base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "The Iron Plains",
+        "prefix": "Ironclad",
+        "metal": "68717b",
+        "accent": "b9b2a1",
+        "curve": 0.02,
+        "width": 1.2,
+        "motif": 2,
+        "index": 7
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 55
+    },
+    "shadowfen_sword": {
+      "id": "shadowfen_sword",
+      "name": "Shade Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "shadowfen",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Shadowfen Forest base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Shadowfen Forest",
+        "prefix": "Shade",
+        "metal": "414a58",
+        "accent": "8279ae",
+        "curve": 0.25,
+        "width": 0.8,
+        "motif": 5,
+        "index": 8
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "shadowfen_greatsword": {
+      "id": "shadowfen_greatsword",
+      "name": "Shade Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "shadowfen",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 17,
+      "magic": 2,
+      "defense": 0,
+      "description": "Shadowfen Forest base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Shadowfen Forest",
+        "prefix": "Shade",
+        "metal": "414a58",
+        "accent": "8279ae",
+        "curve": 0.25,
+        "width": 0.8,
+        "motif": 5,
+        "index": 8
+      },
+      "materials": {
+        "iron_ingot": 5,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 85
+    },
+    "shadowfen_axe": {
+      "id": "shadowfen_axe",
+      "name": "Shade Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "shadowfen",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 15,
+      "magic": 2,
+      "defense": 0,
+      "description": "Shadowfen Forest base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Shadowfen Forest",
+        "prefix": "Shade",
+        "metal": "414a58",
+        "accent": "8279ae",
+        "curve": 0.25,
+        "width": 0.8,
+        "motif": 5,
+        "index": 8
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 2,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "shadowfen_bow": {
+      "id": "shadowfen_bow",
+      "name": "Shade Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "shadowfen",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Shadowfen Forest base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Shadowfen Forest",
+        "prefix": "Shade",
+        "metal": "414a58",
+        "accent": "8279ae",
+        "curve": 0.25,
+        "width": 0.8,
+        "motif": 5,
+        "index": 8
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 5,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "shadowfen_crossbow": {
+      "id": "shadowfen_crossbow",
+      "name": "Shade Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "shadowfen",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Shadowfen Forest base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Shadowfen Forest",
+        "prefix": "Shade",
+        "metal": "414a58",
+        "accent": "8279ae",
+        "curve": 0.25,
+        "width": 0.8,
+        "motif": 5,
+        "index": 8
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "shadowfen_cannon": {
+      "id": "shadowfen_cannon",
+      "name": "Shade Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "shadowfen",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 18,
+      "magic": 2,
+      "defense": 0,
+      "description": "Shadowfen Forest base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Shadowfen Forest",
+        "prefix": "Shade",
+        "metal": "414a58",
+        "accent": "8279ae",
+        "curve": 0.25,
+        "width": 0.8,
+        "motif": 5,
+        "index": 8
+      },
+      "materials": {
+        "iron_ingot": 6,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 90
+    },
+    "shadowfen_scythe": {
+      "id": "shadowfen_scythe",
+      "name": "Shade War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "shadowfen",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 15,
+      "magic": 4,
+      "defense": 0,
+      "description": "Shadowfen Forest base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Shadowfen Forest",
+        "prefix": "Shade",
+        "metal": "414a58",
+        "accent": "8279ae",
+        "curve": 0.25,
+        "width": 0.8,
+        "motif": 5,
+        "index": 8
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "shadowfen_staff": {
+      "id": "shadowfen_staff",
+      "name": "Shade Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "shadowfen",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 7,
+      "magic": 14,
+      "defense": 0,
+      "description": "Shadowfen Forest base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Shadowfen Forest",
+        "prefix": "Shade",
+        "metal": "414a58",
+        "accent": "8279ae",
+        "curve": 0.25,
+        "width": 0.8,
+        "motif": 5,
+        "index": 8
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 35
+    },
+    "shadowfen_spear": {
+      "id": "shadowfen_spear",
+      "name": "Shade Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "shadowfen",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Shadowfen Forest base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Shadowfen Forest",
+        "prefix": "Shade",
+        "metal": "414a58",
+        "accent": "8279ae",
+        "curve": 0.25,
+        "width": 0.8,
+        "motif": 5,
+        "index": 8
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "shadowfen_daggers": {
+      "id": "shadowfen_daggers",
+      "name": "Shade Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "shadowfen",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "Shadowfen Forest base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Shadowfen Forest",
+        "prefix": "Shade",
+        "metal": "414a58",
+        "accent": "8279ae",
+        "curve": 0.25,
+        "width": 0.8,
+        "motif": 5,
+        "index": 8
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 55
+    },
+    "drakeshard_sword": {
+      "id": "drakeshard_sword",
+      "name": "Wyrm Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "drakeshard",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Drakeshard Range base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Drakeshard Range",
+        "prefix": "Wyrm",
+        "metal": "5e6662",
+        "accent": "bb9a60",
+        "curve": 0.18,
+        "width": 1.25,
+        "motif": 4,
+        "index": 9
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "drakeshard_greatsword": {
+      "id": "drakeshard_greatsword",
+      "name": "Wyrm Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "drakeshard",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 17,
+      "magic": 2,
+      "defense": 0,
+      "description": "Drakeshard Range base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Drakeshard Range",
+        "prefix": "Wyrm",
+        "metal": "5e6662",
+        "accent": "bb9a60",
+        "curve": 0.18,
+        "width": 1.25,
+        "motif": 4,
+        "index": 9
+      },
+      "materials": {
+        "iron_ingot": 5,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 85
+    },
+    "drakeshard_axe": {
+      "id": "drakeshard_axe",
+      "name": "Wyrm Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "drakeshard",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 15,
+      "magic": 2,
+      "defense": 0,
+      "description": "Drakeshard Range base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Drakeshard Range",
+        "prefix": "Wyrm",
+        "metal": "5e6662",
+        "accent": "bb9a60",
+        "curve": 0.18,
+        "width": 1.25,
+        "motif": 4,
+        "index": 9
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 2,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "drakeshard_bow": {
+      "id": "drakeshard_bow",
+      "name": "Wyrm Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "drakeshard",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Drakeshard Range base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Drakeshard Range",
+        "prefix": "Wyrm",
+        "metal": "5e6662",
+        "accent": "bb9a60",
+        "curve": 0.18,
+        "width": 1.25,
+        "motif": 4,
+        "index": 9
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 5,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "drakeshard_crossbow": {
+      "id": "drakeshard_crossbow",
+      "name": "Wyrm Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "drakeshard",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Drakeshard Range base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Drakeshard Range",
+        "prefix": "Wyrm",
+        "metal": "5e6662",
+        "accent": "bb9a60",
+        "curve": 0.18,
+        "width": 1.25,
+        "motif": 4,
+        "index": 9
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "drakeshard_cannon": {
+      "id": "drakeshard_cannon",
+      "name": "Wyrm Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "drakeshard",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 18,
+      "magic": 2,
+      "defense": 0,
+      "description": "Drakeshard Range base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Drakeshard Range",
+        "prefix": "Wyrm",
+        "metal": "5e6662",
+        "accent": "bb9a60",
+        "curve": 0.18,
+        "width": 1.25,
+        "motif": 4,
+        "index": 9
+      },
+      "materials": {
+        "iron_ingot": 6,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 90
+    },
+    "drakeshard_scythe": {
+      "id": "drakeshard_scythe",
+      "name": "Wyrm War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "drakeshard",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 15,
+      "magic": 4,
+      "defense": 0,
+      "description": "Drakeshard Range base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Drakeshard Range",
+        "prefix": "Wyrm",
+        "metal": "5e6662",
+        "accent": "bb9a60",
+        "curve": 0.18,
+        "width": 1.25,
+        "motif": 4,
+        "index": 9
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "drakeshard_staff": {
+      "id": "drakeshard_staff",
+      "name": "Wyrm Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "drakeshard",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 7,
+      "magic": 14,
+      "defense": 0,
+      "description": "Drakeshard Range base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Drakeshard Range",
+        "prefix": "Wyrm",
+        "metal": "5e6662",
+        "accent": "bb9a60",
+        "curve": 0.18,
+        "width": 1.25,
+        "motif": 4,
+        "index": 9
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 35
+    },
+    "drakeshard_spear": {
+      "id": "drakeshard_spear",
+      "name": "Wyrm Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "drakeshard",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Drakeshard Range base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Drakeshard Range",
+        "prefix": "Wyrm",
+        "metal": "5e6662",
+        "accent": "bb9a60",
+        "curve": 0.18,
+        "width": 1.25,
+        "motif": 4,
+        "index": 9
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "drakeshard_daggers": {
+      "id": "drakeshard_daggers",
+      "name": "Wyrm Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "drakeshard",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "Drakeshard Range base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Drakeshard Range",
+        "prefix": "Wyrm",
+        "metal": "5e6662",
+        "accent": "bb9a60",
+        "curve": 0.18,
+        "width": 1.25,
+        "motif": 4,
+        "index": 9
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 55
+    },
+    "westreach_sword": {
+      "id": "westreach_sword",
+      "name": "Tidewake Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "westreach",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Westreach base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Westreach",
+        "prefix": "Tidewake",
+        "metal": "557b85",
+        "accent": "d0c7a3",
+        "curve": 0.15,
+        "width": 0.9,
+        "motif": 1,
+        "index": 10
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "westreach_greatsword": {
+      "id": "westreach_greatsword",
+      "name": "Tidewake Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "westreach",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 17,
+      "magic": 2,
+      "defense": 0,
+      "description": "Westreach base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Westreach",
+        "prefix": "Tidewake",
+        "metal": "557b85",
+        "accent": "d0c7a3",
+        "curve": 0.15,
+        "width": 0.9,
+        "motif": 1,
+        "index": 10
+      },
+      "materials": {
+        "iron_ingot": 5,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 85
+    },
+    "westreach_axe": {
+      "id": "westreach_axe",
+      "name": "Tidewake Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "westreach",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 15,
+      "magic": 2,
+      "defense": 0,
+      "description": "Westreach base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Westreach",
+        "prefix": "Tidewake",
+        "metal": "557b85",
+        "accent": "d0c7a3",
+        "curve": 0.15,
+        "width": 0.9,
+        "motif": 1,
+        "index": 10
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 2,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "westreach_bow": {
+      "id": "westreach_bow",
+      "name": "Tidewake Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "westreach",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Westreach base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Westreach",
+        "prefix": "Tidewake",
+        "metal": "557b85",
+        "accent": "d0c7a3",
+        "curve": 0.15,
+        "width": 0.9,
+        "motif": 1,
+        "index": 10
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 5,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "westreach_crossbow": {
+      "id": "westreach_crossbow",
+      "name": "Tidewake Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "westreach",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Westreach base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Westreach",
+        "prefix": "Tidewake",
+        "metal": "557b85",
+        "accent": "d0c7a3",
+        "curve": 0.15,
+        "width": 0.9,
+        "motif": 1,
+        "index": 10
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "westreach_cannon": {
+      "id": "westreach_cannon",
+      "name": "Tidewake Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "westreach",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 18,
+      "magic": 2,
+      "defense": 0,
+      "description": "Westreach base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Westreach",
+        "prefix": "Tidewake",
+        "metal": "557b85",
+        "accent": "d0c7a3",
+        "curve": 0.15,
+        "width": 0.9,
+        "motif": 1,
+        "index": 10
+      },
+      "materials": {
+        "iron_ingot": 6,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 90
+    },
+    "westreach_scythe": {
+      "id": "westreach_scythe",
+      "name": "Tidewake War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "westreach",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 15,
+      "magic": 4,
+      "defense": 0,
+      "description": "Westreach base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Westreach",
+        "prefix": "Tidewake",
+        "metal": "557b85",
+        "accent": "d0c7a3",
+        "curve": 0.15,
+        "width": 0.9,
+        "motif": 1,
+        "index": 10
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "westreach_staff": {
+      "id": "westreach_staff",
+      "name": "Tidewake Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "westreach",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 7,
+      "magic": 14,
+      "defense": 0,
+      "description": "Westreach base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Westreach",
+        "prefix": "Tidewake",
+        "metal": "557b85",
+        "accent": "d0c7a3",
+        "curve": 0.15,
+        "width": 0.9,
+        "motif": 1,
+        "index": 10
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 35
+    },
+    "westreach_spear": {
+      "id": "westreach_spear",
+      "name": "Tidewake Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "westreach",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Westreach base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Westreach",
+        "prefix": "Tidewake",
+        "metal": "557b85",
+        "accent": "d0c7a3",
+        "curve": 0.15,
+        "width": 0.9,
+        "motif": 1,
+        "index": 10
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "westreach_daggers": {
+      "id": "westreach_daggers",
+      "name": "Tidewake Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "westreach",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "Westreach base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Westreach",
+        "prefix": "Tidewake",
+        "metal": "557b85",
+        "accent": "d0c7a3",
+        "curve": 0.15,
+        "width": 0.9,
+        "motif": 1,
+        "index": 10
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 55
+    },
+    "deadwind_sword": {
+      "id": "deadwind_sword",
+      "name": "Dusk Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "deadwind",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Deadwind Hollow base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Deadwind Hollow",
+        "prefix": "Dusk",
+        "metal": "686276",
+        "accent": "aaa1b6",
+        "curve": 0.18,
+        "width": 0.9,
+        "motif": 5,
+        "index": 11
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "deadwind_greatsword": {
+      "id": "deadwind_greatsword",
+      "name": "Dusk Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "deadwind",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 17,
+      "magic": 2,
+      "defense": 0,
+      "description": "Deadwind Hollow base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Deadwind Hollow",
+        "prefix": "Dusk",
+        "metal": "686276",
+        "accent": "aaa1b6",
+        "curve": 0.18,
+        "width": 0.9,
+        "motif": 5,
+        "index": 11
+      },
+      "materials": {
+        "iron_ingot": 5,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 85
+    },
+    "deadwind_axe": {
+      "id": "deadwind_axe",
+      "name": "Dusk Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "deadwind",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 15,
+      "magic": 2,
+      "defense": 0,
+      "description": "Deadwind Hollow base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Deadwind Hollow",
+        "prefix": "Dusk",
+        "metal": "686276",
+        "accent": "aaa1b6",
+        "curve": 0.18,
+        "width": 0.9,
+        "motif": 5,
+        "index": 11
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 2,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "deadwind_bow": {
+      "id": "deadwind_bow",
+      "name": "Dusk Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "deadwind",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Deadwind Hollow base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Deadwind Hollow",
+        "prefix": "Dusk",
+        "metal": "686276",
+        "accent": "aaa1b6",
+        "curve": 0.18,
+        "width": 0.9,
+        "motif": 5,
+        "index": 11
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 5,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "deadwind_crossbow": {
+      "id": "deadwind_crossbow",
+      "name": "Dusk Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "deadwind",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Deadwind Hollow base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Deadwind Hollow",
+        "prefix": "Dusk",
+        "metal": "686276",
+        "accent": "aaa1b6",
+        "curve": 0.18,
+        "width": 0.9,
+        "motif": 5,
+        "index": 11
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "deadwind_cannon": {
+      "id": "deadwind_cannon",
+      "name": "Dusk Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "deadwind",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 18,
+      "magic": 2,
+      "defense": 0,
+      "description": "Deadwind Hollow base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Deadwind Hollow",
+        "prefix": "Dusk",
+        "metal": "686276",
+        "accent": "aaa1b6",
+        "curve": 0.18,
+        "width": 0.9,
+        "motif": 5,
+        "index": 11
+      },
+      "materials": {
+        "iron_ingot": 6,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 90
+    },
+    "deadwind_scythe": {
+      "id": "deadwind_scythe",
+      "name": "Dusk War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "deadwind",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 15,
+      "magic": 4,
+      "defense": 0,
+      "description": "Deadwind Hollow base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Deadwind Hollow",
+        "prefix": "Dusk",
+        "metal": "686276",
+        "accent": "aaa1b6",
+        "curve": 0.18,
+        "width": 0.9,
+        "motif": 5,
+        "index": 11
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "deadwind_staff": {
+      "id": "deadwind_staff",
+      "name": "Dusk Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "deadwind",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 7,
+      "magic": 14,
+      "defense": 0,
+      "description": "Deadwind Hollow base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Deadwind Hollow",
+        "prefix": "Dusk",
+        "metal": "686276",
+        "accent": "aaa1b6",
+        "curve": 0.18,
+        "width": 0.9,
+        "motif": 5,
+        "index": 11
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 35
+    },
+    "deadwind_spear": {
+      "id": "deadwind_spear",
+      "name": "Dusk Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "deadwind",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Deadwind Hollow base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Deadwind Hollow",
+        "prefix": "Dusk",
+        "metal": "686276",
+        "accent": "aaa1b6",
+        "curve": 0.18,
+        "width": 0.9,
+        "motif": 5,
+        "index": 11
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "deadwind_daggers": {
+      "id": "deadwind_daggers",
+      "name": "Dusk Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "deadwind",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "Deadwind Hollow base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "Deadwind Hollow",
+        "prefix": "Dusk",
+        "metal": "686276",
+        "accent": "aaa1b6",
+        "curve": 0.18,
+        "width": 0.9,
+        "motif": 5,
+        "index": 11
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 55
+    },
+    "ravenford_sword": {
+      "id": "ravenford_sword",
+      "name": "Crown Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "ravenford",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Ravenford base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Ravenford",
+        "prefix": "Crown",
+        "metal": "8b969d",
+        "accent": "d7b666",
+        "curve": 0.03,
+        "width": 1.05,
+        "motif": 2,
+        "index": 12
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "ravenford_greatsword": {
+      "id": "ravenford_greatsword",
+      "name": "Crown Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "ravenford",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 17,
+      "magic": 2,
+      "defense": 0,
+      "description": "Ravenford base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Ravenford",
+        "prefix": "Crown",
+        "metal": "8b969d",
+        "accent": "d7b666",
+        "curve": 0.03,
+        "width": 1.05,
+        "motif": 2,
+        "index": 12
+      },
+      "materials": {
+        "iron_ingot": 5,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 85
+    },
+    "ravenford_axe": {
+      "id": "ravenford_axe",
+      "name": "Crown Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "ravenford",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 15,
+      "magic": 2,
+      "defense": 0,
+      "description": "Ravenford base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Ravenford",
+        "prefix": "Crown",
+        "metal": "8b969d",
+        "accent": "d7b666",
+        "curve": 0.03,
+        "width": 1.05,
+        "motif": 2,
+        "index": 12
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 2,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "ravenford_bow": {
+      "id": "ravenford_bow",
+      "name": "Crown Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "ravenford",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Ravenford base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Ravenford",
+        "prefix": "Crown",
+        "metal": "8b969d",
+        "accent": "d7b666",
+        "curve": 0.03,
+        "width": 1.05,
+        "motif": 2,
+        "index": 12
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 5,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "ravenford_crossbow": {
+      "id": "ravenford_crossbow",
+      "name": "Crown Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "ravenford",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Ravenford base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Ravenford",
+        "prefix": "Crown",
+        "metal": "8b969d",
+        "accent": "d7b666",
+        "curve": 0.03,
+        "width": 1.05,
+        "motif": 2,
+        "index": 12
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "ravenford_cannon": {
+      "id": "ravenford_cannon",
+      "name": "Crown Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "ravenford",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 18,
+      "magic": 2,
+      "defense": 0,
+      "description": "Ravenford base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Ravenford",
+        "prefix": "Crown",
+        "metal": "8b969d",
+        "accent": "d7b666",
+        "curve": 0.03,
+        "width": 1.05,
+        "motif": 2,
+        "index": 12
+      },
+      "materials": {
+        "iron_ingot": 6,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 90
+    },
+    "ravenford_scythe": {
+      "id": "ravenford_scythe",
+      "name": "Crown War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "ravenford",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 15,
+      "magic": 4,
+      "defense": 0,
+      "description": "Ravenford base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Ravenford",
+        "prefix": "Crown",
+        "metal": "8b969d",
+        "accent": "d7b666",
+        "curve": 0.03,
+        "width": 1.05,
+        "motif": 2,
+        "index": 12
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "ravenford_staff": {
+      "id": "ravenford_staff",
+      "name": "Crown Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "ravenford",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 7,
+      "magic": 14,
+      "defense": 0,
+      "description": "Ravenford base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Ravenford",
+        "prefix": "Crown",
+        "metal": "8b969d",
+        "accent": "d7b666",
+        "curve": 0.03,
+        "width": 1.05,
+        "motif": 2,
+        "index": 12
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 35
+    },
+    "ravenford_spear": {
+      "id": "ravenford_spear",
+      "name": "Crown Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "ravenford",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Ravenford base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Ravenford",
+        "prefix": "Crown",
+        "metal": "8b969d",
+        "accent": "d7b666",
+        "curve": 0.03,
+        "width": 1.05,
+        "motif": 2,
+        "index": 12
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "ravenford_daggers": {
+      "id": "ravenford_daggers",
+      "name": "Crown Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "ravenford",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "Ravenford base design. Angular fittings and reinforced edges.",
+      "style": {
+        "name": "Ravenford",
+        "prefix": "Crown",
+        "metal": "8b969d",
+        "accent": "d7b666",
+        "curve": 0.03,
+        "width": 1.05,
+        "motif": 2,
+        "index": 12
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 55
+    },
+    "cursed_mire_sword": {
+      "id": "cursed_mire_sword",
+      "name": "Mire Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "cursed_mire",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Cursed Mire base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Cursed Mire",
+        "prefix": "Mire",
+        "metal": "536044",
+        "accent": "9fa75b",
+        "curve": 0.3,
+        "width": 0.82,
+        "motif": 3,
+        "index": 13
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "cursed_mire_greatsword": {
+      "id": "cursed_mire_greatsword",
+      "name": "Mire Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "cursed_mire",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 17,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Cursed Mire base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Cursed Mire",
+        "prefix": "Mire",
+        "metal": "536044",
+        "accent": "9fa75b",
+        "curve": 0.3,
+        "width": 0.82,
+        "motif": 3,
+        "index": 13
+      },
+      "materials": {
+        "iron_ingot": 5,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 85
+    },
+    "cursed_mire_axe": {
+      "id": "cursed_mire_axe",
+      "name": "Mire Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "cursed_mire",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 15,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Cursed Mire base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Cursed Mire",
+        "prefix": "Mire",
+        "metal": "536044",
+        "accent": "9fa75b",
+        "curve": 0.3,
+        "width": 0.82,
+        "motif": 3,
+        "index": 13
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 2,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "cursed_mire_bow": {
+      "id": "cursed_mire_bow",
+      "name": "Mire Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "cursed_mire",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Cursed Mire base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Cursed Mire",
+        "prefix": "Mire",
+        "metal": "536044",
+        "accent": "9fa75b",
+        "curve": 0.3,
+        "width": 0.82,
+        "motif": 3,
+        "index": 13
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 5,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "cursed_mire_crossbow": {
+      "id": "cursed_mire_crossbow",
+      "name": "Mire Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "cursed_mire",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Cursed Mire base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Cursed Mire",
+        "prefix": "Mire",
+        "metal": "536044",
+        "accent": "9fa75b",
+        "curve": 0.3,
+        "width": 0.82,
+        "motif": 3,
+        "index": 13
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "cursed_mire_cannon": {
+      "id": "cursed_mire_cannon",
+      "name": "Mire Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "cursed_mire",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 18,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Cursed Mire base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Cursed Mire",
+        "prefix": "Mire",
+        "metal": "536044",
+        "accent": "9fa75b",
+        "curve": 0.3,
+        "width": 0.82,
+        "motif": 3,
+        "index": 13
+      },
+      "materials": {
+        "iron_ingot": 6,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 90
+    },
+    "cursed_mire_scythe": {
+      "id": "cursed_mire_scythe",
+      "name": "Mire War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "cursed_mire",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 15,
+      "magic": 4,
+      "defense": 0,
+      "description": "The Cursed Mire base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Cursed Mire",
+        "prefix": "Mire",
+        "metal": "536044",
+        "accent": "9fa75b",
+        "curve": 0.3,
+        "width": 0.82,
+        "motif": 3,
+        "index": 13
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "cursed_mire_staff": {
+      "id": "cursed_mire_staff",
+      "name": "Mire Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "cursed_mire",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 7,
+      "magic": 14,
+      "defense": 0,
+      "description": "The Cursed Mire base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Cursed Mire",
+        "prefix": "Mire",
+        "metal": "536044",
+        "accent": "9fa75b",
+        "curve": 0.3,
+        "width": 0.82,
+        "motif": 3,
+        "index": 13
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 35
+    },
+    "cursed_mire_spear": {
+      "id": "cursed_mire_spear",
+      "name": "Mire Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "cursed_mire",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Cursed Mire base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Cursed Mire",
+        "prefix": "Mire",
+        "metal": "536044",
+        "accent": "9fa75b",
+        "curve": 0.3,
+        "width": 0.82,
+        "motif": 3,
+        "index": 13
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "cursed_mire_daggers": {
+      "id": "cursed_mire_daggers",
+      "name": "Mire Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "cursed_mire",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Cursed Mire base design. Organic curves and wrapped joints.",
+      "style": {
+        "name": "The Cursed Mire",
+        "prefix": "Mire",
+        "metal": "536044",
+        "accent": "9fa75b",
+        "curve": 0.3,
+        "width": 0.82,
+        "motif": 3,
+        "index": 13
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 55
+    },
+    "golden_sword": {
+      "id": "golden_sword",
+      "name": "Sunspire Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "golden",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Golden Expanse base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "The Golden Expanse",
+        "prefix": "Sunspire",
+        "metal": "b08d5b",
+        "accent": "f0d58c",
+        "curve": 0.24,
+        "width": 0.88,
+        "motif": 1,
+        "index": 14
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "golden_greatsword": {
+      "id": "golden_greatsword",
+      "name": "Sunspire Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "golden",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 17,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Golden Expanse base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "The Golden Expanse",
+        "prefix": "Sunspire",
+        "metal": "b08d5b",
+        "accent": "f0d58c",
+        "curve": 0.24,
+        "width": 0.88,
+        "motif": 1,
+        "index": 14
+      },
+      "materials": {
+        "iron_ingot": 5,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 85
+    },
+    "golden_axe": {
+      "id": "golden_axe",
+      "name": "Sunspire Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "golden",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 15,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Golden Expanse base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "The Golden Expanse",
+        "prefix": "Sunspire",
+        "metal": "b08d5b",
+        "accent": "f0d58c",
+        "curve": 0.24,
+        "width": 0.88,
+        "motif": 1,
+        "index": 14
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 2,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "golden_bow": {
+      "id": "golden_bow",
+      "name": "Sunspire Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "golden",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Golden Expanse base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "The Golden Expanse",
+        "prefix": "Sunspire",
+        "metal": "b08d5b",
+        "accent": "f0d58c",
+        "curve": 0.24,
+        "width": 0.88,
+        "motif": 1,
+        "index": 14
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 5,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "golden_crossbow": {
+      "id": "golden_crossbow",
+      "name": "Sunspire Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "golden",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Golden Expanse base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "The Golden Expanse",
+        "prefix": "Sunspire",
+        "metal": "b08d5b",
+        "accent": "f0d58c",
+        "curve": 0.24,
+        "width": 0.88,
+        "motif": 1,
+        "index": 14
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "golden_cannon": {
+      "id": "golden_cannon",
+      "name": "Sunspire Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "golden",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 18,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Golden Expanse base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "The Golden Expanse",
+        "prefix": "Sunspire",
+        "metal": "b08d5b",
+        "accent": "f0d58c",
+        "curve": 0.24,
+        "width": 0.88,
+        "motif": 1,
+        "index": 14
+      },
+      "materials": {
+        "iron_ingot": 6,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 90
+    },
+    "golden_scythe": {
+      "id": "golden_scythe",
+      "name": "Sunspire War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "golden",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 15,
+      "magic": 4,
+      "defense": 0,
+      "description": "The Golden Expanse base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "The Golden Expanse",
+        "prefix": "Sunspire",
+        "metal": "b08d5b",
+        "accent": "f0d58c",
+        "curve": 0.24,
+        "width": 0.88,
+        "motif": 1,
+        "index": 14
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "golden_staff": {
+      "id": "golden_staff",
+      "name": "Sunspire Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "golden",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 7,
+      "magic": 14,
+      "defense": 0,
+      "description": "The Golden Expanse base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "The Golden Expanse",
+        "prefix": "Sunspire",
+        "metal": "b08d5b",
+        "accent": "f0d58c",
+        "curve": 0.24,
+        "width": 0.88,
+        "motif": 1,
+        "index": 14
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 35
+    },
+    "golden_spear": {
+      "id": "golden_spear",
+      "name": "Sunspire Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "golden",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Golden Expanse base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "The Golden Expanse",
+        "prefix": "Sunspire",
+        "metal": "b08d5b",
+        "accent": "f0d58c",
+        "curve": 0.24,
+        "width": 0.88,
+        "motif": 1,
+        "index": 14
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "golden_daggers": {
+      "id": "golden_daggers",
+      "name": "Sunspire Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "golden",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Golden Expanse base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "The Golden Expanse",
+        "prefix": "Sunspire",
+        "metal": "b08d5b",
+        "accent": "f0d58c",
+        "curve": 0.24,
+        "width": 0.88,
+        "motif": 1,
+        "index": 14
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 55
+    },
+    "dragons_rest_sword": {
+      "id": "dragons_rest_sword",
+      "name": "Drakefire Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "dragons_rest",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Dragon\u2019s Rest base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Dragon\u2019s Rest",
+        "prefix": "Drakefire",
+        "metal": "73473e",
+        "accent": "edaa50",
+        "curve": 0.22,
+        "width": 1.16,
+        "motif": 4,
+        "index": 15
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "dragons_rest_greatsword": {
+      "id": "dragons_rest_greatsword",
+      "name": "Drakefire Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "dragons_rest",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 17,
+      "magic": 2,
+      "defense": 0,
+      "description": "Dragon\u2019s Rest base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Dragon\u2019s Rest",
+        "prefix": "Drakefire",
+        "metal": "73473e",
+        "accent": "edaa50",
+        "curve": 0.22,
+        "width": 1.16,
+        "motif": 4,
+        "index": 15
+      },
+      "materials": {
+        "iron_ingot": 5,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 85
+    },
+    "dragons_rest_axe": {
+      "id": "dragons_rest_axe",
+      "name": "Drakefire Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "dragons_rest",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 15,
+      "magic": 2,
+      "defense": 0,
+      "description": "Dragon\u2019s Rest base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Dragon\u2019s Rest",
+        "prefix": "Drakefire",
+        "metal": "73473e",
+        "accent": "edaa50",
+        "curve": 0.22,
+        "width": 1.16,
+        "motif": 4,
+        "index": 15
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 2,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "dragons_rest_bow": {
+      "id": "dragons_rest_bow",
+      "name": "Drakefire Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "dragons_rest",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Dragon\u2019s Rest base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Dragon\u2019s Rest",
+        "prefix": "Drakefire",
+        "metal": "73473e",
+        "accent": "edaa50",
+        "curve": 0.22,
+        "width": 1.16,
+        "motif": 4,
+        "index": 15
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 5,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "dragons_rest_crossbow": {
+      "id": "dragons_rest_crossbow",
+      "name": "Drakefire Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "dragons_rest",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Dragon\u2019s Rest base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Dragon\u2019s Rest",
+        "prefix": "Drakefire",
+        "metal": "73473e",
+        "accent": "edaa50",
+        "curve": 0.22,
+        "width": 1.16,
+        "motif": 4,
+        "index": 15
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "dragons_rest_cannon": {
+      "id": "dragons_rest_cannon",
+      "name": "Drakefire Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "dragons_rest",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 18,
+      "magic": 2,
+      "defense": 0,
+      "description": "Dragon\u2019s Rest base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Dragon\u2019s Rest",
+        "prefix": "Drakefire",
+        "metal": "73473e",
+        "accent": "edaa50",
+        "curve": 0.22,
+        "width": 1.16,
+        "motif": 4,
+        "index": 15
+      },
+      "materials": {
+        "iron_ingot": 6,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 90
+    },
+    "dragons_rest_scythe": {
+      "id": "dragons_rest_scythe",
+      "name": "Drakefire War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "dragons_rest",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 15,
+      "magic": 4,
+      "defense": 0,
+      "description": "Dragon\u2019s Rest base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Dragon\u2019s Rest",
+        "prefix": "Drakefire",
+        "metal": "73473e",
+        "accent": "edaa50",
+        "curve": 0.22,
+        "width": 1.16,
+        "motif": 4,
+        "index": 15
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "dragons_rest_staff": {
+      "id": "dragons_rest_staff",
+      "name": "Drakefire Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "dragons_rest",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 7,
+      "magic": 14,
+      "defense": 0,
+      "description": "Dragon\u2019s Rest base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Dragon\u2019s Rest",
+        "prefix": "Drakefire",
+        "metal": "73473e",
+        "accent": "edaa50",
+        "curve": 0.22,
+        "width": 1.16,
+        "motif": 4,
+        "index": 15
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 35
+    },
+    "dragons_rest_spear": {
+      "id": "dragons_rest_spear",
+      "name": "Drakefire Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "dragons_rest",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Dragon\u2019s Rest base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Dragon\u2019s Rest",
+        "prefix": "Drakefire",
+        "metal": "73473e",
+        "accent": "edaa50",
+        "curve": 0.22,
+        "width": 1.16,
+        "motif": 4,
+        "index": 15
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "dragons_rest_daggers": {
+      "id": "dragons_rest_daggers",
+      "name": "Drakefire Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "dragons_rest",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "Dragon\u2019s Rest base design. Winged collars and heavy cutting surfaces.",
+      "style": {
+        "name": "Dragon\u2019s Rest",
+        "prefix": "Drakefire",
+        "metal": "73473e",
+        "accent": "edaa50",
+        "curve": 0.22,
+        "width": 1.16,
+        "motif": 4,
+        "index": 15
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 55
+    },
+    "mistvale_sword": {
+      "id": "mistvale_sword",
+      "name": "Mistglass Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "mistvale",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Mistvale base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Mistvale",
+        "prefix": "Mistglass",
+        "metal": "81a9aa",
+        "accent": "c6e5d4",
+        "curve": 0.1,
+        "width": 0.76,
+        "motif": 1,
+        "index": 16
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "mistvale_greatsword": {
+      "id": "mistvale_greatsword",
+      "name": "Mistglass Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "mistvale",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 17,
+      "magic": 2,
+      "defense": 0,
+      "description": "Mistvale base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Mistvale",
+        "prefix": "Mistglass",
+        "metal": "81a9aa",
+        "accent": "c6e5d4",
+        "curve": 0.1,
+        "width": 0.76,
+        "motif": 1,
+        "index": 16
+      },
+      "materials": {
+        "iron_ingot": 5,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 85
+    },
+    "mistvale_axe": {
+      "id": "mistvale_axe",
+      "name": "Mistglass Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "mistvale",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 15,
+      "magic": 2,
+      "defense": 0,
+      "description": "Mistvale base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Mistvale",
+        "prefix": "Mistglass",
+        "metal": "81a9aa",
+        "accent": "c6e5d4",
+        "curve": 0.1,
+        "width": 0.76,
+        "motif": 1,
+        "index": 16
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 2,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "mistvale_bow": {
+      "id": "mistvale_bow",
+      "name": "Mistglass Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "mistvale",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "Mistvale base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Mistvale",
+        "prefix": "Mistglass",
+        "metal": "81a9aa",
+        "accent": "c6e5d4",
+        "curve": 0.1,
+        "width": 0.76,
+        "motif": 1,
+        "index": 16
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 5,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "mistvale_crossbow": {
+      "id": "mistvale_crossbow",
+      "name": "Mistglass Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "mistvale",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Mistvale base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Mistvale",
+        "prefix": "Mistglass",
+        "metal": "81a9aa",
+        "accent": "c6e5d4",
+        "curve": 0.1,
+        "width": 0.76,
+        "motif": 1,
+        "index": 16
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "mistvale_cannon": {
+      "id": "mistvale_cannon",
+      "name": "Mistglass Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "mistvale",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 18,
+      "magic": 2,
+      "defense": 0,
+      "description": "Mistvale base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Mistvale",
+        "prefix": "Mistglass",
+        "metal": "81a9aa",
+        "accent": "c6e5d4",
+        "curve": 0.1,
+        "width": 0.76,
+        "motif": 1,
+        "index": 16
+      },
+      "materials": {
+        "iron_ingot": 6,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 90
+    },
+    "mistvale_scythe": {
+      "id": "mistvale_scythe",
+      "name": "Mistglass War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "mistvale",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 15,
+      "magic": 4,
+      "defense": 0,
+      "description": "Mistvale base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Mistvale",
+        "prefix": "Mistglass",
+        "metal": "81a9aa",
+        "accent": "c6e5d4",
+        "curve": 0.1,
+        "width": 0.76,
+        "motif": 1,
+        "index": 16
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "mistvale_staff": {
+      "id": "mistvale_staff",
+      "name": "Mistglass Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "mistvale",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 7,
+      "magic": 14,
+      "defense": 0,
+      "description": "Mistvale base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Mistvale",
+        "prefix": "Mistglass",
+        "metal": "81a9aa",
+        "accent": "c6e5d4",
+        "curve": 0.1,
+        "width": 0.76,
+        "motif": 1,
+        "index": 16
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 35
+    },
+    "mistvale_spear": {
+      "id": "mistvale_spear",
+      "name": "Mistglass Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "mistvale",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "Mistvale base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Mistvale",
+        "prefix": "Mistglass",
+        "metal": "81a9aa",
+        "accent": "c6e5d4",
+        "curve": 0.1,
+        "width": 0.76,
+        "motif": 1,
+        "index": 16
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "mistvale_daggers": {
+      "id": "mistvale_daggers",
+      "name": "Mistglass Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "mistvale",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "Mistvale base design. Layered guard and repeated metalwork.",
+      "style": {
+        "name": "Mistvale",
+        "prefix": "Mistglass",
+        "metal": "81a9aa",
+        "accent": "c6e5d4",
+        "curve": 0.1,
+        "width": 0.76,
+        "motif": 1,
+        "index": 16
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 55
+    },
+    "hollow_isles_sword": {
+      "id": "hollow_isles_sword",
+      "name": "Hollow Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "hollow_isles",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Hollow Isles base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Hollow Isles",
+        "prefix": "Hollow",
+        "metal": "4e5a6a",
+        "accent": "a6b5cc",
+        "curve": 0.21,
+        "width": 0.85,
+        "motif": 5,
+        "index": 17
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "hollow_isles_greatsword": {
+      "id": "hollow_isles_greatsword",
+      "name": "Hollow Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "hollow_isles",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 17,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Hollow Isles base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Hollow Isles",
+        "prefix": "Hollow",
+        "metal": "4e5a6a",
+        "accent": "a6b5cc",
+        "curve": 0.21,
+        "width": 0.85,
+        "motif": 5,
+        "index": 17
+      },
+      "materials": {
+        "iron_ingot": 5,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 85
+    },
+    "hollow_isles_axe": {
+      "id": "hollow_isles_axe",
+      "name": "Hollow Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "hollow_isles",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 15,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Hollow Isles base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Hollow Isles",
+        "prefix": "Hollow",
+        "metal": "4e5a6a",
+        "accent": "a6b5cc",
+        "curve": 0.21,
+        "width": 0.85,
+        "motif": 5,
+        "index": 17
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 2,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "hollow_isles_bow": {
+      "id": "hollow_isles_bow",
+      "name": "Hollow Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "hollow_isles",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Hollow Isles base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Hollow Isles",
+        "prefix": "Hollow",
+        "metal": "4e5a6a",
+        "accent": "a6b5cc",
+        "curve": 0.21,
+        "width": 0.85,
+        "motif": 5,
+        "index": 17
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 5,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "hollow_isles_crossbow": {
+      "id": "hollow_isles_crossbow",
+      "name": "Hollow Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "hollow_isles",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Hollow Isles base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Hollow Isles",
+        "prefix": "Hollow",
+        "metal": "4e5a6a",
+        "accent": "a6b5cc",
+        "curve": 0.21,
+        "width": 0.85,
+        "motif": 5,
+        "index": 17
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "hollow_isles_cannon": {
+      "id": "hollow_isles_cannon",
+      "name": "Hollow Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "hollow_isles",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 18,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Hollow Isles base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Hollow Isles",
+        "prefix": "Hollow",
+        "metal": "4e5a6a",
+        "accent": "a6b5cc",
+        "curve": 0.21,
+        "width": 0.85,
+        "motif": 5,
+        "index": 17
+      },
+      "materials": {
+        "iron_ingot": 6,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 90
+    },
+    "hollow_isles_scythe": {
+      "id": "hollow_isles_scythe",
+      "name": "Hollow War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "hollow_isles",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 15,
+      "magic": 4,
+      "defense": 0,
+      "description": "The Hollow Isles base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Hollow Isles",
+        "prefix": "Hollow",
+        "metal": "4e5a6a",
+        "accent": "a6b5cc",
+        "curve": 0.21,
+        "width": 0.85,
+        "motif": 5,
+        "index": 17
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "hollow_isles_staff": {
+      "id": "hollow_isles_staff",
+      "name": "Hollow Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "hollow_isles",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 7,
+      "magic": 14,
+      "defense": 0,
+      "description": "The Hollow Isles base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Hollow Isles",
+        "prefix": "Hollow",
+        "metal": "4e5a6a",
+        "accent": "a6b5cc",
+        "curve": 0.21,
+        "width": 0.85,
+        "motif": 5,
+        "index": 17
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 35
+    },
+    "hollow_isles_spear": {
+      "id": "hollow_isles_spear",
+      "name": "Hollow Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "hollow_isles",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Hollow Isles base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Hollow Isles",
+        "prefix": "Hollow",
+        "metal": "4e5a6a",
+        "accent": "a6b5cc",
+        "curve": 0.21,
+        "width": 0.85,
+        "motif": 5,
+        "index": 17
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "hollow_isles_daggers": {
+      "id": "hollow_isles_daggers",
+      "name": "Hollow Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "hollow_isles",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Hollow Isles base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Hollow Isles",
+        "prefix": "Hollow",
+        "metal": "4e5a6a",
+        "accent": "a6b5cc",
+        "curve": 0.21,
+        "width": 0.85,
+        "motif": 5,
+        "index": 17
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 55
+    },
+    "deep_sword": {
+      "id": "deep_sword",
+      "name": "Abyss Sword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "sword",
+      "territory": "deep",
+      "icon": "res://assets/items/sword.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Devouring Deep base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Devouring Deep",
+        "prefix": "Abyss",
+        "metal": "494a60",
+        "accent": "9578ab",
+        "curve": 0.32,
+        "width": 1.3,
+        "motif": 5,
+        "index": 18
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "deep_greatsword": {
+      "id": "deep_greatsword",
+      "name": "Abyss Greatsword",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "greatsword",
+      "territory": "deep",
+      "icon": "res://assets/items/greatsword.svg",
+      "attack": 17,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Devouring Deep base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Devouring Deep",
+        "prefix": "Abyss",
+        "metal": "494a60",
+        "accent": "9578ab",
+        "curve": 0.32,
+        "width": 1.3,
+        "motif": 5,
+        "index": 18
+      },
+      "materials": {
+        "iron_ingot": 5,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 85
+    },
+    "deep_axe": {
+      "id": "deep_axe",
+      "name": "Abyss Battle Axe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "axe",
+      "territory": "deep",
+      "icon": "res://assets/items/axe.svg",
+      "attack": 15,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Devouring Deep base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Devouring Deep",
+        "prefix": "Abyss",
+        "metal": "494a60",
+        "accent": "9578ab",
+        "curve": 0.32,
+        "width": 1.3,
+        "motif": 5,
+        "index": 18
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 2,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "deep_bow": {
+      "id": "deep_bow",
+      "name": "Abyss Longbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "bow",
+      "territory": "deep",
+      "icon": "res://assets/items/bow.svg",
+      "attack": 12,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Devouring Deep base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Devouring Deep",
+        "prefix": "Abyss",
+        "metal": "494a60",
+        "accent": "9578ab",
+        "curve": 0.32,
+        "width": 1.3,
+        "motif": 5,
+        "index": 18
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 5,
+        "leather_strip": 2
+      },
+      "price": 60
+    },
+    "deep_crossbow": {
+      "id": "deep_crossbow",
+      "name": "Abyss Crossbow",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "crossbow",
+      "territory": "deep",
+      "icon": "res://assets/items/crossbow.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Devouring Deep base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Devouring Deep",
+        "prefix": "Abyss",
+        "metal": "494a60",
+        "accent": "9578ab",
+        "curve": 0.32,
+        "width": 1.3,
+        "motif": 5,
+        "index": 18
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "deep_cannon": {
+      "id": "deep_cannon",
+      "name": "Abyss Hand Cannon",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "cannon",
+      "territory": "deep",
+      "icon": "res://assets/items/cannon.svg",
+      "attack": 18,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Devouring Deep base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Devouring Deep",
+        "prefix": "Abyss",
+        "metal": "494a60",
+        "accent": "9578ab",
+        "curve": 0.32,
+        "width": 1.3,
+        "motif": 5,
+        "index": 18
+      },
+      "materials": {
+        "iron_ingot": 6,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 90
+    },
+    "deep_scythe": {
+      "id": "deep_scythe",
+      "name": "Abyss War Scythe",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "scythe",
+      "territory": "deep",
+      "icon": "res://assets/items/scythe.svg",
+      "attack": 15,
+      "magic": 4,
+      "defense": 0,
+      "description": "The Devouring Deep base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Devouring Deep",
+        "prefix": "Abyss",
+        "metal": "494a60",
+        "accent": "9578ab",
+        "curve": 0.32,
+        "width": 1.3,
+        "motif": 5,
+        "index": 18
+      },
+      "materials": {
+        "iron_ingot": 4,
+        "seasoned_wood": 3,
+        "leather_strip": 2
+      },
+      "price": 75
+    },
+    "deep_staff": {
+      "id": "deep_staff",
+      "name": "Abyss Staff",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "staff",
+      "territory": "deep",
+      "icon": "res://assets/items/staff.svg",
+      "attack": 7,
+      "magic": 14,
+      "defense": 0,
+      "description": "The Devouring Deep base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Devouring Deep",
+        "prefix": "Abyss",
+        "metal": "494a60",
+        "accent": "9578ab",
+        "curve": 0.32,
+        "width": 1.3,
+        "motif": 5,
+        "index": 18
+      },
+      "materials": {
+        "iron_ingot": 1,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 35
+    },
+    "deep_spear": {
+      "id": "deep_spear",
+      "name": "Abyss Spear",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "spear",
+      "territory": "deep",
+      "icon": "res://assets/items/spear.svg",
+      "attack": 14,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Devouring Deep base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Devouring Deep",
+        "prefix": "Abyss",
+        "metal": "494a60",
+        "accent": "9578ab",
+        "curve": 0.32,
+        "width": 1.3,
+        "motif": 5,
+        "index": 18
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 4,
+        "leather_strip": 2
+      },
+      "price": 70
+    },
+    "deep_daggers": {
+      "id": "deep_daggers",
+      "name": "Abyss Twin Daggers",
+      "kind": "weapon",
+      "slot": "weapon",
+      "family": "daggers",
+      "territory": "deep",
+      "icon": "res://assets/items/daggers.svg",
+      "attack": 11,
+      "magic": 2,
+      "defense": 0,
+      "description": "The Devouring Deep base design. Hooked profiles with inset bands.",
+      "style": {
+        "name": "The Devouring Deep",
+        "prefix": "Abyss",
+        "metal": "494a60",
+        "accent": "9578ab",
+        "curve": 0.32,
+        "width": 1.3,
+        "motif": 5,
+        "index": 18
+      },
+      "materials": {
+        "iron_ingot": 3,
+        "seasoned_wood": 1,
+        "leather_strip": 2
+      },
+      "price": 55
+    },
+    "travel_tunic": {
+      "id": "travel_tunic",
+      "name": "Travel Tunic",
+      "kind": "gear",
+      "slot": "body",
+      "icon": "res://assets/items/tunic.svg",
+      "attack": 0,
+      "defense": 3,
+      "magic": 0,
+      "description": "Changes equipment stats. Your travel outfit appearance stays the same.",
+      "price": 85
+    },
+    "travel_boots": {
+      "id": "travel_boots",
+      "name": "Travel Boots",
+      "kind": "gear",
+      "slot": "feet",
+      "icon": "res://assets/items/boots.svg",
+      "attack": 0,
+      "defense": 1,
+      "magic": 0,
+      "description": "Changes equipment stats. Your travel outfit appearance stays the same.",
+      "price": 55
+    },
+    "wooden_buckler": {
+      "id": "wooden_buckler",
+      "name": "Wooden Buckler",
+      "kind": "gear",
+      "slot": "offhand",
+      "icon": "res://assets/items/shield.svg",
+      "attack": 0,
+      "defense": 2,
+      "magic": 0,
+      "description": "Changes equipment stats. Your travel outfit appearance stays the same.",
+      "price": 70
+    },
+    "copper_charm": {
+      "id": "copper_charm",
+      "name": "Copper Charm",
+      "kind": "gear",
+      "slot": "accessory",
+      "icon": "res://assets/items/charm.svg",
+      "attack": 0,
+      "defense": 0,
+      "magic": 2,
+      "description": "Changes equipment stats. Your travel outfit appearance stays the same.",
+      "price": 40
+    },
+    "padded_coat": {
+      "id": "padded_coat",
+      "name": "Padded Coat",
+      "kind": "gear",
+      "slot": "body",
+      "icon": "res://assets/items/tunic.svg",
+      "attack": 0,
+      "defense": 6,
+      "magic": 0,
+      "description": "Changes equipment stats. Your travel outfit appearance stays the same.",
+      "price": 130
+    },
+    "iron_guard": {
+      "id": "iron_guard",
+      "name": "Iron Guard",
+      "kind": "gear",
+      "slot": "offhand",
+      "icon": "res://assets/items/shield.svg",
+      "attack": 0,
+      "defense": 5,
+      "magic": 0,
+      "description": "Changes equipment stats. Your travel outfit appearance stays the same.",
+      "price": 115
+    },
+    "trail_boots": {
+      "id": "trail_boots",
+      "name": "Trail Boots",
+      "kind": "gear",
+      "slot": "feet",
+      "icon": "res://assets/items/boots.svg",
+      "attack": 0,
+      "defense": 3,
+      "magic": 0,
+      "description": "Changes equipment stats. Your travel outfit appearance stays the same.",
+      "price": 85
+    },
+    "focus_charm": {
+      "id": "focus_charm",
+      "name": "Focus Charm",
+      "kind": "gear",
+      "slot": "accessory",
+      "icon": "res://assets/items/charm.svg",
+      "attack": 0,
+      "defense": 1,
+      "magic": 5,
+      "description": "Changes equipment stats. Your travel outfit appearance stays the same.",
+      "price": 55
+    },
+    "potion": {
+      "id": "potion",
+      "name": "Potion",
+      "kind": "consumable",
+      "icon": "res://assets/items/potion.svg",
+      "description": "Restores 50 HP.",
+      "price": 15
+    },
+    "ether": {
+      "id": "ether",
+      "name": "Ether",
+      "kind": "consumable",
+      "icon": "res://assets/items/ether.svg",
+      "description": "Restores 20 MP.",
+      "price": 15
+    },
+    "antidote": {
+      "id": "antidote",
+      "name": "Antidote",
+      "kind": "consumable",
+      "icon": "res://assets/items/antidote.svg",
+      "description": "Cures poison.",
+      "price": 15
+    },
+    "iron_ingot": {
+      "id": "iron_ingot",
+      "name": "Iron Ingot",
+      "kind": "material",
+      "icon": "res://assets/items/ore.svg",
+      "description": "Refined metal used by the smith.",
+      "price": 15
+    },
+    "seasoned_wood": {
+      "id": "seasoned_wood",
+      "name": "Seasoned Wood",
+      "kind": "material",
+      "icon": "res://assets/items/wood.svg",
+      "description": "Dry timber for weapon frames and hafts.",
+      "price": 15
+    },
+    "leather_strip": {
+      "id": "leather_strip",
+      "name": "Leather Strip",
+      "kind": "material",
+      "icon": "res://assets/items/leather.svg",
+      "description": "Bindings, grips and straps.",
+      "price": 15
+    },
+    "entropic_essence": {
+      "id": "entropic_essence",
+      "name": "Entropic Essence",
+      "kind": "material",
+      "icon": "res://assets/items/essence.svg",
+      "description": "Reserved for magical infusion in a later forge pass.",
+      "price": 15
+    }
+  }
+}

@@ -13,7 +13,7 @@ func configure(data: Dictionary, floor_position: Vector3, base_scale: float) -> 
 	rotation.y = deg_to_rad(float(data.get("facing", 0)))
 	hero = HeroModel.new()
 	add_child(hero)
-	hero.setup(data.appearance)
+	hero.setup(data.appearance, false)
 	_tint_materials(hero)
 	hero.animation_player.seek(float(data.get("idle_phase", 0.0)), true)
 	var shadow := MeshInstance3D.new()

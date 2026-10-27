@@ -36,7 +36,7 @@ func _ready() -> void:
 	camera.current = true
 	hero = HeroModel.new()
 	add_child(hero)
-	hero.setup(appearance)
+	hero.setup(appearance, false)
 	var ground := MeshInstance3D.new()
 	var plane := CylinderMesh.new()
 	plane.top_radius = 0.65
@@ -104,7 +104,7 @@ func _ready() -> void:
 
 func choose(choice: String) -> void:
 	appearance = choice
-	hero.setup(choice)
+	hero.setup(choice, false)
 	hero.play_clip(clip)
 	_update_status()
 

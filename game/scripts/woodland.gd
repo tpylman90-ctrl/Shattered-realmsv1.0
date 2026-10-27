@@ -27,8 +27,10 @@ var materials: Dictionary = {}
 var rng := RandomNumberGenerator.new()
 var room_generation := 0
 var rock_mesh: ArrayMesh
+var equipment: EquipmentState
 
 func _ready() -> void:
+	equipment=EquipmentState.new()
 	room_data = JSON.parse_string(FileAccess.get_file_as_string("res://data/woodland_rooms.json"))
 	travel_speeds = JSON.parse_string(FileAccess.get_file_as_string("res://data/travel_speeds.json"))
 	_materials()
@@ -511,6 +513,15 @@ func _ui() -> void:
 		persist_exploration()
 		get_tree().change_scene_to_file("res://scenes/world_map.tscn"))
 	canvas.add_child(map)
+	var pack := Button.new()
+	pack.text="PACK / EQUIPMENT"
+	pack.position=Vector2(1000,100)
+	pack.size=Vector2(250,52)
+	pack.pressed.connect(func():
+		persist_exploration()
+		get_tree().set_meta("equipment_return_scene","res://scenes/woodland.tscn")
+		get_tree().change_scene_to_file("res://scenes/equipment.tscn"))
+	canvas.add_child(pack)
 	var local_map := Button.new()
 	local_map.text = "RAVENWOOD MAP"
 	local_map.position = Vector2(855,24)
@@ -562,7 +573,10 @@ func _physics_process(delta: float) -> void:
 		player.rotation.y=lerp_angle(player.rotation.y,atan2(direction.x,direction.z),minf(1,delta*10))
 	_update_camera(false,delta)
 	var side := nearby_exit(4.0)
-	prompt.visible = not side.is_empty()
+	var cache := current_cache()
+	var can_gather := not cache.is_empty() and not room_id in equipment.claimed and absf(player.position.z)<3.0
+	prompt.visible = not side.is_empty() or can_gather
+	if can_gather and side.is_empty(): prompt.text="COLLECT SUPPLIES"
 	if not side.is_empty():
 		var destination: String = room_data[room_id].exits[side].to
 		prompt.text = "ENTER BLACKTHORN" if destination=="town" else "DUNGEON · NOT OPEN" if destination=="boundary" else room_data[destination].name.to_upper()+" →"
@@ -593,6 +607,10 @@ func _update_camera(immediate: bool, delta: float = 0.0) -> void:
 	camera.look_at(focus)
 
 func _interact() -> void:
+	var cache := current_cache()
+	if not cache.is_empty() and absf(player.position.z)<3.0 and equipment.claim_cache(room_id,cache):
+		subtitle.text="Supplies added to your pack. Visit Equipment & Smithy to forge."
+		return
 	var side := nearby_exit(4.0)
 	if not side.is_empty():
 		enter_exit(side)
@@ -866,3 +884,11 @@ func landmark_zone(x: float,z: float) -> bool:
 		"timber": return (absf(x+5)<3 and absf(z)<15) or (absf(x-5)<3 and absf(z-6)<4)
 		"crossroads": return Vector2(x+5,z-8).length()<3
 	return false
+
+func current_cache() -> Dictionary:
+	match room_id:
+		"forest": return {"leather_strip":4,"potion":2}
+		"timber": return {"seasoned_wood":12,"leather_strip":4}
+		"mine": return {"iron_ingot":18}
+		"oldgrowth": return {"entropic_essence":3}
+	return {}

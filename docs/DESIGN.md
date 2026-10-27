@@ -49,3 +49,12 @@ crossroads, with a territory route map and exploration checkpoints. Town and
 wilderness walking are 35% faster; running is 30% faster. Local landmark names
 and geometry are a first territory layout. Dungeons, battle encounters, loot,
 recruitment and territory-capture rules remain future work.
+
+## Equipment and full-game target — 0.13.0
+
+The user approved building toward a full game with a 3.5 GB maximum. The current
+milestone adds the territory-by-family weapon matrix, 3D weapon previews/travel
+mounts, image-based other gear, inventory persistence, equipment stats, local
+material caches and Ravenwood base forging. See EQUIPMENT.md for scope and
+RELEASE_PLAN.md for the size budget and unfinished full-game release gates.
+This is equipment foundation work, not a completed campaign or battle system.

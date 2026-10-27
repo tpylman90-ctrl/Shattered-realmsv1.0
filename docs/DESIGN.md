@@ -41,3 +41,11 @@ previous hex-board prototype is retained as source but is no longer the Ravenwoo
 entry. Existing city scenes stay lightweight. Exploration corridors, touch/keyboard
 movement, walk/run, a following camera and town entry are implemented; wilderness
 combat, enemies, loot and dungeon exploration are not implemented yet.
+
+## Ravenwood territory expansion — 0.12.0
+
+The connected wilderness now has ten rooms and two branching loops around the
+crossroads, with a territory route map and exploration checkpoints. Town and
+wilderness walking are 35% faster; running is 30% faster. Local landmark names
+and geometry are a first territory layout. Dungeons, battle encounters, loot,
+recruitment and territory-capture rules remain future work.

@@ -30,10 +30,12 @@ var npc_actors: Array[Node3D] = []
 var npc_dialog: PanelContainer
 var npc_marker: Label
 var pending_npc := ""
+var travel_speeds: Dictionary
 var character_presentation: Dictionary
 var player_shadow: MeshInstance3D
 
 func _ready() -> void:
+	travel_speeds = JSON.parse_string(FileAccess.get_file_as_string("res://data/travel_speeds.json"))
 	location_names = JSON.parse_string(FileAccess.get_file_as_string("res://data/ravenwood_locations.json")).locations
 	npc_catalog = JSON.parse_string(FileAccess.get_file_as_string("res://data/ravenwood_npcs.json")).npcs
 	character_presentation = JSON.parse_string(FileAccess.get_file_as_string("res://data/ravenwood_character_presentation.json"))
@@ -369,7 +371,7 @@ func _walk(input: Vector2, delta: float) -> void:
 			waypoints.remove_at(0)
 		else:
 			input = offset.normalized()
-	var movement_speed := (2.864 if sprinting else 1.129) * player.scale.x
+	var movement_speed := float(travel_speeds.town_run if sprinting else travel_speeds.town_walk) * float(travel_speeds.run_multiplier if sprinting else travel_speeds.walk_multiplier) * player.scale.x
 	var pixel_speed := camera.unproject_position(player.position + Vector3.RIGHT * movement_speed).distance_to(camera.unproject_position(player.position))
 	var distance := pixel_speed * delta
 	if not waypoints.is_empty():
@@ -437,6 +439,7 @@ func _inspect_nearest() -> void:
 	if point.is_empty():
 		return
 	if point.get("scene", "") == "woodland":
+		get_tree().set_meta("woodland_entry","forest")
 		get_tree().change_scene_to_file("res://scenes/woodland.tscn")
 		return
 	waypoints.clear()

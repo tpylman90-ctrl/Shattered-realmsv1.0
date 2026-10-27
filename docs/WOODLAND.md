@@ -43,3 +43,42 @@ Tests cover both room builds, bounded scene-node counts, hero screen placement,
 walkable paths, stream/bridge boundaries, manual cancellation of tap travel,
 floor height, two-way transitions, detached old scenery and safe arrival points.
 Actual Godot captures review the gate approach, deeper forest and bridge.
+
+## Expanded territory — 0.12.0
+
+Ravenwood now contains ten connected 3D areas: Oldwood Road, Briar Crossing,
+Wayfarer's Meet, Oldwood Timber Camp, Fernglass Spring, North Ridge Trail,
+North Ridge Mine, Southwatch Heights, the Ancient Grove and Thornwatch Outer
+Ruins. The longer new areas use the approved forest materials and batched
+scenery, with distinct timber stacks/stumps, a pool and waterfall, ridge railings,
+a barred mine approach, a ruined tower, an ancient tree and standing stones,
+and a stone arch/ruined walls. These remain provisional local landmark names,
+not additional cities or final campaign story assignments.
+
+The crossroads branches west to the ridge/mine/watchtower and east to the timber
+camp/spring. Both routes loop through the grove and outer ruins and reconnect
+to the crossroads. All 22 directional room connections have explicit reciprocal
+arrival sides. Curved side trails are real walkable road meshes. Tap travel uses
+a sampled AStar3D route graph, preventing corner-cutting through wooded banks.
+Only the active room is resident. Signs and the nearby-exit action name the
+next area; crossing an exit on foot loads it with a clear return spawn.
+
+Ravenwood Map shows the full route network, current area and visited areas;
+it pauses movement and does not teleport. Room, position and visit history are
+checkpointed on room changes and map/town departure in
+`user://ravenwood_exploration.cfg`. World-map/main-menu wilderness entry resumes
+that checkpoint. Entering from the town's north road always starts at Oldwood
+Road, preserving the physical town connection. Appearance settings remain
+separate. There are still no wilderness encounters, gathering rewards, mine
+interior or playable dungeon interior; the outer ruins are explorable scenery.
+
+`game/data/travel_speeds.json` centralizes town and wilderness speeds. Walking
+is 35% faster and running 30% faster in both modes. Wilderness speeds are now
+1.9575 and 4.225 m/s. Animation cadence accommodates the faster travel. City
+floor/navigation geometry, character scale and approved GLBs are unchanged.
+
+Checks traverse every reciprocal connection, verify all ten rooms are reachable,
+validate side-trail graph points and arrival positions, check map movement pause,
+checkpoint content and increased actual town/wilderness movement. Actual GPU
+captures review every room and the route map. Android performance remains for
+phone review.

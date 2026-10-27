@@ -60,4 +60,4 @@ func update_locomotion(world_speed: float, model_scale: float, running: bool) ->
 	play_clip("Run" if running else "Walk")
 	# Stance travel divided by stance duration in the authored in-place cycles.
 	var native_speed := 2.182 if running else 0.806
-	animation_player.speed_scale = clampf(world_speed / (maxf(model_scale, 0.01) * native_speed), 0.5, 1.8)
+	animation_player.speed_scale = clampf(world_speed / (maxf(model_scale, 0.01) * native_speed), 0.5, 2.3)

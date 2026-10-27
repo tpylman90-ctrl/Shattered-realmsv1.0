@@ -1,4 +1,198 @@
 {
-  "forest": {"title":"RAVENWOOD · OLDWOOD ROAD","subtitle":"Blackthorn behind you. The forest opens ahead.","north":"crossing","south":"town"},
-  "crossing": {"title":"RAVENWOOD · BRIAR CROSSING","subtitle":"A weathered bridge above the Briarwater.","north":"boundary","south":"forest"}
+  "forest": {
+    "title": "RAVENWOOD · OLDWOOD ROAD",
+    "name": "Oldwood Road",
+    "subtitle": "Blackthorn behind you. The forest opens ahead.",
+    "length": 16.3,
+    "seed": 9305,
+    "theme": "road",
+    "exits": {
+      "north": {
+        "to": "crossing",
+        "arrival": "south"
+      },
+      "south": {
+        "to": "town",
+        "arrival": ""
+      }
+    }
+  },
+  "crossing": {
+    "title": "RAVENWOOD · BRIAR CROSSING",
+    "name": "Briar Crossing",
+    "subtitle": "A weathered bridge above the Briarwater.",
+    "length": 16.3,
+    "seed": 9319,
+    "theme": "bridge",
+    "exits": {
+      "north": {
+        "to": "waymeet",
+        "arrival": "south"
+      },
+      "south": {
+        "to": "forest",
+        "arrival": "north"
+      }
+    }
+  },
+  "waymeet": {
+    "title": "RAVENWOOD · WAYFARER’S MEET",
+    "name": "Wayfarer’s Meet",
+    "subtitle": "Three woodland trails meet beneath the old signpost.",
+    "length": 24,
+    "seed": 9511,
+    "theme": "crossroads",
+    "exits": {
+      "north": {
+        "to": "oldgrowth",
+        "arrival": "south"
+      },
+      "south": {
+        "to": "crossing",
+        "arrival": "north"
+      },
+      "west": {
+        "to": "ridge",
+        "arrival": "south"
+      },
+      "east": {
+        "to": "timber",
+        "arrival": "south"
+      }
+    }
+  },
+  "timber": {
+    "title": "RAVENWOOD · OLDWOOD TIMBER CAMP",
+    "name": "Oldwood Timber Camp",
+    "subtitle": "Stacked timber, empty carts and the scent of fresh-cut cedar.",
+    "length": 25,
+    "seed": 9613,
+    "theme": "timber",
+    "exits": {
+      "north": {
+        "to": "spring",
+        "arrival": "south"
+      },
+      "south": {
+        "to": "waymeet",
+        "arrival": "east"
+      }
+    }
+  },
+  "spring": {
+    "title": "RAVENWOOD · FERNGLASS SPRING",
+    "name": "Fernglass Spring",
+    "subtitle": "Clear water gathers beneath moss-covered stone.",
+    "length": 23,
+    "seed": 9721,
+    "theme": "spring",
+    "exits": {
+      "north": {
+        "to": "oldgrowth",
+        "arrival": "east"
+      },
+      "south": {
+        "to": "timber",
+        "arrival": "north"
+      }
+    }
+  },
+  "ridge": {
+    "title": "RAVENWOOD · NORTH RIDGE TRAIL",
+    "name": "North Ridge Trail",
+    "subtitle": "The trail climbs above Ravenwood’s canopy.",
+    "length": 27,
+    "seed": 9829,
+    "theme": "ridge",
+    "exits": {
+      "north": {
+        "to": "mine",
+        "arrival": "south"
+      },
+      "south": {
+        "to": "waymeet",
+        "arrival": "west"
+      }
+    }
+  },
+  "mine": {
+    "title": "RAVENWOOD · NORTH RIDGE MINE",
+    "name": "North Ridge Mine",
+    "subtitle": "An old working cut into the wooded hillside.",
+    "length": 24,
+    "seed": 9931,
+    "theme": "mine",
+    "exits": {
+      "north": {
+        "to": "watch",
+        "arrival": "south"
+      },
+      "south": {
+        "to": "ridge",
+        "arrival": "north"
+      }
+    }
+  },
+  "watch": {
+    "title": "RAVENWOOD · SOUTHWATCH HEIGHTS",
+    "name": "Southwatch Heights",
+    "subtitle": "A broken watchtower still commands the forest roads.",
+    "length": 26,
+    "seed": 10037,
+    "theme": "watch",
+    "exits": {
+      "north": {
+        "to": "ruins",
+        "arrival": "west"
+      },
+      "south": {
+        "to": "mine",
+        "arrival": "north"
+      }
+    }
+  },
+  "oldgrowth": {
+    "title": "RAVENWOOD · THE ANCIENT GROVE",
+    "name": "The Ancient Grove",
+    "subtitle": "Roots older than Blackthorn reach beneath the trail.",
+    "length": 28,
+    "seed": 10141,
+    "theme": "grove",
+    "exits": {
+      "north": {
+        "to": "ruins",
+        "arrival": "south"
+      },
+      "south": {
+        "to": "waymeet",
+        "arrival": "north"
+      },
+      "east": {
+        "to": "spring",
+        "arrival": "north"
+      }
+    }
+  },
+  "ruins": {
+    "title": "RAVENWOOD · THORNWATCH OUTER RUINS",
+    "name": "Thornwatch Outer Ruins",
+    "subtitle": "The forest reclaims a forgotten stone stronghold.",
+    "length": 26,
+    "seed": 10247,
+    "theme": "ruins",
+    "exits": {
+      "north": {
+        "to": "boundary",
+        "arrival": ""
+      },
+      "south": {
+        "to": "oldgrowth",
+        "arrival": "north"
+      },
+      "west": {
+        "to": "watch",
+        "arrival": "north"
+      }
+    }
+  }
 }

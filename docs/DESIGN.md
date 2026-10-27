@@ -58,3 +58,15 @@ mounts, image-based other gear, inventory persistence, equipment stats, local
 material caches and Ravenwood base forging. See EQUIPMENT.md for scope and
 RELEASE_PLAN.md for the size budget and unfinished full-game release gates.
 This is equipment foundation work, not a completed campaign or battle system.
+
+## User-authorized campaign fill — 0.20.0
+
+The user authorized filling the remaining game while preserving the established
+area direction, with revision afterward. Open details are now an explicitly
+draft first-pass campaign in `campaign.json`: nonlinear neighboring-region travel,
+level-scaled ATB encounters, 18 recruit/defender pairs, one recruit per region,
+three companions alongside the avatar, and a nine-companion/three-front finale.
+These are editable implementation choices, not a claim that all draft narrative
+or new character designs were previously approved. Established area themes,
+settlement corrections, named old heroes and Hollow Oak chambers remain intact.
+See CAMPAIGN_FIRST_PASS.md for implemented features and production limitations.

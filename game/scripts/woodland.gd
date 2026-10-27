@@ -31,7 +31,7 @@ var equipment: EquipmentState
 
 func _ready() -> void:
 	equipment=EquipmentState.new()
-	room_data = JSON.parse_string(FileAccess.get_file_as_string("res://data/woodland_rooms.json"))
+	room_data = _room_registry()
 	travel_speeds = JSON.parse_string(FileAccess.get_file_as_string("res://data/travel_speeds.json"))
 	_materials()
 	_lighting()
@@ -57,8 +57,8 @@ func _ready() -> void:
 		var saved_visits: Variant = config.get_value("exploration","visited",[])
 		if saved_visits is Array:
 			visited_rooms = saved_visits
-		if forced_entry=="forest":
-			load_room("forest",9.0)
+		if room_data.has(forced_entry):
+			load_room(forced_entry,9.0 if forced_entry=="forest" else -float(room_data[forced_entry].length)+4.0)
 			return
 		if room_data.has(saved_room) and saved_position is Vector3:
 			load_room(saved_room,saved_position.z)
@@ -67,7 +67,10 @@ func _ready() -> void:
 			_update_camera(true)
 			persist_exploration()
 			return
-	load_room("forest",9.0)
+	if room_data.has(forced_entry):
+		load_room(forced_entry,9.0 if forced_entry=="forest" else -float(room_data[forced_entry].length)+4.0)
+		return
+	load_room(_initial_room(),9.0)
 
 func _materials() -> void:
 	for key in ["ground", "road", "stone", "bark"]:
@@ -519,7 +522,7 @@ func _ui() -> void:
 	pack.size=Vector2(250,52)
 	pack.pressed.connect(func():
 		persist_exploration()
-		get_tree().set_meta("equipment_return_scene","res://scenes/woodland.tscn")
+		get_tree().set_meta("equipment_return_scene",_self_scene())
 		get_tree().change_scene_to_file("res://scenes/equipment.tscn"))
 	canvas.add_child(pack)
 	var local_map := Button.new()
@@ -527,7 +530,7 @@ func _ui() -> void:
 	local_map.position = Vector2(855,24)
 	local_map.size = Vector2(210,58)
 	canvas.add_child(local_map)
-	territory_map = preload("res://scripts/woodland_map.gd").new()
+	territory_map = _make_territory_map()
 	canvas.add_child(territory_map)
 	territory_map.hide()
 	local_map.pressed.connect(func():
@@ -579,7 +582,7 @@ func _physics_process(delta: float) -> void:
 	if can_gather and side.is_empty(): prompt.text="COLLECT SUPPLIES"
 	if not side.is_empty():
 		var destination: String = room_data[room_id].exits[side].to
-		prompt.text = "ENTER BLACKTHORN" if destination=="town" else "DUNGEON · NOT OPEN" if destination=="boundary" else room_data[destination].name.to_upper()+" →"
+		prompt.text = _exit_text(destination)
 	if transition_lock<=0:
 		var edge := nearby_exit(0.9)
 		if not edge.is_empty() and room_data.has(room_data[room_id].exits[edge].to):
@@ -683,7 +686,13 @@ func enter_exit(side: String) -> void:
 		persist_exploration()
 		get_tree().change_scene_to_file("res://scenes/ravenwood.tscn" if FileAccess.file_exists("user://hero.cfg") else "res://scenes/hero_select.tscn")
 	else:
-		subtitle.text="The outer ruins are explorable. The dungeon interior is not built yet."
+		persist_exploration()
+		var campaign:=CampaignState.new()
+		campaign.current="ravenwood"
+		campaign.save()
+		get_tree().set_meta("campaign_region","ravenwood")
+		get_tree().set_meta("campaign_room","d0")
+		get_tree().change_scene_to_file("res://scenes/campaign_area.tscn")
 
 func persist_exploration(path: String = EXPLORATION_SAVE) -> Error:
 	if not save_enabled:
@@ -753,7 +762,7 @@ func _branch_roads() -> void:
 func _exit_signs() -> void:
 	for side in room_data[room_id].exits:
 		var destination: String = room_data[room_id].exits[side].to
-		if destination in ["town","boundary"]:
+		if not room_data.has(destination):
 			continue
 		var point := exit_position(side)
 		point.z += 3.0 if side=="north" else -3.0 if side=="south" else 0.0
@@ -892,3 +901,21 @@ func current_cache() -> Dictionary:
 		"mine": return {"iron_ingot":18}
 		"oldgrowth": return {"entropic_essence":3}
 	return {}
+
+func _room_registry() -> Dictionary:
+	return JSON.parse_string(FileAccess.get_file_as_string("res://data/woodland_rooms.json"))
+
+func _initial_room() -> String:
+	return "forest"
+
+func _make_territory_map() -> Control:
+	return preload("res://scripts/woodland_map.gd").new()
+
+func _self_scene() -> String:
+	return "res://scenes/woodland.tscn"
+
+func _exit_text(destination: String) -> String:
+	if destination=="town": return "ENTER BLACKTHORN"
+	if destination=="boundary": return "ENTER HOLLOW OAK"
+	if destination=="world": return "WORLD MAP"
+	return str(room_data.get(destination,{}).get("name",destination)).to_upper()+" →"

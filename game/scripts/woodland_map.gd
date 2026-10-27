@@ -35,7 +35,7 @@ func _ready() -> void:
 		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		add_child(label)
 	var footer := Label.new()
-	footer.text = "Blackthorn ↔ Oldwood Road     •     Ruins interior and combat are not built yet"
+	footer.text = "Blackthorn ↔ Oldwood Road     •     Hollow Oak dungeon via Thornwatch Outer Ruins"
 	footer.position = Vector2(40,660)
 	add_child(footer)
 

@@ -1,0 +1,196 @@
+{
+  "source": "Original Godot 4.5.2 scene renders and original synthesized music",
+  "generation_scripts": [
+    "tools/campaign/build_campaign.py",
+    "tools/campaign/bake_backdrops.gd",
+    "tools/campaign/make_audio.py"
+  ],
+  "external_assets_or_paid_providers": false,
+  "assets": [
+    {
+      "path": "game/assets/cities/ashen.webp",
+      "bytes": 339556,
+      "sha256": "4d543bcc515a24a587304dff6548f70e0bcd6a36318a3437f3af722faaff5bba"
+    },
+    {
+      "path": "game/assets/cities/deadwind.webp",
+      "bytes": 489698,
+      "sha256": "5f0bef68e243cd8cda049fece8599836cc6ed93d07df99333167761e25df5749"
+    },
+    {
+      "path": "game/assets/cities/dragons_rest.webp",
+      "bytes": 334052,
+      "sha256": "16a5f735abff8cefef03717d99e35312e48acaf10d57995905c0636417d674b7"
+    },
+    {
+      "path": "game/assets/cities/drakeshard.webp",
+      "bytes": 542892,
+      "sha256": "72115a6d1cf093a854fbfdbfa10804288eb16c9ac2e4ad0b66a64e43a4c56c3c"
+    },
+    {
+      "path": "game/assets/cities/frostpeaks.webp",
+      "bytes": 149542,
+      "sha256": "4c4471ffd11cdb231d2222c601708becae6e70c63489c94dd741c49485f5bd62"
+    },
+    {
+      "path": "game/assets/cities/golden.webp",
+      "bytes": 710580,
+      "sha256": "97289586910194d8e0c19c24e8fb56cad1ad579c595ae429ff6388525165cc23"
+    },
+    {
+      "path": "game/assets/cities/hollow_isles.webp",
+      "bytes": 486872,
+      "sha256": "a2d50f462a3147b3ddbb53cf1f9922ae2317f1ffbc5f4f5600228fc6bcf2d1c4"
+    },
+    {
+      "path": "game/assets/cities/iron_plains.webp",
+      "bytes": 690704,
+      "sha256": "550e228361cfb76ac1cb8956753da8c6aacef1c6b628c460b95c5cf92cda3312"
+    },
+    {
+      "path": "game/assets/cities/marsh.webp",
+      "bytes": 510002,
+      "sha256": "a2887daf5307f4be2995971a3169914c53e83ca6f75120bfe7236092b0a1a823"
+    },
+    {
+      "path": "game/assets/cities/mistvale.webp",
+      "bytes": 621912,
+      "sha256": "d4bd5e4527f5e9723ed3839c995a15c0373e2859b8aba7a506444c4bd4b45b9f"
+    },
+    {
+      "path": "game/assets/cities/ravenford.webp",
+      "bytes": 697470,
+      "sha256": "c65c77c268d028fac76a874e66012899cce9a84046d7cd4871b41dbc074923ed"
+    },
+    {
+      "path": "game/assets/cities/silvermere.webp",
+      "bytes": 610120,
+      "sha256": "3e6fd84167a5e5e96f8be5955dc42712ffceeeab1c7e308b4bf43a9c3f8fa3a8"
+    },
+    {
+      "path": "game/assets/cities/stormcrown.webp",
+      "bytes": 543804,
+      "sha256": "0e051647eda486477964c0c7730a6556d2a30d9b6d9a5d504133a1193ebaef4b"
+    },
+    {
+      "path": "game/assets/cities/westreach.webp",
+      "bytes": 602124,
+      "sha256": "312c89af4a36b5899dde848b073600caae2a90f22acd486862eafa558a894685"
+    },
+    {
+      "path": "game/assets/battles/ashen.webp",
+      "bytes": 119076,
+      "sha256": "c7d7683474605bd4c134cb9f2d4923b89806d2f3805702b02c786380e039b217"
+    },
+    {
+      "path": "game/assets/battles/cursed_mire.webp",
+      "bytes": 188404,
+      "sha256": "a1ff0862f8d4252cf6b327e5459a033c72a1cba3e960327ffc08e347957d3a47"
+    },
+    {
+      "path": "game/assets/battles/deadwind.webp",
+      "bytes": 250138,
+      "sha256": "49e0ea99a67d852e933f436db0b40c85ce899bbc55d0fe91ae0f88150da545e2"
+    },
+    {
+      "path": "game/assets/battles/deep.webp",
+      "bytes": 155004,
+      "sha256": "8cf9f1a68344f6ae5d35f1aa3e5f37d8f763430e35c4cccc46fc45be5a020a46"
+    },
+    {
+      "path": "game/assets/battles/dragons_rest.webp",
+      "bytes": 118898,
+      "sha256": "7ed9a1118a4969c251f9ff04bc9b6b2c4ccf665a2c45df5acfdcd58fb2f6abcf"
+    },
+    {
+      "path": "game/assets/battles/drakeshard.webp",
+      "bytes": 261650,
+      "sha256": "71831cfffc719b1e2303bb70da416f4edb16987bd39a4b57d0c0d5c5e385bd79"
+    },
+    {
+      "path": "game/assets/battles/eldergrove.webp",
+      "bytes": 232550,
+      "sha256": "ef8567dbe6768be461a1ef07251c013abd7e24f02a43fd31663316d77e6ef92f"
+    },
+    {
+      "path": "game/assets/battles/frostpeaks.webp",
+      "bytes": 49802,
+      "sha256": "f28ff2a883a0dcb11d129dfb0be1f420165d0565a103b72977c9dc2e7b660fe4"
+    },
+    {
+      "path": "game/assets/battles/golden.webp",
+      "bytes": 279436,
+      "sha256": "9a6eb08ed8329fb5ce651940d9eb7780c599413f80fecb981855eec1446dd5f9"
+    },
+    {
+      "path": "game/assets/battles/hollow_isles.webp",
+      "bytes": 250170,
+      "sha256": "4270b3521b5a9e089daab22594b5b649afec0eb3f381743f433aaf0cfc65dfed"
+    },
+    {
+      "path": "game/assets/battles/iron_plains.webp",
+      "bytes": 262474,
+      "sha256": "8f584fc02e875c6b2a56d23a399ccad241845edd070dc372a93417a2cab02520"
+    },
+    {
+      "path": "game/assets/battles/marsh.webp",
+      "bytes": 188484,
+      "sha256": "e7a3c56b7256253db98f68d26009e0a35d16ac1e8996ca61184b9b434a4858d8"
+    },
+    {
+      "path": "game/assets/battles/mistvale.webp",
+      "bytes": 232678,
+      "sha256": "7996e4df0cd34d2218883868411c35ddf78510d1a6dfe984cd8aa7ebbcce95cf"
+    },
+    {
+      "path": "game/assets/battles/ravenford.webp",
+      "bytes": 262930,
+      "sha256": "4be22b0fb08ec863162a9a835145c4b621eb095d4d06d97e2991f8fa2a1d0644"
+    },
+    {
+      "path": "game/assets/battles/ravenwood.webp",
+      "bytes": 232654,
+      "sha256": "4b0c565eeed3c55ed477436f7c06ead9eb8ea8d923dc77d7bee31044ad02c40b"
+    },
+    {
+      "path": "game/assets/battles/shadowfen.webp",
+      "bytes": 188108,
+      "sha256": "14760978dec9f84ebcb62b538d88b76f21a9c7409e10afae51dfad4b85d9d7c5"
+    },
+    {
+      "path": "game/assets/battles/silvermere.webp",
+      "bytes": 291302,
+      "sha256": "f169a39e0fa5c51fbb28c113f70e245d7b2b473aa501ac7cbc18d266081951d8"
+    },
+    {
+      "path": "game/assets/battles/stormcrown.webp",
+      "bytes": 261844,
+      "sha256": "c175d68b44f87a1d0cc9cb68f3178bad546c6e67f4195d2ffbb568f18cfa394d"
+    },
+    {
+      "path": "game/assets/battles/westreach.webp",
+      "bytes": 291268,
+      "sha256": "123eadce719826bdacc61ffdadb8ebee1ecc874f3539f14c40f9da4221ac5c38"
+    },
+    {
+      "path": "game/assets/audio/battle.wav",
+      "bytes": 384044,
+      "sha256": "4f3283a91a413b0a2c37ab841a92a269b0d2c52811c8c0431976060f5b2330ae"
+    },
+    {
+      "path": "game/assets/audio/ending.wav",
+      "bytes": 384044,
+      "sha256": "2d81e2a95f61cf1cb36ee62f3d96817834427654edd95682d8b7178b36c4e3b3"
+    },
+    {
+      "path": "game/assets/audio/explore.wav",
+      "bytes": 384044,
+      "sha256": "a236ba43f2510d664f4a8e75b8605fcc5f658cd4d38adb77d1d5b6bd448ac954"
+    },
+    {
+      "path": "game/assets/audio/town.wav",
+      "bytes": 384044,
+      "sha256": "673ebe60d0a3b6e46572d556365e613233375664e8f3d2acaeefd1c0fc11f8de"
+    }
+  ]
+}

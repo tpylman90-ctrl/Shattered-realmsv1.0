@@ -178,6 +178,13 @@ func _build_layers() -> void:
 		get_tree().set_meta("equipment_return_field",{"id":field_id,"position":screen_position})
 		get_tree().change_scene_to_file("res://scenes/equipment.tscn"))
 	ui.add_child(equipment_button)
+	var services:=Button.new();services.text="TOWN SERVICES";services.position=Vector2(900,100);services.size=Vector2(205,52)
+	services.pressed.connect(func():
+		var progress:=CampaignState.new();progress.current="ravenwood";progress.save()
+		get_tree().set_meta("campaign_region","ravenwood")
+		get_tree().set_meta("equipment_return_field",{"id":field_id,"position":screen_position})
+		get_tree().change_scene_to_file("res://scenes/settlement.tscn"))
+	ui.add_child(services)
 	town_map.move_to_front()
 
 func _mesh(mesh: Mesh, color: Color, location: Vector3, parent: Node3D) -> MeshInstance3D:

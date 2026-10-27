@@ -18,6 +18,14 @@ var design_mode := false
 var territory_ids: Array[String] = []
 var family_ids: Array[String] = []
 var dragging := false
+var forge_overlay: Control
+var heat: ProgressBar
+var forge_note: Label
+var infusion: CheckBox
+var forging := false
+var strikes := 0
+var strike_accuracy := 0.0
+var forge_time := 0.0
 
 func _ready() -> void:
 	state=EquipmentState.new()
@@ -150,14 +158,14 @@ func show_item(id: String) -> void:
 		text+="\n\nRecipe:"
 		for material in item.materials:
 			text+="\n%s  %d / %d" % [state.catalog.items[material].name,state.quantities.get(material,0),item.materials[material]]
-		if item.territory!="ravenwood": text+="\nDesign preview · territory not built yet"
+		if not state.region_available(item.territory): text+="\nReach this territory to unlock its recipe."
 	details.text=text
 	equip_button.text="USE" if item.kind=="consumable" else "EQUIPPED" if id in state.equipped.values() else "EQUIP"
 	equip_button.disabled=state.quantities.get(id,0)<=0 or (not item.has("slot") and item.kind!="consumable") or id in state.equipped.values()
 	forge_button.visible=is_weapon and item.territory!="starter"
 	forge_button.disabled=not state.can_forge(id)
 	var stats := state.stats()
-	status.text="HP %d / 100   MP %d / 40     ATK %d   DEF %d   MAG %d" % [state.hp,state.mp,stats.attack,stats.defense,stats.magic]
+	status.text="HP %d/%d   MP %d/%d   ATK %d   DEF %d   MAG %d" % [state.hp,state.max_hp,state.mp,state.max_mp,stats.attack,stats.defense,stats.magic]
 
 func _equip_or_use() -> void:
 	if state.catalog.items[selected].kind=="consumable":
@@ -168,11 +176,32 @@ func _equip_or_use() -> void:
 	show_item(id)
 
 func _forge() -> void:
-	var id := selected
-	if state.forge(id):
-		_refresh_list()
-		show_item(id)
-		status.text="Forged "+state.catalog.items[id].name+". It is now in your pack."
+	if not state.can_forge(selected): return
+	forging=true;strikes=0;strike_accuracy=0;forge_time=0
+	forge_overlay=Control.new();forge_overlay.size=Vector2(1280,720);add_child(forge_overlay)
+	var shade:=ColorRect.new();shade.color=Color(0,0,0,0.85);shade.size=Vector2(1280,720);forge_overlay.add_child(shade)
+	var panel:=VBoxContainer.new();panel.position=Vector2(290,160);panel.size=Vector2(700,410);panel.add_theme_constant_override("separation",18);forge_overlay.add_child(panel)
+	forge_note=Label.new();forge_note.text="ENTROPIC FORGE · Aim near the center.\nStrike to shape the metal, then finish before it fractures.";forge_note.add_theme_font_size_override("font_size",23);panel.add_child(forge_note)
+	heat=ProgressBar.new();heat.custom_minimum_size=Vector2(700,45);heat.show_percentage=false;panel.add_child(heat)
+	infusion=CheckBox.new();infusion.text="Infuse · 1 Entropic Essence";infusion.disabled=state.quantities.get("entropic_essence",0)<=0;panel.add_child(infusion)
+	var strike:=Button.new();strike.text="STRIKE";strike.custom_minimum_size=Vector2(700,60);strike.pressed.connect(func():
+		strikes+=1;strike_accuracy+=absf(heat.value-50)
+		forge_note.text="Strikes: "+str(strikes)+" · "+("The metal is warming." if strikes<3 else "Watch the heat. Finish when the shape is ready."));panel.add_child(strike)
+	var finish:=Button.new();finish.text="FINISH WEAPON";finish.custom_minimum_size=Vector2(700,60);finish.pressed.connect(_finish_forge);panel.add_child(finish)
+	var cancel:=Button.new();cancel.text="CANCEL · Materials are kept";cancel.pressed.connect(func():forging=false;forge_overlay.queue_free());panel.add_child(cancel)
+
+func _process(delta: float) -> void:
+	if forging:
+		forge_time+=delta;heat.value=50+sin(forge_time*3.8)*50
+
+func _finish_forge() -> void:
+	var item: Dictionary=state.catalog.items[selected]
+	var limit:=3+(int(item.style.index)+str(item.family).length())%4
+	var quality:="underworked" if strikes<limit else "fractured" if strikes>limit else "masterwork" if strike_accuracy/maxi(1,strikes)<20 else "reliable"
+	forging=false
+	if state.forge(selected,quality,infusion.button_pressed):
+		var made:=state.last_forged;forge_overlay.queue_free();_refresh_list();show_item(made);status.text="Forged "+state.catalog.items[made].name+"."
+	else: forge_overlay.queue_free();status.text="The recipe could not be completed. Materials were kept."
 
 func _back() -> void:
 	var destination := str(get_tree().get_meta("equipment_return_scene","res://scenes/main.tscn"))

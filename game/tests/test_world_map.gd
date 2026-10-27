@@ -10,7 +10,8 @@ func test_roster_selection_and_settlement_rules() -> void:
 		settlements[record.id] = record.settlement
 		scene.select_territory(record.id)
 		assert_eq(scene.selected_id, record.id)
-		assert_eq(scene.enter.visible, record.id == "ravenwood", "Only implemented exploration can open")
+		assert_true(scene.enter.visible, "Every region has a first-pass destination")
+		assert_eq(scene.enter.disabled, not scene.campaign.can_travel(record.id), "Travel respects adjacency and finale requirements")
 	assert_eq(settlements.eldergrove, "")
 	assert_eq(settlements.shadowfen, "")
 	assert_eq(settlements.cursed_mire, "")

@@ -1,0 +1,873 @@
+{
+  "schema": 1,
+  "draft_content": true,
+  "starting_region": "ravenwood",
+  "finale_heroes_required": 9,
+  "regions": {
+    "ravenwood": {
+      "id": "ravenwood",
+      "name": "Ravenwood",
+      "settlement": "Blackthorn",
+      "biome": "forest",
+      "dungeon": "Hollow Oak",
+      "chambers": [
+        "Root Gate",
+        "Burial Hall",
+        "Sunken Gallery",
+        "Beast Chamber",
+        "Reliquary"
+      ],
+      "boss": "The Briar Warden",
+      "hero_pair": [
+        "ravenwood_0",
+        "ravenwood_1"
+      ],
+      "hook": "The old forest seals its roads as a blight takes root beneath the Hollow Oak.",
+      "objective": "Free the pathfinders and recover the forest anchor.",
+      "neighbors": [
+        "frostpeaks",
+        "silvermere",
+        "eldergrove"
+      ],
+      "element": "wind",
+      "monster": "wolf",
+      "seed": 3100,
+      "roads": [
+        "Oldwood Road",
+        "Briar Crossing"
+      ]
+    },
+    "frostpeaks": {
+      "id": "frostpeaks",
+      "name": "Frostpeaks",
+      "settlement": "Icehelm",
+      "biome": "snow",
+      "dungeon": "Rimebound Vault",
+      "chambers": [
+        "Icefall Gate",
+        "Frozen Hall",
+        "Heart of Winter"
+      ],
+      "boss": "The Rime Colossus",
+      "hero_pair": [
+        "frostpeaks_0",
+        "frostpeaks_1"
+      ],
+      "hook": "Icehelm’s beacons are disappearing behind a wall of unnatural frost.",
+      "objective": "Restore the beacon beneath the glacier.",
+      "neighbors": [
+        "ravenwood",
+        "stormcrown",
+        "iron_plains"
+      ],
+      "element": "ice",
+      "monster": "golem",
+      "seed": 3237,
+      "roads": [
+        "Icehelm Approach",
+        "Icefall Trail"
+      ]
+    },
+    "stormcrown": {
+      "id": "stormcrown",
+      "name": "Stormcrown Mountains",
+      "settlement": "Stormcrown Keep",
+      "biome": "mountain",
+      "dungeon": "Tempest Spire",
+      "chambers": [
+        "Thunder Stair",
+        "Skyward Gallery",
+        "Storm Crown"
+      ],
+      "boss": "The Tempest Roc",
+      "hero_pair": [
+        "stormcrown_0",
+        "stormcrown_1"
+      ],
+      "hook": "The mountain winds carry a voice that calls the watch away from their posts.",
+      "objective": "Silence the storm at its source.",
+      "neighbors": [
+        "frostpeaks",
+        "ashen",
+        "shadowfen",
+        "iron_plains"
+      ],
+      "element": "lightning",
+      "monster": "drake",
+      "seed": 3374,
+      "roads": [
+        "Highwind Ascent",
+        "Stormcrown Pass"
+      ]
+    },
+    "ashen": {
+      "id": "ashen",
+      "name": "The Ashen Wastes",
+      "settlement": "Ashenreach",
+      "biome": "volcanic",
+      "dungeon": "The Crucible",
+      "chambers": [
+        "Basalt Gate",
+        "Molten Causeway",
+        "Vulgrim’s Crucible"
+      ],
+      "boss": "Inferno-Lord Vulgrim",
+      "hero_pair": [
+        "ashen_0",
+        "ashen_1"
+      ],
+      "hook": "Ashenreach stands above lava channels that no longer follow the mountain’s will.",
+      "objective": "Defeat Vulgrim and stabilize the caldera anchor.",
+      "neighbors": [
+        "stormcrown",
+        "marsh",
+        "drakeshard"
+      ],
+      "element": "fire",
+      "monster": "drake",
+      "seed": 3511,
+      "roads": [
+        "Caldera Road",
+        "Basalt Causeway"
+      ]
+    },
+    "marsh": {
+      "id": "marsh",
+      "name": "The Blighted Marsh",
+      "settlement": "Wickermoor",
+      "biome": "marsh",
+      "dungeon": "The Sinking Temple",
+      "chambers": [
+        "Reed Gate",
+        "Drowned Nave",
+        "Rotheart Sanctuary"
+      ],
+      "boss": "Mire-Mother Morvana",
+      "hero_pair": [
+        "marsh_0",
+        "marsh_1"
+      ],
+      "hook": "The raised timber paths around Wickermoor vanish beneath spreading rot.",
+      "objective": "Break Morvana’s hold over the marsh.",
+      "neighbors": [
+        "ashen",
+        "drakeshard"
+      ],
+      "element": "poison",
+      "monster": "spider",
+      "seed": 3648,
+      "roads": [
+        "Reedwalk Approach",
+        "Sinking Causeway"
+      ]
+    },
+    "silvermere": {
+      "id": "silvermere",
+      "name": "Silvermere",
+      "settlement": "Silverkeep",
+      "biome": "coast",
+      "dungeon": "The Tideglass Crypt",
+      "chambers": [
+        "Lighthouse Steps",
+        "Saltbound Hall",
+        "Tideglass Vault"
+      ],
+      "boss": "The Brine Sovereign",
+      "hero_pair": [
+        "silvermere_0",
+        "silvermere_1"
+      ],
+      "hook": "Silverkeep’s lighthouse shines inland, drawing ships toward the rocks.",
+      "objective": "Relight the lighthouse and recover the tide anchor.",
+      "neighbors": [
+        "ravenwood",
+        "eldergrove",
+        "westreach"
+      ],
+      "element": "water",
+      "monster": "serpent",
+      "seed": 3785,
+      "roads": [
+        "Lighthouse Road",
+        "Tideglass Shore"
+      ]
+    },
+    "eldergrove": {
+      "id": "eldergrove",
+      "name": "Eldergrove",
+      "settlement": "",
+      "biome": "forest",
+      "dungeon": "The Rootbound Shrine",
+      "chambers": [
+        "Verdant Gate",
+        "Living Gallery",
+        "Heartwood Shrine"
+      ],
+      "boss": "The Rootbound Ancient",
+      "hero_pair": [
+        "eldergrove_0",
+        "eldergrove_1"
+      ],
+      "hook": "The grove has no city, only ancient paths now guarded by awakened roots.",
+      "objective": "Return stillness to the heartwood shrine.",
+      "neighbors": [
+        "ravenwood",
+        "silvermere",
+        "iron_plains",
+        "deadwind"
+      ],
+      "element": "wind",
+      "monster": "wolf",
+      "seed": 3922,
+      "roads": [
+        "Rootward Path",
+        "Heartwood Grove"
+      ]
+    },
+    "iron_plains": {
+      "id": "iron_plains",
+      "name": "The Iron Plains",
+      "settlement": "Harrowstead",
+      "biome": "plains",
+      "dungeon": "The Broken Bastion",
+      "chambers": [
+        "Watch Gate",
+        "Siege Hall",
+        "Marshal’s Court"
+      ],
+      "boss": "The Iron Revenant",
+      "hero_pair": [
+        "iron_plains_0",
+        "iron_plains_1"
+      ],
+      "hook": "Farms outside Harrowstead are caught between abandoned engines of war.",
+      "objective": "End the revenant’s siege.",
+      "neighbors": [
+        "frostpeaks",
+        "stormcrown",
+        "eldergrove",
+        "ravenford",
+        "shadowfen"
+      ],
+      "element": "earth",
+      "monster": "golem",
+      "seed": 4059,
+      "roads": [
+        "Harrowstead Road",
+        "Siege Fields"
+      ]
+    },
+    "shadowfen": {
+      "id": "shadowfen",
+      "name": "Shadowfen Forest",
+      "settlement": "",
+      "biome": "marsh",
+      "dungeon": "The Nightroot Depths",
+      "chambers": [
+        "Shadow Gate",
+        "Webbed Gallery",
+        "Xylos’ Hollow"
+      ],
+      "boss": "Xylos",
+      "hero_pair": [
+        "shadowfen_0",
+        "shadowfen_1"
+      ],
+      "hook": "There is no settlement in Shadowfen. Lanterns lead travelers off the safe paths.",
+      "objective": "Track the false lights to Xylos.",
+      "neighbors": [
+        "stormcrown",
+        "iron_plains",
+        "drakeshard",
+        "golden"
+      ],
+      "element": "poison",
+      "monster": "spider",
+      "seed": 4196,
+      "roads": [
+        "Nightroot Trail",
+        "Lantern Fen"
+      ]
+    },
+    "drakeshard": {
+      "id": "drakeshard",
+      "name": "Drakeshard Range",
+      "settlement": "Ironhold",
+      "biome": "mountain",
+      "dungeon": "The Scale-Oath Vault",
+      "chambers": [
+        "Bloodspine Gate",
+        "Drakebone Hall",
+        "Wyrmheart Vault"
+      ],
+      "boss": "The Shardwing Tyrant",
+      "hero_pair": [
+        "drakeshard_0",
+        "drakeshard_1"
+      ],
+      "hook": "Ironhold’s hunters return with shards that hum in the presence of old dragon bones.",
+      "objective": "Confront the tyrant beneath the range.",
+      "neighbors": [
+        "ashen",
+        "marsh",
+        "shadowfen",
+        "golden",
+        "deep"
+      ],
+      "element": "lightning",
+      "monster": "drake",
+      "seed": 4333,
+      "roads": [
+        "Ironhold Road",
+        "Bloodspine Pass"
+      ]
+    },
+    "westreach": {
+      "id": "westreach",
+      "name": "Westreach",
+      "settlement": "Westhaven",
+      "biome": "coast",
+      "dungeon": "The Wreckers’ Hold",
+      "chambers": [
+        "Harbor Gate",
+        "Keelbone Hall",
+        "Breakwater Hold"
+      ],
+      "boss": "The Wreck-King",
+      "hero_pair": [
+        "westreach_0",
+        "westreach_1"
+      ],
+      "hook": "A bell beneath Westhaven’s harbor sounds before every wreck.",
+      "objective": "Find the bell and break the wreckers’ pact.",
+      "neighbors": [
+        "silvermere",
+        "deadwind",
+        "dragons_rest"
+      ],
+      "element": "water",
+      "monster": "serpent",
+      "seed": 4470,
+      "roads": [
+        "Westhaven Coast",
+        "Wreckers’ Strand"
+      ]
+    },
+    "deadwind": {
+      "id": "deadwind",
+      "name": "Deadwind Hollow",
+      "settlement": "Duskwatch",
+      "biome": "ruins",
+      "dungeon": "The Silent Ossuary",
+      "chambers": [
+        "Dust Gate",
+        "Echo Hall",
+        "The Breathless Court"
+      ],
+      "boss": "The Breathless Knight",
+      "hero_pair": [
+        "deadwind_0",
+        "deadwind_1"
+      ],
+      "hook": "Duskwatch keeps its lamps lit for travelers who no longer cast shadows.",
+      "objective": "Release the watch trapped in the ossuary.",
+      "neighbors": [
+        "eldergrove",
+        "westreach",
+        "ravenford",
+        "cursed_mire",
+        "dragons_rest"
+      ],
+      "element": "dark",
+      "monster": "wraith",
+      "seed": 4607,
+      "roads": [
+        "Duskwatch Road",
+        "Silent Hollow"
+      ]
+    },
+    "ravenford": {
+      "id": "ravenford",
+      "name": "Ravenford",
+      "settlement": "Ravenford",
+      "biome": "plains",
+      "dungeon": "The Crownfall Cellar",
+      "chambers": [
+        "Royal Gate",
+        "Oathkeeper Hall",
+        "Crownfall Reliquary"
+      ],
+      "boss": "The Oathbreaker",
+      "hero_pair": [
+        "ravenford_0",
+        "ravenford_1"
+      ],
+      "hook": "Ravenford’s banners remain raised while the old crown’s oath slowly unravels.",
+      "objective": "Rebind the oath beneath the capital.",
+      "neighbors": [
+        "iron_plains",
+        "deadwind",
+        "golden",
+        "cursed_mire"
+      ],
+      "element": "earth",
+      "monster": "golem",
+      "seed": 4744,
+      "roads": [
+        "Crownroad",
+        "Oathkeeper Fields"
+      ]
+    },
+    "cursed_mire": {
+      "id": "cursed_mire",
+      "name": "The Cursed Mire",
+      "settlement": "",
+      "biome": "marsh",
+      "dungeon": "The Blackwater Sepulcher",
+      "chambers": [
+        "Mire Gate",
+        "Soulwater Hall",
+        "Golgotha’s Sepulcher"
+      ],
+      "boss": "Golgotha",
+      "hero_pair": [
+        "cursed_mire_0",
+        "cursed_mire_1"
+      ],
+      "hook": "No city stands here. The mire remembers every army that failed to cross it.",
+      "objective": "Break the soul-chain beneath the black water.",
+      "neighbors": [
+        "deadwind",
+        "ravenford",
+        "golden",
+        "mistvale",
+        "dragons_rest"
+      ],
+      "element": "poison",
+      "monster": "spider",
+      "seed": 4881,
+      "roads": [
+        "Blackwater Trail",
+        "Soulwater Crossing"
+      ]
+    },
+    "golden": {
+      "id": "golden",
+      "name": "The Golden Expanse",
+      "settlement": "Sunspire",
+      "biome": "desert",
+      "dungeon": "The Sunken Observatory",
+      "chambers": [
+        "Dune Gate",
+        "Mirage Gallery",
+        "Sunspire Lens"
+      ],
+      "boss": "The Glass Serpent",
+      "hero_pair": [
+        "golden_0",
+        "golden_1"
+      ],
+      "hook": "Sunspire’s observatory projects roads through the dunes that vanish by morning.",
+      "objective": "Restore the true horizon at the observatory.",
+      "neighbors": [
+        "shadowfen",
+        "drakeshard",
+        "ravenford",
+        "cursed_mire",
+        "mistvale",
+        "hollow_isles"
+      ],
+      "element": "light",
+      "monster": "serpent",
+      "seed": 5018,
+      "roads": [
+        "Sunspire Caravan Road",
+        "Mirage Dunes"
+      ]
+    },
+    "dragons_rest": {
+      "id": "dragons_rest",
+      "name": "Dragon’s Rest",
+      "settlement": "Cinderport",
+      "biome": "volcanic",
+      "dungeon": "The Ember Roost",
+      "chambers": [
+        "Cinder Gate",
+        "Ashwing Hall",
+        "The Sleeping Roost"
+      ],
+      "boss": "The Cinder Matriarch",
+      "hero_pair": [
+        "dragons_rest_0",
+        "dragons_rest_1"
+      ],
+      "hook": "Cinderport watches the roost above the Ember Coast as ash falls from a clear sky.",
+      "objective": "Calm the flame anchor in the ancient roost.",
+      "neighbors": [
+        "westreach",
+        "deadwind",
+        "cursed_mire"
+      ],
+      "element": "fire",
+      "monster": "drake",
+      "seed": 5155,
+      "roads": [
+        "Cinderport Climb",
+        "Ember Coast"
+      ]
+    },
+    "mistvale": {
+      "id": "mistvale",
+      "name": "Mistvale",
+      "settlement": "Mistvale",
+      "biome": "forest",
+      "dungeon": "The Mirrorwell",
+      "chambers": [
+        "Mist Gate",
+        "Reflection Hall",
+        "The Mirrorwell"
+      ],
+      "boss": "The Mirror Hart",
+      "hero_pair": [
+        "mistvale_0",
+        "mistvale_1"
+      ],
+      "hook": "Mistvale’s paths now return travelers to places they have never visited.",
+      "objective": "Find the reflection that holds the mist anchor.",
+      "neighbors": [
+        "cursed_mire",
+        "golden",
+        "hollow_isles"
+      ],
+      "element": "wind",
+      "monster": "wolf",
+      "seed": 5292,
+      "roads": [
+        "Veilpath",
+        "Mirrorwater Wood"
+      ]
+    },
+    "hollow_isles": {
+      "id": "hollow_isles",
+      "name": "The Hollow Isles",
+      "settlement": "Hollowguard",
+      "biome": "ruins",
+      "dungeon": "The Lost Kingdom",
+      "chambers": [
+        "Hollow Gate",
+        "Memory Hall",
+        "The Last Throne"
+      ],
+      "boss": "The Hollow Monarch",
+      "hero_pair": [
+        "hollow_isles_0",
+        "hollow_isles_1"
+      ],
+      "hook": "Hollowguard stands among relics of a kingdom erased from the living maps.",
+      "objective": "Restore the last throne’s memory.",
+      "neighbors": [
+        "golden",
+        "mistvale",
+        "deep"
+      ],
+      "element": "dark",
+      "monster": "wraith",
+      "seed": 5429,
+      "roads": [
+        "Hollowguard Causeway",
+        "Relic Shore"
+      ]
+    },
+    "deep": {
+      "id": "deep",
+      "name": "The Devouring Deep",
+      "settlement": "",
+      "biome": "void",
+      "dungeon": "The Devouring Deep",
+      "chambers": [
+        "The Broken Threshold",
+        "The World Serpent",
+        "The Devouring Heart"
+      ],
+      "boss": "The Devouring Deep",
+      "hero_pair": [],
+      "hook": "The anchors reveal the way beneath the world. Nine companions must hold three fronts while you reach the heart.",
+      "objective": "Face three final battles with three different companions on each front.",
+      "neighbors": [
+        "drakeshard",
+        "hollow_isles"
+      ],
+      "element": "void",
+      "monster": "wraith",
+      "seed": 5566,
+      "roads": [
+        "The Broken Threshold",
+        "The World Serpent"
+      ]
+    }
+  },
+  "heroes": {
+    "ravenwood_0": {
+      "id": "ravenwood_0",
+      "name": "Lyra Vane",
+      "region": "ravenwood",
+      "role": "ranger",
+      "appearance": "female"
+    },
+    "ravenwood_1": {
+      "id": "ravenwood_1",
+      "name": "Garrick Thornward",
+      "region": "ravenwood",
+      "role": "guardian",
+      "appearance": "male"
+    },
+    "frostpeaks_0": {
+      "id": "frostpeaks_0",
+      "name": "Vesper",
+      "region": "frostpeaks",
+      "role": "mage",
+      "appearance": "female"
+    },
+    "frostpeaks_1": {
+      "id": "frostpeaks_1",
+      "name": "Stellan Rimeborn",
+      "region": "frostpeaks",
+      "role": "warrior",
+      "appearance": "male"
+    },
+    "stormcrown_0": {
+      "id": "stormcrown_0",
+      "name": "Thorvald Thunderbrow",
+      "region": "stormcrown",
+      "role": "warrior",
+      "appearance": "male"
+    },
+    "stormcrown_1": {
+      "id": "stormcrown_1",
+      "name": "Eydis Stormweaver",
+      "region": "stormcrown",
+      "role": "mage",
+      "appearance": "female"
+    },
+    "ashen_0": {
+      "id": "ashen_0",
+      "name": "Ignis",
+      "region": "ashen",
+      "role": "mage",
+      "appearance": "male"
+    },
+    "ashen_1": {
+      "id": "ashen_1",
+      "name": "Veyra Cindervein",
+      "region": "ashen",
+      "role": "guardian",
+      "appearance": "female"
+    },
+    "marsh_0": {
+      "id": "marsh_0",
+      "name": "Morana",
+      "region": "marsh",
+      "role": "mage",
+      "appearance": "female"
+    },
+    "marsh_1": {
+      "id": "marsh_1",
+      "name": "Odran Fenward",
+      "region": "marsh",
+      "role": "healer",
+      "appearance": "male"
+    },
+    "silvermere_0": {
+      "id": "silvermere_0",
+      "name": "Captain Jora Stormtide",
+      "region": "silvermere",
+      "role": "ranger",
+      "appearance": "female"
+    },
+    "silvermere_1": {
+      "id": "silvermere_1",
+      "name": "Captain Roran Deepwatch",
+      "region": "silvermere",
+      "role": "guardian",
+      "appearance": "male"
+    },
+    "eldergrove_0": {
+      "id": "eldergrove_0",
+      "name": "Rhea Fernblade",
+      "region": "eldergrove",
+      "role": "ranger",
+      "appearance": "female"
+    },
+    "eldergrove_1": {
+      "id": "eldergrove_1",
+      "name": "Aven Oakward",
+      "region": "eldergrove",
+      "role": "healer",
+      "appearance": "male"
+    },
+    "iron_plains_0": {
+      "id": "iron_plains_0",
+      "name": "General Cedric Ironclad",
+      "region": "iron_plains",
+      "role": "guardian",
+      "appearance": "male"
+    },
+    "iron_plains_1": {
+      "id": "iron_plains_1",
+      "name": "Marshal Adela Steelwind",
+      "region": "iron_plains",
+      "role": "warrior",
+      "appearance": "female"
+    },
+    "shadowfen_0": {
+      "id": "shadowfen_0",
+      "name": "Iris Nightroot",
+      "region": "shadowfen",
+      "role": "ranger",
+      "appearance": "female"
+    },
+    "shadowfen_1": {
+      "id": "shadowfen_1",
+      "name": "Cael Mossshade",
+      "region": "shadowfen",
+      "role": "mage",
+      "appearance": "male"
+    },
+    "drakeshard_0": {
+      "id": "drakeshard_0",
+      "name": "Dareth Scalebreaker",
+      "region": "drakeshard",
+      "role": "warrior",
+      "appearance": "male"
+    },
+    "drakeshard_1": {
+      "id": "drakeshard_1",
+      "name": "Kaela Wyrmbound",
+      "region": "drakeshard",
+      "role": "guardian",
+      "appearance": "female"
+    },
+    "westreach_0": {
+      "id": "westreach_0",
+      "name": "Mira Glasswave",
+      "region": "westreach",
+      "role": "ranger",
+      "appearance": "female"
+    },
+    "westreach_1": {
+      "id": "westreach_1",
+      "name": "Eren Saltwatch",
+      "region": "westreach",
+      "role": "warrior",
+      "appearance": "male"
+    },
+    "deadwind_0": {
+      "id": "deadwind_0",
+      "name": "Lenna Veilborn",
+      "region": "deadwind",
+      "role": "healer",
+      "appearance": "female"
+    },
+    "deadwind_1": {
+      "id": "deadwind_1",
+      "name": "Varric Ashwake",
+      "region": "deadwind",
+      "role": "guardian",
+      "appearance": "male"
+    },
+    "ravenford_0": {
+      "id": "ravenford_0",
+      "name": "Sir Alistair of Ravenford",
+      "region": "ravenford",
+      "role": "guardian",
+      "appearance": "male"
+    },
+    "ravenford_1": {
+      "id": "ravenford_1",
+      "name": "Dame Elowen Rootsworn",
+      "region": "ravenford",
+      "role": "healer",
+      "appearance": "female"
+    },
+    "cursed_mire_0": {
+      "id": "cursed_mire_0",
+      "name": "Malakor",
+      "region": "cursed_mire",
+      "role": "mage",
+      "appearance": "male"
+    },
+    "cursed_mire_1": {
+      "id": "cursed_mire_1",
+      "name": "Sereth Veilkeeper",
+      "region": "cursed_mire",
+      "role": "healer",
+      "appearance": "female"
+    },
+    "golden_0": {
+      "id": "golden_0",
+      "name": "Zephyr",
+      "region": "golden",
+      "role": "ranger",
+      "appearance": "male"
+    },
+    "golden_1": {
+      "id": "golden_1",
+      "name": "Samira Dawnwatch",
+      "region": "golden",
+      "role": "mage",
+      "appearance": "female"
+    },
+    "dragons_rest_0": {
+      "id": "dragons_rest_0",
+      "name": "Ignacia",
+      "region": "dragons_rest",
+      "role": "mage",
+      "appearance": "female"
+    },
+    "dragons_rest_1": {
+      "id": "dragons_rest_1",
+      "name": "Tavian Ashsail",
+      "region": "dragons_rest",
+      "role": "ranger",
+      "appearance": "male"
+    },
+    "mistvale_0": {
+      "id": "mistvale_0",
+      "name": "Sorrel Mistwalker",
+      "region": "mistvale",
+      "role": "healer",
+      "appearance": "female"
+    },
+    "mistvale_1": {
+      "id": "mistvale_1",
+      "name": "Orien Reedward",
+      "region": "mistvale",
+      "role": "ranger",
+      "appearance": "male"
+    },
+    "hollow_isles_0": {
+      "id": "hollow_isles_0",
+      "name": "Maera Tideveil",
+      "region": "hollow_isles",
+      "role": "mage",
+      "appearance": "female"
+    },
+    "hollow_isles_1": {
+      "id": "hollow_isles_1",
+      "name": "Thane Relicward",
+      "region": "hollow_isles",
+      "role": "guardian",
+      "appearance": "male"
+    }
+  },
+  "prologue": [
+    "The roads between the realms are failing. Forests close over old borders. Beacons shine in the wrong direction.",
+    "You arrive at Blackthorn with a traveler’s pack and no allegiance. The Hollow Oak holds the first clue.",
+    "Restore the regional anchors, earn the trust of their guardians, and gather nine companions for the road into the Devouring Deep."
+  ],
+  "ending": [
+    "The last anchor holds. Across the realms, paths open where the blight once stood.",
+    "The companions who descended with you return to different homes, carrying the same promise: no realm will stand alone again.",
+    "The world is wounded, but it endures. Your journey becomes the first page of its new history."
+  ]
+}

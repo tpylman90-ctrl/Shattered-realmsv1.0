@@ -13,6 +13,9 @@ func build(item: Dictionary) -> void:
 	accent=_material(Color('#'+style.accent),0.6,0.3)
 	dark=_material(Color("293139"),0.5,0.4)
 	wood=_material(Color("594330"),0,0.85)
+	if item.get("infused",false):
+		accent.emission_enabled=true;accent.emission=Color("#"+style.accent);accent.emission_energy_multiplier=0.8
+	if item.get("quality","")=="masterwork":metal.roughness=0.18
 	var family: String = item.family
 	match family:
 		"sword","greatsword","daggers":

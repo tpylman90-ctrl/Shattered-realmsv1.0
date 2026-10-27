@@ -6,6 +6,7 @@ const COLORS := {
 	"marsh": Color("576544"), "plain": Color("7c8151"),
 	"coast": Color("548079"), "desert": Color("b19260"), "deep": Color("594551")
 }
+var campaign:=CampaignState.new()
 var catalog: Dictionary
 var selected_id := ""
 var tiles: Dictionary = {}
@@ -50,9 +51,9 @@ func _ready() -> void:
 	enter.text = "EXPLORE RAVENWOOD"
 	enter.position = Vector2(1000, 638)
 	enter.size = Vector2(248, 54)
-	enter.pressed.connect(func(): get_tree().change_scene_to_file("res://scenes/woodland.tscn"))
+	enter.pressed.connect(_travel)
 	add_child(enter)
-	_label("PROVISIONAL GEOGRAPHY • Layout and borders can change", Vector2(750, 601), 14)
+	_label("Explore neighboring realms • Recruit 9 companions for the Deep", Vector2(750, 601), 14)
 	select_territory("ravenwood")
 
 func _points(values: Array) -> PackedVector2Array:
@@ -89,8 +90,11 @@ func select_territory(id: String) -> void:
 		var description: String = record.settlement_type + ": " + record.settlement if not record.settlement.is_empty() else "No settlement"
 		if not record.boss.is_empty():
 			description += "   •   Boss: " + record.boss
-		detail.text = record.name + "\n" + description + ("   •   Exploration available" if id == "ravenwood" else "   •   Not built yet")
-		enter.visible = id == "ravenwood"
+		detail.text = record.name + "\n" + description + ("   •   Anchor restored" if id in campaign.cleared else "   •   Explored" if id in campaign.visited else "   •   Neighboring route" if campaign.can_travel(id) else "   •   Reach a neighboring realm first")
+		enter.visible = true
+		enter.disabled = not campaign.can_travel(id)
+		enter.text = "NEED 9 COMPANIONS" if id=="deep" and campaign.recruited.size()<9 else "EXPLORE "+record.name.to_upper()
+		enter.add_theme_font_size_override("font_size",16)
 	queue_redraw()
 
 func _draw() -> void:
@@ -201,3 +205,9 @@ func _label(text: String, at: Vector2, font_size: int) -> Label:
 	label.add_theme_constant_override("shadow_offset_y", 2)
 	add_child(label)
 	return label
+
+func _travel() -> void:
+	if not campaign.travel(selected_id):return
+	get_tree().set_meta("campaign_region",selected_id)
+	if get_tree().has_meta("campaign_room"):get_tree().remove_meta("campaign_room")
+	get_tree().change_scene_to_file("res://scenes/woodland.tscn" if selected_id=="ravenwood" else "res://scenes/campaign_area.tscn")

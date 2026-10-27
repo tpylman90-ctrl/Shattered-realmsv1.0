@@ -20,3 +20,6 @@ environment/defaults/default_clear_color=Color(0.025, 0.04, 0.035, 1)
 
 [editor_plugins]
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/gut/plugin.cfg")
+
+[autoload]
+GameAudio="*res://scripts/game_audio.gd"

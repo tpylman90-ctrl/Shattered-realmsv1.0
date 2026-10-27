@@ -5,14 +5,22 @@ var catalog: Dictionary
 var quantities: Dictionary = {}
 var equipped := {"weapon":"starter_sword","body":"travel_tunic","feet":"travel_boots","offhand":"wooden_buckler","accessory":"copper_charm"}
 var claimed: Array = []
+var wear: Dictionary = {}
+var max_hp := 100
+var max_mp := 40
+var last_forged := ""
 var hp := 100
 var mp := 40
 var poisoned := false
 var path := SAVE_PATH
+var progress_path := "user://campaign.cfg"
 
-func _init(save_path: String = SAVE_PATH) -> void:
+func _init(save_path: String = SAVE_PATH, campaign_path: String = "user://campaign.cfg") -> void:
 	path=save_path
+	progress_path=campaign_path
 	catalog=JSON.parse_string(FileAccess.get_file_as_string("res://data/equipment_catalog.json"))
+	_add_companion_chests()
+	_add_variants()
 	for family in catalog.families:
 		quantities["starter_"+family]=1
 	for item in ["travel_tunic","travel_boots","wooden_buckler","copper_charm"]:
@@ -31,9 +39,13 @@ func _init(save_path: String = SAVE_PATH) -> void:
 				var id: String = str(slots.get(slot,equipped[slot]))
 				if catalog.items.has(id) and catalog.items[id].get("slot","")==slot and quantities.get(id,0)>0:
 					equipped[slot]=id
-		hp=clampi(int(config.get_value("vitals","hp",100)),0,100)
-		mp=clampi(int(config.get_value("vitals","mp",40)),0,40)
+		max_hp=maxi(100,int(config.get_value("vitals","max_hp",100)))
+		max_mp=maxi(40,int(config.get_value("vitals","max_mp",40)))
+		hp=clampi(int(config.get_value("vitals","hp",100)),0,max_hp)
+		mp=clampi(int(config.get_value("vitals","mp",40)),0,max_mp)
 		poisoned=bool(config.get_value("vitals","poisoned",false))
+		var damage:Variant=config.get_value("equipment","wear",{})
+		if damage is Dictionary:wear=damage
 		var caches: Variant = config.get_value("equipment","claimed",[])
 		if caches is Array: claimed=caches
 
@@ -42,6 +54,9 @@ func save() -> Error:
 	config.set_value("equipment","quantities",quantities)
 	config.set_value("equipment","equipped",equipped)
 	config.set_value("equipment","claimed",claimed)
+	config.set_value("equipment","wear",wear)
+	config.set_value("vitals","max_hp",max_hp)
+	config.set_value("vitals","max_mp",max_mp)
 	config.set_value("vitals","hp",hp)
 	config.set_value("vitals","mp",mp)
 	config.set_value("vitals","poisoned",poisoned)
@@ -50,6 +65,11 @@ func save() -> Error:
 func equip(id: String) -> bool:
 	if quantities.get(id,0)<=0 or not catalog.items.has(id) or not catalog.items[id].has("slot"): return false
 	equipped[catalog.items[id].slot]=id
+	var discipline:=str(catalog.items[id].get("discipline",""))
+	if not discipline.is_empty():
+		var config:=ConfigFile.new();config.load(progress_path)
+		var learned:Variant=config.get_value("campaign","disciplines",["warrior","mage","ranger"])
+		if learned is Array and not discipline in learned:learned.append(discipline);config.set_value("campaign","disciplines",learned);config.save(progress_path)
 	save()
 	return true
 
@@ -62,14 +82,16 @@ func stats() -> Dictionary:
 func can_forge(id: String) -> bool:
 	if not catalog.items.has(id): return false
 	var item: Dictionary = catalog.items[id]
-	if item.get("territory","")!="ravenwood": return false
+	if not region_available(str(item.get("territory",""))) or item.get("base_id",id)!=id: return false
 	return ForgeRecipe.can_craft(quantities,item.get("materials",{}))
 
-func forge(id: String) -> bool:
-	if not can_forge(id): return false
-	for material in catalog.items[id].materials:
-		quantities[material]-=int(catalog.items[id].materials[material])
-	quantities[id]=int(quantities.get(id,0))+1
+func forge(id: String, quality: String = "reliable", infused: bool = false) -> bool:
+	if not can_forge(id) or not quality in ["underworked","reliable","masterwork","fractured"]: return false
+	if infused and quantities.get("entropic_essence",0)<=0: return false
+	for material in catalog.items[id].materials: quantities[material]-=int(catalog.items[id].materials[material])
+	if infused: quantities.entropic_essence-=1
+	last_forged=id+("_"+quality if quality!="reliable" else "")+("_infused" if infused else "")
+	quantities[last_forged]=int(quantities.get(last_forged,0))+1
 	save()
 	return true
 
@@ -84,10 +106,56 @@ func claim_cache(id: String, rewards: Dictionary) -> bool:
 
 func use_item(id: String) -> bool:
 	if quantities.get(id,0)<=0: return false
-	if id=="potion" and hp<100: hp=mini(100,hp+50)
-	elif id=="ether" and mp<40: mp=mini(40,mp+20)
+	if id=="potion" and hp<max_hp: hp=mini(max_hp,hp+50)
+	elif id=="ether" and mp<max_mp: mp=mini(max_mp,mp+20)
 	elif id=="antidote" and poisoned: poisoned=false
 	else: return false
 	quantities[id]-=1
 	save()
 	return true
+
+func region_available(region: String) -> bool:
+	if region=="ravenwood": return true
+	var config:=ConfigFile.new()
+	if config.load(progress_path)!=OK: return false
+	var visited: Variant=config.get_value("campaign","visited",[])
+	return visited is Array and region in visited
+
+func _add_variants() -> void:
+	for id in catalog.items.keys():
+		var base: Dictionary=catalog.items[id]
+		if base.kind!="weapon" or base.territory=="starter": continue
+		base["base_id"]=id
+		base["quality"]="reliable"
+		for quality in ["underworked","reliable","masterwork","fractured"]:
+			for infused in [false,true]:
+				if quality=="reliable" and not infused: continue
+				var item: Dictionary=base.duplicate(true)
+				var key: String=id+("_"+quality if quality!="reliable" else "")+("_infused" if infused else "")
+				item.id=key;item.quality=quality;item.infused=infused
+				item.name=(quality.capitalize()+" " if quality!="reliable" else "")+base.name+(" · Infused" if infused else "")
+				var factor:=1.15 if quality=="masterwork" else 0.6 if quality=="fractured" else 1.0
+				item.attack=maxi(1,int(base.attack*factor));item.magic=int(base.magic*factor)+(4 if infused else 0)
+				item.description=base.description+" "+("Breaks after one attack." if quality=="fractured" else "Reduced durability: wears out after 12 attacks." if quality=="underworked" else "")+(" Elemental infusion adds magic power." if infused else "")
+				catalog.items[key]=item
+
+func break_fragile() -> bool:
+	var id:String=equipped.weapon
+	var quality:=str(catalog.items[id].get("quality",""))
+	if not quality in ["fractured","underworked"]:return false
+	wear[id]=int(wear.get(id,0))+1
+	var limit:=1 if quality=="fractured" else 12
+	if int(wear[id])<limit:
+		save();return false
+	wear[id]=0
+	quantities[id]=maxi(0,int(quantities.get(id,0))-1)
+	equipped.weapon="starter_sword"
+	save()
+	return true
+
+func _add_companion_chests() -> void:
+	if not FileAccess.file_exists("res://data/campaign.json"):return
+	var records:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/campaign.json"))
+	for hero in records.heroes.values():
+		var id:String="chest_"+hero.id
+		catalog.items[id]={"id":id,"name":hero.name+" · Oath Chest","kind":"gear","slot":"body","discipline":hero.role,"icon":"res://assets/items/tunic.svg","attack":0,"defense":9 if hero.role=="guardian" else 7,"magic":5 if hero.role in ["mage","healer"] else 1,"price":180,"description":"Equip this chest piece to learn the "+hero.role+" discipline. Travel appearance stays unchanged."}

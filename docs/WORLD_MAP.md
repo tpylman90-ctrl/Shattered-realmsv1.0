@@ -18,3 +18,14 @@ not a city. The Devouring Deep is the final boss region. Raven's Hold is
 Blackthorn, not a second settlement; it is listed only once under Ravenwood
 until geography is decided. Ember Coast remains a coastal geographic label;
 seas, passes and offshore landmarks are not promoted to territories here.
+
+## Continental layout — 0.9.1
+
+The tile grid is replaced by a single connected continent with an irregular
+coastline, shallow-water outline, shared region borders and simple biome symbols.
+All 19 regions remain selectable by their actual clipped polygon, including
+on touchscreens. Settlement markers and a selected-region detail strip retain
+the approved names and Ravenwood entry. Label positions and region polygons
+are data, so the provisional geography can be rearranged without replacing art.
+This is still a layout study, not the final illustrated world or campaign board.
+No routes or travel rules are inferred from neighboring regions.

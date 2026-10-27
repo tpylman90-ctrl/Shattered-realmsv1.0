@@ -4,6 +4,11 @@ const SAVE_PATH := "user://campaign.cfg"
 var path := SAVE_PATH
 var equipment_path := EquipmentState.SAVE_PATH
 var data: Dictionary
+var quests: Dictionary
+var discoveries: Array = []
+var claimed_quests: Array = []
+var story_choices: Dictionary = {}
+var patrols: Dictionary = {}
 var current := "ravenwood"
 var visited: Array = ["ravenwood"]
 var cleared: Array = []
@@ -27,14 +32,19 @@ var army: Array = [{"name":"Blackthorn Militia","type":"infantry"},{"name":"Town
 func _init(save_path: String = SAVE_PATH, inventory_path: String = EquipmentState.SAVE_PATH) -> void:
 	path=save_path
 	equipment_path=inventory_path
+	quests=JSON.parse_string(FileAccess.get_file_as_string("res://data/quests.json"))
 	data=JSON.parse_string(FileAccess.get_file_as_string("res://data/campaign.json"))
 	var file := ConfigFile.new()
 	if file.load(path)!=OK: return
 	current=str(file.get_value("campaign","current","ravenwood"))
 	if not data.regions.has(current): current="ravenwood"
-	for key in ["visited","cleared","encounters","recruited","defenders","party","secured","final_used","army","disciplines"]:
+	for key in ["visited","cleared","encounters","recruited","defenders","party","secured","final_used","army","disciplines","discoveries","claimed_quests"]:
 		var value: Variant=file.get_value("campaign",key,get(key))
 		if value is Array: set(key,value)
+	var patrol_data:Variant=file.get_value("campaign","patrols",{})
+	if patrol_data is Dictionary:patrols=patrol_data
+	var decisions: Variant=file.get_value("campaign","story_choices",{})
+	if decisions is Dictionary: story_choices=decisions
 	var rooms: Variant=file.get_value("campaign","area_rooms",{})
 	if rooms is Dictionary: area_rooms=rooms
 	var positions: Variant=file.get_value("campaign","area_positions",{})
@@ -49,7 +59,7 @@ func _init(save_path: String = SAVE_PATH, inventory_path: String = EquipmentStat
 
 func save() -> Error:
 	var file := ConfigFile.new()
-	for key in ["current","visited","cleared","encounters","recruited","defenders","party","secured","mastery","area_rooms","area_positions","level","xp","gold","final_stage","final_used","ending_seen","army","disciplines"]:
+	for key in ["current","visited","cleared","encounters","recruited","defenders","party","secured","mastery","area_rooms","area_positions","level","xp","gold","final_stage","final_used","ending_seen","army","disciplines","discoveries","claimed_quests","story_choices","patrols"]:
 		file.set_value("campaign",key,get(key))
 	return file.save(path)
 
@@ -108,6 +118,7 @@ func battle_party(finale: bool) -> Array:
 	return result
 
 func reward(region: String, stage: int, family: String, boss: bool, finale: bool = false) -> Dictionary:
+	if stage>=1000 and (finale or region=="deep" or stage!=1000+int(patrols.get(region,0))):return {}
 	if finale and (stage!=final_stage or recruited.size()<9 or battle_party(true).size()!=3): return {}
 	var key := encounter_key(region,stage)
 	if key in encounters: return {}
@@ -121,7 +132,11 @@ func reward(region: String, stage: int, family: String, boss: bool, finale: bool
 		level+=1
 	mastery[family]=int(mastery.get(family,0))+1
 	var inventory := EquipmentState.new(equipment_path,path)
-	inventory.claim_cache("battle:"+key,{"iron_ingot":3 if boss else 1,"seasoned_wood":2,"leather_strip":1})
+	var loot:={"iron_ingot":3 if boss else 1,"seasoned_wood":2,"leather_strip":1}
+	if stage>=1000:
+		patrols[region]=int(patrols.get(region,0))+1
+		if int(patrols[region])%3==0:loot.entropic_essence=1
+	inventory.claim_cache("battle:"+key,loot)
 	if boss and (not finale or stage==2) and not region in cleared: cleared.append(region)
 	if finale:
 		for hero in battle_party(true): final_used.append(hero)
@@ -175,3 +190,74 @@ func price(id: String,quantity: int = 1) -> int:
 	if not inventory.catalog.items.has(id):return 0
 	var value:=int(inventory.catalog.items[id].get("price",0))*quantity
 	return maxi(1,int(value*0.9)) if current in secured else value
+
+func discover(site_id: String) -> bool:
+	if site_id in discoveries: return false
+	for region in quests.sites:
+		if not region in visited: continue
+		for site in quests.sites[region]:
+			if site.id==site_id:
+				discoveries.append(site_id)
+				save()
+				return true
+	return false
+
+func quest_status(id: String) -> String:
+	if not quests.quests.has(id): return "unknown"
+	if id in claimed_quests: return "completed"
+	var quest: Dictionary=quests.quests[id]
+	if not quest.region in visited: return "unavailable"
+	for prerequisite in quest.requires:
+		if not prerequisite in claimed_quests: return "locked"
+	var goal: Dictionary=quest.goal
+	match str(goal.kind):
+		"sites":
+			for site in goal.ids:
+				if not site in discoveries: return "active"
+		"delivery":
+			var inventory:=EquipmentState.new(equipment_path,path)
+			if int(inventory.quantities.get(goal.item,0))<int(goal.quantity):return "active"
+		"encounter":
+			if not is_done(quest.region,int(goal.stage)):return "active"
+		"cleared":
+			if not quest.region in cleared:return "active"
+		"recruit":
+			var found:=false
+			for hero in data.regions[quest.region].hero_pair:
+				if hero in recruited:found=true
+			if not found:return "active"
+		"final":
+			if final_stage<int(goal.stage):return "active"
+		_:return "unknown"
+	return "ready"
+
+func claim_quest(id: String, choice: String = "") -> bool:
+	if quest_status(id)!="ready":return false
+	var quest: Dictionary=quests.quests[id]
+	var selected: Dictionary={}
+	if quest.has("choices"):
+		for option in quest.choices:
+			if option.id==choice:selected=option
+		if selected.is_empty():return false
+	var inventory:=EquipmentState.new(equipment_path,path)
+	if quest.goal.kind=="delivery":
+		var material:String=quest.goal.item
+		inventory.quantities[material]=int(inventory.quantities.get(material,0))-int(quest.goal.quantity)
+	for item in quest.reward.items:
+		inventory.quantities[item]=int(inventory.quantities.get(item,0))+int(quest.reward.items[item])
+	for item in selected.get("items",{}):
+		inventory.quantities[item]=int(inventory.quantities.get(item,0))+int(selected.items[item])
+	gold+=int(quest.reward.gold)
+	if not selected.is_empty():story_choices[quest.region]=choice
+	claimed_quests.append(id)
+	inventory.save()
+	save()
+	return true
+
+func quest_count(region: String) -> Vector2i:
+	var result:=Vector2i.ZERO
+	for id in quests.quests:
+		if quests.quests[id].region!=region:continue
+		result.y+=1
+		if id in claimed_quests:result.x+=1
+	return result

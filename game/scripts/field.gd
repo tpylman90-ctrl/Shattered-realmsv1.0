@@ -140,6 +140,8 @@ func _build_layers() -> void:
 	ui.add_child(npc_marker)
 	npc_dialog = preload("res://scripts/npc_dialogue.gd").new()
 	ui.add_child(npc_dialog)
+	npc_dialog.missions_requested.connect(func():
+		get_tree().set_meta("campaign_region","ravenwood");get_tree().set_meta("quest_return_scene","res://scenes/ravenwood.tscn");get_tree().change_scene_to_file("res://scenes/quests.tscn"))
 	npc_dialog.closed.connect(func():
 		pending_npc = ""
 		waypoints.clear()

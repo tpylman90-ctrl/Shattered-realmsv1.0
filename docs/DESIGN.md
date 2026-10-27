@@ -70,3 +70,13 @@ These are editable implementation choices, not a claim that all draft narrative
 or new character designs were previously approved. Established area themes,
 settlement corrections, named old heroes and Hollow Oak chambers remain intact.
 See CAMPAIGN_FIRST_PASS.md for implemented features and production limitations.
+
+## Content expansion — 0.21.0
+
+User authorized continuing the remainder of the game. The first connected
+campaign now has editable regional quest arcs, survey sites, guardian dialogue,
+recorded supply pledges, a camp-side alpha wolf squad tutorial, cleared-room
+camping, role skills, boss patterns and save-slot recovery. Existing map, no-city
+rules, approved hero GLBs and lightweight city art are preserved. These new
+quests use shared mechanics with original regional text; bespoke art and deeper
+mechanical variety remain open. See CONTENT_EXPANSION.md for exact scope.

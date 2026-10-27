@@ -14,6 +14,7 @@ var finish_button: Button
 var displayed_result:=false
 var target:=0
 var canvas: CanvasLayer
+var shown_hp: Dictionary = {}
 
 func _ready() -> void:
 	var campaign:=campaign_override if campaign_override!=null else CampaignState.new()
@@ -22,6 +23,7 @@ func _ready() -> void:
 	var background:=CanvasLayer.new();background.layer=-1;add_child(background)
 	var image:=TextureRect.new();image.size=Vector2(1280,720);image.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	var path:="res://assets/battles/"+state.region+".webp"
+	if state.region=="ravenwood" and state.stage==101:path="res://assets/ravenwood/camp.webp"
 	if ResourceLoader.exists(path): image.texture=load(path)
 	else: image.modulate=Color("273a35")
 	background.add_child(image)
@@ -31,7 +33,7 @@ func _ready() -> void:
 	for i in range(state.allies.size()):
 		var actor:=Node3D.new();actor.position=Vector3(-3.6+(i%2)*1.1,0,(i/2)*1.7-1);add_child(actor)
 		var hero=preload("res://scripts/hero_model.gd").new();actor.add_child(hero)
-		var appearance: String=preload("res://scripts/hero_model.gd").selected() if i==0 else state.campaign.data.heroes[state.allies[i].id].appearance
+		var appearance: String=preload("res://scripts/hero_model.gd").selected() if i==0 else str(state.campaign.data.heroes.get(state.allies[i].id,{"appearance":"male"}).appearance)
 		hero.setup(appearance,false);actor.rotation.y=PI*0.5;actors.append(actor)
 		var held:=WeaponModel.new();actor.add_child(held)
 		var family:="staff" if state.allies[i].role in ["mage","healer"] else "bow" if state.allies[i].role=="ranger" else "sword"
@@ -51,10 +53,10 @@ func _ui() -> void:
 	for i in range(state.allies.size()):
 		var label:=Label.new();label.position=Vector2(30,495+i*45);label.add_theme_font_size_override("font_size",18);canvas.add_child(label);labels.append(label)
 		var bar:=ProgressBar.new();bar.position=Vector2(340,500+i*45);bar.size=Vector2(180,20);bar.show_percentage=false;canvas.add_child(bar);bars.append(bar)
-	var titles:=["Attack","Skill · 6 MP","Guard / Focus","Heal · 8 MP","Potion","Retreat","Mastered Art · 5 MP"]
-	var actions:=["attack","skill","guard","heal","potion","flee","learned"]
+	var titles:=["Attack","Skill · 6 MP","Guard / Focus","Heal · 8 MP","Potion","Retreat","Mastered Art · 5 MP","Ether","Antidote","Revive · 12 MP"]
+	var actions:=["attack","skill","guard","heal","potion","flee","learned","ether","antidote","revive"]
 	for i in range(actions.size()):
-		var button:=Button.new();button.text=titles[i];button.position=Vector2(555+(i%3)*230,510+(i/3)*70);button.size=Vector2(215,58);button.pressed.connect(_act.bind(actions[i]));canvas.add_child(button);commands.append(button)
+		var button:=Button.new();button.text=titles[i];button.position=Vector2(555+(i%4)*175,510+(i/4)*66);button.size=Vector2(165,56);button.pressed.connect(_act.bind(actions[i]));canvas.add_child(button);commands.append(button)
 	for i in range(state.enemies.size()):
 		var button:=Button.new();button.name="Target"+str(i);button.position=Vector2(865,115+i*55);button.size=Vector2(385,48);button.text=state.enemies[i].name;button.pressed.connect(func(): target=i;_refresh());canvas.add_child(button)
 	result_panel=PanelContainer.new();result_panel.position=Vector2(280,145);result_panel.size=Vector2(720,350);canvas.add_child(result_panel)
@@ -80,16 +82,28 @@ func _refresh() -> void:
 	if state.waiting>=0: log_label.text+="\nCommand: "+state.allies[state.waiting].name+" · ATB paused"
 	for i in range(state.allies.size()):
 		var unit: Dictionary=state.allies[i]
+		_health_feedback("ally"+str(i),int(unit.hp),actors[i])
 		labels[i].text="%s\nHP %d/%d   MP %d" % [unit.name,unit.hp,unit.max_hp,unit.mp]
 		bars[i].value=float(unit.atb)
 		actors[i].visible=unit.hp>0
 	for i in range(state.enemies.size()):
 		var foe: Dictionary=state.enemies[i]
+		_health_feedback("foe"+str(i),int(foe.hp),enemy_actors[i])
 		enemy_actors[i].visible=foe.hp>0
 		var button: Button=canvas.get_node("Target"+str(i))
-		button.text=("▶ " if target==i else "")+foe.name+" · "+str(foe.hp)+" HP"
+		button.text=("▶ " if target==i else "")+foe.name+" · "+str(foe.hp)+" HP"+ (" · GUARD!" if str(foe.get("intent","")).begins_with("POWER") else "")
 		button.disabled=foe.hp<=0
-	for button in commands: button.disabled=state.waiting<0 or not state.outcome.is_empty()
+	for button in commands:button.disabled=state.waiting<0 or not state.outcome.is_empty()
+	if state.waiting>=0 and state.outcome.is_empty():
+		var actor:Dictionary=state.allies[state.waiting]
+		commands[1].text=("Party Ward" if actor.role=="guardian" else "Mend / Cleanse" if actor.role=="healer" else "Skill")+" · 6 MP"
+		commands[1].disabled=actor.mp<6
+		commands[3].disabled=actor.mp<8
+		commands[4].disabled=int(state.inventory.quantities.get("potion",0))<=0
+		commands[6].disabled=actor.mp<5 or state.waiting!=0 or not state.campaign.mastery.values().any(func(value):return int(value)>=3)
+		commands[7].disabled=int(state.inventory.quantities.get("ether",0))<=0 or actor.mp>=actor.max_mp
+		commands[8].disabled=int(state.inventory.quantities.get("antidote",0))<=0 or not state.allies.any(func(unit):return unit.poison)
+		commands[9].disabled=actor.mp<12 or not (actor.role=="healer" or (state.waiting==0 and "healer" in state.campaign.disciplines)) or not state.allies.any(func(unit):return unit.hp<=0)
 	if not state.outcome.is_empty() and not displayed_result:
 		displayed_result=true
 		result_panel.show()
@@ -111,4 +125,17 @@ func _finish() -> void:
 		get_tree().set_meta("game_menu_tab","ending");get_tree().change_scene_to_file("res://scenes/game_menu.tscn");return
 	if state.outcome=="victory" and state.boss and not state.finale:
 		get_tree().set_meta("game_menu_tab","recruit");get_tree().set_meta("recruit_region",state.region);get_tree().change_scene_to_file("res://scenes/game_menu.tscn");return
+	if (state.region=="ravenwood" and state.stage==101) or state.stage>=1000:
+		get_tree().set_meta("campaign_region",state.region);get_tree().change_scene_to_file("res://scenes/quests.tscn");return
 	get_tree().change_scene_to_file("res://scenes/campaign_area.tscn")
+
+func _health_feedback(id:String,hp:int,actor:Node3D) -> void:
+	if shown_hp.has(id) and int(shown_hp[id])!=hp:
+		var difference:=hp-int(shown_hp[id])
+		var label:=Label.new();label.text=("+" if difference>0 else "")+str(difference);label.add_theme_font_size_override("font_size",30)
+		label.add_theme_color_override("font_color",Color("8cf0ae") if difference>0 else Color("ffd1b8"));label.add_theme_color_override("font_outline_color",Color("16151c"));label.add_theme_constant_override("outline_size",6)
+		label.mouse_filter=Control.MOUSE_FILTER_IGNORE
+		label.position=get_viewport().get_camera_3d().unproject_position(actor.global_position+Vector3(0,2.0,0))
+		canvas.add_child(label)
+		var tween:=create_tween().set_parallel(true);tween.tween_property(label,"position:y",label.position.y-55,0.85);tween.tween_property(label,"modulate:a",0.0,0.85);tween.chain().tween_callback(label.queue_free)
+	shown_hp[id]=hp

@@ -1,5 +1,6 @@
 extends PanelContainer
 signal closed
+signal missions_requested
 
 var speaker: Label
 var body: Label
@@ -53,6 +54,8 @@ func open_npc(data: Dictionary) -> void:
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		button.pressed.connect(func(): select_topic(topic_index))
 		choices.add_child(button)
+	if str(data.get("location","")) in ["camp","command"]:
+		var missions:=Button.new();missions.text="Missions";missions.custom_minimum_size=Vector2(130,54);missions.pressed.connect(func():missions_requested.emit());choices.add_child(missions)
 	var goodbye := Button.new()
 	goodbye.text = "Goodbye"
 	goodbye.custom_minimum_size = Vector2(150, 54)

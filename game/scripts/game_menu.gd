@@ -19,6 +19,8 @@ func _button(text: String,callback: Callable) -> void:
 	var button:=Button.new();button.text=text;button.custom_minimum_size=Vector2(1120,52);button.pressed.connect(callback);column.add_child(button)
 func _journal() -> void:
 	_text("Level %d · EXP %d/%d · Gold %d\nCompanions %d/9 required · Restored anchors %d/18\n%s" % [campaign.level,campaign.xp,campaign.level*55,campaign.gold,campaign.recruited.size(),campaign.cleared.filter(func(id):return id!="deep").size(),"The Devouring Deep is sealed." if campaign.final_stage>=3 else "Restore the anchors and assemble nine companions for three final fronts."],23)
+	_button("REGIONAL QUESTS & GUARDIAN STORIES",func():
+		get_tree().set_meta("campaign_region",campaign.current);get_tree().set_meta("quest_return_scene","res://scenes/game_menu.tscn");get_tree().change_scene_to_file("res://scenes/quests.tscn"))
 	_text("ACTIVE PARTY · Wayfarer + up to three companions",24)
 	for id in campaign.recruited:
 		var hero: Dictionary=campaign.data.heroes[id]

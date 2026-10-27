@@ -16,7 +16,7 @@ func _ready() -> void:
 	add_child(texture)
 	var shade:=ColorRect.new();shade.color=Color(0.02,0.04,0.035,0.2);shade.size=Vector2(1280,720);shade.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(shade)
 	var panel:=PanelContainer.new();panel.position=Vector2(730,20);panel.size=Vector2(520,680);add_child(panel)
-	column=VBoxContainer.new();column.add_theme_constant_override("separation",12);panel.add_child(column)
+	column=VBoxContainer.new();column.add_theme_constant_override("separation",12);var scroll:=ScrollContainer.new();scroll.custom_minimum_size=Vector2(510,665);panel.add_child(scroll);scroll.add_child(column)
 	var title:=Label.new();title.text=region.settlement if not str(region.settlement).is_empty() else region.name+" · Trail Respite";title.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;title.custom_minimum_size.x=480;title.add_theme_font_size_override("font_size",30);column.add_child(title)
 	status=Label.new();status.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;status.custom_minimum_size=Vector2(480,90);column.add_child(status)
 	_refresh()
@@ -31,6 +31,7 @@ func _ready() -> void:
 	else:
 		_button("REST ON THE TRAIL",func(): campaign.rest(0);status.text="The expedition rests.";_refresh())
 	_button("SECURE / DEFEND TERRITORY",func(): get_tree().set_meta("campaign_region",region.id);get_tree().change_scene_to_file("res://scenes/army_battle.tscn"))
+	_button("LOCAL QUESTS & GUARDIANS",func():get_tree().set_meta("campaign_region",region.id);get_tree().set_meta("quest_return_scene","res://scenes/settlement.tscn");get_tree().change_scene_to_file("res://scenes/quests.tscn"))
 	_button("JOURNAL & COMPANIONS",func(): get_tree().set_meta("game_menu_tab","journal");get_tree().change_scene_to_file("res://scenes/game_menu.tscn"))
 	_button("LEAVE",_leave)
 

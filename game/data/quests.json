@@ -1,0 +1,2894 @@
+{
+  "schema": 1,
+  "draft_content": true,
+  "quests": {
+    "ravenwood:signs": {
+      "id": "ravenwood:signs",
+      "region": "ravenwood",
+      "title": "Read the land",
+      "objective": "Survey Springward Cairn and Thornwatch Signal.",
+      "goal": {
+        "kind": "sites",
+        "ids": [
+          "ravenwood:first",
+          "ravenwood:second"
+        ]
+      },
+      "requires": [],
+      "reward": {
+        "gold": 45,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "Clear water runs beneath the sick roots. Someone has bound the spring with a strip of watch-cloth. A broken watch horn lies beside tracks leading toward the Hollow Oak."
+    },
+    "ravenwood:supplies": {
+      "id": "ravenwood:supplies",
+      "region": "ravenwood",
+      "title": "A road worth keeping",
+      "objective": "Blackthorn’s pathfinders need timber for warning posts, not another expedition lost in the trees.",
+      "goal": {
+        "kind": "delivery",
+        "item": "seasoned_wood",
+        "quantity": 3
+      },
+      "requires": [],
+      "reward": {
+        "gold": 60,
+        "items": {
+          "ether": 1
+        }
+      },
+      "conclusion": "The supplies are put to use before you leave. The road is safer for the next traveler."
+    },
+    "ravenwood:road": {
+      "id": "ravenwood:road",
+      "region": "ravenwood",
+      "title": "The broken watch",
+      "objective": "Defeat the alpha wolf inside Blackthorn’s fort.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 101
+      },
+      "requires": [],
+      "reward": {
+        "gold": 55,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The watch gathers its wounded and sets the next signal. You have earned the right to carry their trust."
+    },
+    "ravenwood:threshold": {
+      "id": "ravenwood:threshold",
+      "region": "ravenwood",
+      "title": "Beyond the threshold",
+      "objective": "Clear Root Gate inside Hollow Oak.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 0
+      },
+      "requires": [],
+      "reward": {
+        "gold": 65,
+        "items": {
+          "entropic_essence": 1
+        }
+      },
+      "conclusion": "The first seal opens. The damage reaches deeper than the road, but the anchor can still be restored."
+    },
+    "ravenwood:anchor": {
+      "id": "ravenwood:anchor",
+      "region": "ravenwood",
+      "title": "Free the pathfinders and recover the forest anchor",
+      "objective": "Free the pathfinders and recover the forest anchor.",
+      "goal": {
+        "kind": "cleared"
+      },
+      "requires": [
+        "ravenwood:signs",
+        "ravenwood:threshold"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "entropic_essence": 2
+        }
+      },
+      "conclusion": "The anchor answers. A road is a promise to those who must walk it. A safe home gives every traveler somewhere to return.",
+      "choices": [
+        {
+          "id": "roads",
+          "label": "Keep the woodland routes open",
+          "text": "A road is a promise to those who must walk it.",
+          "items": {
+            "potion": 3
+          }
+        },
+        {
+          "id": "watch",
+          "label": "Reinforce Blackthorn’s watch",
+          "text": "A safe home gives every traveler somewhere to return.",
+          "items": {
+            "iron_ingot": 3
+          }
+        }
+      ]
+    },
+    "ravenwood:oath": {
+      "id": "ravenwood:oath",
+      "region": "ravenwood",
+      "title": "Two duties, one journey",
+      "objective": "Recruit one guardian; leave the other to defend Ravenwood.",
+      "goal": {
+        "kind": "recruit"
+      },
+      "requires": [
+        "ravenwood:anchor"
+      ],
+      "reward": {
+        "gold": 80,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "One guardian joins the expedition. The other takes the watch. Neither duty can be left undone."
+    },
+    "frostpeaks:signs": {
+      "id": "frostpeaks:signs",
+      "region": "frostpeaks",
+      "title": "Read the land",
+      "objective": "Survey The Unlit Beacon and Glacier Names.",
+      "goal": {
+        "kind": "sites",
+        "ids": [
+          "frostpeaks:first",
+          "frostpeaks:second"
+        ]
+      },
+      "requires": [],
+      "reward": {
+        "gold": 45,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The beacon is cold, but its wick is new. Its keeper left willingly. Names carved into blue ice belong to watchkeepers still living in Icehelm."
+    },
+    "frostpeaks:supplies": {
+      "id": "frostpeaks:supplies",
+      "region": "frostpeaks",
+      "title": "A road worth keeping",
+      "objective": "Beacon crews cannot reach the high towers without fresh repair metal.",
+      "goal": {
+        "kind": "delivery",
+        "item": "iron_ingot",
+        "quantity": 3
+      },
+      "requires": [],
+      "reward": {
+        "gold": 60,
+        "items": {
+          "ether": 1
+        }
+      },
+      "conclusion": "The supplies are put to use before you leave. The road is safer for the next traveler."
+    },
+    "frostpeaks:road": {
+      "id": "frostpeaks:road",
+      "region": "frostpeaks",
+      "title": "Danger on the approach",
+      "objective": "Clear the threat at Icefall Trail.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 100
+      },
+      "requires": [],
+      "reward": {
+        "gold": 55,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The watch gathers its wounded and sets the next signal. You have earned the right to carry their trust."
+    },
+    "frostpeaks:threshold": {
+      "id": "frostpeaks:threshold",
+      "region": "frostpeaks",
+      "title": "Beyond the threshold",
+      "objective": "Clear Icefall Gate inside Rimebound Vault.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 0
+      },
+      "requires": [],
+      "reward": {
+        "gold": 65,
+        "items": {
+          "entropic_essence": 1
+        }
+      },
+      "conclusion": "The first seal opens. The damage reaches deeper than the road, but the anchor can still be restored."
+    },
+    "frostpeaks:anchor": {
+      "id": "frostpeaks:anchor",
+      "region": "frostpeaks",
+      "title": "Restore the beacon beneath the glacier",
+      "objective": "Restore the beacon beneath the glacier.",
+      "goal": {
+        "kind": "cleared"
+      },
+      "requires": [
+        "frostpeaks:signs",
+        "frostpeaks:threshold"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "entropic_essence": 2
+        }
+      },
+      "conclusion": "The anchor answers. No beacon matters if we abandon the people below it. A watch kept through one more night may save the whole valley.",
+      "choices": [
+        {
+          "id": "roads",
+          "label": "Guide the stranded climbers",
+          "text": "No beacon matters if we abandon the people below it.",
+          "items": {
+            "potion": 3
+          }
+        },
+        {
+          "id": "watch",
+          "label": "Hold the glacier watch",
+          "text": "A watch kept through one more night may save the whole valley.",
+          "items": {
+            "iron_ingot": 3
+          }
+        }
+      ]
+    },
+    "frostpeaks:oath": {
+      "id": "frostpeaks:oath",
+      "region": "frostpeaks",
+      "title": "Two duties, one journey",
+      "objective": "Recruit one guardian; leave the other to defend Frostpeaks.",
+      "goal": {
+        "kind": "recruit"
+      },
+      "requires": [
+        "frostpeaks:anchor"
+      ],
+      "reward": {
+        "gold": 80,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "One guardian joins the expedition. The other takes the watch. Neither duty can be left undone."
+    },
+    "stormcrown:signs": {
+      "id": "stormcrown:signs",
+      "region": "stormcrown",
+      "title": "Read the land",
+      "objective": "Survey Windcaller Bell and The Bent Standard.",
+      "goal": {
+        "kind": "sites",
+        "ids": [
+          "stormcrown:first",
+          "stormcrown:second"
+        ]
+      },
+      "requires": [],
+      "reward": {
+        "gold": 45,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The bell moves without sounding. Its clapper points toward the storm. A watch standard has bent toward the peak against the wind."
+    },
+    "stormcrown:supplies": {
+      "id": "stormcrown:supplies",
+      "region": "stormcrown",
+      "title": "A road worth keeping",
+      "objective": "The ascent has shredded the straps carrying the watch’s supplies.",
+      "goal": {
+        "kind": "delivery",
+        "item": "leather_strip",
+        "quantity": 3
+      },
+      "requires": [],
+      "reward": {
+        "gold": 60,
+        "items": {
+          "ether": 1
+        }
+      },
+      "conclusion": "The supplies are put to use before you leave. The road is safer for the next traveler."
+    },
+    "stormcrown:road": {
+      "id": "stormcrown:road",
+      "region": "stormcrown",
+      "title": "Danger on the approach",
+      "objective": "Clear the threat at Stormcrown Pass.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 100
+      },
+      "requires": [],
+      "reward": {
+        "gold": 55,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The watch gathers its wounded and sets the next signal. You have earned the right to carry their trust."
+    },
+    "stormcrown:threshold": {
+      "id": "stormcrown:threshold",
+      "region": "stormcrown",
+      "title": "Beyond the threshold",
+      "objective": "Clear Thunder Stair inside Tempest Spire.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 0
+      },
+      "requires": [],
+      "reward": {
+        "gold": 65,
+        "items": {
+          "entropic_essence": 1
+        }
+      },
+      "conclusion": "The first seal opens. The damage reaches deeper than the road, but the anchor can still be restored."
+    },
+    "stormcrown:anchor": {
+      "id": "stormcrown:anchor",
+      "region": "stormcrown",
+      "title": "Silence the storm at its source",
+      "objective": "Silence the storm at its source.",
+      "goal": {
+        "kind": "cleared"
+      },
+      "requires": [
+        "stormcrown:signs",
+        "stormcrown:threshold"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "entropic_essence": 2
+        }
+      },
+      "conclusion": "The anchor answers. Let the storm test us; it must not divide us. We will put the watch back where the wind can see it.",
+      "choices": [
+        {
+          "id": "roads",
+          "label": "Reopen the mountain road",
+          "text": "Let the storm test us; it must not divide us.",
+          "items": {
+            "potion": 3
+          }
+        },
+        {
+          "id": "watch",
+          "label": "Rebuild the summit watch",
+          "text": "We will put the watch back where the wind can see it.",
+          "items": {
+            "iron_ingot": 3
+          }
+        }
+      ]
+    },
+    "stormcrown:oath": {
+      "id": "stormcrown:oath",
+      "region": "stormcrown",
+      "title": "Two duties, one journey",
+      "objective": "Recruit one guardian; leave the other to defend Stormcrown Mountains.",
+      "goal": {
+        "kind": "recruit"
+      },
+      "requires": [
+        "stormcrown:anchor"
+      ],
+      "reward": {
+        "gold": 80,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "One guardian joins the expedition. The other takes the watch. Neither duty can be left undone."
+    },
+    "ashen:signs": {
+      "id": "ashen:signs",
+      "region": "ashen",
+      "title": "Read the land",
+      "objective": "Survey The Ash Gauge and Cooling Channel.",
+      "goal": {
+        "kind": "sites",
+        "ids": [
+          "ashen:first",
+          "ashen:second"
+        ]
+      },
+      "requires": [],
+      "reward": {
+        "gold": 45,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The lava has risen past marks cut by three generations of furnace workers. A cold channel steams with no water in it. The caldera’s pressure is turning inward."
+    },
+    "ashen:supplies": {
+      "id": "ashen:supplies",
+      "region": "ashen",
+      "title": "A road worth keeping",
+      "objective": "Ashenreach’s channel gates need new fittings before the next surge.",
+      "goal": {
+        "kind": "delivery",
+        "item": "iron_ingot",
+        "quantity": 4
+      },
+      "requires": [],
+      "reward": {
+        "gold": 60,
+        "items": {
+          "ether": 1
+        }
+      },
+      "conclusion": "The supplies are put to use before you leave. The road is safer for the next traveler."
+    },
+    "ashen:road": {
+      "id": "ashen:road",
+      "region": "ashen",
+      "title": "Danger on the approach",
+      "objective": "Clear the threat at Basalt Causeway.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 100
+      },
+      "requires": [],
+      "reward": {
+        "gold": 55,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The watch gathers its wounded and sets the next signal. You have earned the right to carry their trust."
+    },
+    "ashen:threshold": {
+      "id": "ashen:threshold",
+      "region": "ashen",
+      "title": "Beyond the threshold",
+      "objective": "Clear Basalt Gate inside The Crucible.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 0
+      },
+      "requires": [],
+      "reward": {
+        "gold": 65,
+        "items": {
+          "entropic_essence": 1
+        }
+      },
+      "conclusion": "The first seal opens. The damage reaches deeper than the road, but the anchor can still be restored."
+    },
+    "ashen:anchor": {
+      "id": "ashen:anchor",
+      "region": "ashen",
+      "title": "Defeat Vulgrim and stabilize the caldera anchor",
+      "objective": "Defeat Vulgrim and stabilize the caldera anchor.",
+      "goal": {
+        "kind": "cleared"
+      },
+      "requires": [
+        "ashen:signs",
+        "ashen:threshold"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "entropic_essence": 2
+        }
+      },
+      "conclusion": "The anchor answers. Fire serves people. It should never demand them. We can hold the mountain, one repaired gate at a time.",
+      "choices": [
+        {
+          "id": "roads",
+          "label": "Protect the furnace workers",
+          "text": "Fire serves people. It should never demand them.",
+          "items": {
+            "potion": 3
+          }
+        },
+        {
+          "id": "watch",
+          "label": "Strengthen the caldera gates",
+          "text": "We can hold the mountain, one repaired gate at a time.",
+          "items": {
+            "iron_ingot": 3
+          }
+        }
+      ]
+    },
+    "ashen:oath": {
+      "id": "ashen:oath",
+      "region": "ashen",
+      "title": "Two duties, one journey",
+      "objective": "Recruit one guardian; leave the other to defend The Ashen Wastes.",
+      "goal": {
+        "kind": "recruit"
+      },
+      "requires": [
+        "ashen:anchor"
+      ],
+      "reward": {
+        "gold": 80,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "One guardian joins the expedition. The other takes the watch. Neither duty can be left undone."
+    },
+    "marsh:signs": {
+      "id": "marsh:signs",
+      "region": "marsh",
+      "title": "Read the land",
+      "objective": "Survey Reedkeeper Post and The Sinking Shrine.",
+      "goal": {
+        "kind": "sites",
+        "ids": [
+          "marsh:first",
+          "marsh:second"
+        ]
+      },
+      "requires": [],
+      "reward": {
+        "gold": 45,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "A basket tied above the water holds the last dry seed from a flooded garden. Offerings float upward through a shrine whose floor is sinking."
+    },
+    "marsh:supplies": {
+      "id": "marsh:supplies",
+      "region": "marsh",
+      "title": "A road worth keeping",
+      "objective": "Wickermoor needs planks for the raised walks before another house is cut off.",
+      "goal": {
+        "kind": "delivery",
+        "item": "seasoned_wood",
+        "quantity": 4
+      },
+      "requires": [],
+      "reward": {
+        "gold": 60,
+        "items": {
+          "ether": 1
+        }
+      },
+      "conclusion": "The supplies are put to use before you leave. The road is safer for the next traveler."
+    },
+    "marsh:road": {
+      "id": "marsh:road",
+      "region": "marsh",
+      "title": "Danger on the approach",
+      "objective": "Clear the threat at Sinking Causeway.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 100
+      },
+      "requires": [],
+      "reward": {
+        "gold": 55,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The watch gathers its wounded and sets the next signal. You have earned the right to carry their trust."
+    },
+    "marsh:threshold": {
+      "id": "marsh:threshold",
+      "region": "marsh",
+      "title": "Beyond the threshold",
+      "objective": "Clear Reed Gate inside The Sinking Temple.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 0
+      },
+      "requires": [],
+      "reward": {
+        "gold": 65,
+        "items": {
+          "entropic_essence": 1
+        }
+      },
+      "conclusion": "The first seal opens. The damage reaches deeper than the road, but the anchor can still be restored."
+    },
+    "marsh:anchor": {
+      "id": "marsh:anchor",
+      "region": "marsh",
+      "title": "Break Morvana’s hold over the marsh",
+      "objective": "Break Morvana’s hold over the marsh.",
+      "goal": {
+        "kind": "cleared"
+      },
+      "requires": [
+        "marsh:signs",
+        "marsh:threshold"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "entropic_essence": 2
+        }
+      },
+      "conclusion": "The anchor answers. A village is every home we can still reach. Then we build paths the water cannot take.",
+      "choices": [
+        {
+          "id": "roads",
+          "label": "Save the isolated households",
+          "text": "A village is every home we can still reach.",
+          "items": {
+            "potion": 3
+          }
+        },
+        {
+          "id": "watch",
+          "label": "Fortify Wickermoor’s walks",
+          "text": "Then we build paths the water cannot take.",
+          "items": {
+            "iron_ingot": 3
+          }
+        }
+      ]
+    },
+    "marsh:oath": {
+      "id": "marsh:oath",
+      "region": "marsh",
+      "title": "Two duties, one journey",
+      "objective": "Recruit one guardian; leave the other to defend The Blighted Marsh.",
+      "goal": {
+        "kind": "recruit"
+      },
+      "requires": [
+        "marsh:anchor"
+      ],
+      "reward": {
+        "gold": 80,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "One guardian joins the expedition. The other takes the watch. Neither duty can be left undone."
+    },
+    "silvermere:signs": {
+      "id": "silvermere:signs",
+      "region": "silvermere",
+      "title": "Read the land",
+      "objective": "Survey The False Light and Saltglass Marker.",
+      "goal": {
+        "kind": "sites",
+        "ids": [
+          "silvermere:first",
+          "silvermere:second"
+        ]
+      },
+      "requires": [],
+      "reward": {
+        "gold": 45,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "A shard of the lighthouse lens catches sunlight from the wrong direction. Salt has sealed a warning scratched into the old keeper’s stone."
+    },
+    "silvermere:supplies": {
+      "id": "silvermere:supplies",
+      "region": "silvermere",
+      "title": "A road worth keeping",
+      "objective": "Silverkeep’s light crew needs metal braces to reset the great lens.",
+      "goal": {
+        "kind": "delivery",
+        "item": "iron_ingot",
+        "quantity": 3
+      },
+      "requires": [],
+      "reward": {
+        "gold": 60,
+        "items": {
+          "ether": 1
+        }
+      },
+      "conclusion": "The supplies are put to use before you leave. The road is safer for the next traveler."
+    },
+    "silvermere:road": {
+      "id": "silvermere:road",
+      "region": "silvermere",
+      "title": "Danger on the approach",
+      "objective": "Clear the threat at Tideglass Shore.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 100
+      },
+      "requires": [],
+      "reward": {
+        "gold": 55,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The watch gathers its wounded and sets the next signal. You have earned the right to carry their trust."
+    },
+    "silvermere:threshold": {
+      "id": "silvermere:threshold",
+      "region": "silvermere",
+      "title": "Beyond the threshold",
+      "objective": "Clear Lighthouse Steps inside The Tideglass Crypt.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 0
+      },
+      "requires": [],
+      "reward": {
+        "gold": 65,
+        "items": {
+          "entropic_essence": 1
+        }
+      },
+      "conclusion": "The first seal opens. The damage reaches deeper than the road, but the anchor can still be restored."
+    },
+    "silvermere:anchor": {
+      "id": "silvermere:anchor",
+      "region": "silvermere",
+      "title": "Relight the lighthouse and recover the tide anchor",
+      "objective": "Relight the lighthouse and recover the tide anchor.",
+      "goal": {
+        "kind": "cleared"
+      },
+      "requires": [
+        "silvermere:signs",
+        "silvermere:threshold"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "entropic_essence": 2
+        }
+      },
+      "conclusion": "The anchor answers. The light belongs to everyone who trusts it. Then no one will turn it against them again.",
+      "choices": [
+        {
+          "id": "roads",
+          "label": "Guide ships into harbor",
+          "text": "The light belongs to everyone who trusts it.",
+          "items": {
+            "potion": 3
+          }
+        },
+        {
+          "id": "watch",
+          "label": "Guard the lighthouse",
+          "text": "Then no one will turn it against them again.",
+          "items": {
+            "iron_ingot": 3
+          }
+        }
+      ]
+    },
+    "silvermere:oath": {
+      "id": "silvermere:oath",
+      "region": "silvermere",
+      "title": "Two duties, one journey",
+      "objective": "Recruit one guardian; leave the other to defend Silvermere.",
+      "goal": {
+        "kind": "recruit"
+      },
+      "requires": [
+        "silvermere:anchor"
+      ],
+      "reward": {
+        "gold": 80,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "One guardian joins the expedition. The other takes the watch. Neither duty can be left undone."
+    },
+    "eldergrove:signs": {
+      "id": "eldergrove:signs",
+      "region": "eldergrove",
+      "title": "Read the land",
+      "objective": "Survey Seedkeeper Circle and The Listening Root.",
+      "goal": {
+        "kind": "sites",
+        "ids": [
+          "eldergrove:first",
+          "eldergrove:second"
+        ]
+      },
+      "requires": [],
+      "reward": {
+        "gold": 45,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "Tiny shoots grow inside a ring no animal will cross. The roots tremble when you speak a name, then settle when you listen."
+    },
+    "eldergrove:supplies": {
+      "id": "eldergrove:supplies",
+      "region": "eldergrove",
+      "title": "A road worth keeping",
+      "objective": "The grove’s wandering keepers need bindings to carry injured animals out of the blight.",
+      "goal": {
+        "kind": "delivery",
+        "item": "leather_strip",
+        "quantity": 3
+      },
+      "requires": [],
+      "reward": {
+        "gold": 60,
+        "items": {
+          "ether": 1
+        }
+      },
+      "conclusion": "The supplies are put to use before you leave. The road is safer for the next traveler."
+    },
+    "eldergrove:road": {
+      "id": "eldergrove:road",
+      "region": "eldergrove",
+      "title": "Danger on the approach",
+      "objective": "Clear the threat at Heartwood Grove.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 100
+      },
+      "requires": [],
+      "reward": {
+        "gold": 55,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The watch gathers its wounded and sets the next signal. You have earned the right to carry their trust."
+    },
+    "eldergrove:threshold": {
+      "id": "eldergrove:threshold",
+      "region": "eldergrove",
+      "title": "Beyond the threshold",
+      "objective": "Clear Verdant Gate inside The Rootbound Shrine.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 0
+      },
+      "requires": [],
+      "reward": {
+        "gold": 65,
+        "items": {
+          "entropic_essence": 1
+        }
+      },
+      "conclusion": "The first seal opens. The damage reaches deeper than the road, but the anchor can still be restored."
+    },
+    "eldergrove:anchor": {
+      "id": "eldergrove:anchor",
+      "region": "eldergrove",
+      "title": "Return stillness to the heartwood shrine",
+      "objective": "Return stillness to the heartwood shrine.",
+      "goal": {
+        "kind": "cleared"
+      },
+      "requires": [
+        "eldergrove:signs",
+        "eldergrove:threshold"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "entropic_essence": 2
+        }
+      },
+      "conclusion": "The anchor answers. No city owns this place. Its paths must remain open. And the living heart must remain whole.",
+      "choices": [
+        {
+          "id": "roads",
+          "label": "Reopen the pilgrims’ paths",
+          "text": "No city owns this place. Its paths must remain open.",
+          "items": {
+            "potion": 3
+          }
+        },
+        {
+          "id": "watch",
+          "label": "Shelter the seedkeeper circle",
+          "text": "And the living heart must remain whole.",
+          "items": {
+            "iron_ingot": 3
+          }
+        }
+      ]
+    },
+    "eldergrove:oath": {
+      "id": "eldergrove:oath",
+      "region": "eldergrove",
+      "title": "Two duties, one journey",
+      "objective": "Recruit one guardian; leave the other to defend Eldergrove.",
+      "goal": {
+        "kind": "recruit"
+      },
+      "requires": [
+        "eldergrove:anchor"
+      ],
+      "reward": {
+        "gold": 80,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "One guardian joins the expedition. The other takes the watch. Neither duty can be left undone."
+    },
+    "iron_plains:signs": {
+      "id": "iron_plains:signs",
+      "region": "iron_plains",
+      "title": "Read the land",
+      "objective": "Survey The Abandoned Plow and Siege Survey.",
+      "goal": {
+        "kind": "sites",
+        "ids": [
+          "iron_plains:first",
+          "iron_plains:second"
+        ]
+      },
+      "requires": [],
+      "reward": {
+        "gold": 45,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "A plow was forged from an old spear. Its blade has begun pointing toward the bastion. Every abandoned engine faces the same farm road."
+    },
+    "iron_plains:supplies": {
+      "id": "iron_plains:supplies",
+      "region": "iron_plains",
+      "title": "A road worth keeping",
+      "objective": "Harrowstead’s farmers need timber to turn the siege trenches into bridges.",
+      "goal": {
+        "kind": "delivery",
+        "item": "seasoned_wood",
+        "quantity": 4
+      },
+      "requires": [],
+      "reward": {
+        "gold": 60,
+        "items": {
+          "ether": 1
+        }
+      },
+      "conclusion": "The supplies are put to use before you leave. The road is safer for the next traveler."
+    },
+    "iron_plains:road": {
+      "id": "iron_plains:road",
+      "region": "iron_plains",
+      "title": "Danger on the approach",
+      "objective": "Clear the threat at Siege Fields.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 100
+      },
+      "requires": [],
+      "reward": {
+        "gold": 55,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The watch gathers its wounded and sets the next signal. You have earned the right to carry their trust."
+    },
+    "iron_plains:threshold": {
+      "id": "iron_plains:threshold",
+      "region": "iron_plains",
+      "title": "Beyond the threshold",
+      "objective": "Clear Watch Gate inside The Broken Bastion.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 0
+      },
+      "requires": [],
+      "reward": {
+        "gold": 65,
+        "items": {
+          "entropic_essence": 1
+        }
+      },
+      "conclusion": "The first seal opens. The damage reaches deeper than the road, but the anchor can still be restored."
+    },
+    "iron_plains:anchor": {
+      "id": "iron_plains:anchor",
+      "region": "iron_plains",
+      "title": "End the revenant’s siege",
+      "objective": "End the revenant’s siege.",
+      "goal": {
+        "kind": "cleared"
+      },
+      "requires": [
+        "iron_plains:signs",
+        "iron_plains:threshold"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "entropic_essence": 2
+        }
+      },
+      "conclusion": "The anchor answers. We did not win a homeland just to march over it. The strongest wall is the one that lets the harvest pass.",
+      "choices": [
+        {
+          "id": "roads",
+          "label": "Return the fields to farmers",
+          "text": "We did not win a homeland just to march over it.",
+          "items": {
+            "potion": 3
+          }
+        },
+        {
+          "id": "watch",
+          "label": "Restore the bastion watch",
+          "text": "The strongest wall is the one that lets the harvest pass.",
+          "items": {
+            "iron_ingot": 3
+          }
+        }
+      ]
+    },
+    "iron_plains:oath": {
+      "id": "iron_plains:oath",
+      "region": "iron_plains",
+      "title": "Two duties, one journey",
+      "objective": "Recruit one guardian; leave the other to defend The Iron Plains.",
+      "goal": {
+        "kind": "recruit"
+      },
+      "requires": [
+        "iron_plains:anchor"
+      ],
+      "reward": {
+        "gold": 80,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "One guardian joins the expedition. The other takes the watch. Neither duty can be left undone."
+    },
+    "shadowfen:signs": {
+      "id": "shadowfen:signs",
+      "region": "shadowfen",
+      "title": "Read the land",
+      "objective": "Survey The Cold Lantern and Webkeeper Hollow.",
+      "goal": {
+        "kind": "sites",
+        "ids": [
+          "shadowfen:first",
+          "shadowfen:second"
+        ]
+      },
+      "requires": [],
+      "reward": {
+        "gold": 45,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The lantern flame casts two shadows. Neither belongs to you. Threads stretched across a hollow carry the voices of missing travelers."
+    },
+    "shadowfen:supplies": {
+      "id": "shadowfen:supplies",
+      "region": "shadowfen",
+      "title": "A road worth keeping",
+      "objective": "There is no town here; a passing rescue party needs dry wood for true signal fires.",
+      "goal": {
+        "kind": "delivery",
+        "item": "seasoned_wood",
+        "quantity": 3
+      },
+      "requires": [],
+      "reward": {
+        "gold": 60,
+        "items": {
+          "ether": 1
+        }
+      },
+      "conclusion": "The supplies are put to use before you leave. The road is safer for the next traveler."
+    },
+    "shadowfen:road": {
+      "id": "shadowfen:road",
+      "region": "shadowfen",
+      "title": "Danger on the approach",
+      "objective": "Clear the threat at Lantern Fen.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 100
+      },
+      "requires": [],
+      "reward": {
+        "gold": 55,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The watch gathers its wounded and sets the next signal. You have earned the right to carry their trust."
+    },
+    "shadowfen:threshold": {
+      "id": "shadowfen:threshold",
+      "region": "shadowfen",
+      "title": "Beyond the threshold",
+      "objective": "Clear Shadow Gate inside The Nightroot Depths.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 0
+      },
+      "requires": [],
+      "reward": {
+        "gold": 65,
+        "items": {
+          "entropic_essence": 1
+        }
+      },
+      "conclusion": "The first seal opens. The damage reaches deeper than the road, but the anchor can still be restored."
+    },
+    "shadowfen:anchor": {
+      "id": "shadowfen:anchor",
+      "region": "shadowfen",
+      "title": "Track the false lights to Xylos",
+      "objective": "Track the false lights to Xylos.",
+      "goal": {
+        "kind": "cleared"
+      },
+      "requires": [
+        "shadowfen:signs",
+        "shadowfen:threshold"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "entropic_essence": 2
+        }
+      },
+      "conclusion": "The anchor answers. Leave one honest light and someone will find their way. I will stay until the false ones go dark.",
+      "choices": [
+        {
+          "id": "roads",
+          "label": "Mark a safe trail",
+          "text": "Leave one honest light and someone will find their way.",
+          "items": {
+            "potion": 3
+          }
+        },
+        {
+          "id": "watch",
+          "label": "Watch the false lights",
+          "text": "I will stay until the false ones go dark.",
+          "items": {
+            "iron_ingot": 3
+          }
+        }
+      ]
+    },
+    "shadowfen:oath": {
+      "id": "shadowfen:oath",
+      "region": "shadowfen",
+      "title": "Two duties, one journey",
+      "objective": "Recruit one guardian; leave the other to defend Shadowfen Forest.",
+      "goal": {
+        "kind": "recruit"
+      },
+      "requires": [
+        "shadowfen:anchor"
+      ],
+      "reward": {
+        "gold": 80,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "One guardian joins the expedition. The other takes the watch. Neither duty can be left undone."
+    },
+    "drakeshard:signs": {
+      "id": "drakeshard:signs",
+      "region": "drakeshard",
+      "title": "Read the land",
+      "objective": "Survey The Singing Shard and Old Scale Oath.",
+      "goal": {
+        "kind": "sites",
+        "ids": [
+          "drakeshard:first",
+          "drakeshard:second"
+        ]
+      },
+      "requires": [],
+      "reward": {
+        "gold": 45,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The shard’s note changes when you turn toward the vault. A dragon oath is cut into stone beneath a hunter’s later boast."
+    },
+    "drakeshard:supplies": {
+      "id": "drakeshard:supplies",
+      "region": "drakeshard",
+      "title": "A road worth keeping",
+      "objective": "Ironhold’s climbers need new straps to carry the wounded down Bloodspine Pass.",
+      "goal": {
+        "kind": "delivery",
+        "item": "leather_strip",
+        "quantity": 4
+      },
+      "requires": [],
+      "reward": {
+        "gold": 60,
+        "items": {
+          "ether": 1
+        }
+      },
+      "conclusion": "The supplies are put to use before you leave. The road is safer for the next traveler."
+    },
+    "drakeshard:road": {
+      "id": "drakeshard:road",
+      "region": "drakeshard",
+      "title": "Danger on the approach",
+      "objective": "Clear the threat at Bloodspine Pass.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 100
+      },
+      "requires": [],
+      "reward": {
+        "gold": 55,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The watch gathers its wounded and sets the next signal. You have earned the right to carry their trust."
+    },
+    "drakeshard:threshold": {
+      "id": "drakeshard:threshold",
+      "region": "drakeshard",
+      "title": "Beyond the threshold",
+      "objective": "Clear Bloodspine Gate inside The Scale-Oath Vault.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 0
+      },
+      "requires": [],
+      "reward": {
+        "gold": 65,
+        "items": {
+          "entropic_essence": 1
+        }
+      },
+      "conclusion": "The first seal opens. The damage reaches deeper than the road, but the anchor can still be restored."
+    },
+    "drakeshard:anchor": {
+      "id": "drakeshard:anchor",
+      "region": "drakeshard",
+      "title": "Confront the tyrant beneath the range",
+      "objective": "Confront the tyrant beneath the range.",
+      "goal": {
+        "kind": "cleared"
+      },
+      "requires": [
+        "drakeshard:signs",
+        "drakeshard:threshold"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "entropic_essence": 2
+        }
+      },
+      "conclusion": "The anchor answers. A trophy is worth less than the hunter carrying it. An oath is worth only what we protect in its name.",
+      "choices": [
+        {
+          "id": "roads",
+          "label": "Bring the hunters home",
+          "text": "A trophy is worth less than the hunter carrying it.",
+          "items": {
+            "potion": 3
+          }
+        },
+        {
+          "id": "watch",
+          "label": "Keep the scale oath",
+          "text": "An oath is worth only what we protect in its name.",
+          "items": {
+            "iron_ingot": 3
+          }
+        }
+      ]
+    },
+    "drakeshard:oath": {
+      "id": "drakeshard:oath",
+      "region": "drakeshard",
+      "title": "Two duties, one journey",
+      "objective": "Recruit one guardian; leave the other to defend Drakeshard Range.",
+      "goal": {
+        "kind": "recruit"
+      },
+      "requires": [
+        "drakeshard:anchor"
+      ],
+      "reward": {
+        "gold": 80,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "One guardian joins the expedition. The other takes the watch. Neither duty can be left undone."
+    },
+    "westreach:signs": {
+      "id": "westreach:signs",
+      "region": "westreach",
+      "title": "Read the land",
+      "objective": "Survey The Bell Rope and Wreckers’ Ledger.",
+      "goal": {
+        "kind": "sites",
+        "ids": [
+          "westreach:first",
+          "westreach:second"
+        ]
+      },
+      "requires": [],
+      "reward": {
+        "gold": 45,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The rope is wet with seawater though the tide cannot reach it. The ledger lists ships that have not yet sailed."
+    },
+    "westreach:supplies": {
+      "id": "westreach:supplies",
+      "region": "westreach",
+      "title": "A road worth keeping",
+      "objective": "Westhaven’s salvage crew needs iron hooks to pull wreckage out of the safe channel.",
+      "goal": {
+        "kind": "delivery",
+        "item": "iron_ingot",
+        "quantity": 3
+      },
+      "requires": [],
+      "reward": {
+        "gold": 60,
+        "items": {
+          "ether": 1
+        }
+      },
+      "conclusion": "The supplies are put to use before you leave. The road is safer for the next traveler."
+    },
+    "westreach:road": {
+      "id": "westreach:road",
+      "region": "westreach",
+      "title": "Danger on the approach",
+      "objective": "Clear the threat at Wreckers’ Strand.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 100
+      },
+      "requires": [],
+      "reward": {
+        "gold": 55,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The watch gathers its wounded and sets the next signal. You have earned the right to carry their trust."
+    },
+    "westreach:threshold": {
+      "id": "westreach:threshold",
+      "region": "westreach",
+      "title": "Beyond the threshold",
+      "objective": "Clear Harbor Gate inside The Wreckers’ Hold.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 0
+      },
+      "requires": [],
+      "reward": {
+        "gold": 65,
+        "items": {
+          "entropic_essence": 1
+        }
+      },
+      "conclusion": "The first seal opens. The damage reaches deeper than the road, but the anchor can still be restored."
+    },
+    "westreach:anchor": {
+      "id": "westreach:anchor",
+      "region": "westreach",
+      "title": "Find the bell and break the wreckers’ pact",
+      "objective": "Find the bell and break the wreckers’ pact.",
+      "goal": {
+        "kind": "cleared"
+      },
+      "requires": [
+        "westreach:signs",
+        "westreach:threshold"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "entropic_essence": 2
+        }
+      },
+      "conclusion": "The anchor answers. Let the harbor earn its living without another wreck. And let every ship know someone is keeping watch.",
+      "choices": [
+        {
+          "id": "roads",
+          "label": "Clear the merchant passage",
+          "text": "Let the harbor earn its living without another wreck.",
+          "items": {
+            "potion": 3
+          }
+        },
+        {
+          "id": "watch",
+          "label": "Keep watch over the harbor",
+          "text": "And let every ship know someone is keeping watch.",
+          "items": {
+            "iron_ingot": 3
+          }
+        }
+      ]
+    },
+    "westreach:oath": {
+      "id": "westreach:oath",
+      "region": "westreach",
+      "title": "Two duties, one journey",
+      "objective": "Recruit one guardian; leave the other to defend Westreach.",
+      "goal": {
+        "kind": "recruit"
+      },
+      "requires": [
+        "westreach:anchor"
+      ],
+      "reward": {
+        "gold": 80,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "One guardian joins the expedition. The other takes the watch. Neither duty can be left undone."
+    },
+    "deadwind:signs": {
+      "id": "deadwind:signs",
+      "region": "deadwind",
+      "title": "Read the land",
+      "objective": "Survey The Last Lamp and Names in Dust.",
+      "goal": {
+        "kind": "sites",
+        "ids": [
+          "deadwind:first",
+          "deadwind:second"
+        ]
+      },
+      "requires": [],
+      "reward": {
+        "gold": 45,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "A lamp burns beside boots whose owner left no footprints. The same name is written again and again beneath the dust."
+    },
+    "deadwind:supplies": {
+      "id": "deadwind:supplies",
+      "region": "deadwind",
+      "title": "A road worth keeping",
+      "objective": "Duskwatch’s lamplighters need dry wood to shelter the last road lamps.",
+      "goal": {
+        "kind": "delivery",
+        "item": "seasoned_wood",
+        "quantity": 3
+      },
+      "requires": [],
+      "reward": {
+        "gold": 60,
+        "items": {
+          "ether": 1
+        }
+      },
+      "conclusion": "The supplies are put to use before you leave. The road is safer for the next traveler."
+    },
+    "deadwind:road": {
+      "id": "deadwind:road",
+      "region": "deadwind",
+      "title": "Danger on the approach",
+      "objective": "Clear the threat at Silent Hollow.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 100
+      },
+      "requires": [],
+      "reward": {
+        "gold": 55,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The watch gathers its wounded and sets the next signal. You have earned the right to carry their trust."
+    },
+    "deadwind:threshold": {
+      "id": "deadwind:threshold",
+      "region": "deadwind",
+      "title": "Beyond the threshold",
+      "objective": "Clear Dust Gate inside The Silent Ossuary.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 0
+      },
+      "requires": [],
+      "reward": {
+        "gold": 65,
+        "items": {
+          "entropic_essence": 1
+        }
+      },
+      "conclusion": "The first seal opens. The damage reaches deeper than the road, but the anchor can still be restored."
+    },
+    "deadwind:anchor": {
+      "id": "deadwind:anchor",
+      "region": "deadwind",
+      "title": "Release the watch trapped in the ossuary",
+      "objective": "Release the watch trapped in the ossuary.",
+      "goal": {
+        "kind": "cleared"
+      },
+      "requires": [
+        "deadwind:signs",
+        "deadwind:threshold"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "entropic_essence": 2
+        }
+      },
+      "conclusion": "The anchor answers. We can remember them without joining them. Then we carry their names into the morning.",
+      "choices": [
+        {
+          "id": "roads",
+          "label": "Guide the living through",
+          "text": "We can remember them without joining them.",
+          "items": {
+            "potion": 3
+          }
+        },
+        {
+          "id": "watch",
+          "label": "Keep faith with the lost",
+          "text": "Then we carry their names into the morning.",
+          "items": {
+            "iron_ingot": 3
+          }
+        }
+      ]
+    },
+    "deadwind:oath": {
+      "id": "deadwind:oath",
+      "region": "deadwind",
+      "title": "Two duties, one journey",
+      "objective": "Recruit one guardian; leave the other to defend Deadwind Hollow.",
+      "goal": {
+        "kind": "recruit"
+      },
+      "requires": [
+        "deadwind:anchor"
+      ],
+      "reward": {
+        "gold": 80,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "One guardian joins the expedition. The other takes the watch. Neither duty can be left undone."
+    },
+    "ravenford:signs": {
+      "id": "ravenford:signs",
+      "region": "ravenford",
+      "title": "Read the land",
+      "objective": "Survey The Torn Oath and The Crownroad Seal.",
+      "goal": {
+        "kind": "sites",
+        "ids": [
+          "ravenford:first",
+          "ravenford:second"
+        ]
+      },
+      "requires": [],
+      "reward": {
+        "gold": 45,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The oath’s missing line promises service to the people, not the crown. The seal has split exactly where the royal road leaves the capital."
+    },
+    "ravenford:supplies": {
+      "id": "ravenford:supplies",
+      "region": "ravenford",
+      "title": "A road worth keeping",
+      "objective": "Ravenford’s wardens need leather bindings to preserve the recovered oath tablets.",
+      "goal": {
+        "kind": "delivery",
+        "item": "leather_strip",
+        "quantity": 3
+      },
+      "requires": [],
+      "reward": {
+        "gold": 60,
+        "items": {
+          "ether": 1
+        }
+      },
+      "conclusion": "The supplies are put to use before you leave. The road is safer for the next traveler."
+    },
+    "ravenford:road": {
+      "id": "ravenford:road",
+      "region": "ravenford",
+      "title": "Danger on the approach",
+      "objective": "Clear the threat at Oathkeeper Fields.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 100
+      },
+      "requires": [],
+      "reward": {
+        "gold": 55,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The watch gathers its wounded and sets the next signal. You have earned the right to carry their trust."
+    },
+    "ravenford:threshold": {
+      "id": "ravenford:threshold",
+      "region": "ravenford",
+      "title": "Beyond the threshold",
+      "objective": "Clear Royal Gate inside The Crownfall Cellar.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 0
+      },
+      "requires": [],
+      "reward": {
+        "gold": 65,
+        "items": {
+          "entropic_essence": 1
+        }
+      },
+      "conclusion": "The first seal opens. The damage reaches deeper than the road, but the anchor can still be restored."
+    },
+    "ravenford:anchor": {
+      "id": "ravenford:anchor",
+      "region": "ravenford",
+      "title": "Rebind the oath beneath the capital",
+      "objective": "Rebind the oath beneath the capital.",
+      "goal": {
+        "kind": "cleared"
+      },
+      "requires": [
+        "ravenford:signs",
+        "ravenford:threshold"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "entropic_essence": 2
+        }
+      },
+      "conclusion": "The anchor answers. A road closed to the people is no royal road at all. Then the oath will name them first.",
+      "choices": [
+        {
+          "id": "roads",
+          "label": "Open the crownroad",
+          "text": "A road closed to the people is no royal road at all.",
+          "items": {
+            "potion": 3
+          }
+        },
+        {
+          "id": "watch",
+          "label": "Guard the people’s oath",
+          "text": "Then the oath will name them first.",
+          "items": {
+            "iron_ingot": 3
+          }
+        }
+      ]
+    },
+    "ravenford:oath": {
+      "id": "ravenford:oath",
+      "region": "ravenford",
+      "title": "Two duties, one journey",
+      "objective": "Recruit one guardian; leave the other to defend Ravenford.",
+      "goal": {
+        "kind": "recruit"
+      },
+      "requires": [
+        "ravenford:anchor"
+      ],
+      "reward": {
+        "gold": 80,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "One guardian joins the expedition. The other takes the watch. Neither duty can be left undone."
+    },
+    "cursed_mire:signs": {
+      "id": "cursed_mire:signs",
+      "region": "cursed_mire",
+      "title": "Read the land",
+      "objective": "Survey The Broken Chain and Soulwater Cairn.",
+      "goal": {
+        "kind": "sites",
+        "ids": [
+          "cursed_mire:first",
+          "cursed_mire:second"
+        ]
+      },
+      "requires": [],
+      "reward": {
+        "gold": 45,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "A chain link rings when held above the black water. The cairn’s stones bear the marks of armies from opposing sides."
+    },
+    "cursed_mire:supplies": {
+      "id": "cursed_mire:supplies",
+      "region": "cursed_mire",
+      "title": "A road worth keeping",
+      "objective": "No village survives here. A burial party needs bindings to carry remains out of the water.",
+      "goal": {
+        "kind": "delivery",
+        "item": "leather_strip",
+        "quantity": 4
+      },
+      "requires": [],
+      "reward": {
+        "gold": 60,
+        "items": {
+          "ether": 1
+        }
+      },
+      "conclusion": "The supplies are put to use before you leave. The road is safer for the next traveler."
+    },
+    "cursed_mire:road": {
+      "id": "cursed_mire:road",
+      "region": "cursed_mire",
+      "title": "Danger on the approach",
+      "objective": "Clear the threat at Soulwater Crossing.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 100
+      },
+      "requires": [],
+      "reward": {
+        "gold": 55,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The watch gathers its wounded and sets the next signal. You have earned the right to carry their trust."
+    },
+    "cursed_mire:threshold": {
+      "id": "cursed_mire:threshold",
+      "region": "cursed_mire",
+      "title": "Beyond the threshold",
+      "objective": "Clear Mire Gate inside The Blackwater Sepulcher.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 0
+      },
+      "requires": [],
+      "reward": {
+        "gold": 65,
+        "items": {
+          "entropic_essence": 1
+        }
+      },
+      "conclusion": "The first seal opens. The damage reaches deeper than the road, but the anchor can still be restored."
+    },
+    "cursed_mire:anchor": {
+      "id": "cursed_mire:anchor",
+      "region": "cursed_mire",
+      "title": "Break the soul-chain beneath the black water",
+      "objective": "Break the soul-chain beneath the black water.",
+      "goal": {
+        "kind": "cleared"
+      },
+      "requires": [
+        "cursed_mire:signs",
+        "cursed_mire:threshold"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "entropic_essence": 2
+        }
+      },
+      "conclusion": "The anchor answers. No more armies should be fed to this place. We will remember why the crossing must be guarded.",
+      "choices": [
+        {
+          "id": "roads",
+          "label": "Release the wandering dead",
+          "text": "No more armies should be fed to this place.",
+          "items": {
+            "potion": 3
+          }
+        },
+        {
+          "id": "watch",
+          "label": "Watch the soulwater crossings",
+          "text": "We will remember why the crossing must be guarded.",
+          "items": {
+            "iron_ingot": 3
+          }
+        }
+      ]
+    },
+    "cursed_mire:oath": {
+      "id": "cursed_mire:oath",
+      "region": "cursed_mire",
+      "title": "Two duties, one journey",
+      "objective": "Recruit one guardian; leave the other to defend The Cursed Mire.",
+      "goal": {
+        "kind": "recruit"
+      },
+      "requires": [
+        "cursed_mire:anchor"
+      ],
+      "reward": {
+        "gold": 80,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "One guardian joins the expedition. The other takes the watch. Neither duty can be left undone."
+    },
+    "golden:signs": {
+      "id": "golden:signs",
+      "region": "golden",
+      "title": "Read the land",
+      "objective": "Survey The False Horizon and The Buried Lens.",
+      "goal": {
+        "kind": "sites",
+        "ids": [
+          "golden:first",
+          "golden:second"
+        ]
+      },
+      "requires": [],
+      "reward": {
+        "gold": 45,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The horizon moves with the lens even when the sun stands still. A second lens is buried facing the first, turning daylight into a closed circle."
+    },
+    "golden:supplies": {
+      "id": "golden:supplies",
+      "region": "golden",
+      "title": "A road worth keeping",
+      "objective": "Sunspire’s caravan guides need straps to carry water past the mirage dunes.",
+      "goal": {
+        "kind": "delivery",
+        "item": "leather_strip",
+        "quantity": 3
+      },
+      "requires": [],
+      "reward": {
+        "gold": 60,
+        "items": {
+          "ether": 1
+        }
+      },
+      "conclusion": "The supplies are put to use before you leave. The road is safer for the next traveler."
+    },
+    "golden:road": {
+      "id": "golden:road",
+      "region": "golden",
+      "title": "Danger on the approach",
+      "objective": "Clear the threat at Mirage Dunes.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 100
+      },
+      "requires": [],
+      "reward": {
+        "gold": 55,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The watch gathers its wounded and sets the next signal. You have earned the right to carry their trust."
+    },
+    "golden:threshold": {
+      "id": "golden:threshold",
+      "region": "golden",
+      "title": "Beyond the threshold",
+      "objective": "Clear Dune Gate inside The Sunken Observatory.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 0
+      },
+      "requires": [],
+      "reward": {
+        "gold": 65,
+        "items": {
+          "entropic_essence": 1
+        }
+      },
+      "conclusion": "The first seal opens. The damage reaches deeper than the road, but the anchor can still be restored."
+    },
+    "golden:anchor": {
+      "id": "golden:anchor",
+      "region": "golden",
+      "title": "Restore the true horizon at the observatory",
+      "objective": "Restore the true horizon at the observatory.",
+      "goal": {
+        "kind": "cleared"
+      },
+      "requires": [
+        "golden:signs",
+        "golden:threshold"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "entropic_essence": 2
+        }
+      },
+      "conclusion": "The anchor answers. A true horizon gives everyone a direction. And a guarded lens keeps it true.",
+      "choices": [
+        {
+          "id": "roads",
+          "label": "Reopen the caravan route",
+          "text": "A true horizon gives everyone a direction.",
+          "items": {
+            "potion": 3
+          }
+        },
+        {
+          "id": "watch",
+          "label": "Protect the observatory",
+          "text": "And a guarded lens keeps it true.",
+          "items": {
+            "iron_ingot": 3
+          }
+        }
+      ]
+    },
+    "golden:oath": {
+      "id": "golden:oath",
+      "region": "golden",
+      "title": "Two duties, one journey",
+      "objective": "Recruit one guardian; leave the other to defend The Golden Expanse.",
+      "goal": {
+        "kind": "recruit"
+      },
+      "requires": [
+        "golden:anchor"
+      ],
+      "reward": {
+        "gold": 80,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "One guardian joins the expedition. The other takes the watch. Neither duty can be left undone."
+    },
+    "dragons_rest:signs": {
+      "id": "dragons_rest:signs",
+      "region": "dragons_rest",
+      "title": "Read the land",
+      "objective": "Survey The Warm Shell and The Ashwing Perch.",
+      "goal": {
+        "kind": "sites",
+        "ids": [
+          "dragons_rest:first",
+          "dragons_rest:second"
+        ]
+      },
+      "requires": [],
+      "reward": {
+        "gold": 45,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The shell is warm. A new brood is sleeping under the ash. Old scorch marks end around a circle of untouched nesting stone."
+    },
+    "dragons_rest:supplies": {
+      "id": "dragons_rest:supplies",
+      "region": "dragons_rest",
+      "title": "A road worth keeping",
+      "objective": "Cinderport needs timber to repair landing stages for the roost’s supply boats.",
+      "goal": {
+        "kind": "delivery",
+        "item": "seasoned_wood",
+        "quantity": 4
+      },
+      "requires": [],
+      "reward": {
+        "gold": 60,
+        "items": {
+          "ether": 1
+        }
+      },
+      "conclusion": "The supplies are put to use before you leave. The road is safer for the next traveler."
+    },
+    "dragons_rest:road": {
+      "id": "dragons_rest:road",
+      "region": "dragons_rest",
+      "title": "Danger on the approach",
+      "objective": "Clear the threat at Ember Coast.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 100
+      },
+      "requires": [],
+      "reward": {
+        "gold": 55,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The watch gathers its wounded and sets the next signal. You have earned the right to carry their trust."
+    },
+    "dragons_rest:threshold": {
+      "id": "dragons_rest:threshold",
+      "region": "dragons_rest",
+      "title": "Beyond the threshold",
+      "objective": "Clear Cinder Gate inside The Ember Roost.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 0
+      },
+      "requires": [],
+      "reward": {
+        "gold": 65,
+        "items": {
+          "entropic_essence": 1
+        }
+      },
+      "conclusion": "The first seal opens. The damage reaches deeper than the road, but the anchor can still be restored."
+    },
+    "dragons_rest:anchor": {
+      "id": "dragons_rest:anchor",
+      "region": "dragons_rest",
+      "title": "Calm the flame anchor in the ancient roost",
+      "objective": "Calm the flame anchor in the ancient roost.",
+      "goal": {
+        "kind": "cleared"
+      },
+      "requires": [
+        "dragons_rest:signs",
+        "dragons_rest:threshold"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "entropic_essence": 2
+        }
+      },
+      "conclusion": "The anchor answers. People and dragons can share a coast without sharing a war. Then we guard the places where that peace begins.",
+      "choices": [
+        {
+          "id": "roads",
+          "label": "Protect the coastal travelers",
+          "text": "People and dragons can share a coast without sharing a war.",
+          "items": {
+            "potion": 3
+          }
+        },
+        {
+          "id": "watch",
+          "label": "Shelter the sleeping brood",
+          "text": "Then we guard the places where that peace begins.",
+          "items": {
+            "iron_ingot": 3
+          }
+        }
+      ]
+    },
+    "dragons_rest:oath": {
+      "id": "dragons_rest:oath",
+      "region": "dragons_rest",
+      "title": "Two duties, one journey",
+      "objective": "Recruit one guardian; leave the other to defend Dragon’s Rest.",
+      "goal": {
+        "kind": "recruit"
+      },
+      "requires": [
+        "dragons_rest:anchor"
+      ],
+      "reward": {
+        "gold": 80,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "One guardian joins the expedition. The other takes the watch. Neither duty can be left undone."
+    },
+    "mistvale:signs": {
+      "id": "mistvale:signs",
+      "region": "mistvale",
+      "title": "Read the land",
+      "objective": "Survey The Wrong Reflection and The Returning Ribbon.",
+      "goal": {
+        "kind": "sites",
+        "ids": [
+          "mistvale:first",
+          "mistvale:second"
+        ]
+      },
+      "requires": [],
+      "reward": {
+        "gold": 45,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "Your reflection raises its hand before you do. It points along the path. A ribbon tied upstream returns on water flowing the other way."
+    },
+    "mistvale:supplies": {
+      "id": "mistvale:supplies",
+      "region": "mistvale",
+      "title": "A road worth keeping",
+      "objective": "Mistvale’s guides need wooden markers that can be recognized from either direction.",
+      "goal": {
+        "kind": "delivery",
+        "item": "seasoned_wood",
+        "quantity": 3
+      },
+      "requires": [],
+      "reward": {
+        "gold": 60,
+        "items": {
+          "ether": 1
+        }
+      },
+      "conclusion": "The supplies are put to use before you leave. The road is safer for the next traveler."
+    },
+    "mistvale:road": {
+      "id": "mistvale:road",
+      "region": "mistvale",
+      "title": "Danger on the approach",
+      "objective": "Clear the threat at Mirrorwater Wood.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 100
+      },
+      "requires": [],
+      "reward": {
+        "gold": 55,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The watch gathers its wounded and sets the next signal. You have earned the right to carry their trust."
+    },
+    "mistvale:threshold": {
+      "id": "mistvale:threshold",
+      "region": "mistvale",
+      "title": "Beyond the threshold",
+      "objective": "Clear Mist Gate inside The Mirrorwell.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 0
+      },
+      "requires": [],
+      "reward": {
+        "gold": 65,
+        "items": {
+          "entropic_essence": 1
+        }
+      },
+      "conclusion": "The first seal opens. The damage reaches deeper than the road, but the anchor can still be restored."
+    },
+    "mistvale:anchor": {
+      "id": "mistvale:anchor",
+      "region": "mistvale",
+      "title": "Find the reflection that holds the mist anchor",
+      "objective": "Find the reflection that holds the mist anchor.",
+      "goal": {
+        "kind": "cleared"
+      },
+      "requires": [
+        "mistvale:signs",
+        "mistvale:threshold"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "entropic_essence": 2
+        }
+      },
+      "conclusion": "The anchor answers. A path can change without leaving its travelers behind. Someone must remain to tell the reflection from the road.",
+      "choices": [
+        {
+          "id": "roads",
+          "label": "Mark the honest paths",
+          "text": "A path can change without leaving its travelers behind.",
+          "items": {
+            "potion": 3
+          }
+        },
+        {
+          "id": "watch",
+          "label": "Watch the Mirrorwell",
+          "text": "Someone must remain to tell the reflection from the road.",
+          "items": {
+            "iron_ingot": 3
+          }
+        }
+      ]
+    },
+    "mistvale:oath": {
+      "id": "mistvale:oath",
+      "region": "mistvale",
+      "title": "Two duties, one journey",
+      "objective": "Recruit one guardian; leave the other to defend Mistvale.",
+      "goal": {
+        "kind": "recruit"
+      },
+      "requires": [
+        "mistvale:anchor"
+      ],
+      "reward": {
+        "gold": 80,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "One guardian joins the expedition. The other takes the watch. Neither duty can be left undone."
+    },
+    "hollow_isles:signs": {
+      "id": "hollow_isles:signs",
+      "region": "hollow_isles",
+      "title": "Read the land",
+      "objective": "Survey The Nameless Crown and Memory Shore.",
+      "goal": {
+        "kind": "sites",
+        "ids": [
+          "hollow_isles:first",
+          "hollow_isles:second"
+        ]
+      },
+      "requires": [],
+      "reward": {
+        "gold": 45,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The crown is light as driftwood. Every jewel reflects a different face. Footsteps appear in the sand where the lost kingdom’s road once stood."
+    },
+    "hollow_isles:supplies": {
+      "id": "hollow_isles:supplies",
+      "region": "hollow_isles",
+      "title": "A road worth keeping",
+      "objective": "Hollowguard’s archivists need metal clasps to hold the recovered memory tablets.",
+      "goal": {
+        "kind": "delivery",
+        "item": "iron_ingot",
+        "quantity": 4
+      },
+      "requires": [],
+      "reward": {
+        "gold": 60,
+        "items": {
+          "ether": 1
+        }
+      },
+      "conclusion": "The supplies are put to use before you leave. The road is safer for the next traveler."
+    },
+    "hollow_isles:road": {
+      "id": "hollow_isles:road",
+      "region": "hollow_isles",
+      "title": "Danger on the approach",
+      "objective": "Clear the threat at Relic Shore.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 100
+      },
+      "requires": [],
+      "reward": {
+        "gold": 55,
+        "items": {
+          "potion": 2
+        }
+      },
+      "conclusion": "The watch gathers its wounded and sets the next signal. You have earned the right to carry their trust."
+    },
+    "hollow_isles:threshold": {
+      "id": "hollow_isles:threshold",
+      "region": "hollow_isles",
+      "title": "Beyond the threshold",
+      "objective": "Clear Hollow Gate inside The Lost Kingdom.",
+      "goal": {
+        "kind": "encounter",
+        "stage": 0
+      },
+      "requires": [],
+      "reward": {
+        "gold": 65,
+        "items": {
+          "entropic_essence": 1
+        }
+      },
+      "conclusion": "The first seal opens. The damage reaches deeper than the road, but the anchor can still be restored."
+    },
+    "hollow_isles:anchor": {
+      "id": "hollow_isles:anchor",
+      "region": "hollow_isles",
+      "title": "Restore the last throne’s memory",
+      "objective": "Restore the last throne’s memory.",
+      "goal": {
+        "kind": "cleared"
+      },
+      "requires": [
+        "hollow_isles:signs",
+        "hollow_isles:threshold"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "entropic_essence": 2
+        }
+      },
+      "conclusion": "The anchor answers. A kingdom remembered by everyone cannot vanish again. Then its last throne will serve as a witness, not a ruler.",
+      "choices": [
+        {
+          "id": "roads",
+          "label": "Share the kingdom’s memory",
+          "text": "A kingdom remembered by everyone cannot vanish again.",
+          "items": {
+            "potion": 3
+          }
+        },
+        {
+          "id": "watch",
+          "label": "Guard the last throne",
+          "text": "Then its last throne will serve as a witness, not a ruler.",
+          "items": {
+            "iron_ingot": 3
+          }
+        }
+      ]
+    },
+    "hollow_isles:oath": {
+      "id": "hollow_isles:oath",
+      "region": "hollow_isles",
+      "title": "Two duties, one journey",
+      "objective": "Recruit one guardian; leave the other to defend The Hollow Isles.",
+      "goal": {
+        "kind": "recruit"
+      },
+      "requires": [
+        "hollow_isles:anchor"
+      ],
+      "reward": {
+        "gold": 80,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "One guardian joins the expedition. The other takes the watch. Neither duty can be left undone."
+    },
+    "deep:front0": {
+      "id": "deep:front0",
+      "region": "deep",
+      "title": "The Broken Threshold",
+      "objective": "Hold this front with three companions who have not fought a previous final front.",
+      "goal": {
+        "kind": "final",
+        "stage": 1
+      },
+      "requires": [],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "The threshold holds. The first three companions keep the way open."
+    },
+    "deep:front1": {
+      "id": "deep:front1",
+      "region": "deep",
+      "title": "The World Serpent",
+      "objective": "Hold this front with three companions who have not fought a previous final front.",
+      "goal": {
+        "kind": "final",
+        "stage": 2
+      },
+      "requires": [
+        "deep:front0"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "The World Serpent falls. A second company holds the path to the heart."
+    },
+    "deep:front2": {
+      "id": "deep:front2",
+      "region": "deep",
+      "title": "The Devouring Heart",
+      "objective": "Hold this front with three companions who have not fought a previous final front.",
+      "goal": {
+        "kind": "final",
+        "stage": 3
+      },
+      "requires": [
+        "deep:front1"
+      ],
+      "reward": {
+        "gold": 100,
+        "items": {
+          "ether": 2
+        }
+      },
+      "conclusion": "The heart is quiet. Nine companions have held the world together."
+    }
+  },
+  "sites": {
+    "ravenwood": [
+      {
+        "id": "ravenwood:first",
+        "name": "Springward Cairn",
+        "room": "spring",
+        "z": 6.0,
+        "text": "Clear water runs beneath the sick roots. Someone has bound the spring with a strip of watch-cloth."
+      },
+      {
+        "id": "ravenwood:second",
+        "name": "Thornwatch Signal",
+        "room": "ruins",
+        "z": 7.0,
+        "text": "A broken watch horn lies beside tracks leading toward the Hollow Oak."
+      }
+    ],
+    "frostpeaks": [
+      {
+        "id": "frostpeaks:first",
+        "name": "The Unlit Beacon",
+        "room": "forest",
+        "z": 6.0,
+        "text": "The beacon is cold, but its wick is new. Its keeper left willingly."
+      },
+      {
+        "id": "frostpeaks:second",
+        "name": "Glacier Names",
+        "room": "crossing",
+        "z": 7.0,
+        "text": "Names carved into blue ice belong to watchkeepers still living in Icehelm."
+      }
+    ],
+    "stormcrown": [
+      {
+        "id": "stormcrown:first",
+        "name": "Windcaller Bell",
+        "room": "forest",
+        "z": 6.0,
+        "text": "The bell moves without sounding. Its clapper points toward the storm."
+      },
+      {
+        "id": "stormcrown:second",
+        "name": "The Bent Standard",
+        "room": "crossing",
+        "z": 7.0,
+        "text": "A watch standard has bent toward the peak against the wind."
+      }
+    ],
+    "ashen": [
+      {
+        "id": "ashen:first",
+        "name": "The Ash Gauge",
+        "room": "forest",
+        "z": 6.0,
+        "text": "The lava has risen past marks cut by three generations of furnace workers."
+      },
+      {
+        "id": "ashen:second",
+        "name": "Cooling Channel",
+        "room": "crossing",
+        "z": 7.0,
+        "text": "A cold channel steams with no water in it. The caldera’s pressure is turning inward."
+      }
+    ],
+    "marsh": [
+      {
+        "id": "marsh:first",
+        "name": "Reedkeeper Post",
+        "room": "forest",
+        "z": 6.0,
+        "text": "A basket tied above the water holds the last dry seed from a flooded garden."
+      },
+      {
+        "id": "marsh:second",
+        "name": "The Sinking Shrine",
+        "room": "crossing",
+        "z": 7.0,
+        "text": "Offerings float upward through a shrine whose floor is sinking."
+      }
+    ],
+    "silvermere": [
+      {
+        "id": "silvermere:first",
+        "name": "The False Light",
+        "room": "forest",
+        "z": 6.0,
+        "text": "A shard of the lighthouse lens catches sunlight from the wrong direction."
+      },
+      {
+        "id": "silvermere:second",
+        "name": "Saltglass Marker",
+        "room": "crossing",
+        "z": 7.0,
+        "text": "Salt has sealed a warning scratched into the old keeper’s stone."
+      }
+    ],
+    "eldergrove": [
+      {
+        "id": "eldergrove:first",
+        "name": "Seedkeeper Circle",
+        "room": "forest",
+        "z": 6.0,
+        "text": "Tiny shoots grow inside a ring no animal will cross."
+      },
+      {
+        "id": "eldergrove:second",
+        "name": "The Listening Root",
+        "room": "crossing",
+        "z": 7.0,
+        "text": "The roots tremble when you speak a name, then settle when you listen."
+      }
+    ],
+    "iron_plains": [
+      {
+        "id": "iron_plains:first",
+        "name": "The Abandoned Plow",
+        "room": "forest",
+        "z": 6.0,
+        "text": "A plow was forged from an old spear. Its blade has begun pointing toward the bastion."
+      },
+      {
+        "id": "iron_plains:second",
+        "name": "Siege Survey",
+        "room": "crossing",
+        "z": 7.0,
+        "text": "Every abandoned engine faces the same farm road."
+      }
+    ],
+    "shadowfen": [
+      {
+        "id": "shadowfen:first",
+        "name": "The Cold Lantern",
+        "room": "forest",
+        "z": 6.0,
+        "text": "The lantern flame casts two shadows. Neither belongs to you."
+      },
+      {
+        "id": "shadowfen:second",
+        "name": "Webkeeper Hollow",
+        "room": "crossing",
+        "z": 7.0,
+        "text": "Threads stretched across a hollow carry the voices of missing travelers."
+      }
+    ],
+    "drakeshard": [
+      {
+        "id": "drakeshard:first",
+        "name": "The Singing Shard",
+        "room": "forest",
+        "z": 6.0,
+        "text": "The shard’s note changes when you turn toward the vault."
+      },
+      {
+        "id": "drakeshard:second",
+        "name": "Old Scale Oath",
+        "room": "crossing",
+        "z": 7.0,
+        "text": "A dragon oath is cut into stone beneath a hunter’s later boast."
+      }
+    ],
+    "westreach": [
+      {
+        "id": "westreach:first",
+        "name": "The Bell Rope",
+        "room": "forest",
+        "z": 6.0,
+        "text": "The rope is wet with seawater though the tide cannot reach it."
+      },
+      {
+        "id": "westreach:second",
+        "name": "Wreckers’ Ledger",
+        "room": "crossing",
+        "z": 7.0,
+        "text": "The ledger lists ships that have not yet sailed."
+      }
+    ],
+    "deadwind": [
+      {
+        "id": "deadwind:first",
+        "name": "The Last Lamp",
+        "room": "forest",
+        "z": 6.0,
+        "text": "A lamp burns beside boots whose owner left no footprints."
+      },
+      {
+        "id": "deadwind:second",
+        "name": "Names in Dust",
+        "room": "crossing",
+        "z": 7.0,
+        "text": "The same name is written again and again beneath the dust."
+      }
+    ],
+    "ravenford": [
+      {
+        "id": "ravenford:first",
+        "name": "The Torn Oath",
+        "room": "forest",
+        "z": 6.0,
+        "text": "The oath’s missing line promises service to the people, not the crown."
+      },
+      {
+        "id": "ravenford:second",
+        "name": "The Crownroad Seal",
+        "room": "crossing",
+        "z": 7.0,
+        "text": "The seal has split exactly where the royal road leaves the capital."
+      }
+    ],
+    "cursed_mire": [
+      {
+        "id": "cursed_mire:first",
+        "name": "The Broken Chain",
+        "room": "forest",
+        "z": 6.0,
+        "text": "A chain link rings when held above the black water."
+      },
+      {
+        "id": "cursed_mire:second",
+        "name": "Soulwater Cairn",
+        "room": "crossing",
+        "z": 7.0,
+        "text": "The cairn’s stones bear the marks of armies from opposing sides."
+      }
+    ],
+    "golden": [
+      {
+        "id": "golden:first",
+        "name": "The False Horizon",
+        "room": "forest",
+        "z": 6.0,
+        "text": "The horizon moves with the lens even when the sun stands still."
+      },
+      {
+        "id": "golden:second",
+        "name": "The Buried Lens",
+        "room": "crossing",
+        "z": 7.0,
+        "text": "A second lens is buried facing the first, turning daylight into a closed circle."
+      }
+    ],
+    "dragons_rest": [
+      {
+        "id": "dragons_rest:first",
+        "name": "The Warm Shell",
+        "room": "forest",
+        "z": 6.0,
+        "text": "The shell is warm. A new brood is sleeping under the ash."
+      },
+      {
+        "id": "dragons_rest:second",
+        "name": "The Ashwing Perch",
+        "room": "crossing",
+        "z": 7.0,
+        "text": "Old scorch marks end around a circle of untouched nesting stone."
+      }
+    ],
+    "mistvale": [
+      {
+        "id": "mistvale:first",
+        "name": "The Wrong Reflection",
+        "room": "forest",
+        "z": 6.0,
+        "text": "Your reflection raises its hand before you do. It points along the path."
+      },
+      {
+        "id": "mistvale:second",
+        "name": "The Returning Ribbon",
+        "room": "crossing",
+        "z": 7.0,
+        "text": "A ribbon tied upstream returns on water flowing the other way."
+      }
+    ],
+    "hollow_isles": [
+      {
+        "id": "hollow_isles:first",
+        "name": "The Nameless Crown",
+        "room": "forest",
+        "z": 6.0,
+        "text": "The crown is light as driftwood. Every jewel reflects a different face."
+      },
+      {
+        "id": "hollow_isles:second",
+        "name": "Memory Shore",
+        "room": "crossing",
+        "z": 7.0,
+        "text": "Footsteps appear in the sand where the lost kingdom’s road once stood."
+      }
+    ]
+  },
+  "dialogue": {
+    "ravenwood": {
+      "before": "The old forest seals its roads as a blight takes root beneath the Hollow Oak. Lyra Vane asks you to read the signs along the road. Garrick Thornward is preparing the last defenses.",
+      "after": "The Briar Warden is defeated. The anchor is steady, but the roads and the people still need help.",
+      "voices": [
+        "A road is a promise to those who must walk it.",
+        "A safe home gives every traveler somewhere to return."
+      ]
+    },
+    "frostpeaks": {
+      "before": "Icehelm’s beacons are disappearing behind a wall of unnatural frost. Vesper asks you to read the signs along the road. Stellan Rimeborn is preparing the last defenses.",
+      "after": "The Rime Colossus is defeated. The anchor is steady, but the roads and the people still need help.",
+      "voices": [
+        "No beacon matters if we abandon the people below it.",
+        "A watch kept through one more night may save the whole valley."
+      ]
+    },
+    "stormcrown": {
+      "before": "The mountain winds carry a voice that calls the watch away from their posts. Thorvald Thunderbrow asks you to read the signs along the road. Eydis Stormweaver is preparing the last defenses.",
+      "after": "The Tempest Roc is defeated. The anchor is steady, but the roads and the people still need help.",
+      "voices": [
+        "Let the storm test us; it must not divide us.",
+        "We will put the watch back where the wind can see it."
+      ]
+    },
+    "ashen": {
+      "before": "Ashenreach stands above lava channels that no longer follow the mountain’s will. Ignis asks you to read the signs along the road. Veyra Cindervein is preparing the last defenses.",
+      "after": "Inferno-Lord Vulgrim is defeated. The anchor is steady, but the roads and the people still need help.",
+      "voices": [
+        "Fire serves people. It should never demand them.",
+        "We can hold the mountain, one repaired gate at a time."
+      ]
+    },
+    "marsh": {
+      "before": "The raised timber paths around Wickermoor vanish beneath spreading rot. Morana asks you to read the signs along the road. Odran Fenward is preparing the last defenses.",
+      "after": "Mire-Mother Morvana is defeated. The anchor is steady, but the roads and the people still need help.",
+      "voices": [
+        "A village is every home we can still reach.",
+        "Then we build paths the water cannot take."
+      ]
+    },
+    "silvermere": {
+      "before": "Silverkeep’s lighthouse shines inland, drawing ships toward the rocks. Captain Jora Stormtide asks you to read the signs along the road. Captain Roran Deepwatch is preparing the last defenses.",
+      "after": "The Brine Sovereign is defeated. The anchor is steady, but the roads and the people still need help.",
+      "voices": [
+        "The light belongs to everyone who trusts it.",
+        "Then no one will turn it against them again."
+      ]
+    },
+    "eldergrove": {
+      "before": "The grove has no city, only ancient paths now guarded by awakened roots. Rhea Fernblade asks you to read the signs along the road. Aven Oakward is preparing the last defenses.",
+      "after": "The Rootbound Ancient is defeated. The anchor is steady, but the roads and the people still need help.",
+      "voices": [
+        "No city owns this place. Its paths must remain open.",
+        "And the living heart must remain whole."
+      ]
+    },
+    "iron_plains": {
+      "before": "Farms outside Harrowstead are caught between abandoned engines of war. General Cedric Ironclad asks you to read the signs along the road. Marshal Adela Steelwind is preparing the last defenses.",
+      "after": "The Iron Revenant is defeated. The anchor is steady, but the roads and the people still need help.",
+      "voices": [
+        "We did not win a homeland just to march over it.",
+        "The strongest wall is the one that lets the harvest pass."
+      ]
+    },
+    "shadowfen": {
+      "before": "There is no settlement in Shadowfen. Lanterns lead travelers off the safe paths. Iris Nightroot asks you to read the signs along the road. Cael Mossshade is preparing the last defenses.",
+      "after": "Xylos is defeated. The anchor is steady, but the roads and the people still need help.",
+      "voices": [
+        "Leave one honest light and someone will find their way.",
+        "I will stay until the false ones go dark."
+      ]
+    },
+    "drakeshard": {
+      "before": "Ironhold’s hunters return with shards that hum in the presence of old dragon bones. Dareth Scalebreaker asks you to read the signs along the road. Kaela Wyrmbound is preparing the last defenses.",
+      "after": "The Shardwing Tyrant is defeated. The anchor is steady, but the roads and the people still need help.",
+      "voices": [
+        "A trophy is worth less than the hunter carrying it.",
+        "An oath is worth only what we protect in its name."
+      ]
+    },
+    "westreach": {
+      "before": "A bell beneath Westhaven’s harbor sounds before every wreck. Mira Glasswave asks you to read the signs along the road. Eren Saltwatch is preparing the last defenses.",
+      "after": "The Wreck-King is defeated. The anchor is steady, but the roads and the people still need help.",
+      "voices": [
+        "Let the harbor earn its living without another wreck.",
+        "And let every ship know someone is keeping watch."
+      ]
+    },
+    "deadwind": {
+      "before": "Duskwatch keeps its lamps lit for travelers who no longer cast shadows. Lenna Veilborn asks you to read the signs along the road. Varric Ashwake is preparing the last defenses.",
+      "after": "The Breathless Knight is defeated. The anchor is steady, but the roads and the people still need help.",
+      "voices": [
+        "We can remember them without joining them.",
+        "Then we carry their names into the morning."
+      ]
+    },
+    "ravenford": {
+      "before": "Ravenford’s banners remain raised while the old crown’s oath slowly unravels. Sir Alistair of Ravenford asks you to read the signs along the road. Dame Elowen Rootsworn is preparing the last defenses.",
+      "after": "The Oathbreaker is defeated. The anchor is steady, but the roads and the people still need help.",
+      "voices": [
+        "A road closed to the people is no royal road at all.",
+        "Then the oath will name them first."
+      ]
+    },
+    "cursed_mire": {
+      "before": "No city stands here. The mire remembers every army that failed to cross it. Malakor asks you to read the signs along the road. Sereth Veilkeeper is preparing the last defenses.",
+      "after": "Golgotha is defeated. The anchor is steady, but the roads and the people still need help.",
+      "voices": [
+        "No more armies should be fed to this place.",
+        "We will remember why the crossing must be guarded."
+      ]
+    },
+    "golden": {
+      "before": "Sunspire’s observatory projects roads through the dunes that vanish by morning. Zephyr asks you to read the signs along the road. Samira Dawnwatch is preparing the last defenses.",
+      "after": "The Glass Serpent is defeated. The anchor is steady, but the roads and the people still need help.",
+      "voices": [
+        "A true horizon gives everyone a direction.",
+        "And a guarded lens keeps it true."
+      ]
+    },
+    "dragons_rest": {
+      "before": "Cinderport watches the roost above the Ember Coast as ash falls from a clear sky. Ignacia asks you to read the signs along the road. Tavian Ashsail is preparing the last defenses.",
+      "after": "The Cinder Matriarch is defeated. The anchor is steady, but the roads and the people still need help.",
+      "voices": [
+        "People and dragons can share a coast without sharing a war.",
+        "Then we guard the places where that peace begins."
+      ]
+    },
+    "mistvale": {
+      "before": "Mistvale’s paths now return travelers to places they have never visited. Sorrel Mistwalker asks you to read the signs along the road. Orien Reedward is preparing the last defenses.",
+      "after": "The Mirror Hart is defeated. The anchor is steady, but the roads and the people still need help.",
+      "voices": [
+        "A path can change without leaving its travelers behind.",
+        "Someone must remain to tell the reflection from the road."
+      ]
+    },
+    "hollow_isles": {
+      "before": "Hollowguard stands among relics of a kingdom erased from the living maps. Maera Tideveil asks you to read the signs along the road. Thane Relicward is preparing the last defenses.",
+      "after": "The Hollow Monarch is defeated. The anchor is steady, but the roads and the people still need help.",
+      "voices": [
+        "A kingdom remembered by everyone cannot vanish again.",
+        "Then its last throne will serve as a witness, not a ruler."
+      ]
+    }
+  }
+}

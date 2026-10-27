@@ -269,3 +269,12 @@ func _lighting() -> void:
 			sky_material.sky_top_color=Color('#'+values[0]);sky_material.sky_horizon_color=Color('#'+values[1]);sky_material.ground_horizon_color=Color('#'+values[2])
 		if child is DirectionalLight3D and biome in ["volcanic","void"]:
 			child.light_color=Color("ffc693") if biome=="volcanic" else Color("bc9fd8")
+
+func discovery_region() -> String:
+	return territory_id
+
+func discovery_progress() -> CampaignState:
+	return campaign
+
+func _can_camp() -> bool:
+	return _chamber_index()<0 or campaign.is_done(territory_id,_chamber_index())

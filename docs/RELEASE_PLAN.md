@@ -30,6 +30,15 @@ independently. Budget detail and scope are in CAMPAIGN_FIRST_PASS.md.
 - [x] Original synthesized music, signed Android packaging and content-size guard.
 - [x] Automated whole-campaign state simulation and real scene-flow smoke checks.
 
+## Content expansion — 0.21.0
+
+- [x] Six editable mission records per recruitable region and three finale milestones.
+- [x] Physical survey sites, supplies, captain mission routing and guardian pledges.
+- [x] Temporary tutorial squad, safe camping, role skills and telegraphed boss patterns.
+- [x] Integrity-checked manual slots with previous-version recovery.
+
+See CONTENT_EXPANSION.md for shared mechanics and remaining limits.
+
 ## Required for a polished release
 
 - [ ] Manual start-to-ending playthrough on Android with touch controls.

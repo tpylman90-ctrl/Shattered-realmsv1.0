@@ -203,6 +203,7 @@ func load_room(id: String, spawn_z: float, arrival_side: String = "") -> void:
 	else:
 		_landmark()
 	_exit_signs()
+	_discovery_markers()
 	_flush_batches()
 	_build_route_graph()
 	spawn_z=clampf(spawn_z,-room_length()+3.0,room_length()-3.0)
@@ -491,6 +492,8 @@ func _ui() -> void:
 	column.add_child(heading)
 	subtitle = Label.new()
 	subtitle.add_theme_font_size_override("font_size",17)
+	subtitle.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	subtitle.custom_minimum_size.x=680
 	column.add_child(subtitle)
 	joystick = Joystick.new()
 	joystick.position = Vector2(35,500)
@@ -525,6 +528,14 @@ func _ui() -> void:
 		get_tree().set_meta("equipment_return_scene",_self_scene())
 		get_tree().change_scene_to_file("res://scenes/equipment.tscn"))
 	canvas.add_child(pack)
+	var chronicle:=Button.new();chronicle.text="QUESTS";chronicle.position=Vector2(855,100);chronicle.size=Vector2(135,52)
+	chronicle.pressed.connect(func():
+		persist_exploration()
+		get_tree().set_meta("campaign_region",discovery_region())
+		get_tree().set_meta("quest_return_scene",_self_scene())
+		get_tree().change_scene_to_file("res://scenes/quests.tscn"))
+	canvas.add_child(chronicle)
+	var camp:=Button.new();camp.text="MAKE CAMP";camp.position=Vector2(1035,165);camp.size=Vector2(215,52);camp.pressed.connect(_make_camp);canvas.add_child(camp)
 	var local_map := Button.new()
 	local_map.text = "RAVENWOOD MAP"
 	local_map.position = Vector2(855,24)
@@ -583,6 +594,9 @@ func _physics_process(delta: float) -> void:
 	if not side.is_empty():
 		var destination: String = room_data[room_id].exits[side].to
 		prompt.text = _exit_text(destination)
+	var discovery:=nearby_discovery()
+	if not discovery.is_empty() and side.is_empty():
+		prompt.show();prompt.text="SURVEY · "+str(discovery.name)
 	if transition_lock<=0:
 		var edge := nearby_exit(0.9)
 		if not edge.is_empty() and room_data.has(room_data[room_id].exits[edge].to):
@@ -610,6 +624,13 @@ func _update_camera(immediate: bool, delta: float = 0.0) -> void:
 	camera.look_at(focus)
 
 func _interact() -> void:
+	var discovery:=nearby_discovery()
+	if not discovery.is_empty():
+		var progress:=discovery_progress()
+		progress.discover(discovery.id)
+		surveyed_records=progress.discoveries.duplicate()
+		subtitle.text=str(discovery.text)
+		return
 	var cache := current_cache()
 	if not cache.is_empty() and absf(player.position.z)<3.0 and equipment.claim_cache(room_id,cache):
 		subtitle.text="Supplies added to your pack. Visit Equipment & Smithy to forge."
@@ -919,3 +940,41 @@ func _exit_text(destination: String) -> String:
 	if destination=="boundary": return "ENTER HOLLOW OAK"
 	if destination=="world": return "WORLD MAP"
 	return str(room_data.get(destination,{}).get("name",destination)).to_upper()+" →"
+
+func discovery_region() -> String:
+	return "ravenwood"
+
+var discovery_records: Array=[]
+var surveyed_records: Array=[]
+
+func nearby_discovery() -> Dictionary:
+	for site in discovery_records:
+		if site.room==room_id and absf(player.position.z-float(site.z))<2.3 and not site.id in surveyed_records:
+			return site
+	return {}
+
+func _discovery_markers() -> void:
+	var progress:=discovery_progress()
+	discovery_records=progress.quests.sites.get(discovery_region(),[])
+	surveyed_records=progress.discoveries.duplicate()
+	for site in discovery_records:
+		if site.room!=room_id:continue
+		var z:=float(site.z)
+		var p:=Vector3(path_x(z)+1.7,walk_height(z),z)
+		_segment(p,p+Vector3(0,1.7,0),0.09,"wood")
+		_box(p+Vector3(0,1.4,0),Vector3(0.5,0.5,0.12),"light")
+		_sign(str(site.name),p+Vector3(0,2.2,0))
+
+func discovery_progress() -> CampaignState:
+	return CampaignState.new()
+
+func _can_camp() -> bool:
+	return true
+
+func _make_camp() -> void:
+	if not _can_camp():subtitle.text="Clear this chamber before making camp.";return
+	var progress:=discovery_progress()
+	progress.rest(0)
+	equipment=EquipmentState.new(progress.equipment_path,progress.path)
+	persist_exploration()
+	subtitle.text="Camp secured. Health, focus and status restored. Progress saved."

@@ -15,7 +15,7 @@
       "trousers": "#353c42",
       "height": 1.01,
       "idle_phase": 0.0,
-      "greeting": "Welcome to Ravenwood. Keep the middle of the steps clear; someone is always hauling something through here.",
+      "greeting": "Welcome to Ravenwood. Keep the middle of the steps clear; someone is always hauling something through here. Captain Rook in the command tent is looking for help. Ask about Missions when you reach the camp.",
       "topics": [
         {
           "label": "Finding your way",
@@ -235,7 +235,7 @@
       "topics": [
         {
           "label": "Watch duties",
-          "text": "Gate duty, lookout duty, patrols. Keeping people safe is usually a matter of noticing small things before they become large ones."
+          "text": "A wolf has breached the fort. Open Missions to help the watch, then follow the signs at Fernglass Spring and Thornwatch Outer Ruins toward the Hollow Oak."
         },
         {
           "label": "Beyond the town",

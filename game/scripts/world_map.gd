@@ -47,10 +47,10 @@ func _ready() -> void:
 	detail = _label("", Vector2(32, 635), 20)
 	detail.size = Vector2(950, 58)
 	enter = Button.new()
-	enter.text = "VISIT RAVENWOOD"
+	enter.text = "RAVENWOOD BOARD"
 	enter.position = Vector2(1000, 638)
 	enter.size = Vector2(248, 54)
-	enter.pressed.connect(func(): get_tree().change_scene_to_file("res://scenes/ravenwood.tscn" if FileAccess.file_exists("user://hero.cfg") else "res://scenes/hero_select.tscn"))
+	enter.pressed.connect(func(): get_tree().change_scene_to_file("res://scenes/territory_board.tscn"))
 	add_child(enter)
 	_label("PROVISIONAL GEOGRAPHY • Layout and borders can change", Vector2(750, 601), 14)
 	select_territory("ravenwood")
@@ -94,11 +94,12 @@ func select_territory(id: String) -> void:
 	queue_redraw()
 
 func _draw() -> void:
-	draw_rect(Rect2(0, 0, 1280, 720), Color("112c3b"))
+	draw_rect(Rect2(0, 0, 1280, 720), Color("102b38"))
 	# Quiet ocean strokes give scale without competing with place names.
 	for y in range(100, 620, 38):
 		for x in range(20, 1280, 95):
 			draw_line(Vector2(x, y), Vector2(x + 22, y - 2), Color(0.35, 0.58, 0.64, 0.11), 1, true)
+	_draw_frame()
 	if coast.is_empty():
 		return
 	var closed := coast.duplicate()
@@ -113,6 +114,7 @@ func _draw() -> void:
 			edge.append(polygon[0])
 			draw_polyline(edge, Color("283e39"), 2, true)
 			_draw_terrain(polygon, record)
+	_draw_rivers()
 	if regions.has(selected_id):
 		for polygon in regions[selected_id]:
 			var edge: PackedVector2Array = polygon.duplicate()
@@ -127,18 +129,65 @@ func _draw() -> void:
 
 func _draw_terrain(polygon: PackedVector2Array, record: Dictionary) -> void:
 	var center := Vector2(record.position[0], record.position[1])
-	for y in range(120, 590, 29):
-		for x in range(80, 1220, 36):
-			var p := Vector2(x + (y % 17), y)
-			if not Geometry2D.is_point_in_polygon(p, polygon) or (absf(p.x - center.x) < 105 and absf(p.y - center.y) < 46):
+	# Deterministic fine stippling adds relief without an image texture.
+	for y in range(105, 595, 11):
+		for x in range(65, 1230, 13):
+			var p := Vector2(x + sin(float(y + x)) * 5, y)
+			if Geometry2D.is_point_in_polygon(p, polygon):
+				draw_circle(p, 1.0, Color(0.95, 0.89, 0.62, 0.07))
+	for y in range(120, 590, 26):
+		for x in range(80, 1220, 29):
+			var p := Vector2(x + (y % 17), y + sin(float(x)) * 4)
+			if not Geometry2D.is_point_in_polygon(p, polygon) or (absf(p.x - center.x) < 101 and absf(p.y - center.y) < 44):
 				continue
-			var ink := Color(0.08, 0.19, 0.15, 0.22)
 			if record.biome in ["mountain", "snow", "ash"]:
-				draw_polyline(PackedVector2Array([p + Vector2(-7, 4), p + Vector2(0, -7), p + Vector2(7, 4)]), ink, 2, true)
+				var height := 13.0 + fmod(float(x * y), 10.0)
+				var left := p + Vector2(-11, 7)
+				var peak := p + Vector2(0, -height)
+				var right := p + Vector2(11, 7)
+				var base := Color("4b5045") if record.biome != "ash" else Color("5e302c")
+				draw_colored_polygon(PackedVector2Array([left, peak, right]), base)
+				draw_colored_polygon(PackedVector2Array([peak, p + Vector2(0,7), right]), base.lightened(0.20))
+				if record.biome == "snow":
+					draw_colored_polygon(PackedVector2Array([peak,peak + Vector2(-4,9),peak + Vector2(2,6),peak + Vector2(5,11)]),Color("e1e5cd"))
+				elif record.biome == "ash":
+					draw_line(peak + Vector2(0,4),p + Vector2(3,6),Color("c58048"),1,true)
 			elif record.biome == "forest":
-				draw_colored_polygon(PackedVector2Array([p + Vector2(-5, 3), p + Vector2(0, -7), p + Vector2(5, 3)]), ink)
+				draw_line(p,p + Vector2(0,7),Color("443f2c"),2)
+				draw_colored_polygon(PackedVector2Array([p + Vector2(-8,4),p + Vector2(0,-13),p + Vector2(8,4)]),Color("234536"))
+				draw_colored_polygon(PackedVector2Array([p + Vector2(0,-13),p + Vector2(0,4),p + Vector2(8,4)]),Color("315640"))
+			elif record.biome == "desert":
+				draw_arc(p + Vector2(0,10),12,3.5,5.8,12,Color(0.35,0.25,0.13,0.25),1,true)
+			elif record.biome == "marsh":
+				draw_line(p,p + Vector2(10,0),Color("70805a"),2,true)
+				draw_line(p + Vector2(3,0),p + Vector2(3,-6),Color("364c37"),1,true)
 			else:
-				draw_line(p, p + Vector2(8, -2), ink, 1, true)
+				draw_arc(p + Vector2(0,8),10,3.7,5.5,8,Color(0.11,0.26,0.20,0.20),1,true)
+
+func _draw_rivers() -> void:
+	for values in [ [[490,225],[465,260],[450,300],[452,355],[440,395],[430,450],[422,500],[425,541]], [[953,290],[935,320],[924,355],[930,395],[945,440],[953,485],[958,540],[970,584]] ]:
+		var line := _points(values)
+		draw_polyline(line,Color("33595a"),6,true)
+		draw_polyline(line,Color("83b1a5"),2,true)
+
+func _draw_frame() -> void:
+	var gold := Color("a58d59")
+	draw_line(Vector2(26,79),Vector2(1253,79),gold,1,true)
+	draw_line(Vector2(26,621),Vector2(1253,621),gold,1,true)
+	for corner in [Vector2(13,87),Vector2(1267,87),Vector2(13,618),Vector2(1267,618)]:
+		var dx := 1.0 if corner.x < 640 else -1.0
+		var dy := 1.0 if corner.y < 350 else -1.0
+		draw_line(corner,corner + Vector2(22 * dx,0),gold,2,true)
+		draw_line(corner,corner + Vector2(0,22 * dy),gold,2,true)
+	# Eight-point compass rose, set in the northwest ocean margin.
+	var center := Vector2(45,134)
+	draw_arc(center,23,0,TAU,48,gold,1,true)
+	for i in range(8):
+		var direction := Vector2.from_angle(i * PI / 4)
+		var side := direction.orthogonal() * 4
+		var tip := center + direction * (29 if i % 2 == 0 else 18)
+		draw_colored_polygon(PackedVector2Array([center - side,tip,center]),Color("c6b57d"))
+		draw_colored_polygon(PackedVector2Array([center + side,tip,center]),Color("7a7958"))
 
 func _label(text: String, at: Vector2, font_size: int) -> Label:
 	var label := Label.new()

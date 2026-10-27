@@ -29,3 +29,10 @@ the approved names and Ravenwood entry. Label positions and region polygons
 are data, so the provisional geography can be rearranged without replacing art.
 This is still a layout study, not the final illustrated world or campaign board.
 No routes or travel rules are inferred from neighboring regions.
+
+## Atlas polish and territory entry — 0.10.0
+
+The accepted continent layout is unchanged. Terrain relief, rivers, stippling
+and a compass frame provide the next visual pass. Ravenwood now opens the
+territory board, where Blackthorn opens town exploration. See
+`docs/RAVENWOOD_BOARD.md` for implemented campaign mechanics and remaining work.

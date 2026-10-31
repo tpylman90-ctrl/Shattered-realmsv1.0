@@ -80,3 +80,11 @@ camping, role skills, boss patterns and save-slot recovery. Existing map, no-cit
 rules, approved hero GLBs and lightweight city art are preserved. These new
 quests use shared mechanics with original regional text; bespoke art and deeper
 mechanical variety remain open. See CONTENT_EXPANSION.md for exact scope.
+
+## Weapon quality — 0.22.0
+
+The existing equipment catalog receives a visual refinement pass: ridged and
+bevelled blades, wrapped grips, fitted joints, continuous ranged limbs, open
+cannon bores, material batching, bounds-framed previews and native wrist mounts.
+Recipes, IDs and stats are preserved. See WEAPON_QUALITY.md for scope and the
+remaining dual-hand/full-animation limitations.

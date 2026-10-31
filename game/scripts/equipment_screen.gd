@@ -82,6 +82,7 @@ func _ready() -> void:
 	settings.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR
 	settings.ambient_light_color=Color("c3d1ce")
 	settings.ambient_light_energy=0.7
+	WeaponModel.add_studio_reflections(settings)
 	env.environment=settings
 	world.add_child(env)
 	var sun := DirectionalLight3D.new()
@@ -145,9 +146,10 @@ func show_item(id: String) -> void:
 			family.select(family_ids.find(item.family))
 		weapon.build(item)
 		weapon.rotation=Vector3(0,-0.35,0)
-		camera.size=3.3 if item.family in ["staff","scythe","spear"] else 2.9
-		var focus := Vector3(-0.25 if item.family=="scythe" else 0.0,0.0 if item.family=="bow" else 0.75,0)
-		camera.position=focus+Vector3(0,0,4)
+		var bounds:AABB=weapon.transform*weapon.model_bounds()
+		camera.size=maxf(bounds.size.y,bounds.size.x)*1.22
+		var focus:=bounds.get_center()
+		camera.position=focus+Vector3(0,0.45,4)
 		camera.look_at(focus)
 	else: image.texture=load(item.icon)
 	var text: String = item.name+"\n\n"+item.description

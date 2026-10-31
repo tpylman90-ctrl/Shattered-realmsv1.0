@@ -84,3 +84,14 @@ func _attach_equipped_weapon() -> void:
 	visual.position=Vector3(0.12,-0.15,-0.28)
 	visual.rotation.z=-0.35
 	visual.scale=Vector3.ONE*0.58
+
+func hold_battle_weapon(item: Dictionary) -> WeaponModel:
+	var skeleton:=_find_skeleton(model)
+	if skeleton==null or skeleton.find_bone("hand_r")<0:return null
+	var hand:=skeleton.find_bone("hand_r")
+	var mount:=BoneAttachment3D.new();mount.bone_name="hand_r";skeleton.add_child(mount)
+	var visual:=WeaponModel.new();mount.add_child(visual);visual.build(item)
+	var rest:=skeleton.get_bone_global_rest(hand)
+	var direction:=Basis.from_euler(Vector3(PI*0.5-0.3,0,0))
+	visual.transform=rest.affine_inverse()*Transform3D(direction.scaled(Vector3.ONE*0.70),rest.origin+Vector3(0,-0.055,0.025))
+	return visual

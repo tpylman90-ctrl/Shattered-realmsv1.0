@@ -18,7 +18,10 @@ func test_complete_territory_family_matrix_and_real_weapon_geometry() -> void:
 			var id: String = territory+"_"+family
 			assert_true(state.catalog.items.has(id))
 			model.build(state.catalog.items[id])
-			assert_gt(model.get_child_count(),8,id+" is a real multipart 3D model")
+			assert_gte(model.get_child_count(),4,id+" has distinct material surfaces")
+			assert_lte(model.get_child_count(),7,id+" batches repeated parts")
+			assert_gt(model.triangle_count,200)
+			assert_lt(model.triangle_count,16000,id+" stays within the weapon triangle budget")
 			for child in model.get_children():
 				assert_true(child is MeshInstance3D)
 				assert_not_null(child.mesh)
@@ -62,3 +65,15 @@ func test_consumables_have_real_effects_and_do_not_waste_at_full_health() -> voi
 	state.poisoned=true
 	assert_true(state.use_item("antidote"))
 	assert_false(state.poisoned)
+
+func test_battle_weapon_mount_tracks_the_native_hand_on_both_starters() -> void:
+	var state=State.new(TEST_SAVE)
+	for appearance in ["male","female"]:
+		var hero=load("res://scripts/hero_model.gd").new();add_child_autofree(hero);hero.setup(appearance,false)
+		var weapon:WeaponModel=hero.hold_battle_weapon(state.catalog.items.starter_sword)
+		assert_not_null(weapon)
+		assert_true(weapon.get_parent() is BoneAttachment3D)
+		assert_eq(weapon.get_parent().bone_name,"hand_r")
+		var bounds:=weapon.model_bounds()
+		assert_gt(bounds.size.y,1.0)
+		assert_lt(bounds.size.y,2.0)

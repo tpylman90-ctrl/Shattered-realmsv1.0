@@ -27,7 +27,7 @@ func _ready() -> void:
 	if ResourceLoader.exists(path): image.texture=load(path)
 	else: image.modulate=Color("273a35")
 	background.add_child(image)
-	var env:=WorldEnvironment.new();var settings:=Environment.new();settings.background_mode=Environment.BG_CANVAS;settings.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;settings.ambient_light_color=Color("b5c5b7");settings.ambient_light_energy=0.7;env.environment=settings;add_child(env)
+	var env:=WorldEnvironment.new();var settings:=Environment.new();settings.background_mode=Environment.BG_CANVAS;settings.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;settings.ambient_light_color=Color("b5c5b7");settings.ambient_light_energy=0.7;WeaponModel.add_studio_reflections(settings);env.environment=settings;add_child(env)
 	var sun:=DirectionalLight3D.new();sun.rotation_degrees=Vector3(-45,-20,0);sun.light_energy=1.3;add_child(sun)
 	var camera:=Camera3D.new();camera.position=Vector3(0,5.5,11);camera.fov=48;add_child(camera);camera.look_at(Vector3(0,0.7,0));camera.current=true
 	for i in range(state.allies.size()):
@@ -35,10 +35,9 @@ func _ready() -> void:
 		var hero=preload("res://scripts/hero_model.gd").new();actor.add_child(hero)
 		var appearance: String=preload("res://scripts/hero_model.gd").selected() if i==0 else str(state.campaign.data.heroes.get(state.allies[i].id,{"appearance":"male"}).appearance)
 		hero.setup(appearance,false);actor.rotation.y=PI*0.5;actors.append(actor)
-		var held:=WeaponModel.new();actor.add_child(held)
 		var family:="staff" if state.allies[i].role in ["mage","healer"] else "bow" if state.allies[i].role=="ranger" else "sword"
-		held.build(state.inventory.catalog.items[state.inventory.equipped.weapon if i==0 else "starter_"+family])
-		held.position=Vector3(0.35,0.72,0.1);held.scale=Vector3.ONE*0.6;held.rotation.z=-0.2;weapons.append(held)
+		var held:WeaponModel=hero.hold_battle_weapon(state.inventory.catalog.items[state.inventory.equipped.weapon if i==0 else "starter_"+family])
+		weapons.append(held)
 	for i in range(state.enemies.size()):
 		var foe:=MonsterModel.new();foe.position=Vector3(3.0,0,-0.8+i*2.4);add_child(foe)
 		var colors:Dictionary={"forest":"657548","snow":"8ba9b8","mountain":"617b94","volcanic":"8e4435","marsh":"5c7140","coast":"4d8492","plains":"7d7954","ruins":"777385","desert":"b08b54","void":"694778"}
@@ -73,7 +72,9 @@ func _act(command: String) -> void:
 	if state.act(command,target) and actor_index>=0 and actor_index<actors.size() and command in ["attack","skill","learned"]:
 		var actor:=actors[actor_index];var origin:=actor.position
 		var tween:=create_tween();tween.tween_property(actor,"position",origin+Vector3(0.55,0,0),0.13);tween.tween_property(actor,"position",origin,0.17)
-		var swing:=create_tween();swing.tween_property(weapons[actor_index],"rotation:z",-1.2,0.13);swing.tween_property(weapons[actor_index],"rotation:z",-0.2,0.17)
+		if is_instance_valid(weapons[actor_index]):
+			var angle:float=weapons[actor_index].rotation.z
+			var swing:=create_tween();swing.tween_property(weapons[actor_index],"rotation:z",angle-0.55,0.13);swing.tween_property(weapons[actor_index],"rotation:z",angle,0.17)
 	_refresh()
 
 func _refresh() -> void:

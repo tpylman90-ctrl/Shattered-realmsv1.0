@@ -84,7 +84,7 @@ mechanical variety remain open. See CONTENT_EXPANSION.md for exact scope.
 ## Weapon quality — 0.22.0
 
 The existing equipment catalog receives a visual refinement pass: ridged and
-bevelled blades, wrapped grips, fitted joints, continuous ranged limbs, open
+shaped blades, wrapped grips, fitted joints, solid ranged limbs, open
 cannon bores, material batching, bounds-framed previews and native wrist mounts.
 Recipes, IDs and stats are preserved. See WEAPON_QUALITY.md for scope and the
 remaining dual-hand/full-animation limitations.

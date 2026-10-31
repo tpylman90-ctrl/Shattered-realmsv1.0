@@ -8,11 +8,11 @@ system or a claim of 200 individually sculpted assets.
 - Sword, greatsword and dagger blades have raised central ridges, tapered edges,
   shaped guards and fitted pommels. Regional motifs change blade width profiles;
   regional curves, widths and palettes remain data-driven.
-- Axes/scythes have bevelled cutting surfaces, eye sockets, collars, fasteners and
+- Axes/scythes have shaped cutting surfaces, eye sockets, collars, fasteners and
   a scythe brace. Generic floating crest ornaments are removed.
-- Bows and crossbows use tapered continuous limbs; bows have a straight taut
+- Bows and crossbows use tapered solid limbs; bows have a straight taut
   string. Crossbows add guide rails, a bolt and trigger fittings.
-- Staves have shaped prongs surrounding a faceted focus. Spears have bevelled
+- Staves have shaped prongs surrounding a faceted focus. Spears have shaped
   heads. Shafts use dark wrapped grips with metal end collars.
 - Cannons have an open outer barrel, inward-facing bore, muzzle ring, sights,
   rails and trigger fittings. The native uncapped CylinderMesh avoids the
@@ -26,6 +26,9 @@ system or a claim of 200 individually sculpted assets.
   Battle motion remains the existing simple attack tween, not full authored
   two-handed/ranged combat animation. Twin daggers remain one paired display
   assembly; independent dual-hand animation is future work.
+
+Narrow ranged limbs use overlapping native solid segments to avoid disappearing
+polygon faces at oblique viewing angles.
 
 Source: game/scripts/weapon_model.gd. Original code-authored art; no paid assets,
 provider generation, texture downloads or modified character GLBs. Native Godot

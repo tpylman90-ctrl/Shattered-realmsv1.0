@@ -95,29 +95,22 @@ func _triangle(surface:SurfaceTool,a:Vector3,b:Vector3,c:Vector3) -> void:
 	surface.add_vertex(a);surface.add_vertex(b);surface.add_vertex(c)
 
 func _blade(points: PackedVector2Array, thickness: float, material: Material) -> void:
-	# Closed bevelled solid: broad faces inset from a sharp perimeter.
-	var center:=Vector2.ZERO
-	for point in points:center+=point
-	center/=points.size()
-	var inset:=PackedVector2Array()
-	for point in points:inset.append(point.move_toward(center,minf(0.032,point.distance_to(center)*0.15)))
-	var faces:=SurfaceTool.new();faces.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var bevels:=SurfaceTool.new();bevels.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var indices:=Geometry2D.triangulate_polygon(inset)
+	var surface := SurfaceTool.new()
+	surface.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var indices := Geometry2D.triangulate_polygon(points)
 	for side in [-1,1]:
 		for i in range(0,indices.size(),3):
-			var ids:=[indices[i],indices[i+1],indices[i+2]]
-			if side>0:ids.reverse()
-			for index in ids:faces.add_vertex(Vector3(inset[index].x,inset[index].y,side*thickness*0.5))
-		for i in range(points.size()):
-			var next:=(i+1)%points.size()
-			var a:=Vector3(points[i].x,points[i].y,0);var b:=Vector3(points[next].x,points[next].y,0)
-			var c:=Vector3(inset[i].x,inset[i].y,side*thickness*0.5);var d:=Vector3(inset[next].x,inset[next].y,side*thickness*0.5)
-			if side>0:_triangle(bevels,a,b,c);_triangle(bevels,b,d,c)
-			else:_triangle(bevels,a,c,b);_triangle(bevels,b,c,d)
-	faces.generate_normals();bevels.generate_normals()
-	material.cull_mode=BaseMaterial3D.CULL_DISABLED
-	_mesh(faces.commit(),material,Vector3.ZERO);_mesh(bevels.commit(),edge,Vector3.ZERO)
+			var triangle := [indices[i],indices[i+1],indices[i+2]]
+			if side==1: triangle.reverse()
+			for index in triangle:
+				var p := points[index]
+				surface.add_vertex(Vector3(p.x,p.y,side*thickness*0.5))
+	for i in range(points.size()):
+		var a := points[i]
+		var b := points[(i+1)%points.size()]
+		for p in [Vector3(a.x,a.y,-thickness*0.5),Vector3(b.x,b.y,-thickness*0.5),Vector3(a.x,a.y,thickness*0.5),Vector3(b.x,b.y,-thickness*0.5),Vector3(b.x,b.y,thickness*0.5),Vector3(a.x,a.y,thickness*0.5)]: surface.add_vertex(p)
+	surface.generate_normals()
+	_mesh(surface.commit(),material,Vector3.ZERO)
 
 func _sword(origin: Vector3,length: float) -> void:
 	var curve:float=float(style.curve)*0.55
@@ -126,7 +119,8 @@ func _sword(origin: Vector3,length: float) -> void:
 	var before:=get_child_count()
 	_ridged_blade(length,width,curve)
 	var span:=0.28 if length>1.0 else 0.17
-	_blade(PackedVector2Array([Vector2(-span,0.13),Vector2(-span-0.025,0.23),Vector2(-0.07,0.26),Vector2(0.07,0.26),Vector2(span+0.025,0.23),Vector2(span,0.13),Vector2(0.06,0.18),Vector2(-0.06,0.18)]),0.085,accent)
+	for side in [-1,1]:
+		_segment(Vector3(side*0.035,0.22,0),Vector3(side*span,0.18,0),0.037,accent)
 	_grip(-0.22,0.36,0.052 if length>1.0 else 0.04)
 	_gem(Vector3(0,-0.29,0),Vector3(0.065,0.085,0.05))
 	_gem(Vector3(0,0.22,0.055),Vector3(0.035,0.045,0.022))
@@ -183,26 +177,30 @@ func _bow(crossbow: bool) -> void:
 		_box(Vector3(0,0.12,0.13),Vector3(0.08,0.3,0.06),dark)
 		for y in [0.05,0.4,0.8,1.08]: _box(Vector3(0,y,0),Vector3(0.19,0.055,0.22),accent)
 		for side in [-1,1]:
-			var front:=PackedVector2Array();var back:=PackedVector2Array()
-			for i in range(13):
-				var t:=float(i)/12
-				var x:float=side*t*0.87;var y:=0.9+sin(t*PI)*0.16-float(style.curve)*t
-				var width:=0.085*(1-t*0.4)
-				front.append(Vector2(x,y+width));back.append(Vector2(x,y-width))
-			back.reverse();front.append_array(back);_blade(front,0.075,metal)
-			_segment(Vector3(side*0.87,0.9-float(style.curve),0.05),Vector3(0,0.25,0.05),0.005,dark)
+			var last:=Vector3(0,0.9,0)
+			for i in range(1,17):
+				var t:=float(i)/16
+				var next:=Vector3(side*t*0.87,0.9+sin(t*PI)*0.16-float(style.curve)*t,0)
+				_flat_segment(last,next,0.095*(1-t*0.4),0.07,metal);last=next
+			_segment(last+Vector3(0,0,0.05),Vector3(0,0.25,0.05),0.005,dark)
 		_box(Vector3(0,0.7,0.13),Vector3(0.025,0.8,0.025),metal)
 	else:
-		var outline:=PackedVector2Array();var back:=PackedVector2Array()
-		for i in range(33):
-			var y:=-1.0+float(i)/16;var t:=absf(y)
-			var x:=0.30*sin(t*PI*0.85)-0.12*pow(t,6)+float(style.curve)*t*0.15
-			var width:=0.043*(1-t*0.6)
-			outline.append(Vector2(x-width,y));back.append(Vector2(x+width,y))
-		back.reverse();outline.append_array(back);_blade(outline,0.065,wood)
+		for side in [-1,1]:
+			var last:=Vector3.ZERO
+			for i in range(1,19):
+				var t:=float(i)/18
+				var x:=0.30*sin(t*PI*0.85)-0.12*pow(t,6)+float(style.curve)*t*0.15
+				var next:=Vector3(x,side*t,0)
+				_flat_segment(last,next,0.085*(1-t*0.65),0.07,wood);last=next
 		var tip:=0.30*sin(PI*0.85)-0.12+float(style.curve)*0.15
 		_segment(Vector3(tip,-1,0),Vector3(tip,1,0),0.005,dark)
 		_grip(-0.15,0.3,0.05)
+
+func _flat_segment(a:Vector3,b:Vector3,width:float,depth:float,material:Material) -> void:
+	var mesh:=BoxMesh.new();mesh.size=Vector3(width,a.distance_to(b)+0.008,depth)
+	var node:=_mesh(mesh,material,(a+b)*0.5)
+	var direction:=(b-a).normalized();var side:=direction.cross(Vector3.FORWARD).normalized()
+	node.basis=Basis(side,direction,side.cross(direction))
 
 func _cannon() -> void:
 	_segment(Vector3(0,0.1,0),Vector3(0,0.95,0),0.19,metal)
